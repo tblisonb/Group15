@@ -1,0 +1,2 @@
+Atmega 168 is needed as well as a method to flash it to the Atmega 168, a quadrature encoder, a rgb light and connect them to the pins stated in the comments
+modify the make file to work with the method of flashing the code to Atmega 168 as well as have the Atmel drivers installed.
