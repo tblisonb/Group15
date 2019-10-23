@@ -21,39 +21,50 @@
     SOFTWARE.
 */
 
-#include "mcc_generated_files/mcc.h"
-#include "mcc_generated_files/include/pin_manager.h"
-#include <avr/io.h>
+#ifndef UTILS_COMPILER_H
+#define UTILS_COMPILER_H
 
-/*
-    Main application
-*/
-int main(void)
-{
-    /* Initializes MCU, drivers and middleware */
-    SYSTEM_Initialize();
-
-    int oldA = IO_PF2_GetValue() >> 2; //set the oldA as HIGH
-    int oldB = IO_PF3_GetValue() >> 3; //set the oldB as HIGH
-    unsigned int state = 2;
-
-    /* Replace with your application code */
-    while (1){
-        int result = 0;
-        int newA = IO_PF2_GetValue() >> 2;//read the value of clkPin to newA
-        int newB = IO_PF3_GetValue() >> 3;//read the value of dtPin to newB
-
-            if (oldA == 1 && newA == 0)
-            {
-                result = (oldB * 2) - 1;
-            }
-        
-        state = (state + result) % 8;
-        oldA = newA;
-        oldB = newB;
-        VPORTD.OUT = 1 << state;
-    }
-}
 /**
-    End of File
-*/
+ * \defgroup doc_driver_utils_compiler Compiler abstraction
+ * \ingroup doc_driver_utils
+ *
+ * Compiler abstraction layer and code utilities for 8-bit AVR.
+ * This module provides various abstraction layers and utilities
+ * to make code compatible between different compilers.
+ *
+ * \{
+ */
+
+#if defined(__GNUC__)
+#include <avr/io.h>
+#include <avr/builtins.h>
+#elif defined(__ICCAVR__)
+#define ENABLE_BIT_DEFINITIONS 1
+#include <ioavr.h>
+#include <intrinsics.h>
+
+#ifndef CCP_IOREG_gc
+#define CCP_IOREG_gc 0xD8 /* CPU_CCP_IOREG_gc */
+#endif
+#ifndef CCP_SPM_gc
+#define CCP_SPM_gc 0x9D /* CPU_CCP_SPM_gc */
+#endif
+
+#else
+#error Unsupported compiler.
+#endif
+
+#include <stdbool.h>
+#include <stdint.h>
+#include <stddef.h>
+#include <stdlib.h>
+
+#include "interrupt_avr8.h"
+
+/**
+ * \def UNUSED
+ * \brief Marking \a v as a unused parameter or value.
+ */
+#define UNUSED(v) (void)(v)
+
+#endif /* UTILS_COMPILER_H */
