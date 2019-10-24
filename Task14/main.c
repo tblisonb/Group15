@@ -47,18 +47,20 @@ int main(void)
         
         if(oldA == 1 && newA == 0) {
             result = (oldB * 2) -1;
-            IO_PD4_Toggle();
-            _delay_ms(500);
+            *ctrl = 0;
+            //IO_PD4_Toggle();
+            //_delay_ms(500);
         } else {
-            IO_PD3_Toggle();
-            _delay_ms(500);
+            *ctrl = 1;
+            //IO_PD3_Toggle();
+            //_delay_ms(500);
         }
         
         //VPORTD.OUT = result;
         
         
         /* Code to use button interrupt to change between two lights*/
-        /*if(*ctrl == 1) {
+        if(*ctrl == 1) {
             IO_PD3_Toggle();
             _delay_ms(500);
         }
@@ -66,7 +68,7 @@ int main(void)
         if(*ctrl == 0) {
             IO_PD4_Toggle();
             _delay_ms(500);
-        }*/
+        }
     }
 }
 /**
