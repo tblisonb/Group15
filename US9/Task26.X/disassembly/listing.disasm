@@ -1,0 +1,1644 @@
+Disassembly Listing for Task26
+Generated From:
+C:/Users/1mano/Documents/Task26.X/dist/default/debug/Task26.X.debug.elf
+Oct 24, 2019 11:58:53 PM
+
+---  C:/Users/1mano/Documents/Task26.X/mcc_generated_files/src/usart0.c  --------------------------------
+1:             /*
+2:                 (c) 2018 Microchip Technology Inc. and its subsidiaries. 
+3:                 
+4:                 Subject to your compliance with these terms, you may use Microchip software and any 
+5:                 derivatives exclusively with Microchip products. It is your responsibility to comply with third party 
+6:                 license terms applicable to your use of third party software (including open source software) that 
+7:                 may accompany Microchip software.
+8:                 
+9:                 THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER 
+10:                EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY 
+11:                IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS 
+12:                FOR A PARTICULAR PURPOSE.
+13:                
+14:                IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
+15:                INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
+16:                WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP 
+17:                HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO 
+18:                THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL 
+19:                CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
+20:                OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
+21:                SOFTWARE.
+22:            */
+23:            
+24:            #include "../include/usart0.h"
+25:            
+26:            #if defined(__GNUC__)
+27:            
+28:            int USART0_printCHAR(char character, FILE *stream)
+29:            {
+30:                USART0_Write(character);
+05F3  940E     CALL PORTD_IO_PD5_DefaultInterruptHandler
+05F4  0506     CPC R16, R6
+31:                return 0;
+32:            }
+05F5  E080     LDI R24, 0x00
+05F6  E090     LDI R25, 0x00
+05F7  9508     RET
+33:            
+34:            FILE USART0_stream = FDEV_SETUP_STREAM(USART0_printCHAR, NULL, _FDEV_SETUP_WRITE);
+35:            
+36:            #elif defined(__ICCAVR__)
+37:            
+38:            int putchar(int outChar)
+39:            {
+40:                USART0_Write(outChar);
+41:                return outChar;
+42:            }
+43:            #endif
+44:            
+45:            /* Static Variables holding the ringbuffer used in IRQ mode */
+46:            static uint8_t          USART0_rxbuf[USART0_RX_BUFFER_SIZE];
+47:            static volatile uint8_t USART0_rx_head;
+48:            static volatile uint8_t USART0_rx_tail;
+49:            static volatile uint8_t USART0_rx_elements;
+50:            static uint8_t          USART0_txbuf[USART0_TX_BUFFER_SIZE];
+51:            static volatile uint8_t USART0_tx_head;
+52:            static volatile uint8_t USART0_tx_tail;
+53:            static volatile uint8_t USART0_tx_elements;
+54:            
+55:            void (*USART0_rx_isr_cb)(void) = &USART0_DefaultRxIsrCb;
+56:            
+57:            void (*USART0_tx_isr_cb)(void) = &USART0_DefaultTxIsrCb;
+58:            
+59:            void USART0_DefaultRxIsrCb(void)
+60:            {
+61:                uint8_t data;
+62:                uint8_t tmphead;
+63:            
+64:                /* Read the received data */
+65:                data = USART0.RXDATAL;
+0556  9190     LDS R25, 0x00
+0557  0800     SBC R0, R0
+66:                /* Calculate buffer index */
+67:                tmphead = (USART0_rx_head + 1) & USART0_RX_BUFFER_MASK;
+0558  91E0     LDS R30, 0x00
+0559  282D     OR R2, R13
+055A  5FEF     SUBI R30, 0xFF
+055B  70E7     ANDI R30, 0x07
+68:                    
+69:                if (tmphead == USART0_rx_tail) {
+055C  9180     LDS R24, 0x00
+055D  282C     OR R2, R12
+055E  17E8     CP R30, R24
+055F  F059     BREQ 0x56B
+70:                        /* ERROR! Receive buffer overflow */
+71:                }else {
+72:                /*Store new index*/
+73:                USART0_rx_head = tmphead;
+0560  93E0     STS 0x00, R30
+0561  282D     OR R2, R13
+74:                
+75:                /* Store received data in buffer */
+76:                USART0_rxbuf[tmphead] = data;
+0562  E0F0     LDI R31, 0x00
+0563  5EE4     SUBI R30, 0xE4
+0564  4DF7     SBCI R31, 0xD7
+0565  8390     ST Z, R25
+77:                USART0_rx_elements++;
+0566  9180     LDS R24, 0x00
+0567  282B     OR R2, R11
+0568  5F8F     SUBI R24, 0xFF
+0569  9380     STS 0x00, R24
+056A  282B     OR R2, R11
+056B  9508     RET
+78:                }
+79:            }
+80:            
+81:            void USART0_DefaultTxIsrCb(void)
+82:            {
+83:                uint8_t tmptail;
+84:            
+85:                /* Check if all data is transmitted */
+86:                if (USART0_tx_elements != 0) {
+04E7  9180     LDS R24, 0x00
+04E8  2828     OR R2, R8
+04E9  2388     AND R24, R24
+04EA  F089     BREQ 0x4FC
+87:                    /* Calculate buffer index */
+88:                    tmptail = (USART0_tx_tail + 1) & USART0_TX_BUFFER_MASK;
+04EB  91E0     LDS R30, 0x00
+04EC  2829     OR R2, R9
+04ED  5FEF     SUBI R30, 0xFF
+04EE  70E7     ANDI R30, 0x07
+89:                    /* Store new index */
+90:                    USART0_tx_tail = tmptail;
+04EF  93E0     STS 0x00, R30
+04F0  2829     OR R2, R9
+91:                    /* Start transmission */
+92:                    USART0.TXDATAL = USART0_txbuf[tmptail];
+04F1  E0F0     LDI R31, 0x00
+04F2  5EEC     SUBI R30, 0xEC
+04F3  4DF7     SBCI R31, 0xD7
+04F4  8180     LD R24, Z
+04F5  9380     STS 0x00, R24
+04F6  0802     SBC R0, R2
+93:                    
+94:                    USART0_tx_elements--;
+04F7  9180     LDS R24, 0x00
+04F8  2828     OR R2, R8
+04F9  5081     SUBI R24, 0x01
+04FA  9380     STS 0x00, R24
+04FB  2828     OR R2, R8
+95:                }
+96:            
+97:                if (USART0_tx_elements == 0) {
+04FC  9180     LDS R24, 0x00
+04FD  2828     OR R2, R8
+04FE  1181     CPSE R24, R1
+04FF  C005     RJMP 0x505
+98:                        /* Disable Tx interrupt */
+99:                        USART0.CTRLA &= ~(1 << USART_DREIE_bp);
+0500  E0E0     LDI R30, 0x00
+100:               }
+101:           }
+102:           
+103:           void USART0_SetISRCb(usart_callback cb, usart0_cb_t type)
+104:           {
+105:               switch (type) {
+106:                   case USART0_RX_CB:
+107:                           USART0_rx_isr_cb = cb;
+108:                           break;
+109:                   case USART0_TX_CB:
+110:                           USART0_tx_isr_cb = cb;
+111:                           break;
+112:                   default:
+113:                           // do nothing
+114:                           break;
+115:               }
+116:           }
+117:           
+118:           void USART0_SetRXISRCb(usart_callback cb)
+119:           {
+120:               USART0_SetISRCb(cb,USART0_RX_CB);
+121:           }
+122:           
+123:           void USART0_SetTXISRCb(usart_callback cb)
+124:           {
+125:               USART0_SetISRCb(cb,USART0_TX_CB);
+126:           }
+127:           
+128:           /* Interrupt service routine for RX complete */
+129:           ISR(USART0_RXC_vect)
+130:           {
+044C  921F     PUSH R1
+044D  920F     PUSH R0
+044E  B60F     IN R0, 0x3F
+044F  920F     PUSH R0
+0450  2411     EOR R1, R1
+0451  932F     PUSH R18
+0452  933F     PUSH R19
+0453  934F     PUSH R20
+0454  935F     PUSH R21
+0455  936F     PUSH R22
+0456  937F     PUSH R23
+0457  938F     PUSH R24
+0458  939F     PUSH R25
+0459  93AF     PUSH R26
+045A  93BF     PUSH R27
+045B  93EF     PUSH R30
+045C  93FF     PUSH R31
+131:               if (USART0_rx_isr_cb != NULL)
+045D  91E0     LDS R30, 0x00
+045E  2826     OR R2, R6
+045F  91F0     LDS R31, 0x00
+0460  2827     OR R2, R7
+0461  9730     SBIW R30, 0x00
+0462  F009     BREQ 0x464
+132:               {
+133:                   (*USART0_rx_isr_cb)();
+0463  9509     ICALL
+134:               }
+135:           }
+0464  91FF     POP R31
+0465  91EF     POP R30
+0466  91BF     POP R27
+0467  91AF     POP R26
+0468  919F     POP R25
+0469  918F     POP R24
+046A  917F     POP R23
+046B  916F     POP R22
+046C  915F     POP R21
+046D  914F     POP R20
+046E  913F     POP R19
+046F  912F     POP R18
+0470  900F     POP R0
+0471  BE0F     OUT 0x3F, R0
+0472  900F     POP R0
+0473  901F     POP R1
+0474  9518     RETI
+136:           
+137:           /* Interrupt service routine for Data Register Empty */
+138:           ISR(USART0_DRE_vect)
+139:           {
+0475  921F     PUSH R1
+0476  920F     PUSH R0
+0477  B60F     IN R0, 0x3F
+0478  920F     PUSH R0
+0479  2411     EOR R1, R1
+047A  932F     PUSH R18
+047B  933F     PUSH R19
+047C  934F     PUSH R20
+047D  935F     PUSH R21
+047E  936F     PUSH R22
+047F  937F     PUSH R23
+0480  938F     PUSH R24
+0481  939F     PUSH R25
+0482  93AF     PUSH R26
+0483  93BF     PUSH R27
+0484  93EF     PUSH R30
+0485  93FF     PUSH R31
+140:               if (USART0_tx_isr_cb != NULL)
+0486  91E0     LDS R30, 0x00
+0487  2824     OR R2, R4
+0488  91F0     LDS R31, 0x00
+0489  2825     OR R2, R5
+048A  9730     SBIW R30, 0x00
+048B  F009     BREQ 0x48D
+141:               {
+142:                   (*USART0_tx_isr_cb)();
+048C  9509     ICALL
+143:               }
+144:           }
+048D  91FF     POP R31
+048E  91EF     POP R30
+048F  91BF     POP R27
+0490  91AF     POP R26
+0491  919F     POP R25
+0492  918F     POP R24
+0493  917F     POP R23
+0494  916F     POP R22
+0495  915F     POP R21
+0496  914F     POP R20
+0497  913F     POP R19
+0498  912F     POP R18
+0499  900F     POP R0
+049A  BE0F     OUT 0x3F, R0
+049B  900F     POP R0
+049C  901F     POP R1
+049D  9518     RETI
+145:           
+146:           ISR(USART0_TXC_vect)
+147:           {
+0582  921F     PUSH R1
+0583  920F     PUSH R0
+0584  B60F     IN R0, 0x3F
+0585  920F     PUSH R0
+0586  2411     EOR R1, R1
+0587  938F     PUSH R24
+0588  93EF     PUSH R30
+0589  93FF     PUSH R31
+148:               USART0.STATUS |= USART_TXCIF_bm;
+058A  E0E0     LDI R30, 0x00
+058B  E0F8     LDI R31, 0x08
+058C  8184     LDD R24, Z+4
+058D  6480     ORI R24, 0x40
+058E  8384     STD Z+4, R24
+149:           }
+058F  91FF     POP R31
+0590  91EF     POP R30
+0591  918F     POP R24
+0592  900F     POP R0
+0593  BE0F     OUT 0x3F, R0
+0594  900F     POP R0
+0595  901F     POP R1
+0596  9518     RETI
+150:           
+151:           bool USART0_IsTxReady()
+152:           {
+153:               return (USART0_tx_elements != USART0_TX_BUFFER_SIZE);
+154:           }
+155:           
+156:           bool USART0_IsRxReady()
+157:           {
+158:               return (USART0_rx_elements != 0);
+159:           }
+160:           
+161:           bool USART0_IsTxBusy()
+162:           {
+163:               return (!(USART0.STATUS & USART_TXCIF_bm));
+164:           }
+165:           
+166:           bool USART0_IsTxDone()
+167:           {
+168:               return (USART0.STATUS & USART_TXCIF_bm);
+169:           }
+170:           
+171:           uint8_t USART0_Read(void)
+172:           {
+173:               uint8_t tmptail;
+174:           
+175:               /* Wait for incoming data */
+176:               while (USART0_rx_elements == 0)
+177:                       ;
+178:               /* Calculate buffer index */
+179:               tmptail = (USART0_rx_tail + 1) & USART0_RX_BUFFER_MASK;
+180:               /* Store new index */
+181:               USART0_rx_tail = tmptail;
+182:               ENTER_CRITICAL(R);
+183:               USART0_rx_elements--;
+184:               EXIT_CRITICAL(R);
+185:           
+186:               /* Return data */
+187:               return USART0_rxbuf[tmptail];
+188:           }
+189:           
+190:           void USART0_Write(const uint8_t data)
+191:           {
+192:               uint8_t tmphead;
+193:           
+194:               /* Calculate buffer index */
+195:               tmphead = (USART0_tx_head + 1) & USART0_TX_BUFFER_MASK;
+0506  9120     LDS R18, 0x00
+0507  282A     OR R2, R10
+0508  5F2F     SUBI R18, 0xFF
+0509  7027     ANDI R18, 0x07
+196:               /* Wait for free space in buffer */
+197:               while (USART0_tx_elements == USART0_TX_BUFFER_SIZE)
+050A  9190     LDS R25, 0x00
+050B  2828     OR R2, R8
+050C  3098     CPI R25, 0x08
+050D  F3E1     BREQ 0x50A
+198:                       ;
+199:               /* Store data in buffer */
+200:               USART0_txbuf[tmphead] = data;
+050E  2FE2     MOV R30, R18
+050F  E0F0     LDI R31, 0x00
+0510  5EEC     SUBI R30, 0xEC
+0511  4DF7     SBCI R31, 0xD7
+0512  8380     ST Z, R24
+201:               /* Store new index */
+202:               USART0_tx_head = tmphead;
+0513  9320     STS 0x00, R18
+0514  282A     OR R2, R10
+203:               ENTER_CRITICAL(W);
+0515  B60F     IN R0, 0x3F
+0516  94F8     CLI
+0517  920F     PUSH R0
+204:               USART0_tx_elements++;
+0518  9180     LDS R24, 0x00
+0519  2828     OR R2, R8
+051A  5F8F     SUBI R24, 0xFF
+051B  9380     STS 0x00, R24
+051C  2828     OR R2, R8
+205:               EXIT_CRITICAL(W);
+051D  900F     POP R0
+051E  BE0F     OUT 0x3F, R0
+206:               /* Enable Tx interrupt */
+207:               USART0.CTRLA |= (1 << USART_DREIE_bp);
+051F  E0E0     LDI R30, 0x00
+0520  E0F8     LDI R31, 0x08
+0521  8185     LDD R24, Z+5
+0522  6280     ORI R24, 0x20
+0523  8385     STD Z+5, R24
+0524  9508     RET
+208:           }
+209:           
+210:           void USART0_Initialize()
+211:           {
+212:               //set baud rate register
+213:               USART0.BAUD = (uint16_t)USART0_BAUD_RATE(9600);
+04C4  E0E0     LDI R30, 0x00
+04C5  E0F8     LDI R31, 0x08
+04C6  E68D     LDI R24, 0x6D
+04C7  E095     LDI R25, 0x05
+04C8  8780     STD Z+8, R24
+04C9  8791     STD Z+9, R25
+214:           	
+215:               //RXCIE enabled; TXCIE enabled; DREIE disabled; RXSIE enabled; LBME disabled; ABEIE disabled; RS485 OFF; 
+216:               USART0.CTRLA = 0xD0;
+04CA  ED80     LDI R24, 0xD0
+04CB  8385     STD Z+5, R24
+217:           	
+218:               //RXEN enabled; TXEN enabled; SFDEN disabled; ODME disabled; RXMODE NORMAL; MPCM disabled; 
+219:               USART0.CTRLB = 0xC0;
+04CC  EC80     LDI R24, 0xC0
+04CD  8386     STD Z+6, R24
+220:           	
+221:               //CMODE ASYNCHRONOUS; PMODE DISABLED; SBMODE 1BIT; CHSIZE 8BIT; UDORD disabled; UCPHA disabled; 
+222:               USART0.CTRLC = 0x03;
+04CE  E083     LDI R24, 0x03
+04CF  8387     STD Z+7, R24
+223:           	
+224:               //DBGCTRL_DBGRUN
+225:               USART0.DBGCTRL = 0x00;
+04D0  8613     STD Z+11, R1
+226:           	
+227:               //EVCTRL_IREI
+228:               USART0.EVCTRL = 0x00;
+04D1  8614     STD Z+12, R1
+229:           	
+230:               //RXPLCTRL_RXPL
+231:               USART0.RXPLCTRL = 0x00;
+04D2  8616     STD Z+14, R1
+232:           	
+233:               //TXPLCTRL_TXPL
+234:               USART0.TXPLCTRL = 0x00;
+04D3  8615     STD Z+13, R1
+235:           	
+236:           
+237:               uint8_t x;
+238:           
+239:               /* Initialize ringbuffers */
+240:               x = 0;
+241:           
+242:               USART0_rx_tail     = x;
+04D4  9210     STS 0x00, R1
+04D5  282C     OR R2, R12
+243:               USART0_rx_head     = x;
+04D6  9210     STS 0x00, R1
+04D7  282D     OR R2, R13
+244:               USART0_rx_elements = x;
+04D8  9210     STS 0x00, R1
+04D9  282B     OR R2, R11
+245:               USART0_tx_tail     = x;
+04DA  9210     STS 0x00, R1
+04DB  2829     OR R2, R9
+246:               USART0_tx_head     = x;
+04DC  9210     STS 0x00, R1
+04DD  282A     OR R2, R10
+247:               USART0_tx_elements = x;
+04DE  9210     STS 0x00, R1
+04DF  2828     OR R2, R8
+248:           
+249:           #if defined(__GNUC__)
+250:               stdout = &USART0_stream;
+04E0  E086     LDI R24, 0x06
+04E1  E298     LDI R25, 0x28
+04E2  9380     STS 0x00, R24
+04E3  2802     OR R0, R2
+04E4  9390     STS 0x00, R25
+04E5  2803     OR R0, R3
+04E6  9508     RET
+251:           #endif
+252:           
+253:           }
+254:           
+255:           void USART0_Enable()
+256:           {
+257:               USART0.CTRLB |= USART_RXEN_bm | USART_TXEN_bm;
+258:           }
+259:           
+260:           void USART0_EnableRx()
+261:           {
+262:               USART0.CTRLB |= USART_RXEN_bm;
+263:           }
+264:           
+265:           void USART0_EnableTx()
+266:           {
+267:               USART0.CTRLB |= USART_TXEN_bm;
+268:           }
+269:           
+270:           void USART0_Disable()
+271:           {
+272:               USART0.CTRLB &= ~(USART_RXEN_bm | USART_TXEN_bm);
+273:           }
+274:           
+275:           uint8_t USART0_GetData()
+276:           {
+277:               return USART0.RXDATAL;
+278:           }
+---  C:/Users/1mano/Documents/Task26.X/mcc_generated_files/src/protected_io.S  --------------------------
+                                                  1:     /*
+                                                  2:         (c) 2018 Microchip Technology Inc. and its subsidiaries. 
+                                                  3:         
+                                                  4:         Subject to your compliance with these terms, you may use Microchip software and any 
+                                                  5:         derivatives exclusively with Microchip products. It is your responsibility to comply with third party 
+                                                  6:         license terms applicable to your use of third party software (including open source software) that 
+                                                  7:         may accompany Microchip software.
+                                                  8:         
+                                                  9:         THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER 
+                                                  10:        EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY 
+                                                  11:        IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS 
+                                                  12:        FOR A PARTICULAR PURPOSE.
+                                                  13:        
+                                                  14:        IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
+                                                  15:        INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
+                                                  16:        WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP 
+                                                  17:        HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO 
+                                                  18:        THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL 
+                                                  19:        CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
+                                                  20:        OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
+                                                  21:        SOFTWARE.
+                                                  22:    */
+                                                  23:    
+                                                  24:    #include "../utils/assembler.h"
+                                                  25:    
+                                                  26:    /*
+                                                  27:    	 * GNU and IAR use different calling conventions. Since this is
+                                                  28:    	 * a very small and simple function to begin with, it's easier
+                                                  29:    	 * to implement it twice than to deal with the differences
+                                                  30:    	 * within a single implementation.
+                                                  31:    	 */
+                                                  32:    
+                                                  33:    	PUBLIC_FUNCTION(protected_write_io)
+                                                  34:    
+                                                  35:    #if defined(__GNUC__)
+                                                  36:      
+                                                  37:    #ifdef RAMPZ
+                                                  38:    	out     _SFR_IO_ADDR(RAMPZ), r1         // Clear bits 23:16 of Z
+                                                  39:    #endif
+05F8  01FC     MOVW R30, R24                      40:    	movw    r30, r24                // Load addr into Z
+05F9  BF64     OUT 0x34, R22                      41:    	out     CCP, r22                // Start CCP handshake
+05FA  8340     ST Z, R20                          42:    	st      Z, r20                  // Write value to I/O register
+05FB  9508     RET                                43:    	ret                             // Return to caller
+                                                  44:    
+                                                  45:    #elif defined(__IAR_SYSTEMS_ASM__)
+                                                  46:    
+                                                  47:    # if !defined(CONFIG_MEMORY_MODEL_TINY) && !defined(CONFIG_MEMORY_MODEL_SMALL) \
+                                                  48:                    && !defined(CONFIG_MEMORY_MODEL_LARGE)
+                                                  49:    #  define CONFIG_MEMORY_MODEL_SMALL
+                                                  50:    # endif
+                                                  51:    # if defined(CONFIG_MEMORY_MODEL_LARGE)
+                                                  52:    	ldi     r20, 0
+                                                  53:    	out     RAMPZ, r20              // Reset bits 23:16 of Z
+                                                  54:    	movw    r30, r16                // Load addr into Z
+                                                  55:    # elif defined(CONFIG_MEMORY_MODEL_TINY)
+                                                  56:    	ldi     r31, 0                  // Reset bits 8:15 of Z
+                                                  57:    	mov     r30, r16                // Load addr into Z
+                                                  58:    # else
+                                                  59:    	movw    r30, r16                // Load addr into Z
+                                                  60:    # endif
+                                                  61:    # if defined(CONFIG_MEMORY_MODEL_TINY)
+                                                  62:    	out     CCP, r17                // Start CCP handshake
+                                                  63:    	st      Z, r18                  // Write value to I/O register
+                                                  64:    # elif defined(CONFIG_MEMORY_MODEL_SMALL)
+                                                  65:    	out     CCP, r18                // Start CCP handshake
+                                                  66:    	st      Z, r19                  // Write value to I/O register
+                                                  67:    # elif defined(CONFIG_MEMORY_MODEL_LARGE)
+                                                  68:    	out     CCP, r19                // Start CCP handshake
+                                                  69:    	st      Z, r20                  // Write value to I/O register
+                                                  70:    # else
+                                                  71:    #  error Unknown memory model in use, no idea how registers should be accessed
+                                                  72:    # endif
+                                                  73:            ret
+                                                  74:    #else
+                                                  75:    # error Unknown assembler
+                                                  76:    #endif
+                                                  77:    
+                                                  78:    	END_FUNC(protected_write_io)
+                                                  79:    	END_FILE()
+                                                  80:    
+---  C:/Users/1mano/Documents/Task26.X/mcc_generated_files/src/pin_manager.c  ---------------------------
+1:             /*
+2:                 (c) 2018 Microchip Technology Inc. and its subsidiaries. 
+3:                 
+4:                 Subject to your compliance with these terms, you may use Microchip software and any 
+5:                 derivatives exclusively with Microchip products. It is your responsibility to comply with third party 
+6:                 license terms applicable to your use of third party software (including open source software) that 
+7:                 may accompany Microchip software.
+8:                 
+9:                 THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER 
+10:                EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY 
+11:                IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS 
+12:                FOR A PARTICULAR PURPOSE.
+13:                
+14:                IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
+15:                INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
+16:                WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP 
+17:                HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO 
+18:                THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL 
+19:                CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
+20:                OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
+21:                SOFTWARE.
+22:            */
+23:            
+24:            #include "../include/pin_manager.h"
+25:            static void (*PORTD_IO_PD5_InterruptHandler)(void);
+26:            static void (*PORTD_IO_PD4_InterruptHandler)(void);
+27:            static void (*PORTA_PA1_InterruptHandler)(void);
+28:            static void (*PORTD_IO_PD7_InterruptHandler)(void);
+29:            static void (*PORTD_IO_PD6_InterruptHandler)(void);
+30:            static void (*PORTF_IO_PF3_InterruptHandler)(void);
+31:            static void (*PORTD_IO_PD1_InterruptHandler)(void);
+32:            static void (*PORTF_IO_PF2_InterruptHandler)(void);
+33:            static void (*PORTD_IO_PD0_InterruptHandler)(void);
+34:            static void (*PORTF_IO_PF5_InterruptHandler)(void);
+35:            static void (*PORTD_IO_PD3_InterruptHandler)(void);
+36:            static void (*PORTA_PA0_InterruptHandler)(void);
+37:            static void (*PORTF_IO_PF4_InterruptHandler)(void);
+38:            static void (*PORTD_IO_PD2_InterruptHandler)(void);
+39:            
+40:            void PORT_Initialize(void);
+41:            
+42:            void PIN_MANAGER_Initialize()
+43:            {
+0286  930F     PUSH R16
+0287  931F     PUSH R17
+0288  93CF     PUSH R28
+0289  93DF     PUSH R29
+44:                PORT_Initialize();
+028A  940E     CALL PORTD_IO_PD5_DefaultInterruptHandler
+028B  0415     CPC R1, R5
+45:            
+46:                /* DIR Registers Initialization */
+47:                PORTA.DIR = 0x01;
+028C  E040     LDI R20, 0x00
+028D  E054     LDI R21, 0x04
+028E  E081     LDI R24, 0x01
+028F  01FA     MOVW R30, R20
+0290  8380     ST Z, R24
+48:                PORTB.DIR = 0x00;
+0291  E220     LDI R18, 0x20
+0292  E034     LDI R19, 0x04
+0293  01F9     MOVW R30, R18
+0294  8210     ST Z, R1
+49:                PORTC.DIR = 0x00;
+0295  E480     LDI R24, 0x40
+0296  E094     LDI R25, 0x04
+0297  01FC     MOVW R30, R24
+0298  8210     ST Z, R1
+50:                PORTD.DIR = 0xFF;
+0299  E6C0     LDI R28, 0x60
+029A  E0D4     LDI R29, 0x04
+029B  EF6F     LDI R22, 0xFF
+029C  8368     ST Y, R22
+51:                PORTE.DIR = 0x00;
+029D  E8A0     LDI R26, 0x80
+029E  E0B4     LDI R27, 0x04
+029F  921C     ST X, R1
+52:                PORTF.DIR = 0x20;
+02A0  EA00     LDI R16, 0xA0
+02A1  E014     LDI R17, 0x04
+02A2  E260     LDI R22, 0x20
+02A3  01F8     MOVW R30, R16
+02A4  8360     ST Z, R22
+53:            
+54:                /* OUT Registers Initialization */
+55:                PORTA.OUT = 0x00;
+02A5  01FA     MOVW R30, R20
+02A6  8214     STD Z+4, R1
+56:                PORTB.OUT = 0x00;
+02A7  01F9     MOVW R30, R18
+02A8  8214     STD Z+4, R1
+57:                PORTC.OUT = 0x00;
+02A9  01FC     MOVW R30, R24
+02AA  8214     STD Z+4, R1
+58:                PORTD.OUT = 0x00;
+02AB  821C     STD Y+4, R1
+59:                PORTE.OUT = 0x00;
+02AC  9614     ADIW R26, 0x04
+02AD  921C     ST X, R1
+02AE  9714     SBIW R26, 0x04
+60:                PORTF.OUT = 0x10;
+02AF  E160     LDI R22, 0x10
+02B0  01F8     MOVW R30, R16
+02B1  8364     STD Z+4, R22
+61:            
+62:                /* PINxCTRL registers Initialization */
+63:                PORTA.PIN0CTRL = 0x00;
+02B2  01FA     MOVW R30, R20
+02B3  8A10     STD Z+16, R1
+64:                PORTA.PIN1CTRL = 0x00;
+02B4  8A11     STD Z+17, R1
+65:                PORTA.PIN2CTRL = 0x00;
+02B5  8A12     STD Z+18, R1
+66:                PORTA.PIN3CTRL = 0x00;
+02B6  8A13     STD Z+19, R1
+67:                PORTA.PIN4CTRL = 0x00;
+02B7  8A14     STD Z+20, R1
+68:                PORTA.PIN5CTRL = 0x00;
+02B8  8A15     STD Z+21, R1
+69:                PORTA.PIN6CTRL = 0x00;
+02B9  8A16     STD Z+22, R1
+70:                PORTA.PIN7CTRL = 0x00;
+02BA  8A17     STD Z+23, R1
+71:                PORTB.PIN0CTRL = 0x00;
+02BB  01F9     MOVW R30, R18
+02BC  8A10     STD Z+16, R1
+72:                PORTB.PIN1CTRL = 0x00;
+02BD  8A11     STD Z+17, R1
+73:                PORTB.PIN2CTRL = 0x00;
+02BE  8A12     STD Z+18, R1
+74:                PORTB.PIN3CTRL = 0x00;
+02BF  8A13     STD Z+19, R1
+75:                PORTB.PIN4CTRL = 0x00;
+02C0  8A14     STD Z+20, R1
+76:                PORTB.PIN5CTRL = 0x00;
+02C1  8A15     STD Z+21, R1
+77:                PORTB.PIN6CTRL = 0x00;
+02C2  8A16     STD Z+22, R1
+78:                PORTB.PIN7CTRL = 0x00;
+02C3  8A17     STD Z+23, R1
+79:                PORTC.PIN0CTRL = 0x00;
+02C4  01FC     MOVW R30, R24
+02C5  8A10     STD Z+16, R1
+80:                PORTC.PIN1CTRL = 0x00;
+02C6  8A11     STD Z+17, R1
+81:                PORTC.PIN2CTRL = 0x00;
+02C7  8A12     STD Z+18, R1
+82:                PORTC.PIN3CTRL = 0x00;
+02C8  8A13     STD Z+19, R1
+83:                PORTC.PIN4CTRL = 0x00;
+02C9  8A14     STD Z+20, R1
+84:                PORTC.PIN5CTRL = 0x00;
+02CA  8A15     STD Z+21, R1
+85:                PORTC.PIN6CTRL = 0x00;
+02CB  8A16     STD Z+22, R1
+86:                PORTC.PIN7CTRL = 0x00;
+02CC  8A17     STD Z+23, R1
+87:                PORTD.PIN0CTRL = 0x00;
+02CD  8A18     STD Y+16, R1
+88:                PORTD.PIN1CTRL = 0x00;
+02CE  8A19     STD Y+17, R1
+89:                PORTD.PIN2CTRL = 0x00;
+02CF  8A1A     STD Y+18, R1
+90:                PORTD.PIN3CTRL = 0x00;
+02D0  8A1B     STD Y+19, R1
+91:                PORTD.PIN4CTRL = 0x00;
+02D1  8A1C     STD Y+20, R1
+92:                PORTD.PIN5CTRL = 0x00;
+02D2  8A1D     STD Y+21, R1
+93:                PORTD.PIN6CTRL = 0x00;
+02D3  8A1E     STD Y+22, R1
+94:                PORTD.PIN7CTRL = 0x00;
+02D4  8A1F     STD Y+23, R1
+95:                PORTE.PIN0CTRL = 0x00;
+02D5  9650     ADIW R26, 0x10
+02D6  921C     ST X, R1
+02D7  9750     SBIW R26, 0x10
+96:                PORTE.PIN1CTRL = 0x00;
+02D8  9651     ADIW R26, 0x11
+02D9  921C     ST X, R1
+02DA  9751     SBIW R26, 0x11
+97:                PORTE.PIN2CTRL = 0x00;
+02DB  9652     ADIW R26, 0x12
+02DC  921C     ST X, R1
+02DD  9752     SBIW R26, 0x12
+98:                PORTE.PIN3CTRL = 0x00;
+02DE  9653     ADIW R26, 0x13
+02DF  921C     ST X, R1
+02E0  9753     SBIW R26, 0x13
+99:                PORTE.PIN4CTRL = 0x00;
+02E1  9654     ADIW R26, 0x14
+02E2  921C     ST X, R1
+02E3  9754     SBIW R26, 0x14
+100:               PORTE.PIN5CTRL = 0x00;
+02E4  9655     ADIW R26, 0x15
+02E5  921C     ST X, R1
+02E6  9755     SBIW R26, 0x15
+101:               PORTE.PIN6CTRL = 0x00;
+02E7  9656     ADIW R26, 0x16
+02E8  921C     ST X, R1
+02E9  9756     SBIW R26, 0x16
+102:               PORTE.PIN7CTRL = 0x00;
+02EA  9657     ADIW R26, 0x17
+02EB  921C     ST X, R1
+103:               PORTF.PIN0CTRL = 0x00;
+02EC  01F8     MOVW R30, R16
+02ED  8A10     STD Z+16, R1
+104:               PORTF.PIN1CTRL = 0x00;
+02EE  8A11     STD Z+17, R1
+105:               PORTF.PIN2CTRL = 0x00;
+02EF  8A12     STD Z+18, R1
+106:               PORTF.PIN3CTRL = 0x00;
+02F0  8A13     STD Z+19, R1
+107:               PORTF.PIN4CTRL = 0x08;
+02F1  E088     LDI R24, 0x08
+02F2  8B84     STD Z+20, R24
+108:               PORTF.PIN5CTRL = 0x00;
+02F3  8A15     STD Z+21, R1
+109:               PORTF.PIN6CTRL = 0x00;
+02F4  8A16     STD Z+22, R1
+110:               PORTF.PIN7CTRL = 0x00;
+02F5  8A17     STD Z+23, R1
+111:           
+112:               /* PORTMUX Initialization */
+113:               PORTMUX.CCLROUTEA = 0x00;
+02F6  EEE0     LDI R30, 0xE0
+02F7  E0F5     LDI R31, 0x05
+02F8  8211     STD Z+1, R1
+114:               PORTMUX.EVSYSROUTEA = 0x00;
+02F9  8210     ST Z, R1
+115:               PORTMUX.TCAROUTEA = 0x00;
+02FA  8214     STD Z+4, R1
+116:               PORTMUX.TCBROUTEA = 0x00;
+02FB  8215     STD Z+5, R1
+117:               PORTMUX.TWISPIROUTEA = 0x00;
+02FC  8213     STD Z+3, R1
+118:               PORTMUX.USARTROUTEA = 0x00;
+02FD  8212     STD Z+2, R1
+119:           
+120:               // register default ISC callback functions at runtime; use these methods to register a custom function
+121:               PORTD_IO_PD5_SetInterruptHandler(PORTD_IO_PD5_DefaultInterruptHandler);
+122:               PORTD_IO_PD4_SetInterruptHandler(PORTD_IO_PD4_DefaultInterruptHandler);
+123:               PORTA_PA1_SetInterruptHandler(PORTA_PA1_DefaultInterruptHandler);
+124:               PORTD_IO_PD7_SetInterruptHandler(PORTD_IO_PD7_DefaultInterruptHandler);
+125:               PORTD_IO_PD6_SetInterruptHandler(PORTD_IO_PD6_DefaultInterruptHandler);
+126:               PORTF_IO_PF3_SetInterruptHandler(PORTF_IO_PF3_DefaultInterruptHandler);
+127:               PORTD_IO_PD1_SetInterruptHandler(PORTD_IO_PD1_DefaultInterruptHandler);
+128:               PORTF_IO_PF2_SetInterruptHandler(PORTF_IO_PF2_DefaultInterruptHandler);
+129:               PORTD_IO_PD0_SetInterruptHandler(PORTD_IO_PD0_DefaultInterruptHandler);
+130:               PORTF_IO_PF5_SetInterruptHandler(PORTF_IO_PF5_DefaultInterruptHandler);
+131:               PORTD_IO_PD3_SetInterruptHandler(PORTD_IO_PD3_DefaultInterruptHandler);
+132:               PORTA_PA0_SetInterruptHandler(PORTA_PA0_DefaultInterruptHandler);
+133:               PORTF_IO_PF4_SetInterruptHandler(PORTF_IO_PF4_DefaultInterruptHandler);
+134:               PORTD_IO_PD2_SetInterruptHandler(PORTD_IO_PD2_DefaultInterruptHandler);
+135:           }
+02FE  91DF     POP R29
+02FF  91CF     POP R28
+0300  911F     POP R17
+0301  910F     POP R16
+0302  9508     RET
+136:           
+137:           void PORT_Initialize(void)
+138:           {
+0415  E9E0     LDI R30, 0x90
+0416  E0F4     LDI R31, 0x04
+139:               /* On AVR devices all peripherals are enable from power on reset, this
+140:                * disables all peripherals to save power. Driver shall enable
+141:                * peripheral if used */
+142:           
+143:               /* Set all pins to low power mode */
+144:               for (uint8_t i = 0; i < 8; i++) {
+041A  39E8     CPI R30, 0x98
+041B  E084     LDI R24, 0x04
+041C  07F8     CPC R31, R24
+041D  F7C9     BRNE 0x417
+041E  EBE0     LDI R30, 0xB0
+041F  E0F4     LDI R31, 0x04
+145:                   *((uint8_t *)&PORTE + 0x10 + i) |= 1 << PORT_PULLUPEN_bp;
+0417  8180     LD R24, Z
+0418  6088     ORI R24, 0x08
+0419  9381     ST Z+, R24
+146:               }
+147:               
+148:               for (uint8_t i = 0; i < 8; i++) {
+0423  3BE8     CPI R30, 0xB8
+0424  E084     LDI R24, 0x04
+0425  07F8     CPC R31, R24
+0426  F7C9     BRNE 0x420
+0427  E1E0     LDI R30, 0x10
+0428  E0F4     LDI R31, 0x04
+149:                   *((uint8_t *)&PORTF + 0x10 + i) |= 1 << PORT_PULLUPEN_bp;
+0420  8180     LD R24, Z
+0421  6088     ORI R24, 0x08
+0422  9381     ST Z+, R24
+150:               }
+151:               
+152:               for (uint8_t i = 0; i < 8; i++) {
+042C  31E8     CPI R30, 0x18
+042D  E084     LDI R24, 0x04
+042E  07F8     CPC R31, R24
+042F  F7C9     BRNE 0x429
+0430  E3E0     LDI R30, 0x30
+0431  E0F4     LDI R31, 0x04
+153:                   *((uint8_t *)&PORTA + 0x10 + i) |= 1 << PORT_PULLUPEN_bp;
+0429  8180     LD R24, Z
+042A  6088     ORI R24, 0x08
+042B  9381     ST Z+, R24
+154:               }
+155:               
+156:               for (uint8_t i = 0; i < 8; i++) {
+0435  33E8     CPI R30, 0x38
+0436  E084     LDI R24, 0x04
+0437  07F8     CPC R31, R24
+0438  F7C9     BRNE 0x432
+0439  E5E0     LDI R30, 0x50
+043A  E0F4     LDI R31, 0x04
+157:                   *((uint8_t *)&PORTB + 0x10 + i) |= 1 << PORT_PULLUPEN_bp;
+0432  8180     LD R24, Z
+0433  6088     ORI R24, 0x08
+0434  9381     ST Z+, R24
+158:               }
+159:               
+160:               for (uint8_t i = 0; i < 8; i++) {
+043E  35E8     CPI R30, 0x58
+043F  E084     LDI R24, 0x04
+0440  07F8     CPC R31, R24
+0441  F7C9     BRNE 0x43B
+0442  E7E0     LDI R30, 0x70
+0443  E0F4     LDI R31, 0x04
+161:                   *((uint8_t *)&PORTC + 0x10 + i) |= 1 << PORT_PULLUPEN_bp;
+043B  8180     LD R24, Z
+043C  6088     ORI R24, 0x08
+043D  9381     ST Z+, R24
+162:               }
+163:               
+164:               for (uint8_t i = 0; i < 8; i++) {
+0447  37E8     CPI R30, 0x78
+0448  E084     LDI R24, 0x04
+0449  07F8     CPC R31, R24
+044A  F7C9     BRNE 0x444
+165:                   *((uint8_t *)&PORTD + 0x10 + i) |= 1 << PORT_PULLUPEN_bp;
+0444  8180     LD R24, Z
+0445  6088     ORI R24, 0x08
+0446  9381     ST Z+, R24
+166:               }
+167:               
+168:           }
+044B  9508     RET
+169:           
+170:           /**
+171:             Allows selecting an interrupt handler for PORTD_IO_PD5 at application runtime
+172:           */
+173:           void PORTD_IO_PD5_SetInterruptHandler(void (* interruptHandler)(void)) 
+174:           {
+175:               PORTD_IO_PD5_InterruptHandler = interruptHandler;
+176:           }
+177:           
+178:           void PORTD_IO_PD5_DefaultInterruptHandler(void)
+179:           {
+180:               // add your PORTD_IO_PD5 interrupt custom code
+181:               // or set custom function using PORTD_IO_PD5_SetInterruptHandler()
+182:           }
+183:           /**
+184:             Allows selecting an interrupt handler for PORTD_IO_PD4 at application runtime
+185:           */
+186:           void PORTD_IO_PD4_SetInterruptHandler(void (* interruptHandler)(void)) 
+187:           {
+188:               PORTD_IO_PD4_InterruptHandler = interruptHandler;
+189:           }
+190:           
+191:           void PORTD_IO_PD4_DefaultInterruptHandler(void)
+192:           {
+193:               // add your PORTD_IO_PD4 interrupt custom code
+194:               // or set custom function using PORTD_IO_PD4_SetInterruptHandler()
+195:           }
+196:           /**
+197:             Allows selecting an interrupt handler for PORTA_PA1 at application runtime
+198:           */
+199:           void PORTA_PA1_SetInterruptHandler(void (* interruptHandler)(void)) 
+200:           {
+201:               PORTA_PA1_InterruptHandler = interruptHandler;
+202:           }
+203:           
+204:           void PORTA_PA1_DefaultInterruptHandler(void)
+205:           {
+206:               // add your PORTA_PA1 interrupt custom code
+207:               // or set custom function using PORTA_PA1_SetInterruptHandler()
+208:           }
+209:           /**
+210:             Allows selecting an interrupt handler for PORTD_IO_PD7 at application runtime
+211:           */
+212:           void PORTD_IO_PD7_SetInterruptHandler(void (* interruptHandler)(void)) 
+213:           {
+214:               PORTD_IO_PD7_InterruptHandler = interruptHandler;
+215:           }
+216:           
+217:           void PORTD_IO_PD7_DefaultInterruptHandler(void)
+218:           {
+219:               // add your PORTD_IO_PD7 interrupt custom code
+220:               // or set custom function using PORTD_IO_PD7_SetInterruptHandler()
+221:           }
+222:           /**
+223:             Allows selecting an interrupt handler for PORTD_IO_PD6 at application runtime
+224:           */
+225:           void PORTD_IO_PD6_SetInterruptHandler(void (* interruptHandler)(void)) 
+226:           {
+227:               PORTD_IO_PD6_InterruptHandler = interruptHandler;
+228:           }
+229:           
+230:           void PORTD_IO_PD6_DefaultInterruptHandler(void)
+231:           {
+232:               // add your PORTD_IO_PD6 interrupt custom code
+233:               // or set custom function using PORTD_IO_PD6_SetInterruptHandler()
+234:           }
+235:           /**
+236:             Allows selecting an interrupt handler for PORTF_IO_PF3 at application runtime
+237:           */
+238:           void PORTF_IO_PF3_SetInterruptHandler(void (* interruptHandler)(void)) 
+239:           {
+240:               PORTF_IO_PF3_InterruptHandler = interruptHandler;
+241:           }
+242:           
+243:           void PORTF_IO_PF3_DefaultInterruptHandler(void)
+244:           {
+245:               // add your PORTF_IO_PF3 interrupt custom code
+246:               // or set custom function using PORTF_IO_PF3_SetInterruptHandler()
+247:           }
+248:           /**
+249:             Allows selecting an interrupt handler for PORTD_IO_PD1 at application runtime
+250:           */
+251:           void PORTD_IO_PD1_SetInterruptHandler(void (* interruptHandler)(void)) 
+252:           {
+253:               PORTD_IO_PD1_InterruptHandler = interruptHandler;
+254:           }
+255:           
+256:           void PORTD_IO_PD1_DefaultInterruptHandler(void)
+257:           {
+258:               // add your PORTD_IO_PD1 interrupt custom code
+259:               // or set custom function using PORTD_IO_PD1_SetInterruptHandler()
+260:           }
+261:           /**
+262:             Allows selecting an interrupt handler for PORTF_IO_PF2 at application runtime
+263:           */
+264:           void PORTF_IO_PF2_SetInterruptHandler(void (* interruptHandler)(void)) 
+265:           {
+266:               PORTF_IO_PF2_InterruptHandler = interruptHandler;
+267:           }
+268:           
+269:           void PORTF_IO_PF2_DefaultInterruptHandler(void)
+270:           {
+271:               // add your PORTF_IO_PF2 interrupt custom code
+272:               // or set custom function using PORTF_IO_PF2_SetInterruptHandler()
+273:           }
+274:           /**
+275:             Allows selecting an interrupt handler for PORTD_IO_PD0 at application runtime
+276:           */
+277:           void PORTD_IO_PD0_SetInterruptHandler(void (* interruptHandler)(void)) 
+278:           {
+279:               PORTD_IO_PD0_InterruptHandler = interruptHandler;
+280:           }
+281:           
+282:           void PORTD_IO_PD0_DefaultInterruptHandler(void)
+283:           {
+284:               // add your PORTD_IO_PD0 interrupt custom code
+285:               // or set custom function using PORTD_IO_PD0_SetInterruptHandler()
+286:           }
+287:           /**
+288:             Allows selecting an interrupt handler for PORTF_IO_PF5 at application runtime
+289:           */
+290:           void PORTF_IO_PF5_SetInterruptHandler(void (* interruptHandler)(void)) 
+291:           {
+292:               PORTF_IO_PF5_InterruptHandler = interruptHandler;
+293:           }
+294:           
+295:           void PORTF_IO_PF5_DefaultInterruptHandler(void)
+296:           {
+297:               // add your PORTF_IO_PF5 interrupt custom code
+298:               // or set custom function using PORTF_IO_PF5_SetInterruptHandler()
+299:           }
+300:           /**
+301:             Allows selecting an interrupt handler for PORTD_IO_PD3 at application runtime
+302:           */
+303:           void PORTD_IO_PD3_SetInterruptHandler(void (* interruptHandler)(void)) 
+304:           {
+305:               PORTD_IO_PD3_InterruptHandler = interruptHandler;
+306:           }
+307:           
+308:           void PORTD_IO_PD3_DefaultInterruptHandler(void)
+309:           {
+310:               // add your PORTD_IO_PD3 interrupt custom code
+311:               // or set custom function using PORTD_IO_PD3_SetInterruptHandler()
+312:           }
+313:           /**
+314:             Allows selecting an interrupt handler for PORTA_PA0 at application runtime
+315:           */
+316:           void PORTA_PA0_SetInterruptHandler(void (* interruptHandler)(void)) 
+317:           {
+318:               PORTA_PA0_InterruptHandler = interruptHandler;
+319:           }
+320:           
+321:           void PORTA_PA0_DefaultInterruptHandler(void)
+322:           {
+323:               // add your PORTA_PA0 interrupt custom code
+324:               // or set custom function using PORTA_PA0_SetInterruptHandler()
+325:           }
+326:           /**
+327:             Allows selecting an interrupt handler for PORTF_IO_PF4 at application runtime
+328:           */
+329:           void PORTF_IO_PF4_SetInterruptHandler(void (* interruptHandler)(void)) 
+330:           {
+331:               PORTF_IO_PF4_InterruptHandler = interruptHandler;
+332:           }
+333:           
+334:           void PORTF_IO_PF4_DefaultInterruptHandler(void)
+335:           {
+336:               // add your PORTF_IO_PF4 interrupt custom code
+337:               // or set custom function using PORTF_IO_PF4_SetInterruptHandler()
+338:           }
+339:           /**
+340:             Allows selecting an interrupt handler for PORTD_IO_PD2 at application runtime
+341:           */
+342:           void PORTD_IO_PD2_SetInterruptHandler(void (* interruptHandler)(void)) 
+343:           {
+344:               PORTD_IO_PD2_InterruptHandler = interruptHandler;
+345:           }
+346:           
+347:           void PORTD_IO_PD2_DefaultInterruptHandler(void)
+348:           {
+349:               // add your PORTD_IO_PD2 interrupt custom code
+350:               // or set custom function using PORTD_IO_PD2_SetInterruptHandler()
+351:           }
+---  C:/Users/1mano/Documents/Task26.X/mcc_generated_files/src/cpuint.c  --------------------------------
+1:             /*
+2:                 (c) 2018 Microchip Technology Inc. and its subsidiaries. 
+3:                 
+4:                 Subject to your compliance with these terms, you may use Microchip software and any 
+5:                 derivatives exclusively with Microchip products. It is your responsibility to comply with third party 
+6:                 license terms applicable to your use of third party software (including open source software) that 
+7:                 may accompany Microchip software.
+8:                 
+9:                 THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER 
+10:                EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY 
+11:                IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS 
+12:                FOR A PARTICULAR PURPOSE.
+13:                
+14:                IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
+15:                INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
+16:                WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP 
+17:                HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO 
+18:                THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL 
+19:                CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
+20:                OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
+21:                SOFTWARE.
+22:            */
+23:            
+24:            #include "../include/cpuint.h"
+25:            
+26:            /**
+27:             * \brief Initialize cpuint interface
+28:             */
+29:            int8_t CPUINT_Initialize()
+30:            {
+31:                /* IVSEL and CVT are Configuration Change Protected */
+32:            
+33:                //IVSEL disabled; CVT disabled; LVL0RR disabled; 
+34:                ccp_write_io((void*)&(CPUINT.CTRLA),0x00);
+35:                
+36:                //LVL0PRI 0; 
+37:                CPUINT.LVL0PRI = 0x00;
+05BB  E1E0     LDI R30, 0x10
+05BC  E0F1     LDI R31, 0x01
+05BD  8212     STD Z+2, R1
+38:                
+39:                //LVL1VEC 0; 
+40:                CPUINT.LVL1VEC = 0x00;
+05BE  8213     STD Z+3, R1
+41:            
+42:                    
+43:                return 0;
+44:            }
+05BF  E080     LDI R24, 0x00
+---  C:/Users/1mano/Documents/Task26.X/mcc_generated_files/mcc.c  ---------------------------------------
+1:             /*
+2:                 (c) 2018 Microchip Technology Inc. and its subsidiaries. 
+3:                 
+4:                 Subject to your compliance with these terms, you may use Microchip software and any 
+5:                 derivatives exclusively with Microchip products. It is your responsibility to comply with third party 
+6:                 license terms applicable to your use of third party software (including open source software) that 
+7:                 may accompany Microchip software.
+8:                 
+9:                 THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER 
+10:                EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY 
+11:                IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS 
+12:                FOR A PARTICULAR PURPOSE.
+13:                
+14:                IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
+15:                INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
+16:                WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP 
+17:                HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO 
+18:                THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL 
+19:                CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
+20:                OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
+21:                SOFTWARE.
+22:            */
+23:            
+24:            #include "mcc.h"
+25:            
+26:            /**
+27:             * Initializes MCU, drivers and middleware in the project
+28:            **/
+29:            void SYSTEM_Initialize(void)
+30:            {
+31:                PIN_MANAGER_Initialize();
+05A6  940E     CALL PORTD_IO_PD5_DefaultInterruptHandler
+05A7  0286     MULS R24, R22
+32:                BOD_Initialize();
+05A8  940E     CALL PORTD_IO_PD5_DefaultInterruptHandler
+05A9  05C1     CPC R28, R1
+33:                WDT_Initialize();
+05AA  940E     CALL PORTD_IO_PD5_DefaultInterruptHandler
+05AB  05EB     CPC R30, R11
+34:                CLKCTRL_Initialize();
+05AC  940E     CALL PORTD_IO_PD5_DefaultInterruptHandler
+05AD  049E     CPC R9, R14
+35:                SLPCTRL_Initialize();
+05AE  940E     CALL PORTD_IO_PD5_DefaultInterruptHandler
+05AF  05E3     CPC R30, R3
+36:                CPUINT_Initialize();
+05B0  940E     CALL PORTD_IO_PD5_DefaultInterruptHandler
+05B1  05B5     CPC R27, R5
+37:                USART0_Initialize();
+05B2  940E     CALL PORTD_IO_PD5_DefaultInterruptHandler
+38:            }
+39:            
+40:            /**
+41:             * \brief Initialize bod interface
+42:             */
+43:            int8_t BOD_Initialize()
+44:            {
+45:                //SLEEP DIS; 
+46:                ccp_write_io((void*)&(BOD.CTRLA),0x00);
+47:            
+48:                //VLMCFG BELOW; VLMIE disabled; 
+49:            	BOD.INTCTRL = 0x00;
+05C7  E8E0     LDI R30, 0x80
+05C8  E0F0     LDI R31, 0x00
+05C9  8611     STD Z+9, R1
+50:            
+51:                //VLMLVL 5ABOVE; 
+52:            	BOD.VLMCTRLA = 0x00;
+05CA  8610     STD Z+8, R1
+53:            
+54:            	return 0;
+55:            }
+05CB  E080     LDI R24, 0x00
+05CC  9508     RET
+56:            
+57:            ISR(BOD_VLM_vect)
+58:            {
+0597  921F     PUSH R1
+0598  920F     PUSH R0
+0599  B60F     IN R0, 0x3F
+059A  920F     PUSH R0
+059B  2411     EOR R1, R1
+059C  938F     PUSH R24
+59:            	/* Insert your AC interrupt handling code here */
+60:            
+61:            	/* The interrupt flag has to be cleared manually */
+62:            	BOD.INTFLAGS = BOD_VLMIE_bm;
+059D  E081     LDI R24, 0x01
+059E  9380     STS 0x00, R24
+63:            }
+05A0  918F     POP R24
+05A1  900F     POP R0
+05A2  BE0F     OUT 0x3F, R0
+05A3  900F     POP R0
+05A4  901F     POP R1
+05A5  9518     RETI
+64:            
+65:            /**
+66:             * \brief Initialize clkctrl interface
+67:             */
+68:            int8_t CLKCTRL_Initialize()
+69:            {
+70:                //RUNSTDBY disabled; 
+71:                ccp_write_io((void*)&(CLKCTRL.OSC32KCTRLA),0x00);
+72:            
+73:                //CSUT 1K; SEL disabled; RUNSTDBY disabled; ENABLE disabled; 
+74:                ccp_write_io((void*)&(CLKCTRL.XOSC32KCTRLA),0x00);
+75:            
+76:                //RUNSTDBY disabled; 
+77:                ccp_write_io((void*)&(CLKCTRL.OSC20MCTRLA),0x00);
+78:            
+79:                //PDIV 6X; PEN enabled; 
+80:                ccp_write_io((void*)&(CLKCTRL.MCLKCTRLB),0x11);
+81:            
+82:                //CLKOUT disabled; CLKSEL OSC20M; 
+83:                ccp_write_io((void*)&(CLKCTRL.MCLKCTRLA),0x00);
+84:            
+85:                //LOCKEN disabled; 
+86:                ccp_write_io((void*)&(CLKCTRL.MCLKLOCK),0x00);
+87:            
+88:            	return 0;
+89:            }
+04C2  E080     LDI R24, 0x00
+04C3  9508     RET
+90:            
+91:            /**
+92:             * \brief Initialize slpctrl interface
+93:             */
+94:            int8_t SLPCTRL_Initialize()
+95:            {
+96:                //SMODE IDLE; SEN disabled; 
+97:                ccp_write_io((void*)&(SLPCTRL.CTRLA),0x00);
+98:            
+99:                return 0;
+100:           }
+05E9  E080     LDI R24, 0x00
+05EA  9508     RET
+101:           
+102:           /**
+103:            * \brief Initialize wdt interface
+104:            */
+105:            
+106:           int8_t WDT_Initialize()
+107:           {
+108:               //WINDOW OFF; PERIOD OFF; 
+109:               ccp_write_io((void*)&(WDT.CTRLA),0x00);
+110:           
+111:           	return 0;
+112:           }
+05F1  E080     LDI R24, 0x00
+05F2  9508     RET
+---  C:/Users/1mano/Documents/Task26.X/mcc_generated_files/include/ccp.h  -------------------------------
+1:             /*
+2:                 (c) 2018 Microchip Technology Inc. and its subsidiaries. 
+3:                 
+4:                 Subject to your compliance with these terms, you may use Microchip software and any 
+5:                 derivatives exclusively with Microchip products. It is your responsibility to comply with third party 
+6:                 license terms applicable to your use of third party software (including open source software) that 
+7:                 may accompany Microchip software.
+8:                 
+9:                 THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER 
+10:                EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY 
+11:                IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS 
+12:                FOR A PARTICULAR PURPOSE.
+13:                
+14:                IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
+15:                INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
+16:                WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP 
+17:                HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO 
+18:                THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL 
+19:                CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
+20:                OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
+21:                SOFTWARE.
+22:            */
+23:            
+24:            #ifndef CPU_CCP_H
+25:            #define CPU_CCP_H
+26:            
+27:            #include "../utils/compiler.h"
+28:            #include "../include/protected_io.h"
+29:            
+30:            #ifdef __cplusplus
+31:            extern "C" {
+32:            #endif
+33:            
+34:            /**
+35:             * \brief Write to a CCP-protected 8-bit I/O register
+36:             *
+37:             * \param addr Address of the I/O register
+38:             * \param value Value to be written
+39:             *
+40:             * \note Using IAR Embedded workbench, the choice of memory model has an impact
+41:             *       on calling convention. The memory model is not visible to the
+42:             *       preprocessor, so it must be defined in the Assembler preprocessor directives.
+43:             */
+44:            static inline void ccp_write_io(void *addr, uint8_t value)
+45:            {
+46:            	protected_write_io(addr, CCP_IOREG_gc, value);
+049E  E040     LDI R20, 0x00
+05B5  E040     LDI R20, 0x00
+05C1  E040     LDI R20, 0x00
+05E3  E040     LDI R20, 0x00
+05EB  E040     LDI R20, 0x00
+47:            }
+48:            
+49:            /** @} */
+50:            
+51:            /**
+52:             * \brief Write to CCP-protected 8-bit SPM register
+53:             *
+54:             * \param addr Address of the SPM register
+55:             * \param value Value to be written
+56:             *
+57:             * \note Using IAR Embedded workbench, the choice of memory model has an impact
+58:             *       on calling convention. The memory model is not visible to the
+59:             *       preprocessor, so it must be defined in the Assembler preprocessor directives.
+60:             */
+61:            static inline void ccp_write_spm(void *addr, uint8_t value)
+62:            {
+63:            	protected_write_io(addr, CCP_SPM_gc, value);
+64:            }
+65:            
+66:            /** @} */
+67:            
+68:            #ifdef __cplusplus
+69:            }
+70:            #endif
+71:            
+72:            #endif /* CPU_CCP_H */
+---  C:/Users/1mano/Documents/Task26.X/main.c  ----------------------------------------------------------
+1:             /*
+2:                 (c) 2018 Microchip Technology Inc. and its subsidiaries. 
+3:                 
+4:                 Subject to your compliance with these terms, you may use Microchip software and any 
+5:                 derivatives exclusively with Microchip products. It is your responsibility to comply with third party 
+6:                 license terms applicable to your use of third party software (including open source software) that 
+7:                 may accompany Microchip software.
+8:                 
+9:                 THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER 
+10:                EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY 
+11:                IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS 
+12:                FOR A PARTICULAR PURPOSE.
+13:                
+14:                IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
+15:                INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
+16:                WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP 
+17:                HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO 
+18:                THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL 
+19:                CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
+20:                OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
+21:                SOFTWARE.
+22:            */
+23:            
+24:            #include "mcc_generated_files/mcc.h"
+25:            #include "mcc_generated_files/include/pin_manager.h"
+26:            #include <avr/io.h>
+27:            
+28:            /*
+29:                Main application
+30:            */
+31:            int main(void)
+32:            {
+33:                /* Initializes MCU, drivers and middleware */
+34:                SYSTEM_Initialize();
+0303  940E     CALL PORTD_IO_PD5_DefaultInterruptHandler
+0304  05A6     CPC R26, R6
+35:            
+36:                int oldA = IO_PF2_GetValue() >> 2; //get the initial value of clkPin
+0305  B386     IN R24, 0x16
+0306  FB82     BST R24, 2
+0307  24CC     EOR R12, R12
+0308  F8C0     BLD R12, 0
+0309  2CD1     MOV R13, R1
+37:                int oldB = IO_PF3_GetValue() >> 3; //get the initial value of dtPin
+030A  B386     IN R24, 0x16
+030B  FB83     BST R24, 3
+030C  2466     EOR R6, R6
+030D  F860     BLD R6, 0
+030E  2C71     MOV R7, R1
+38:                unsigned int state = 2;
+0317  9468     SET
+0318  24EE     EOR R14, R14
+0319  F8E1     BLD R14, 1
+031A  2CF1     MOV R15, R1
+39:                printf("made it");
+030F  E386     LDI R24, 0x36
+0310  E491     LDI R25, 0x41
+0311  939F     PUSH R25
+0312  938F     PUSH R24
+0313  940E     CALL PORTD_IO_PD5_DefaultInterruptHandler
+0314  056C     CPC R22, R12
+0315  900F     POP R0
+0316  900F     POP R0
+40:            
+41:                /* Replace with your application code */
+42:                while (1){
+43:                    int result = 0;
+0363  2C61     MOV R6, R1
+0364  2C71     MOV R7, R1
+0365  C005     RJMP 0x36B
+0366  2C61     MOV R6, R1
+0367  2C71     MOV R7, R1
+0368  C002     RJMP 0x36B
+0369  2C61     MOV R6, R1
+036A  2C71     MOV R7, R1
+44:                    int newA = IO_PF2_GetValue() >> 2;//read the value of clkPin to newA
+032D  B386     IN R24, 0x16
+032E  FB82     BST R24, 2
+032F  2788     EOR R24, R24
+0330  F980     BLD R24, 0
+0331  2FC8     MOV R28, R24
+0332  E020     LDI R18, 0x00
+0333  2FD2     MOV R29, R18
+45:                    int newB = IO_PF3_GetValue() >> 3;//read the value of dtPin to newB
+0334  B386     IN R24, 0x16
+0335  FB83     BST R24, 3
+0336  2700     EOR R16, R16
+0337  F900     BLD R16, 0
+0338  E010     LDI R17, 0x00
+46:                    //Sense change in state
+47:                    if(oldA != newA || oldB != newB){
+0339  16CC     CP R12, R28
+033A  06DD     CPC R13, R29
+033B  F419     BRNE 0x33F
+033C  1660     CP R6, R16
+033D  0671     CPC R7, R17
+033E  F121     BREQ 0x363
+48:                        IO_PF5_Toggle();
+031B  2E0F     MOV R0, R31
+031C  EAF7     LDI R31, 0xA7
+031D  2E8F     MOV R8, R31
+031E  E0F4     LDI R31, 0x04
+031F  2E9F     MOV R9, R31
+0320  2DF0     MOV R31, R0
+0321  9468     SET
+0322  2455     EOR R5, R5
+0323  F855     BLD R5, 5
+033F  01F4     MOVW R30, R8
+0340  8250     ST Z, R5
+49:                        //Sense falling edge of clkPin
+50:                        if (oldA == 1 && newA == 0)
+0341  94CA     DEC R12
+0342  28CD     OR R12, R13
+0343  F511     BRNE 0x366
+0344  9720     SBIW R28, 0x00
+0345  F519     BRNE 0x369
+51:                        {
+52:                            //If clkPin was the first to return to zero return 1, else return -1
+53:                            result = (oldB * 2) - 1;
+0346  0C66     ADD R6, R6
+0347  1C77     ADC R7, R7
+0348  E021     LDI R18, 0x01
+0349  1A62     SUB R6, R18
+034A  0871     SBC R7, R1
+54:                            if(result == 1){
+034B  E081     LDI R24, 0x01
+034C  1668     CP R6, R24
+034D  0471     CPC R7, R1
+034E  F439     BRNE 0x356
+55:                                printf("right");
+0324  2E0F     MOV R0, R31
+0325  E3FE     LDI R31, 0x3E
+0326  2E2F     MOV R2, R31
+0327  E4F1     LDI R31, 0x41
+0328  2E3F     MOV R3, R31
+0329  2DF0     MOV R31, R0
+034F  923F     PUSH R3
+0350  922F     PUSH R2
+0351  940E     CALL PORTD_IO_PD5_DefaultInterruptHandler
+0352  056C     CPC R22, R12
+0353  900F     POP R0
+0354  900F     POP R0
+0355  C015     RJMP 0x36B
+56:                            }
+57:                            else if(result == -1){
+0356  EF9F     LDI R25, 0xFF
+0357  1669     CP R6, R25
+0358  0679     CPC R7, R25
+0359  F489     BRNE 0x36B
+58:                                printf("left");
+035A  E4E4     LDI R30, 0x44
+035B  E4F1     LDI R31, 0x41
+035C  93FF     PUSH R31
+035D  93EF     PUSH R30
+035E  940E     CALL PORTD_IO_PD5_DefaultInterruptHandler
+035F  056C     CPC R22, R12
+0360  900F     POP R0
+0361  900F     POP R0
+0362  C008     RJMP 0x36B
+59:                            }
+60:                        }
+61:                    }
+62:                    //increment the state or decrement the state based on result, 
+63:                    //state can never be negative or greater then 7
+64:                    state = (state + result) % 8;
+036B  0CE6     ADD R14, R6
+036C  1CF7     ADC R15, R7
+036D  E087     LDI R24, 0x07
+036E  22E8     AND R14, R24
+036F  24FF     EOR R15, R15
+65:                    //store the new state of clkPin and dtPin for the next cycle through
+66:                    oldA = newA;
+0378  016E     MOVW R12, R28
+67:                    oldB = newB;
+0379  0138     MOVW R6, R16
+68:                    //display the state to the connected lights
+69:                    VPORTD.OUT = 1 << state;
+032A  24AA     EOR R10, R10
+032B  94A3     INC R10
+032C  2CB1     MOV R11, R1
+0370  01C5     MOVW R24, R10
+0371  2C0E     MOV R0, R14
+0372  C002     RJMP 0x375
+0373  0F88     ADD R24, R24
+0374  1F99     ADC R25, R25
+0375  940A     DEC R0
+0376  F7E2     BRPL 0x373
+0377  B98D     OUT 0x0D, R24
+70:                }
+037A  CFB2     RJMP 0x32D
+71:            }
+72:            /**
+73:                End of File
+74:            */
+---  ././././crt1/gcrt1.S  ------------------------------------------------------------------------------
+0000  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0002  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0004  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0006  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0008  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+000A  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+000C  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+000E  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0010  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0012  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0014  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0016  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0018  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+001A  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+001C  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+001E  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0020  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0022  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0024  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0026  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0028  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+002A  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+002C  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+002E  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0030  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0032  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0034  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0036  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0038  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+003A  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+003C  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+003E  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0040  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0042  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0044  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0046  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0048  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+004A  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+004C  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+004E  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+05FC  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
+0071  2411     EOR R1, R1
+0072  BE1F     OUT 0x3F, R1
+0073  EFCF     LDI R28, 0xFF
+0074  BFCD     OUT 0x3D, R28
+0075  E3DF     LDI R29, 0x3F
+0076  BFDE     OUT 0x3E, R29
+0095  940E     CALL PORTD_IO_PD5_DefaultInterruptHandler
+0097  940C     JMP PORTD_IO_PD5_DefaultInterruptHandler
