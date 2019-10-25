@@ -9,12 +9,12 @@
          <string>class com.microchip.mcc.mcu8.interruptManager.cpuint.CPUINT</string>
       </entry>
       <entry>
-         <string>BOD</string>
-         <string>class com.microchip.mcc.mcu8.systemManager.tiny_mega_init.bod.BOD</string>
-      </entry>
-      <entry>
          <string>WDT</string>
          <string>class com.microchip.mcc.mcu8.systemManager.tiny_mega_init.wdt.WDT</string>
+      </entry>
+      <entry>
+         <string>BOD</string>
+         <string>class com.microchip.mcc.mcu8.systemManager.tiny_mega_init.bod.BOD</string>
       </entry>
       <entry>
          <string>USART0</string>
@@ -33,12 +33,12 @@
          <string>class com.microchip.mcc.mcu8.systemManager.tiny_mega_init.slpctrl.SLPCTRL</string>
       </entry>
       <entry>
-         <string>Interrupt Manager</string>
-         <string>class com.microchip.mcc.mcu8.interruptManager.InterruptManager</string>
-      </entry>
-      <entry>
          <string>CLKCTRL</string>
          <string>class com.microchip.mcc.mcu8.systemManager.tiny_mega_init.clkctrl.CLKCTRL</string>
+      </entry>
+      <entry>
+         <string>Interrupt Manager</string>
+         <string>class com.microchip.mcc.mcu8.interruptManager.InterruptManager</string>
       </entry>
    </usedClasses>
    <usedLibraries class="java.util.ArrayList">
@@ -51,7 +51,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="PF3"/>
-         <value>disabled</value>
+         <value>output</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="PF2"/>
@@ -63,7 +63,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="PF4"/>
-         <value>disabled</value>
+         <value>output</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="VPORTC.INTFLAGS"/>
@@ -107,7 +107,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="PORTF.DIR"/>
-         <value>0</value>
+         <value>24</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="PORTA.PIN1CTRL"/>
@@ -235,7 +235,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="PE0"/>
-         <value>disabled</value>
+         <value>input</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTB.PIN1CTRL" settingAlias="ISC" alias="FALLING"/>
@@ -263,7 +263,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="PE1"/>
-         <value>disabled</value>
+         <value>input</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="PE3"/>
@@ -291,7 +291,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="PORTF.DIR" settingAlias="PORTF.DIR"/>
-         <value>0</value>
+         <value>24</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="USART0" registerAlias="TXDATAL"/>
@@ -571,7 +571,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="PORTE.PIN1CTRL"/>
-         <value>0</value>
+         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="PORTF.PIN7CTRL" settingAlias="PULLUPEN"/>
@@ -1755,11 +1755,11 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name PE0"/>
-         <value/>
+         <value>IO_PE0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name PE1"/>
-         <value/>
+         <value>IO_PE1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name PE2"/>
@@ -1807,7 +1807,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name PF4"/>
-         <value/>
+         <value>IO_PF4</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name PF5"/>
@@ -1835,7 +1835,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name PF3"/>
-         <value/>
+         <value>IO_PF3</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTE.PIN3CTRL" settingAlias="ISC" alias="FALLING"/>
@@ -1858,12 +1858,12 @@
          <value>enabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CPUINT" registerAlias="CTRLA" settingAlias="IVSEL" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="SYSCFG0" settingAlias="RSTPINCFG"/>
          <value>GPIO</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CPUINT" registerAlias="CTRLA" settingAlias="IVSEL" alias="disabled"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="PORTE.DIRSET" settingAlias="PORTE.DIRSET"/>
@@ -2251,7 +2251,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="PORTE.PIN1CTRL" settingAlias="ISC"/>
-         <value>INTDISABLE</value>
+         <value>BOTHEDGES</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="BOD" registerAlias="CTRLA" settingAlias="SAMPFREQ" alias="1KHZ"/>
@@ -3475,7 +3475,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="DIR_PF3"/>
-         <value>false</value>
+         <value>true</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="PORTC.PIN1CTRL" settingAlias="ISC"/>
@@ -3511,7 +3511,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="DIR_PF4"/>
-         <value>false</value>
+         <value>true</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="PORTC.PIN4CTRL" settingAlias="INVEN"/>
@@ -4543,7 +4543,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="PORTE.PIN0CTRL"/>
-         <value>0</value>
+         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTD.PIN5CTRL" settingAlias="PULLUPEN" alias="enabled"/>
@@ -4934,11 +4934,11 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="CPUINT" registerAlias="CTRLA"/>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="BODCFG" settingAlias="ACTIVE" alias="DIS"/>
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="BODCFG" settingAlias="ACTIVE" alias="DIS"/>
+         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="CPUINT" registerAlias="CTRLA"/>
          <value>0</value>
       </entry>
       <entry>
@@ -5447,7 +5447,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="PORTE.PIN0CTRL" settingAlias="ISC"/>
-         <value>INTDISABLE</value>
+         <value>BOTHEDGES</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="PORTA.PIN1CTRL" settingAlias="PULLUPEN"/>
@@ -6868,100 +6868,100 @@
    </tokenMap>
    <generatedFileHashHistoryMap class="java.util.HashMap">
       <entry>
-         <file>mcc_generated_files/utils/assembler/gas.h</file>
-         <hash>70b30b91e87e376d5a0b2e6cef5115e929bec2ec69ecda6add46256663c0f1a6</hash>
+         <file>mcc_generated_files\include\port.h</file>
+         <hash>e71cd906876239a49d5fe7d087f7a7df66ee67874bc55e343cea547fe4cecc40</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files/src/pin_manager.c</file>
-         <hash>aa92dd322f538c633101370eb1d4651500168b5e2040384a88172fb457ce5807</hash>
+         <file>mcc_generated_files\include\pin_manager.h</file>
+         <hash>bdc745947594a2d4ef589d9a6c732344bc0efbfb1b369d5f65c2079864ac5c9a</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files/config/clock_config.h</file>
-         <hash>7f9fb7c00e1898ecae6b266c591202fe0ab12db71bd08b8bb530212158064914</hash>
+         <file>mcc_generated_files\mcc.h</file>
+         <hash>de5fd6c61f29389d38ef1aac29b0c76fcaa5f2bbeba3d2c71672488cb7990f31</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files/src/cpuint.c</file>
-         <hash>a4fff4b4bcafeed95d18c869272c5285eb4d803cdbd2624e5d12ca3a06c7e780</hash>
+         <file>mcc_generated_files\src\protected_io.S</file>
+         <hash>f39bf9146566e71309959e1118fca5d33a738b265907608f74f17d42f8ff9afb</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files/utils/assembler/iar.h</file>
-         <hash>e028f1f4acdfae835f03d0732e46301d6d6a087adcf81fbd182cd30c72d9caf7</hash>
+         <file>mcc_generated_files\utils\compiler.h</file>
+         <hash>701125bb2cc35e7b702045f6668e847ad756bc24992b94242a827e3786b40b30</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\src\usart0.c</file>
+         <hash>b84080e331030c8de1900f5d57e1d3c0419b21ad03e93bf353cd72315bbbdb94</hash>
       </entry>
       <entry>
          <file>main.c</file>
          <hash>ad6433d2c98b42e7128f2ebaca15eb375df8a83f923bb0a884d7b0373577396a</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files/include/ccp.h</file>
-         <hash>41d0cd497b8cf56d50c95c9e110dfd3e13be731047edea41d68bb2ad8d19f671</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/utils/assembler.h</file>
-         <hash>01f8b55eaf03501e9c1a9a7361d9a470a95d22be20d52713a39c17cca2fdc5d8</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/src/usart0.c</file>
-         <hash>b84080e331030c8de1900f5d57e1d3c0419b21ad03e93bf353cd72315bbbdb94</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/include/rstctrl.h</file>
-         <hash>a683d191f49cd21f445cd9cf76206d0e1808c5f2bd18cb77c8c5978573eedec0</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/utils/compiler.h</file>
-         <hash>701125bb2cc35e7b702045f6668e847ad756bc24992b94242a827e3786b40b30</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/include/cpuint.h</file>
-         <hash>2d855f2c022a00a9bd55dd527af7c8281c06a5534676dfdef13945b35966f056</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/include/port.h</file>
-         <hash>e71cd906876239a49d5fe7d087f7a7df66ee67874bc55e343cea547fe4cecc40</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/utils/interrupt_avr8.h</file>
-         <hash>c7ab02c0a91bda858b1d56194df4b7471ecc79c590409f98435c8a8b7a1253ec</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/src/protected_io.S</file>
-         <hash>f39bf9146566e71309959e1118fca5d33a738b265907608f74f17d42f8ff9afb</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/include/usart0.h</file>
-         <hash>06b9309b04e7f2ebc7633e058cd8028caf5a76241a0af992c7470266d46a7c01</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/mcc.h</file>
-         <hash>c2db8cf4656699e7c15e8a76266f203349aea72e1f7a4a290bde9dcfc14fe6dd</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/device_config.c</file>
+         <file>mcc_generated_files\device_config.c</file>
          <hash>eac2e1660f7ef71caa5e4e595efe6750f02824f2007882e83e6744dd2ba4749d</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files/mcc.c</file>
-         <hash>ea7ca18ee8b4257085727314d2c2c3070b94f2a8a591ddcc6bb5c399745f53d3</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/include/protected_io.h</file>
-         <hash>b67b37f727087dacea8970fbea5cebe003ec80423877a9890b44ca2321f35a37</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/utils/atomic.h</file>
-         <hash>69e8baa2b6af4ef9497dc17c8b213b3c5c1533a323b41bb0a5c79fc5c490c342</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/utils/utils.h</file>
+         <file>mcc_generated_files\utils\utils.h</file>
          <hash>53d161a0a7ee57dfa65fbd3ae89b41fd7500ba0c9786029182e27a8c5cd29d3f</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files/include/pin_manager.h</file>
-         <hash>551da75553c80114bd9211952765b5fd3215fc5d4a710bcfb5b7c86b11e1768a</hash>
+         <file>mcc_generated_files\src\pin_manager.c</file>
+         <hash>edc0a894554e4005425ccb4585f8a3886aefeb65f55183c8a2d72af657ab4ca2</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files/utils/utils_assert.h</file>
+         <file>mcc_generated_files\utils\assembler.h</file>
+         <hash>01f8b55eaf03501e9c1a9a7361d9a470a95d22be20d52713a39c17cca2fdc5d8</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\utils\atomic.h</file>
+         <hash>69e8baa2b6af4ef9497dc17c8b213b3c5c1533a323b41bb0a5c79fc5c490c342</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\utils\interrupt_avr8.h</file>
+         <hash>c7ab02c0a91bda858b1d56194df4b7471ecc79c590409f98435c8a8b7a1253ec</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\utils\utils_assert.h</file>
          <hash>7781ec46266b766ced71fd60df34b416247c84dae4f2a8be29500e9b5774166a</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\src\cpuint.c</file>
+         <hash>a4fff4b4bcafeed95d18c869272c5285eb4d803cdbd2624e5d12ca3a06c7e780</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\include\rstctrl.h</file>
+         <hash>a683d191f49cd21f445cd9cf76206d0e1808c5f2bd18cb77c8c5978573eedec0</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\include\cpuint.h</file>
+         <hash>2d855f2c022a00a9bd55dd527af7c8281c06a5534676dfdef13945b35966f056</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\include\usart0.h</file>
+         <hash>06b9309b04e7f2ebc7633e058cd8028caf5a76241a0af992c7470266d46a7c01</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\config\clock_config.h</file>
+         <hash>7f9fb7c00e1898ecae6b266c591202fe0ab12db71bd08b8bb530212158064914</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\utils\assembler\gas.h</file>
+         <hash>70b30b91e87e376d5a0b2e6cef5115e929bec2ec69ecda6add46256663c0f1a6</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\include\ccp.h</file>
+         <hash>41d0cd497b8cf56d50c95c9e110dfd3e13be731047edea41d68bb2ad8d19f671</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\include\protected_io.h</file>
+         <hash>b67b37f727087dacea8970fbea5cebe003ec80423877a9890b44ca2321f35a37</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\mcc.c</file>
+         <hash>f2aba9a08b1ce3ea65a81dec599cc0cce88dadb96b75a5f1097e4de7e9ac0afb</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\utils\assembler\iar.h</file>
+         <hash>e028f1f4acdfae835f03d0732e46301d6d6a087adcf81fbd182cd30c72d9caf7</hash>
       </entry>
    </generatedFileHashHistoryMap>
    <mc3libFileHashHistoryMap class="java.util.HashMap"/>

@@ -22,6 +22,27 @@
 */
 
 #include "mcc_generated_files/mcc.h"
+#include <stdlib.h>
+#include <util/delay.h>
+
+int led0 = 0;
+int led1 = 0;
+    
+void set_vals() {
+    led0 = rand() % 2;
+    led1 = rand() % 2;
+}
+
+void update_LEDs() {
+    if (led0 == 1)
+        IO_PF3_SetHigh();
+    else
+        IO_PF3_SetLow();
+    if (led1 == 1)
+        IO_PF4_SetHigh();
+    else
+        IO_PF4_SetLow();
+}
 
 /*
     Main application
@@ -33,7 +54,9 @@ int main(void)
 
     /* Replace with your application code */
     while (1){
-        printf("Hello World");
+        set_vals();
+        update_LEDs();
+        _delay_ms(250);
     }
 }
 /**

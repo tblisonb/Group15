@@ -23,7 +23,11 @@
 
 #include "../include/pin_manager.h"
 static void (*PORTA_PA1_InterruptHandler)(void);
+static void (*PORTE_IO_PE0_InterruptHandler)(void);
+static void (*PORTF_IO_PF3_InterruptHandler)(void);
+static void (*PORTE_IO_PE1_InterruptHandler)(void);
 static void (*PORTA_PA0_InterruptHandler)(void);
+static void (*PORTF_IO_PF4_InterruptHandler)(void);
 
 void PORT_Initialize(void);
 
@@ -37,7 +41,7 @@ void PIN_MANAGER_Initialize()
     PORTC.DIR = 0x00;
     PORTD.DIR = 0x00;
     PORTE.DIR = 0x00;
-    PORTF.DIR = 0x00;
+    PORTF.DIR = 0x18;
 
     /* OUT Registers Initialization */
     PORTA.OUT = 0x00;
@@ -80,8 +84,8 @@ void PIN_MANAGER_Initialize()
     PORTD.PIN5CTRL = 0x00;
     PORTD.PIN6CTRL = 0x00;
     PORTD.PIN7CTRL = 0x00;
-    PORTE.PIN0CTRL = 0x00;
-    PORTE.PIN1CTRL = 0x00;
+    PORTE.PIN0CTRL = 0x01;
+    PORTE.PIN1CTRL = 0x01;
     PORTE.PIN2CTRL = 0x00;
     PORTE.PIN3CTRL = 0x00;
     PORTE.PIN4CTRL = 0x00;
@@ -107,7 +111,11 @@ void PIN_MANAGER_Initialize()
 
     // register default ISC callback functions at runtime; use these methods to register a custom function
     PORTA_PA1_SetInterruptHandler(PORTA_PA1_DefaultInterruptHandler);
+    PORTE_IO_PE0_SetInterruptHandler(PORTE_IO_PE0_DefaultInterruptHandler);
+    PORTF_IO_PF3_SetInterruptHandler(PORTF_IO_PF3_DefaultInterruptHandler);
+    PORTE_IO_PE1_SetInterruptHandler(PORTE_IO_PE1_DefaultInterruptHandler);
     PORTA_PA0_SetInterruptHandler(PORTA_PA0_DefaultInterruptHandler);
+    PORTF_IO_PF4_SetInterruptHandler(PORTF_IO_PF4_DefaultInterruptHandler);
 }
 
 void PORT_Initialize(void)
@@ -157,6 +165,45 @@ void PORTA_PA1_DefaultInterruptHandler(void)
     // or set custom function using PORTA_PA1_SetInterruptHandler()
 }
 /**
+  Allows selecting an interrupt handler for PORTE_IO_PE0 at application runtime
+*/
+void PORTE_IO_PE0_SetInterruptHandler(void (* interruptHandler)(void)) 
+{
+    PORTE_IO_PE0_InterruptHandler = interruptHandler;
+}
+
+void PORTE_IO_PE0_DefaultInterruptHandler(void)
+{
+    // add your PORTE_IO_PE0 interrupt custom code
+    // or set custom function using PORTE_IO_PE0_SetInterruptHandler()
+}
+/**
+  Allows selecting an interrupt handler for PORTF_IO_PF3 at application runtime
+*/
+void PORTF_IO_PF3_SetInterruptHandler(void (* interruptHandler)(void)) 
+{
+    PORTF_IO_PF3_InterruptHandler = interruptHandler;
+}
+
+void PORTF_IO_PF3_DefaultInterruptHandler(void)
+{
+    // add your PORTF_IO_PF3 interrupt custom code
+    // or set custom function using PORTF_IO_PF3_SetInterruptHandler()
+}
+/**
+  Allows selecting an interrupt handler for PORTE_IO_PE1 at application runtime
+*/
+void PORTE_IO_PE1_SetInterruptHandler(void (* interruptHandler)(void)) 
+{
+    PORTE_IO_PE1_InterruptHandler = interruptHandler;
+}
+
+void PORTE_IO_PE1_DefaultInterruptHandler(void)
+{
+    // add your PORTE_IO_PE1 interrupt custom code
+    // or set custom function using PORTE_IO_PE1_SetInterruptHandler()
+}
+/**
   Allows selecting an interrupt handler for PORTA_PA0 at application runtime
 */
 void PORTA_PA0_SetInterruptHandler(void (* interruptHandler)(void)) 
@@ -169,3 +216,32 @@ void PORTA_PA0_DefaultInterruptHandler(void)
     // add your PORTA_PA0 interrupt custom code
     // or set custom function using PORTA_PA0_SetInterruptHandler()
 }
+/**
+  Allows selecting an interrupt handler for PORTF_IO_PF4 at application runtime
+*/
+void PORTF_IO_PF4_SetInterruptHandler(void (* interruptHandler)(void)) 
+{
+    PORTF_IO_PF4_InterruptHandler = interruptHandler;
+}
+
+void PORTF_IO_PF4_DefaultInterruptHandler(void)
+{
+    // add your PORTF_IO_PF4 interrupt custom code
+    // or set custom function using PORTF_IO_PF4_SetInterruptHandler()
+}
+ISR(PORTE_PORT_vect)
+{  
+    // Call the interrupt handler for the callback registered at runtime
+    if(VPORTE.INTFLAGS & PORT_INT0_bm)
+    {
+       PORTE_IO_PE0_InterruptHandler();
+    }
+    if(VPORTE.INTFLAGS & PORT_INT1_bm)
+    {
+       PORTE_IO_PE1_InterruptHandler();
+    }
+
+    /* Clear interrupt flags */
+    VPORTE.INTFLAGS = 0xff;
+}
+
