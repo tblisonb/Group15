@@ -25,6 +25,7 @@
 
 #include <avr/io.h>
 #include "port.h"
+#include <util/delay.h>
 
 //get/set PA1 aliases
 #define PA1_SetHigh() do { PORTA_OUTSET = 0x2; } while(0)
@@ -116,6 +117,24 @@
 #define PA0_DisableDigitalInputBuffer() do { PORTA.PIN0CTRL = (PORTA.PIN0CTRL & ~PORT_ISC_gm) | 0x4 ; } while(0)
 #define PA0_EnableInterruptForLowLevelSensing() do { PORTA.PIN0CTRL = (PORTA.PIN0CTRL & ~PORT_ISC_gm) | 0x5 ; } while(0)
 
+//get/set IO_PF5 aliases
+#define IO_PF5_SetHigh() do { PORTF_OUTSET = 0x20; } while(0)
+#define IO_PF5_SetLow() do { PORTF_OUTCLR = 0x20; } while(0)
+#define IO_PF5_Toggle() do { PORTF_OUTTGL = 0x20; } while(0)
+#define IO_PF5_GetValue() (VPORTF.IN & (0x1 << 5))
+#define IO_PF5_SetDigitalInput() do { PORTF_DIRCLR = 0x20; } while(0)
+#define IO_PF5_SetDigitalOutput() do { PORTF_DIRSET = 0x20; } while(0)
+#define IO_PF5_SetPullUp() do { PORTF_PIN5CTRL  |= PORT_PULLUPEN_bm; } while(0)
+#define IO_PF5_ResetPullUp() do { PORTF_PIN5CTRL  &= ~PORT_PULLUPEN_bm; } while(0)
+#define IO_PF5_SetInverted() do { PORTF_PIN5CTRL  |= PORT_INVEN_bm; } while(0)
+#define IO_PF5_ResetInverted() do { PORTF_PIN5CTRL  &= ~PORT_INVEN_bm; } while(0)
+#define IO_PF5_DisableInterruptOnChange() do { PORTF.PIN5CTRL = (PORTF.PIN5CTRL & ~PORT_ISC_gm) | 0x0 ; } while(0)
+#define IO_PF5_EnableInterruptForBothEdges() do { PORTF.PIN5CTRL = (PORTF.PIN5CTRL & ~PORT_ISC_gm) | 0x1 ; } while(0)
+#define IO_PF5_EnableInterruptForRisingEdge() do { PORTF.PIN5CTRL = (PORTF.PIN5CTRL & ~PORT_ISC_gm) | 0x2 ; } while(0)
+#define IO_PF5_EnableInterruptForFallingEdge() do { PORTF.PIN5CTRL = (PORTF.PIN5CTRL & ~PORT_ISC_gm) | 0x3 ; } while(0)
+#define IO_PF5_DisableDigitalInputBuffer() do { PORTF.PIN5CTRL = (PORTF.PIN5CTRL & ~PORT_ISC_gm) | 0x4 ; } while(0)
+#define IO_PF5_EnableInterruptForLowLevelSensing() do { PORTF.PIN5CTRL = (PORTF.PIN5CTRL & ~PORT_ISC_gm) | 0x5 ; } while(0)
+
 //get/set IO_PF4 aliases
 #define IO_PF4_SetHigh() do { PORTF_OUTSET = 0x10; } while(0)
 #define IO_PF4_SetLow() do { PORTF_OUTCLR = 0x10; } while(0)
@@ -145,6 +164,8 @@ void PORTE_IO_PE1_DefaultInterruptHandler(void);
 void PORTE_IO_PE1_SetInterruptHandler(void (* interruptHandler)(void)) ;
 void PORTA_PA0_DefaultInterruptHandler(void);
 void PORTA_PA0_SetInterruptHandler(void (* interruptHandler)(void)) ;
+void PORTF_IO_PF5_DefaultInterruptHandler(void);
+void PORTF_IO_PF5_SetInterruptHandler(void (* interruptHandler)(void)) ;
 void PORTF_IO_PF4_DefaultInterruptHandler(void);
 void PORTF_IO_PF4_SetInterruptHandler(void (* interruptHandler)(void)) ;
 #endif /* PINS_H_INCLUDED */

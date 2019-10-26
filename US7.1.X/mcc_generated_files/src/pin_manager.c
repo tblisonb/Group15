@@ -27,6 +27,7 @@ static void (*PORTE_IO_PE0_InterruptHandler)(void);
 static void (*PORTF_IO_PF3_InterruptHandler)(void);
 static void (*PORTE_IO_PE1_InterruptHandler)(void);
 static void (*PORTA_PA0_InterruptHandler)(void);
+static void (*PORTF_IO_PF5_InterruptHandler)(void);
 static void (*PORTF_IO_PF4_InterruptHandler)(void);
 
 void PORT_Initialize(void);
@@ -84,8 +85,8 @@ void PIN_MANAGER_Initialize()
     PORTD.PIN5CTRL = 0x00;
     PORTD.PIN6CTRL = 0x00;
     PORTD.PIN7CTRL = 0x00;
-    PORTE.PIN0CTRL = 0x01;
-    PORTE.PIN1CTRL = 0x01;
+    PORTE.PIN0CTRL = 0x02;
+    PORTE.PIN1CTRL = 0x03;
     PORTE.PIN2CTRL = 0x00;
     PORTE.PIN3CTRL = 0x00;
     PORTE.PIN4CTRL = 0x00;
@@ -174,8 +175,14 @@ void PORTE_IO_PE0_SetInterruptHandler(void (* interruptHandler)(void))
 
 void PORTE_IO_PE0_DefaultInterruptHandler(void)
 {
-    // add your PORTE_IO_PE0 interrupt custom code
-    // or set custom function using PORTE_IO_PE0_SetInterruptHandler()
+    if (IO_PE1_GetValue() == 0) {
+        IO_PF4_Toggle();
+        _delay_ms(500);
+        IO_PF3_Toggle();
+        IO_PF4_Toggle();
+        _delay_ms(500);
+        IO_PF3_Toggle();
+    }
 }
 /**
   Allows selecting an interrupt handler for PORTF_IO_PF3 at application runtime
@@ -200,8 +207,14 @@ void PORTE_IO_PE1_SetInterruptHandler(void (* interruptHandler)(void))
 
 void PORTE_IO_PE1_DefaultInterruptHandler(void)
 {
-    // add your PORTE_IO_PE1 interrupt custom code
-    // or set custom function using PORTE_IO_PE1_SetInterruptHandler()
+    if (IO_PE0_GetValue() == 0) {
+        IO_PF3_Toggle();
+        _delay_ms(500);
+        IO_PF4_Toggle();
+        IO_PF3_Toggle();
+        _delay_ms(500);
+        IO_PF4_Toggle();
+    }
 }
 /**
   Allows selecting an interrupt handler for PORTA_PA0 at application runtime

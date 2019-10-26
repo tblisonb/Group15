@@ -54,9 +54,8 @@ int main(void)
 
     /* Replace with your application code */
     while (1){
-        set_vals();
-        update_LEDs();
-        _delay_ms(250);
+        IO_PF5_Toggle();
+        _delay_ms(125);
     }
 }
 /**
