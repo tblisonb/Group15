@@ -44,24 +44,6 @@
 #define IO_PD5_DisableDigitalInputBuffer() do { PORTD.PIN5CTRL = (PORTD.PIN5CTRL & ~PORT_ISC_gm) | 0x4 ; } while(0)
 #define IO_PD5_EnableInterruptForLowLevelSensing() do { PORTD.PIN5CTRL = (PORTD.PIN5CTRL & ~PORT_ISC_gm) | 0x5 ; } while(0)
 
-//get/set PA2 aliases
-#define PA2_SetHigh() do { PORTA_OUTSET = 0x4; } while(0)
-#define PA2_SetLow() do { PORTA_OUTCLR = 0x4; } while(0)
-#define PA2_Toggle() do { PORTA_OUTTGL = 0x4; } while(0)
-#define PA2_GetValue() (VPORTA.IN & (0x1 << 2))
-#define PA2_SetDigitalInput() do { PORTA_DIRCLR = 0x4; } while(0)
-#define PA2_SetDigitalOutput() do { PORTA_DIRSET = 0x4; } while(0)
-#define PA2_SetPullUp() do { PORTA_PIN2CTRL  |= PORT_PULLUPEN_bm; } while(0)
-#define PA2_ResetPullUp() do { PORTA_PIN2CTRL  &= ~PORT_PULLUPEN_bm; } while(0)
-#define PA2_SetInverted() do { PORTA_PIN2CTRL  |= PORT_INVEN_bm; } while(0)
-#define PA2_ResetInverted() do { PORTA_PIN2CTRL  &= ~PORT_INVEN_bm; } while(0)
-#define PA2_DisableInterruptOnChange() do { PORTA.PIN2CTRL = (PORTA.PIN2CTRL & ~PORT_ISC_gm) | 0x0 ; } while(0)
-#define PA2_EnableInterruptForBothEdges() do { PORTA.PIN2CTRL = (PORTA.PIN2CTRL & ~PORT_ISC_gm) | 0x1 ; } while(0)
-#define PA2_EnableInterruptForRisingEdge() do { PORTA.PIN2CTRL = (PORTA.PIN2CTRL & ~PORT_ISC_gm) | 0x2 ; } while(0)
-#define PA2_EnableInterruptForFallingEdge() do { PORTA.PIN2CTRL = (PORTA.PIN2CTRL & ~PORT_ISC_gm) | 0x3 ; } while(0)
-#define PA2_DisableDigitalInputBuffer() do { PORTA.PIN2CTRL = (PORTA.PIN2CTRL & ~PORT_ISC_gm) | 0x4 ; } while(0)
-#define PA2_EnableInterruptForLowLevelSensing() do { PORTA.PIN2CTRL = (PORTA.PIN2CTRL & ~PORT_ISC_gm) | 0x5 ; } while(0)
-
 //get/set IO_PD4 aliases
 #define IO_PD4_SetHigh() do { PORTD_OUTSET = 0x10; } while(0)
 #define IO_PD4_SetLow() do { PORTD_OUTCLR = 0x10; } while(0)
@@ -299,8 +281,6 @@
 void PIN_MANAGER_Initialize();
 void PORTD_IO_PD5_DefaultInterruptHandler(void);
 void PORTD_IO_PD5_SetInterruptHandler(void (* interruptHandler)(void)) ;
-void PORTA_PA2_DefaultInterruptHandler(void);
-void PORTA_PA2_SetInterruptHandler(void (* interruptHandler)(void)) ;
 void PORTD_IO_PD4_DefaultInterruptHandler(void);
 void PORTD_IO_PD4_SetInterruptHandler(void (* interruptHandler)(void)) ;
 void PORTA_PA1_DefaultInterruptHandler(void);

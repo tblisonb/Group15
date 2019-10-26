@@ -52,7 +52,6 @@ static volatile uint8_t USART0_tx_head;
 static volatile uint8_t USART0_tx_tail;
 static volatile uint8_t USART0_tx_elements;
 
-
 void (*USART0_rx_isr_cb)(void) = &USART0_DefaultRxIsrCb;
 
 void (*USART0_tx_isr_cb)(void) = &USART0_DefaultTxIsrCb;
@@ -66,7 +65,7 @@ void USART0_DefaultRxIsrCb(void)
     data = USART0.RXDATAL;
     /* Calculate buffer index */
     tmphead = (USART0_rx_head + 1) & USART0_RX_BUFFER_MASK;
-          
+        
     if (tmphead == USART0_rx_tail) {
             /* ERROR! Receive buffer overflow */
     }else {
@@ -91,28 +90,28 @@ void USART0_DefaultTxIsrCb(void)
         USART0_tx_tail = tmptail;
         /* Start transmission */
         USART0.TXDATAL = USART0_txbuf[tmptail];
-        ;
+        
         USART0_tx_elements--;
     }
 
     if (USART0_tx_elements == 0) {
-        /* Disable TX interrupt */
-        USART0.CTRLA &= ~(1 << USART_DREIE_bp);
+            /* Disable Tx interrupt */
+            USART0.CTRLA &= ~(1 << USART_DREIE_bp);
     }
 }
 
 void USART0_SetISRCb(usart_callback cb, usart0_cb_t type)
 {
     switch (type) {
-    case USART0_RX_CB:
-            USART0_rx_isr_cb = cb;
-            break;
-    case USART0_TX_CB:
-            USART0_tx_isr_cb = cb;
-            break;
-    default:
-            // do nothing
-            break;
+        case USART0_RX_CB:
+                USART0_rx_isr_cb = cb;
+                break;
+        case USART0_TX_CB:
+                USART0_tx_isr_cb = cb;
+                break;
+        default:
+                // do nothing
+                break;
     }
 }
 
@@ -129,13 +128,19 @@ void USART0_SetTXISRCb(usart_callback cb)
 /* Interrupt service routine for RX complete */
 ISR(USART0_RXC_vect)
 {
-    (*USART0_rx_isr_cb)();
+    if (USART0_rx_isr_cb != NULL)
+    {
+        (*USART0_rx_isr_cb)();
+    }
 }
 
 /* Interrupt service routine for Data Register Empty */
 ISR(USART0_DRE_vect)
 {
-    (*USART0_tx_isr_cb)();
+    if (USART0_tx_isr_cb != NULL)
+    {
+        (*USART0_tx_isr_cb)();
+    }
 }
 
 ISR(USART0_TXC_vect)
@@ -198,7 +203,7 @@ void USART0_Write(const uint8_t data)
     ENTER_CRITICAL(W);
     USART0_tx_elements++;
     EXIT_CRITICAL(W);
-    /* Enable TX interrupt */
+    /* Enable Tx interrupt */
     USART0.CTRLA |= (1 << USART_DREIE_bp);
 }
 
@@ -207,14 +212,14 @@ void USART0_Initialize()
     //set baud rate register
     USART0.BAUD = (uint16_t)USART0_BAUD_RATE(9600);
 	
-    //RXCIE enabled; TXCIE enabled; DREIE disabled; RXSIE enabled; LBME disabled; ABEIE disabled; RS485 OFF; 
-    USART0.CTRLA = 0xD0;
+    //RXCIE disabled; TXCIE enabled; DREIE disabled; RXSIE disabled; LBME disabled; ABEIE disabled; RS485 OFF; 
+    USART0.CTRLA = 0x40;
 	
-    //RXEN enabled; TXEN enabled; SFDEN disabled; ODME disabled; RXMODE NORMAL; MPCM disabled; 
-    USART0.CTRLB = 0xC0;
+    //RXEN disabled; TXEN enabled; SFDEN disabled; ODME disabled; RXMODE NORMAL; MPCM disabled; 
+    USART0.CTRLB = 0x40;
 	
-    //CMODE SYNCHRONOUS; PMODE DISABLED; SBMODE 1BIT; CHSIZE 8BIT; UDORD disabled; UCPHA disabled; 
-    USART0.CTRLC = 0x43;
+    //CMODE ASYNCHRONOUS; PMODE DISABLED; SBMODE 1BIT; CHSIZE 8BIT; UDORD disabled; UCPHA disabled; 
+    USART0.CTRLC = 0x03;
 	
     //DBGCTRL_DBGRUN
     USART0.DBGCTRL = 0x00;

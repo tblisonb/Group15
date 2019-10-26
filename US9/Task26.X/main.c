@@ -36,7 +36,8 @@ int main(void)
     int oldA = IO_PF2_GetValue() >> 2; //get the initial value of clkPin
     int oldB = IO_PF3_GetValue() >> 3; //get the initial value of dtPin
     unsigned int state = 2;
-    printf("made it");
+    int right = (int)'R';
+    int left = (int)'L';
 
     /* Replace with your application code */
     while (1){
@@ -52,10 +53,10 @@ int main(void)
                 //If clkPin was the first to return to zero return 1, else return -1
                 result = (oldB * 2) - 1;
                 if(result == 1){
-                    printf("right");
+                    printf("Right\r");
                 }
-                else if(result == -1){
-                    printf("left");
+                else if(result != 1){
+                    printf("Left\r");
                 }
             }
         }

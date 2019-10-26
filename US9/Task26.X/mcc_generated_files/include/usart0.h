@@ -34,7 +34,8 @@
 extern "C" {
 #endif
 
-#define USART0_BAUD_RATE(BAUD_RATE) (((float)3333333 / (2 * (float)BAUD_RATE)) + 0.5)
+/* Normal Mode, Baud register value */
+#define USART0_BAUD_RATE(BAUD_RATE) (((float)3333333 * 64 / (16 * (float)BAUD_RATE)) + 0.5)
 
 /* USART0 Ringbuffer */
 
@@ -127,8 +128,9 @@ bool USART0_IsRxReady();
  */
 bool USART0_IsTxBusy();
 
-bool USART0_IsTxDone();
 
+
+bool USART0_IsTxDone();
 /**
  * \brief Read one character from USART0
  *
@@ -158,10 +160,11 @@ void USART0_Write(const uint8_t data);
  *
  * \return Nothing
  */
+ 
 void USART0_DefaultRxIsrCb(void);
 
 void USART0_DefaultTxIsrCb(void);
- 
+
 void USART0_SetISRCb(usart_callback cb, usart0_cb_t type);
 
 void USART0_SetRXISRCb(usart_callback cb);
