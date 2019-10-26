@@ -24,6 +24,7 @@
 #include "mcc_generated_files/mcc.h"
 #include "mcc_generated_files/include/pin_manager.h"
 #include <util/delay.h>
+#include <avr/io.h>
 
 /*
     Main application
@@ -40,36 +41,37 @@ int main(void)
     int oldB = IO_PF2_GetValue() >> 3;
     
     while (1){
-        //IO_PF5_Toggle();
+        while(1) {
+            //IO_PF5_Toggle();
         int result = 0;
         int newA = IO_PF2_GetValue() >> 2;
         int newB = IO_PF3_GetValue() >> 3;
         
-        if(oldA == 1 && newA == 0) {
-            result = (oldB * 2) -1;
-            *ctrl = 0;
-            //IO_PD4_Toggle();
-            //_delay_ms(500);
-        } else {
-            *ctrl = 1;
-            //IO_PD3_Toggle();
-            //_delay_ms(500);
-        }
-        
-        //VPORTD.OUT = result;
-        
-        
-        /* Code to use button interrupt to change between two lights*/
+        if(oldA != newA) {
+            if(newB != newA) {
+               *ctrl = 0; 
+            } else {
+                *ctrl = 1;
+            }
+            
+        } 
+            
         if(*ctrl == 1) {
             IO_PD3_Toggle();
+            IO_PD4_SetLow();
             _delay_ms(500);
         }
         
         if(*ctrl == 0) {
             IO_PD4_Toggle();
+            IO_PD3_SetLow();
             _delay_ms(500);
         }
+        
+        oldA = newA;
     }
+}
+        
 }
 /**
     End of File
