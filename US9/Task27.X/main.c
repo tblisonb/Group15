@@ -47,6 +47,7 @@ int main(void)
         //Sense change in state
         if(oldA != newA || oldB != newB){
             IO_PF5_Toggle();
+            printf("oldA=%i\toldB=%i\nnewA=%i\tnewB=%i\n", oldA, oldB, newA, newB);
             //Sense falling edge of clkPin
             if (oldA == 1 && newA == 0)
             {
