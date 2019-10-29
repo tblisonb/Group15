@@ -35,7 +35,9 @@ int main(void)
     
 
     int *ctrl = 0;
-    SYSTEM_Initialize(ctrl);
+    int *ctrlB = 0;
+    unsigned int state = 0;
+    SYSTEM_Initialize(ctrl, ctrlB);
     /* Replace with your application code */
     int oldA = IO_PF2_GetValue() >> 2;
     int oldB = IO_PF2_GetValue() >> 3;
@@ -44,31 +46,38 @@ int main(void)
         while(1) {
             //IO_PF5_Toggle();
         int result = 0;
-        int newA = IO_PF2_GetValue() >> 2;
-        int newB = IO_PF3_GetValue() >> 3;
+        int newA = *ctrl;
+        int newB = *ctrlB;
         
-        if(oldA != newA) {
-            if(newB != newA) {
-               *ctrl = 0; 
-            } else {
-                *ctrl = 1;
-            }
-            
-        } 
-            
-        if(*ctrl == 1) {
-            IO_PD3_Toggle();
-            IO_PD4_SetLow();
-            _delay_ms(500);
+        if(IO_PF2_GetValue() == 1){
+            ctrlB = 0;
+        } else {
+            ctrlB = 1;
         }
         
-        if(*ctrl == 0) {
-            IO_PD4_Toggle();
+        if(oldA == 1 && newA == 0) {
+            result = (oldB * 2) - 1;
+            ctrlB = 1;
+            printf("%i\n", result);    
+        } 
+        
+        state = (state + result) % 3;
+        if(state == 0) {
+            IO_PD3_SetHigh();
+            IO_PD4_SetLow();
+            IO_PD5_SetLow();
+        } else if(state == 1) {
+            IO_PD5_SetHigh();
             IO_PD3_SetLow();
-            _delay_ms(500);
+            IO_PD4_SetLow();
+        } else {
+            IO_PD4_SetHigh();
+            IO_PD3_SetLow();
+            IO_PD5_SetLow();
         }
         
         oldA = newA;
+        oldB = newB;
     }
 }
         
