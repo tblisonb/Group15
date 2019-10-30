@@ -22,9 +22,8 @@
 */
 
 #include "mcc_generated_files/mcc.h"
-#include "mcc_generated_files/include/pin_manager.h"
+#include <stdlib.h>
 #include <util/delay.h>
-#include <avr/io.h>
 
 /*
     Main application
@@ -32,55 +31,13 @@
 int main(void)
 {
     /* Initializes MCU, drivers and middleware */
-    
+    SYSTEM_Initialize();
 
-    int *ctrl = 0;
-    int *ctrlB = 0;
-    unsigned int state = 0;
-    SYSTEM_Initialize(ctrl, ctrlB);
     /* Replace with your application code */
-    int oldA = IO_PF2_GetValue() >> 2;
-    int oldB = IO_PF2_GetValue() >> 3;
-    
     while (1){
-        while(1) {
-            //IO_PF5_Toggle();
-        int result = 0;
-        int newA = *ctrl;
-        int newB = *ctrlB;
-        
-        if(IO_PF2_GetValue() == 1){
-            ctrlB = 0;
-        } else {
-            ctrlB = 1;
-        }
-        
-        if(oldA == 1 && newA == 0) {
-            result = (oldB * 2) - 1;
-            ctrlB = 1;
-            printf("%i\n", result);    
-        } 
-        
-        state = (state + result) % 3;
-        if(state == 0) {
-            IO_PD3_SetHigh();
-            IO_PD4_SetLow();
-            IO_PD5_SetLow();
-        } else if(state == 1) {
-            IO_PD5_SetHigh();
-            IO_PD3_SetLow();
-            IO_PD4_SetLow();
-        } else {
-            IO_PD4_SetHigh();
-            IO_PD3_SetLow();
-            IO_PD5_SetLow();
-        }
-        
-        oldA = newA;
-        oldB = newB;
+        IO_PF5_Toggle();
+        _delay_ms(250);
     }
-}
-        
 }
 /**
     End of File
