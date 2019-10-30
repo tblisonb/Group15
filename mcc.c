@@ -34,6 +34,7 @@ void SYSTEM_Initialize(void)
     CLKCTRL_Initialize();
     SLPCTRL_Initialize();
     CPUINT_Initialize();
+    USART0_Initialize();
 }
 
 /**
@@ -44,13 +45,13 @@ int8_t BOD_Initialize()
     //SLEEP DIS; 
     ccp_write_io((void*)&(BOD.CTRLA),0x00);
 
-    //VLMCFG BELOW; VLMIE enabled; 
-	BOD.INTCTRL = 0x01;
+    //VLMCFG BELOW; VLMIE disabled; 
+    BOD.INTCTRL = 0x00;
 
     //VLMLVL 5ABOVE; 
-	BOD.VLMCTRLA = 0x00;
+    BOD.VLMCTRLA = 0x00;
 
-	return 0;
+    return 0;
 }
 
 ISR(BOD_VLM_vect)
@@ -75,8 +76,8 @@ int8_t CLKCTRL_Initialize()
     //RUNSTDBY disabled; 
     ccp_write_io((void*)&(CLKCTRL.OSC20MCTRLA),0x00);
 
-    //PDIV 6X; PEN enabled; 
-    ccp_write_io((void*)&(CLKCTRL.MCLKCTRLB),0x11);
+    //PDIV 8X; PEN enabled; 
+    ccp_write_io((void*)&(CLKCTRL.MCLKCTRLB),0x05);
 
     //CLKOUT disabled; CLKSEL OSC20M; 
     ccp_write_io((void*)&(CLKCTRL.MCLKCTRLA),0x00);

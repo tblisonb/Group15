@@ -56,6 +56,3 @@ int main(void)
     }
 
 }
-/**
-    End of File
-*/
