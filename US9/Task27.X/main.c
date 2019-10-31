@@ -36,8 +36,6 @@ int main(void)
     int oldA = IO_PF2_GetValue() >> 2; //get the initial value of clkPin
     int oldB = IO_PF3_GetValue() >> 3; //get the initial value of dtPin
     unsigned int state = 2;
-    int right = (int)'R';
-    int left = (int)'L';
 
     /* Replace with your application code */
     while (1){
@@ -47,17 +45,19 @@ int main(void)
         //Sense change in state
         if(oldA != newA || oldB != newB){
             IO_PF5_Toggle();
-            printf("oldA=%i\toldB=%i\nnewA=%i\tnewB=%i\n", oldA, oldB, newA, newB);
+            //send state information using usart
+            printf("%i -> %i\t%i -> %i\n", oldA, newA, oldB, newB);
             //Sense falling edge of clkPin
             if (oldA == 1 && newA == 0)
             {
                 //If clkPin was the first to return to zero return 1, else return -1
                 result = (oldB * 2) - 1;
+                //send directional information using usart
                 if(result == 1){
-                    printf("Right\n");
+                    printf("R\n");
                 }
                 else if(result != 1){
-                    printf("Left\n");
+                    printf("L\n");
                 }
             }
         }
