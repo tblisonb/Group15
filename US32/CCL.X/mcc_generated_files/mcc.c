@@ -26,9 +26,9 @@
 /**
  * Initializes MCU, drivers and middleware in the project
 **/
-void SYSTEM_Initialize(int* ctrl1, int* ctrl2)
+void SYSTEM_Initialize(void)
 {
-    PIN_MANAGER_Initialize(ctrl1, ctrl2);
+    PIN_MANAGER_Initialize();
     BOD_Initialize();
     WDT_Initialize();
     SLPCTRL_Initialize();

@@ -5,12 +5,6 @@ c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/avrxmega
 c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_copy_data.o)
                               build/default/production/mcc_generated_files/device_config.o (__do_copy_data)
 
-Allocating common symbols
-Common symbol       size              file
-
-ctrlb               0x2               build/default/production/mcc_generated_files/src/pin_manager.o
-ctrla               0x2               build/default/production/mcc_generated_files/src/pin_manager.o
-
 Discarded input sections
 
  .data          0x00000000        0x0 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
@@ -18,54 +12,6 @@ Discarded input sections
  .text          0x00000000        0x0 build/default/production/mcc_generated_files/src/pin_manager.o
  .data          0x00000000        0x0 build/default/production/mcc_generated_files/src/pin_manager.o
  .bss           0x00000000        0x0 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTC_PC3_DefaultInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTA_PA3_DefaultInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTE_IO_PE0_DefaultInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTF_PF1_DefaultInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTF_PF0_DefaultInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTE_IO_PE2_DefaultInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTD_PD1_DefaultInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTF_PF3_DefaultInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTE_IO_PE1_DefaultInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTD_PD0_DefaultInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTD_PD3_DefaultInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTE_IO_PE3_DefaultInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTC_PC3_SetInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTA_PA3_SetInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTE_IO_PE0_SetInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTF_PF1_SetInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTF_PF0_SetInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTE_IO_PE2_SetInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTD_PD1_SetInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTF_PF3_SetInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTE_IO_PE1_SetInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTD_PD0_SetInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTD_PD3_SetInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text.PORTE_IO_PE3_SetInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
  .text          0x00000000        0x0 build/default/production/mcc_generated_files/src/cpuint.o
  .data          0x00000000        0x0 build/default/production/mcc_generated_files/src/cpuint.o
  .bss           0x00000000        0x0 build/default/production/mcc_generated_files/src/cpuint.o
@@ -252,7 +198,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000       0xfa
+.text           0x00000000      0x14e
  *(.vectors)
  .vectors       0x00000000       0xa0 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
                 0x00000000                __vector_default
@@ -260,44 +206,43 @@ END GROUP
  *(.vectors)
  *(.progmem.gcc*)
  *(.dinit)
- .dinit         0x000000a0        0x5 data_init
-                0x000000a6                . = ALIGN (0x2)
- *fill*         0x000000a5        0x1 
-                0x000000a6                __trampolines_start = .
+ .dinit         0x000000a0       0x5a data_init
+                0x000000fa                . = ALIGN (0x2)
+                0x000000fa                __trampolines_start = .
  *(.trampolines)
- .trampolines   0x000000a6        0x0 linker stubs
+ .trampolines   0x000000fa        0x0 linker stubs
  *(.trampolines*)
-                0x000000a6                __trampolines_end = .
+                0x000000fa                __trampolines_end = .
  *libprintf_flt.a:*(.progmem.data)
  *libc.a:*(.progmem.data)
-                0x000000a6                . = ALIGN (0x2)
+                0x000000fa                . = ALIGN (0x2)
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
  *(.lowtext*)
-                0x000000a6                __ctors_start = .
+                0x000000fa                __ctors_start = .
  *(.ctors)
-                0x000000a6                __ctors_end = .
-                0x000000a6                __dtors_start = .
+                0x000000fa                __ctors_end = .
+                0x000000fa                __dtors_start = .
  *(.dtors)
-                0x000000a6                __dtors_end = .
+                0x000000fa                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x000000a6        0x0 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
-                0x000000a6                __init
+ .init0         0x000000fa        0x0 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
+                0x000000fa                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x000000a6        0xc C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
+ .init2         0x000000fa        0xc C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x000000b2       0x3c c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_copy_data.o)
-                0x000000b2                __do_copy_data
-                0x000000e0                __do_clear_bss
+ .init4         0x00000106       0x3c c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_copy_data.o)
+                0x00000106                __do_copy_data
+                0x00000134                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -308,13 +253,13 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x000000ee        0x8 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
+ .init9         0x00000142        0x8 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
  *(.init9)
-                0x000000f6                . = ALIGN (0x2)
+                0x0000014a                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000000f6        0x0 c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_exit.o)
-                0x000000f6                _exit
-                0x000000f6                exit
+ .fini9         0x0000014a        0x0 c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_exit.o)
+                0x0000014a                _exit
+                0x0000014a                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -333,37 +278,34 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000000f6        0x4 c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_exit.o)
+ .fini0         0x0000014a        0x4 c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_exit.o)
  *(.fini0)
-                0x000000fa                _etext = .
+                0x0000014e                _etext = .
 
 .rodata
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.r*)
 
-.data           0x00802800        0x0 load address 0x000000fa
+.data           0x00802800        0x0 load address 0x0000014e
                 [!provide]                PROVIDE (__data_start, .)
  *(.gnu.linkonce.d*)
                 0x00802800                . = ALIGN (0x2)
                 0x00802800                _edata = .
                 [!provide]                PROVIDE (__data_end, .)
 
-.bss            0x00802800        0x4
+.bss            0x00802800        0x0
                 [!provide]                PROVIDE (__bss_start, .)
  *(COMMON)
- COMMON         0x00802800        0x4 build/default/production/mcc_generated_files/src/pin_manager.o
-                0x00802800                ctrlb
-                0x00802802                ctrla
                 [!provide]                PROVIDE (__bss_end, .)
-                0x000000fa                __data_load_start = LOADADDR (.data)
-                0x000000fa                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0000014e                __data_load_start = LOADADDR (.data)
+                0x0000014e                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00802804        0x0
+.noinit         0x00802800        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x00802804                _end = .
+                0x00802800                _end = .
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -429,83 +371,79 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x1d0
+.debug_aranges  0x00000000      0x240
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0xe8 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000000      0x148 build/default/production/mcc_generated_files/src/pin_manager.o
  .debug_aranges
-                0x000000e8       0x20 build/default/production/mcc_generated_files/src/cpuint.o
+                0x00000148       0x28 build/default/production/mcc_generated_files/src/cpuint.o
  .debug_aranges
-                0x00000108       0x20 build/default/production/main.o
+                0x00000170       0x20 build/default/production/main.o
  .debug_aranges
-                0x00000128       0x20 build/default/production/mcc_generated_files/src/protected_io.o
+                0x00000190       0x20 build/default/production/mcc_generated_files/src/protected_io.o
  .debug_aranges
-                0x00000148       0x18 build/default/production/mcc_generated_files/device_config.o
+                0x000001b0       0x18 build/default/production/mcc_generated_files/device_config.o
  .debug_aranges
-                0x00000160       0x28 build/default/production/mcc_generated_files/src/ccl.o
+                0x000001c8       0x28 build/default/production/mcc_generated_files/src/ccl.o
  .debug_aranges
-                0x00000188       0x48 build/default/production/mcc_generated_files/mcc.o
+                0x000001f0       0x50 build/default/production/mcc_generated_files/mcc.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x5626
+.debug_info     0x00000000     0x5551
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000     0x248a C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
- .debug_info    0x0000248a      0xf7b build/default/production/mcc_generated_files/src/pin_manager.o
- .debug_info    0x00003405      0x3ac build/default/production/mcc_generated_files/src/cpuint.o
- .debug_info    0x000037b1      0x317 build/default/production/main.o
- .debug_info    0x00003ac8       0x6c build/default/production/mcc_generated_files/src/protected_io.o
- .debug_info    0x00003b34      0x7c0 build/default/production/mcc_generated_files/device_config.o
- .debug_info    0x000042f4      0x819 build/default/production/mcc_generated_files/src/ccl.o
- .debug_info    0x00004b0d      0xb19 build/default/production/mcc_generated_files/mcc.o
+ .debug_info    0x0000248a     0x1247 build/default/production/mcc_generated_files/src/pin_manager.o
+ .debug_info    0x000036d1      0x367 build/default/production/mcc_generated_files/src/cpuint.o
+ .debug_info    0x00003a38      0x2e3 build/default/production/main.o
+ .debug_info    0x00003d1b       0x6c build/default/production/mcc_generated_files/src/protected_io.o
+ .debug_info    0x00003d87      0x7c0 build/default/production/mcc_generated_files/device_config.o
+ .debug_info    0x00004547      0x819 build/default/production/mcc_generated_files/src/ccl.o
+ .debug_info    0x00004d60      0x7f1 build/default/production/mcc_generated_files/mcc.o
 
-.debug_abbrev   0x00000000     0x2894
+.debug_abbrev   0x00000000     0x2745
  *(.debug_abbrev)
  .debug_abbrev  0x00000000     0x2296 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
- .debug_abbrev  0x00002296      0x18e build/default/production/mcc_generated_files/src/pin_manager.o
- .debug_abbrev  0x00002424       0xfa build/default/production/mcc_generated_files/src/cpuint.o
- .debug_abbrev  0x0000251e       0xcf build/default/production/main.o
- .debug_abbrev  0x000025ed       0x14 build/default/production/mcc_generated_files/src/protected_io.o
- .debug_abbrev  0x00002601       0x85 build/default/production/mcc_generated_files/device_config.o
- .debug_abbrev  0x00002686       0x92 build/default/production/mcc_generated_files/src/ccl.o
- .debug_abbrev  0x00002718      0x17c build/default/production/mcc_generated_files/mcc.o
+ .debug_abbrev  0x00002296      0x13a build/default/production/mcc_generated_files/src/pin_manager.o
+ .debug_abbrev  0x000023d0       0xc0 build/default/production/mcc_generated_files/src/cpuint.o
+ .debug_abbrev  0x00002490       0x8b build/default/production/main.o
+ .debug_abbrev  0x0000251b       0x14 build/default/production/mcc_generated_files/src/protected_io.o
+ .debug_abbrev  0x0000252f       0x85 build/default/production/mcc_generated_files/device_config.o
+ .debug_abbrev  0x000025b4       0x92 build/default/production/mcc_generated_files/src/ccl.o
+ .debug_abbrev  0x00002646       0xff build/default/production/mcc_generated_files/mcc.o
 
-.debug_line     0x00000000      0xe56
+.debug_line     0x00000000     0x1169
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x187 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
- .debug_line    0x00000187      0x4d4 build/default/production/mcc_generated_files/src/pin_manager.o
- .debug_line    0x0000065b      0x18c build/default/production/mcc_generated_files/src/cpuint.o
- .debug_line    0x000007e7      0x131 build/default/production/main.o
- .debug_line    0x00000918       0x66 build/default/production/mcc_generated_files/src/protected_io.o
- .debug_line    0x0000097e       0xf1 build/default/production/mcc_generated_files/device_config.o
- .debug_line    0x00000a6f      0x196 build/default/production/mcc_generated_files/src/ccl.o
- .debug_line    0x00000c05      0x251 build/default/production/mcc_generated_files/mcc.o
+ .debug_line    0x00000187      0x7aa build/default/production/mcc_generated_files/src/pin_manager.o
+ .debug_line    0x00000931      0x166 build/default/production/mcc_generated_files/src/cpuint.o
+ .debug_line    0x00000a97      0x19a build/default/production/main.o
+ .debug_line    0x00000c31       0x66 build/default/production/mcc_generated_files/src/protected_io.o
+ .debug_line    0x00000c97       0xf1 build/default/production/mcc_generated_files/device_config.o
+ .debug_line    0x00000d88      0x19c build/default/production/mcc_generated_files/src/ccl.o
+ .debug_line    0x00000f24      0x245 build/default/production/mcc_generated_files/mcc.o
 
-.debug_frame    0x00000000      0x2d4
+.debug_frame    0x00000000      0x6cc
  *(.debug_frame)
- .debug_frame   0x00000000      0x1c8 build/default/production/mcc_generated_files/src/pin_manager.o
- .debug_frame   0x000001c8       0x24 build/default/production/mcc_generated_files/src/cpuint.o
- .debug_frame   0x000001ec       0x24 build/default/production/main.o
- .debug_frame   0x00000210       0x40 build/default/production/mcc_generated_files/src/ccl.o
- .debug_frame   0x00000250       0x84 build/default/production/mcc_generated_files/mcc.o
+ .debug_frame   0x00000000      0x4d4 build/default/production/mcc_generated_files/src/pin_manager.o
+ .debug_frame   0x000004d4       0x54 build/default/production/mcc_generated_files/src/cpuint.o
+ .debug_frame   0x00000528       0x34 build/default/production/main.o
+ .debug_frame   0x0000055c       0x5c build/default/production/mcc_generated_files/src/ccl.o
+ .debug_frame   0x000005b8      0x114 build/default/production/mcc_generated_files/mcc.o
 
-.debug_str      0x00000000     0x10bc
+.debug_str      0x00000000     0x104c
  *(.debug_str)
  .debug_str     0x00000000      0xf85 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
  .debug_str     0x00000f85       0x57 build/default/production/mcc_generated_files/src/pin_manager.o
- .debug_str     0x00000fdc       0x13 build/default/production/mcc_generated_files/src/cpuint.o
- .debug_str     0x00000fef       0x12 build/default/production/main.o
- .debug_str     0x00001001        0x0 build/default/production/mcc_generated_files/device_config.o
- .debug_str     0x00001001        0x0 build/default/production/mcc_generated_files/src/ccl.o
- .debug_str     0x00001001       0xbb build/default/production/mcc_generated_files/mcc.o
+ .debug_str     0x00000fdc        0x0 build/default/production/mcc_generated_files/src/cpuint.o
+ .debug_str     0x00000fdc        0x0 build/default/production/main.o
+ .debug_str     0x00000fdc        0x0 build/default/production/mcc_generated_files/device_config.o
+ .debug_str     0x00000fdc        0x0 build/default/production/mcc_generated_files/src/ccl.o
+ .debug_str     0x00000fdc       0x70 build/default/production/mcc_generated_files/mcc.o
 
-.debug_loc      0x00000000      0x2ed
+.debug_loc
  *(.debug_loc)
- .debug_loc     0x00000000       0xc4 build/default/production/mcc_generated_files/src/pin_manager.o
- .debug_loc     0x000000c4       0x2a build/default/production/mcc_generated_files/src/cpuint.o
- .debug_loc     0x000000ee       0x41 build/default/production/main.o
- .debug_loc     0x0000012f      0x1be build/default/production/mcc_generated_files/mcc.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -525,13 +463,13 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x148
+.debug_ranges   0x00000000      0x1b8
  *(.debug_ranges)
- .debug_ranges  0x00000000       0xd8 build/default/production/mcc_generated_files/src/pin_manager.o
- .debug_ranges  0x000000d8       0x10 build/default/production/mcc_generated_files/src/cpuint.o
- .debug_ranges  0x000000e8       0x10 build/default/production/main.o
- .debug_ranges  0x000000f8       0x18 build/default/production/mcc_generated_files/src/ccl.o
- .debug_ranges  0x00000110       0x38 build/default/production/mcc_generated_files/mcc.o
+ .debug_ranges  0x00000000      0x138 build/default/production/mcc_generated_files/src/pin_manager.o
+ .debug_ranges  0x00000138       0x18 build/default/production/mcc_generated_files/src/cpuint.o
+ .debug_ranges  0x00000150       0x10 build/default/production/main.o
+ .debug_ranges  0x00000160       0x18 build/default/production/mcc_generated_files/src/ccl.o
+ .debug_ranges  0x00000178       0x40 build/default/production/mcc_generated_files/mcc.o
 
 .debug_macro
  *(.debug_macro)
@@ -544,119 +482,435 @@ LOAD data_init
  .note.gnu.avr.deviceinfo
                 0x00000000       0x40 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
 
+.bss.PORTC_IO_PC4_InterruptHandler
+                0x00802800        0x2
+ .bss.PORTC_IO_PC4_InterruptHandler
+                0x00802800        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+
+.bss.PORTD_IO_PD4_InterruptHandler
+                0x00802802        0x2
+ .bss.PORTD_IO_PD4_InterruptHandler
+                0x00802802        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+
+.bss.PORTC_PC3_InterruptHandler
+                0x00802804        0x2
+ .bss.PORTC_PC3_InterruptHandler
+                0x00802804        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+
+.bss.PORTA_PA3_InterruptHandler
+                0x00802806        0x2
+ .bss.PORTA_PA3_InterruptHandler
+                0x00802806        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+
+.bss.PORTE_IO_PE0_InterruptHandler
+                0x00802808        0x2
+ .bss.PORTE_IO_PE0_InterruptHandler
+                0x00802808        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+
+.bss.PORTF_PF1_InterruptHandler
+                0x0080280a        0x2
+ .bss.PORTF_PF1_InterruptHandler
+                0x0080280a        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+
+.bss.PORTF_PF0_InterruptHandler
+                0x0080280c        0x2
+ .bss.PORTF_PF0_InterruptHandler
+                0x0080280c        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+
+.bss.PORTE_IO_PE2_InterruptHandler
+                0x0080280e        0x2
+ .bss.PORTE_IO_PE2_InterruptHandler
+                0x0080280e        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+
+.bss.PORTC_PC0_InterruptHandler
+                0x00802810        0x2
+ .bss.PORTC_PC0_InterruptHandler
+                0x00802810        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+
+.bss.PORTD_PD1_InterruptHandler
+                0x00802812        0x2
+ .bss.PORTD_PD1_InterruptHandler
+                0x00802812        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+
+.bss.PORTF_PF3_InterruptHandler
+                0x00802814        0x2
+ .bss.PORTF_PF3_InterruptHandler
+                0x00802814        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+
+.bss.PORTE_IO_PE1_InterruptHandler
+                0x00802816        0x2
+ .bss.PORTE_IO_PE1_InterruptHandler
+                0x00802816        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+
+.bss.PORTD_PD0_InterruptHandler
+                0x00802818        0x2
+ .bss.PORTD_PD0_InterruptHandler
+                0x00802818        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+
+.bss.PORTF_IO_PF5_InterruptHandler
+                0x0080281a        0x2
+ .bss.PORTF_IO_PF5_InterruptHandler
+                0x0080281a        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+
+.bss.PORTD_PD3_InterruptHandler
+                0x0080281c        0x2
+ .bss.PORTD_PD3_InterruptHandler
+                0x0080281c        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+
+.bss.PORTE_IO_PE3_InterruptHandler
+                0x0080281e        0x2
+ .bss.PORTE_IO_PE3_InterruptHandler
+                0x0080281e        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+
+.bss.PORTF_IO_PF4_InterruptHandler
+                0x00802820        0x2
+ .bss.PORTF_IO_PF4_InterruptHandler
+                0x00802820        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+
+.bss.PORTC_PC1_InterruptHandler
+                0x00802822        0x2
+ .bss.PORTC_PC1_InterruptHandler
+                0x00802822        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+
 .text.PIN_MANAGER_Initialize
-                0x000000fa      0x104
+                0x0000014e      0x2be
  .text.PIN_MANAGER_Initialize
-                0x000000fa      0x104 build/default/production/mcc_generated_files/src/pin_manager.o
-                0x000000fa                PIN_MANAGER_Initialize
+                0x0000014e      0x2be build/default/production/mcc_generated_files/src/pin_manager.o
+                0x0000014e                PIN_MANAGER_Initialize
+
+.text.main      0x0000040c      0x16e
+ .text.main     0x0000040c      0x16e build/default/production/main.o
+                0x0000040c                main
 
 .text.PORT_Initialize
-                0x000001fe       0x6e
+                0x0000057a      0x130
  .text.PORT_Initialize
-                0x000001fe       0x6e build/default/production/mcc_generated_files/src/pin_manager.o
-                0x000001fe                PORT_Initialize
-
-.text.CLKCTRL_Initialize
-                0x0000026c       0x4c
- .text.CLKCTRL_Initialize
-                0x0000026c       0x4c build/default/production/mcc_generated_files/mcc.o
-                0x0000026c                CLKCTRL_Initialize
+                0x0000057a      0x130 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x0000057a                PORT_Initialize
 
 .text.CCL_Initialize
-                0x000002b8       0x3e
+                0x000006aa       0xcc
  .text.CCL_Initialize
-                0x000002b8       0x3e build/default/production/mcc_generated_files/src/ccl.o
-                0x000002b8                CCL_Initialize
+                0x000006aa       0xcc build/default/production/mcc_generated_files/src/ccl.o
+                0x000006aa                CCL_Initialize
 
-.text.main      0x000002f6       0x3a
- .text.main     0x000002f6       0x3a build/default/production/main.o
-                0x000002f6                main
+.text.CLKCTRL_Initialize
+                0x00000776       0x4c
+ .text.CLKCTRL_Initialize
+                0x00000776       0x4c build/default/production/mcc_generated_files/mcc.o
+                0x00000776                CLKCTRL_Initialize
 
 .text.__vector_2
-                0x00000330       0x1e
+                0x000007c2       0x44
  .text.__vector_2
-                0x00000330       0x1e build/default/production/mcc_generated_files/mcc.o
-                0x00000330                __vector_2
+                0x000007c2       0x44 build/default/production/mcc_generated_files/mcc.o
+                0x000007c2                __vector_2
+
+.text.ccp_write_io
+                0x00000806       0x2c
+ .text.ccp_write_io
+                0x00000806       0x2c build/default/production/mcc_generated_files/src/cpuint.o
+
+.text.ccp_write_io
+                0x00000832       0x2c
+ .text.ccp_write_io
+                0x00000832       0x2c build/default/production/mcc_generated_files/mcc.o
 
 .text.SYSTEM_Initialize
-                0x0000034e       0x1e
+                0x0000085e       0x2c
  .text.SYSTEM_Initialize
-                0x0000034e       0x1e build/default/production/mcc_generated_files/mcc.o
-                0x0000034e                SYSTEM_Initialize
+                0x0000085e       0x2c build/default/production/mcc_generated_files/mcc.o
+                0x0000085e                SYSTEM_Initialize
 
 .text.CPUINT_Initialize
-                0x0000036c       0x1a
+                0x0000088a       0x2a
  .text.CPUINT_Initialize
-                0x0000036c       0x1a build/default/production/mcc_generated_files/src/cpuint.o
-                0x0000036c                CPUINT_Initialize
+                0x0000088a       0x2a build/default/production/mcc_generated_files/src/cpuint.o
+                0x0000088a                CPUINT_Initialize
 
 .text.BOD_Initialize
-                0x00000386       0x18
+                0x000008b4       0x2a
  .text.BOD_Initialize
-                0x00000386       0x18 build/default/production/mcc_generated_files/mcc.o
-                0x00000386                BOD_Initialize
+                0x000008b4       0x2a build/default/production/mcc_generated_files/mcc.o
+                0x000008b4                BOD_Initialize
+
+.text.PORTC_IO_PC4_SetInterruptHandler
+                0x000008de       0x26
+ .text.PORTC_IO_PC4_SetInterruptHandler
+                0x000008de       0x26 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x000008de                PORTC_IO_PC4_SetInterruptHandler
+
+.text.PORTD_IO_PD4_SetInterruptHandler
+                0x00000904       0x26
+ .text.PORTD_IO_PD4_SetInterruptHandler
+                0x00000904       0x26 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000904                PORTD_IO_PD4_SetInterruptHandler
+
+.text.PORTC_PC3_SetInterruptHandler
+                0x0000092a       0x26
+ .text.PORTC_PC3_SetInterruptHandler
+                0x0000092a       0x26 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x0000092a                PORTC_PC3_SetInterruptHandler
+
+.text.PORTA_PA3_SetInterruptHandler
+                0x00000950       0x26
+ .text.PORTA_PA3_SetInterruptHandler
+                0x00000950       0x26 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000950                PORTA_PA3_SetInterruptHandler
+
+.text.PORTE_IO_PE0_SetInterruptHandler
+                0x00000976       0x26
+ .text.PORTE_IO_PE0_SetInterruptHandler
+                0x00000976       0x26 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000976                PORTE_IO_PE0_SetInterruptHandler
+
+.text.PORTF_PF1_SetInterruptHandler
+                0x0000099c       0x26
+ .text.PORTF_PF1_SetInterruptHandler
+                0x0000099c       0x26 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x0000099c                PORTF_PF1_SetInterruptHandler
+
+.text.PORTF_PF0_SetInterruptHandler
+                0x000009c2       0x26
+ .text.PORTF_PF0_SetInterruptHandler
+                0x000009c2       0x26 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x000009c2                PORTF_PF0_SetInterruptHandler
+
+.text.PORTE_IO_PE2_SetInterruptHandler
+                0x000009e8       0x26
+ .text.PORTE_IO_PE2_SetInterruptHandler
+                0x000009e8       0x26 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x000009e8                PORTE_IO_PE2_SetInterruptHandler
+
+.text.PORTC_PC0_SetInterruptHandler
+                0x00000a0e       0x26
+ .text.PORTC_PC0_SetInterruptHandler
+                0x00000a0e       0x26 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000a0e                PORTC_PC0_SetInterruptHandler
+
+.text.PORTD_PD1_SetInterruptHandler
+                0x00000a34       0x26
+ .text.PORTD_PD1_SetInterruptHandler
+                0x00000a34       0x26 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000a34                PORTD_PD1_SetInterruptHandler
+
+.text.PORTF_PF3_SetInterruptHandler
+                0x00000a5a       0x26
+ .text.PORTF_PF3_SetInterruptHandler
+                0x00000a5a       0x26 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000a5a                PORTF_PF3_SetInterruptHandler
+
+.text.PORTE_IO_PE1_SetInterruptHandler
+                0x00000a80       0x26
+ .text.PORTE_IO_PE1_SetInterruptHandler
+                0x00000a80       0x26 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000a80                PORTE_IO_PE1_SetInterruptHandler
+
+.text.PORTD_PD0_SetInterruptHandler
+                0x00000aa6       0x26
+ .text.PORTD_PD0_SetInterruptHandler
+                0x00000aa6       0x26 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000aa6                PORTD_PD0_SetInterruptHandler
+
+.text.PORTF_IO_PF5_SetInterruptHandler
+                0x00000acc       0x26
+ .text.PORTF_IO_PF5_SetInterruptHandler
+                0x00000acc       0x26 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000acc                PORTF_IO_PF5_SetInterruptHandler
+
+.text.PORTD_PD3_SetInterruptHandler
+                0x00000af2       0x26
+ .text.PORTD_PD3_SetInterruptHandler
+                0x00000af2       0x26 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000af2                PORTD_PD3_SetInterruptHandler
+
+.text.PORTE_IO_PE3_SetInterruptHandler
+                0x00000b18       0x26
+ .text.PORTE_IO_PE3_SetInterruptHandler
+                0x00000b18       0x26 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000b18                PORTE_IO_PE3_SetInterruptHandler
+
+.text.PORTF_IO_PF4_SetInterruptHandler
+                0x00000b3e       0x26
+ .text.PORTF_IO_PF4_SetInterruptHandler
+                0x00000b3e       0x26 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000b3e                PORTF_IO_PF4_SetInterruptHandler
+
+.text.PORTC_PC1_SetInterruptHandler
+                0x00000b64       0x26
+ .text.PORTC_PC1_SetInterruptHandler
+                0x00000b64       0x26 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000b64                PORTC_PC1_SetInterruptHandler
 
 .text.__vector_5
-                0x0000039e       0x14
+                0x00000b8a       0x26
  .text.__vector_5
-                0x0000039e       0x14 build/default/production/mcc_generated_files/src/ccl.o
-                0x0000039e                __vector_5
+                0x00000b8a       0x26 build/default/production/mcc_generated_files/src/ccl.o
+                0x00000b8a                __vector_5
 
 .text.SLPCTRL_Initialize
-                0x000003b2       0x10
+                0x00000bb0       0x1a
  .text.SLPCTRL_Initialize
-                0x000003b2       0x10 build/default/production/mcc_generated_files/mcc.o
-                0x000003b2                SLPCTRL_Initialize
+                0x00000bb0       0x1a build/default/production/mcc_generated_files/mcc.o
+                0x00000bb0                SLPCTRL_Initialize
 
 .text.WDT_Initialize
-                0x000003c2       0x10
+                0x00000bca       0x1a
  .text.WDT_Initialize
-                0x000003c2       0x10 build/default/production/mcc_generated_files/mcc.o
-                0x000003c2                WDT_Initialize
+                0x00000bca       0x1a build/default/production/mcc_generated_files/mcc.o
+                0x00000bca                WDT_Initialize
+
+.text.PORTC_IO_PC4_DefaultInterruptHandler
+                0x00000be4       0x10
+ .text.PORTC_IO_PC4_DefaultInterruptHandler
+                0x00000be4       0x10 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000be4                PORTC_IO_PC4_DefaultInterruptHandler
+
+.text.PORTD_IO_PD4_DefaultInterruptHandler
+                0x00000bf4       0x10
+ .text.PORTD_IO_PD4_DefaultInterruptHandler
+                0x00000bf4       0x10 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000bf4                PORTD_IO_PD4_DefaultInterruptHandler
+
+.text.PORTC_PC3_DefaultInterruptHandler
+                0x00000c04       0x10
+ .text.PORTC_PC3_DefaultInterruptHandler
+                0x00000c04       0x10 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000c04                PORTC_PC3_DefaultInterruptHandler
+
+.text.PORTA_PA3_DefaultInterruptHandler
+                0x00000c14       0x10
+ .text.PORTA_PA3_DefaultInterruptHandler
+                0x00000c14       0x10 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000c14                PORTA_PA3_DefaultInterruptHandler
+
+.text.PORTE_IO_PE0_DefaultInterruptHandler
+                0x00000c24       0x10
+ .text.PORTE_IO_PE0_DefaultInterruptHandler
+                0x00000c24       0x10 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000c24                PORTE_IO_PE0_DefaultInterruptHandler
+
+.text.PORTF_PF1_DefaultInterruptHandler
+                0x00000c34       0x10
+ .text.PORTF_PF1_DefaultInterruptHandler
+                0x00000c34       0x10 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000c34                PORTF_PF1_DefaultInterruptHandler
+
+.text.PORTF_PF0_DefaultInterruptHandler
+                0x00000c44       0x10
+ .text.PORTF_PF0_DefaultInterruptHandler
+                0x00000c44       0x10 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000c44                PORTF_PF0_DefaultInterruptHandler
+
+.text.PORTE_IO_PE2_DefaultInterruptHandler
+                0x00000c54       0x10
+ .text.PORTE_IO_PE2_DefaultInterruptHandler
+                0x00000c54       0x10 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000c54                PORTE_IO_PE2_DefaultInterruptHandler
+
+.text.PORTC_PC0_DefaultInterruptHandler
+                0x00000c64       0x10
+ .text.PORTC_PC0_DefaultInterruptHandler
+                0x00000c64       0x10 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000c64                PORTC_PC0_DefaultInterruptHandler
+
+.text.PORTD_PD1_DefaultInterruptHandler
+                0x00000c74       0x10
+ .text.PORTD_PD1_DefaultInterruptHandler
+                0x00000c74       0x10 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000c74                PORTD_PD1_DefaultInterruptHandler
+
+.text.PORTF_PF3_DefaultInterruptHandler
+                0x00000c84       0x10
+ .text.PORTF_PF3_DefaultInterruptHandler
+                0x00000c84       0x10 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000c84                PORTF_PF3_DefaultInterruptHandler
+
+.text.PORTE_IO_PE1_DefaultInterruptHandler
+                0x00000c94       0x10
+ .text.PORTE_IO_PE1_DefaultInterruptHandler
+                0x00000c94       0x10 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000c94                PORTE_IO_PE1_DefaultInterruptHandler
+
+.text.PORTD_PD0_DefaultInterruptHandler
+                0x00000ca4       0x10
+ .text.PORTD_PD0_DefaultInterruptHandler
+                0x00000ca4       0x10 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000ca4                PORTD_PD0_DefaultInterruptHandler
+
+.text.PORTF_IO_PF5_DefaultInterruptHandler
+                0x00000cb4       0x10
+ .text.PORTF_IO_PF5_DefaultInterruptHandler
+                0x00000cb4       0x10 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000cb4                PORTF_IO_PF5_DefaultInterruptHandler
+
+.text.PORTD_PD3_DefaultInterruptHandler
+                0x00000cc4       0x10
+ .text.PORTD_PD3_DefaultInterruptHandler
+                0x00000cc4       0x10 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000cc4                PORTD_PD3_DefaultInterruptHandler
+
+.text.PORTE_IO_PE3_DefaultInterruptHandler
+                0x00000cd4       0x10
+ .text.PORTE_IO_PE3_DefaultInterruptHandler
+                0x00000cd4       0x10 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000cd4                PORTE_IO_PE3_DefaultInterruptHandler
+
+.text.PORTF_IO_PF4_DefaultInterruptHandler
+                0x00000ce4       0x10
+ .text.PORTF_IO_PF4_DefaultInterruptHandler
+                0x00000ce4       0x10 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000ce4                PORTF_IO_PF4_DefaultInterruptHandler
+
+.text.PORTC_PC1_DefaultInterruptHandler
+                0x00000cf4       0x10
+ .text.PORTC_PC1_DefaultInterruptHandler
+                0x00000cf4       0x10 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000cf4                PORTC_PC1_DefaultInterruptHandler
 
 .text.protected_write_io
-                0x000003d2        0x8
+                0x00000d04        0x8
  .text.protected_write_io
-                0x000003d2        0x8 build/default/production/mcc_generated_files/src/protected_io.o
-                0x000003d2                protected_write_io
+                0x00000d04        0x8 build/default/production/mcc_generated_files/src/protected_io.o
+                0x00000d04                protected_write_io
 
-.text           0x000003da        0x4
- .text          0x000003da        0x4 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
-                0x000003da                __vector_38
-                0x000003da                __vector_22
-                0x000003da                __vector_28
-                0x000003da                __vector_1
-                0x000003da                __vector_32
-                0x000003da                __vector_34
-                0x000003da                __vector_24
-                0x000003da                __vector_12
-                0x000003da                __bad_interrupt
-                0x000003da                __vector_6
-                0x000003da                __vector_31
-                0x000003da                __vector_35
-                0x000003da                __vector_39
-                0x000003da                __vector_3
-                0x000003da                __vector_23
-                0x000003da                __vector_30
-                0x000003da                __vector_25
-                0x000003da                __vector_11
-                0x000003da                __vector_13
-                0x000003da                __vector_17
-                0x000003da                __vector_19
-                0x000003da                __vector_7
-                0x000003da                __vector_27
-                0x000003da                __vector_33
-                0x000003da                __vector_37
-                0x000003da                __vector_4
-                0x000003da                __vector_9
-                0x000003da                __vector_21
-                0x000003da                __vector_15
-                0x000003da                __vector_36
-                0x000003da                __vector_29
-                0x000003da                __vector_8
-                0x000003da                __vector_26
-                0x000003da                __vector_14
-                0x000003da                __vector_10
-                0x000003da                __vector_16
-                0x000003da                __vector_18
-                0x000003da                __vector_20
+.text           0x00000d0c        0x4
+ .text          0x00000d0c        0x4 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
+                0x00000d0c                __vector_38
+                0x00000d0c                __vector_22
+                0x00000d0c                __vector_28
+                0x00000d0c                __vector_1
+                0x00000d0c                __vector_32
+                0x00000d0c                __vector_34
+                0x00000d0c                __vector_24
+                0x00000d0c                __vector_12
+                0x00000d0c                __bad_interrupt
+                0x00000d0c                __vector_6
+                0x00000d0c                __vector_31
+                0x00000d0c                __vector_35
+                0x00000d0c                __vector_39
+                0x00000d0c                __vector_3
+                0x00000d0c                __vector_23
+                0x00000d0c                __vector_30
+                0x00000d0c                __vector_25
+                0x00000d0c                __vector_11
+                0x00000d0c                __vector_13
+                0x00000d0c                __vector_17
+                0x00000d0c                __vector_19
+                0x00000d0c                __vector_7
+                0x00000d0c                __vector_27
+                0x00000d0c                __vector_33
+                0x00000d0c                __vector_37
+                0x00000d0c                __vector_4
+                0x00000d0c                __vector_9
+                0x00000d0c                __vector_21
+                0x00000d0c                __vector_15
+                0x00000d0c                __vector_36
+                0x00000d0c                __vector_29
+                0x00000d0c                __vector_8
+                0x00000d0c                __vector_26
+                0x00000d0c                __vector_14
+                0x00000d0c                __vector_10
+                0x00000d0c                __vector_16
+                0x00000d0c                __vector_18
+                0x00000d0c                __vector_20

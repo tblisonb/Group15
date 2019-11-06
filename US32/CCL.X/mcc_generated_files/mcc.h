@@ -30,14 +30,14 @@ extern "C" {
 
 #include "utils/compiler.h"
 #include "include/pin_manager.h"
-#include "include/cpuint.h"
 #include "include/ccl.h"
+#include "include/cpuint.h"
 #include "config/clock_config.h"
 
 /**
  * Initializes MCU, drivers and middleware in the project
 **/
-void SYSTEM_Initialize(int* ctrl1, int* ctrl2);
+void SYSTEM_Initialize(void);
 int8_t BOD_Initialize();
 int8_t CLKCTRL_Initialize();
 int8_t SLPCTRL_Initialize();

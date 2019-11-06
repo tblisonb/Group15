@@ -31,21 +31,33 @@
 int main(void)
 {
     /* Initializes MCU, drivers and middleware */
-    int* ctrl1 = 0;
-    int* ctrl2 = 0;
-    SYSTEM_Initialize(ctrl1, ctrl2);
+    SYSTEM_Initialize();
     unsigned int state = 0;
+    char activate = 0;
     /* Replace with your application code */
     while (1){
-        if(*ctrl1 == 1){
-            state = (state + 1) % 4;
+        if(((IO_PC4_GetValue() >> 4) == 1) && ((IO_PD4_GetValue() >> 4) == 1)){
+            activate = 1;
         }
-        else if(*ctrl2 == 1){
+        else if((IO_PC4_GetValue() == 0) && (IO_PD4_GetValue() == 0)){
+            activate = 0;
+        }
+        else if(((IO_PC4_GetValue() >> 4) == 1) && (IO_PD4_GetValue() == 0) && (activate == 1)){
+            state = (state + 1) % 4;
+            activate = 0;
+        }
+        else if(((IO_PD4_GetValue() >> 4)== 1) && (IO_PC4_GetValue() == 0) && (activate == 1)){
             state = (state - 1) % 4;
+            activate = 0;
         }
         VPORTE.OUT = 1 << state;
-        *ctrl1 = 0;
-        *ctrl2 = 0;
+        if(activate == 1){
+            IO_PF5_SetHigh();
+        }
+        else{
+            IO_PF5_SetLow();
+        }
+        IO_PF5_SetHigh();
     }
 }
 /**
