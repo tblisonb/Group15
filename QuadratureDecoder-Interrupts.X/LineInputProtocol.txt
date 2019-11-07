@@ -1,3 +1,22 @@
 Jason Guest -  Us 33 Task 50
 Protocol for interpreting binary values indicating line unput state from rotary encoder
 
+From the software implementation (It's most clear where the values are coming from here):
+There are two values being watched, and these values can also be sent over USART.
+In this specific implementation, simple messages are being sent.
+newA = clkPin
+newB = dtPin
+
+if received values are newA = 1 and newB = 0, then a clockwise turn is being made.
+if received values are newA = 1 and newB = 1, then a counter-clockwise turn is being made.
+In addition:
+if received values are newA = 0 and newB = 1, a clockwise turn is being made.
+if received values are newA = 0 and newB = 0, a counter-clockwise turn is being made.
+Essentially, if the received values (two binary digits over USART) are different
+in value, there is clockwise movement, and counter-clockwise for equal values. 
+
+For the above to be the protocol in understanding the values, a system in which only 
+the values of 1 or 0 for newA and newB are being sent and received over USART needs
+to be in place. Adding the system state or other metrics will add more digits to the 
+stream, in which case the user should also include a text signal or message 
+illlustrating what the value corresponds to is recommended. 
