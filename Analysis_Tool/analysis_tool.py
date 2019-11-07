@@ -23,9 +23,64 @@ def parse_inputs(data):
     new_A = (data & 2) >> 1
     new_B = (data & 1)
     print(prev_A, prev_B, new_A, new_B)
+    if (
+            (prev_A > new_A and prev_B == new_B and new_B == 1 or 
+            prev_A < new_A and prev_B == new_B and new_B == 0) or 
+            (prev_B > new_B and prev_A == new_A and new_A == 0 or 
+            prev_B < new_B and prev_A == new_A and new_A == 1)
+        ):
+        print('CW')
+        return 'CW'
+    elif (
+            (prev_A > new_A and prev_B == new_B and new_B == 0 or 
+            prev_A < new_A and prev_B == new_B and new_B == 1) or 
+            (prev_B > new_B and prev_A == new_A and new_A == 1 or 
+            prev_B < new_B and prev_A == new_A and new_A == 0)
+        ):
+        print('CC')
+        return 'CC'
+    elif prev_A == new_A and prev_B == new_B:
+        print('NT')
+        return 'NT'
+    else:
+        print('IV')
+        return 'IV'
 
 def main():
-    print(parse_inputs(1101))
+    ## -- TEST parse_inputs -- ##
+    result0 = parse_inputs(0) # no turn
+    result1 = parse_inputs(1) # counter-clockwise
+    result2 = parse_inputs(2) # clockwise
+    result3 = parse_inputs(3) # invalid
+    result4 = parse_inputs(4) # clockwise
+    result5 = parse_inputs(5) # no turn
+    result6 = parse_inputs(6) # invalid
+    result7 = parse_inputs(7) # counter-clockwise
+    result8 = parse_inputs(8) # counter-clockwise
+    result9 = parse_inputs(9) # invalid
+    result10 = parse_inputs(10) # no turn
+    result11 = parse_inputs(11) # clockwise
+    result12 = parse_inputs(12) # invalid
+    result13 = parse_inputs(13) # clockwise
+    result14 = parse_inputs(14) # counter-clockwise
+    result15 = parse_inputs(15) # no turn
+    assert(result0 == 'NT')
+    assert(result1 == 'CC')
+    assert(result2 == 'CW')
+    assert(result3 == 'IV')
+    assert(result4 == 'CW')
+    assert(result5 == 'NT')
+    assert(result6 == 'IV')
+    assert(result7 == 'CC')
+    assert(result8 == 'CC')
+    assert(result9 == 'IV')
+    assert(result10 == 'NT')
+    assert(result11 == 'CW')
+    assert(result12 == 'IV')
+    assert(result13 == 'CW')
+    assert(result14 == 'CC')
+    assert(result15 == 'NT')
+    
     if len(sys.argv) == 5:              # check for correct command line args
         port = 0
         baud = 0
