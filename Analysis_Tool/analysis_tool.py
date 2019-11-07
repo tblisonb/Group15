@@ -8,11 +8,24 @@ def init(port, baud):
     print("Successfully opened port: " + ser.name)
     start = time.time()                 # track time after opening
     while (time.time() - start < 5):    # timeout after 5 seconds
-        s = ser.read(20)                # read first 20 characters in buffer
+        s = ser.read(4)                # read first 20 characters in buffer
         print(s)                        # print them to the terminal
+        parse_inputs(s)
     ser.close()                         # close port
+    
+# Assuming the ATmega4809 will transmit rotary data in the format abAB
+# where a and b are the previous line states on channel A and B, and AB is 
+# the most recent states. Based on the change between these states, the 
+# turn direciton can be determined.
+def parse_inputs(data):
+    prev_A = (data & 8) >> 3
+    prev_B = (data & 4) >> 2
+    new_A = (data & 2) >> 1
+    new_B = (data & 1)
+    print(prev_A, prev_B, new_A, new_B)
 
 def main():
+    print(parse_inputs(1101))
     if len(sys.argv) == 5:              # check for correct command line args
         port = 0
         baud = 0
