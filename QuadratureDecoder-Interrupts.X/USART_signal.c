@@ -15,7 +15,7 @@ uint8_t sendDecoderSignals(){
  * Ideally using this function then we could do something like - 
  * 
   while(1) {
-  line[i] = getchar();
+  line[i] = usart_getchar();
   if (line[i] == '\n') break;
   i++;
 }
@@ -23,8 +23,21 @@ line[i] = 0;
  * which would get each char line by line until \0 is reached 
  * further testing is required.
  */
-uint8_t uart_getchar(void) {
-  while ((UCSRA & (1 << RXC)) == 0) {
+unsigned char usart_getchar(void) {
+  while ((UCSR0A & (1 << RXC)) == 0) {
   }
-  return UDR;
+  return UDR0;
+}
+
+/*
+ method stub for transmitting data in a char array over usart
+ */
+void USART0_Send(unsigned char data){
+ 
+    
+    while(!(UCSR0A & (1 << UDRE0)));
+ 
+    
+    UDR0 = data;
+ 
 }
