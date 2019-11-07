@@ -1,0 +1,3 @@
+Jason Guest -  Us 33 Task 50
+Protocol for interpreting binary values indicating line unput state from rotary encoder
+
