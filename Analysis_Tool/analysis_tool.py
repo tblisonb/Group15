@@ -5,12 +5,14 @@ import time
 """ Initialize serial I/O with ATmega4809 and call parser function. """
 def init(port, baud):
     print("Attempting to open port " + port + " at " + baud + " Hz.")
-    ser = serial.Serial(port, baud, timeout=1)     # open port
+    ser = serial.Serial(port, baud, timeout=5)     # open port
     print("Successfully opened port: " + ser.name)
     start = time.time()                 # track time after opening
-    s = ser.read(4)                     # read block
-    print(s, time.time() - start)       # print  to the terminal
-    parse_inputs(s)
+    while time.time() - start < 5:
+        s = ser.read(255)                     # read char
+        print(s, time.time() - start)       # print  to the terminal
+        parse_inputs(s)
+        start = time.time()
     ser.close()                         # close port
     
 """ Assuming the ATmega4809 will transmit rotary data in the format abAB
@@ -18,11 +20,10 @@ def init(port, baud):
     the most recent states. Based on the change between these states, the 
     turn direciton can be determined. """
 def parse_inputs(data):
-    prev_A = (data & 8) >> 3
-    prev_B = (data & 4) >> 2
-    new_A = (data & 2) >> 1
-    new_B = (data & 1)
-    print(prev_A, prev_B, new_A, new_B)
+    prev_A = (int(data) & 8) >> 3
+    prev_B = (int(data) & 4) >> 2
+    new_A = (int(data) & 2) >> 1
+    new_B = (int(data) & 1)
     if (
             (prev_A > new_A and prev_B == new_B and new_B == 1 or 
             prev_A < new_A and prev_B == new_B and new_B == 0) or 
@@ -47,7 +48,7 @@ def parse_inputs(data):
         return 'IV'
 
 def main():
-    ## -- TEST parse_inputs -- ##
+    """## -- TEST parse_inputs -- ##
     result0 = parse_inputs(0) # no turn
     result1 = parse_inputs(1) # counter-clockwise
     result2 = parse_inputs(2) # clockwise
@@ -79,7 +80,7 @@ def main():
     assert(result12 == 'IV')
     assert(result13 == 'CW')
     assert(result14 == 'CC')
-    assert(result15 == 'NT')
+    assert(result15 == 'NT')"""
     
     if len(sys.argv) == 5:              # check for correct command line args
         port = 0

@@ -22,6 +22,7 @@
 */
 
 #include "../include/pin_manager.h"
+#include <stdio.h>
 static void (*PORTA_PA1_InterruptHandler)(void);
 static void (*PORTF_IO_PF6_InterruptHandler)(void);
 static void (*PORTE_IO_PE0_InterruptHandler)(void);
@@ -190,12 +191,9 @@ void PORTE_IO_PE0_SetInterruptHandler(void (* interruptHandler)(void))
 
 void PORTE_IO_PE0_DefaultInterruptHandler(void)
 {
-    unsigned char state_PE1 = IO_PE1_GetValue() >> 1;
-    if (state_PE1 == 0) {
-        printf("Counter-clockwise");
-    } else {
-        printf("Clockwise");
-    }
+    uint8_t data;
+    data = 8 + ((IO_PE1_GetValue() >> 1) * 4) + (IO_PE1_GetValue() >> 1);
+    USART0_Write(4);
     //increment the state or decrement the state based on result, 
     //state can never be negative or greater then 7
     unsigned char state = (IO_PE0_GetValue() | IO_PE1_GetValue()) << 3;
@@ -225,12 +223,9 @@ void PORTE_IO_PE1_SetInterruptHandler(void (* interruptHandler)(void))
 
 void PORTE_IO_PE1_DefaultInterruptHandler(void)
 {
-    unsigned char state_PE0 = IO_PE0_GetValue();
-    if (state_PE0 == 0) {
-        printf("Clockwise");
-    } else {
-        printf("Counter-clockwise");
-    }
+    uint8_t data;
+    data = (IO_PE0_GetValue() * 8) + 4 + (IO_PE0_GetValue() * 2);
+    USART0_Write(data);
     //increment the state or decrement the state based on result, 
     //state can never be negative or greater then 7
     unsigned char state = (IO_PE0_GetValue() | IO_PE1_GetValue()) << 3;

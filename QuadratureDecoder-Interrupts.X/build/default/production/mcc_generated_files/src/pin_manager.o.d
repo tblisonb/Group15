@@ -21,7 +21,9 @@ build/default/production/mcc_generated_files/src/pin_manager.o.d \
  c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\lib\gcc\avr\5.4.0\include\stddef.h \
  c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\avr\include\stdlib.h \
  mcc_generated_files/src/../include/../utils/interrupt_avr8.h \
- c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\avr\include\avr\interrupt.h
+ c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\avr\include\avr\interrupt.h \
+ c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\avr\include\stdio.h \
+ c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\lib\gcc\avr\5.4.0\include\stdarg.h
 
 mcc_generated_files/src/../include/pin_manager.h:
 
@@ -64,3 +66,7 @@ c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\avr\include\stdlib.h:
 mcc_generated_files/src/../include/../utils/interrupt_avr8.h:
 
 c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\avr\include\avr\interrupt.h:
+
+c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\avr\include\stdio.h:
+
+c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\lib\gcc\avr\5.4.0\include\stdarg.h:
