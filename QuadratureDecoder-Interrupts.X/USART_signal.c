@@ -35,9 +35,9 @@ unsigned char usart_getchar(void) {
 }
 
 /*
- method stub for transmitting data in a char array over usart
+ method stub for transmitting data over usart by bytes
  */
-void USART0_Send(unsigned char data){
+void USART0_Send(uint8_t data){
  
     while(!(UCSR0A & (1 << UDRE0)));
     UDR0 = data;
@@ -45,10 +45,10 @@ void USART0_Send(unsigned char data){
 }
 
 /*
- Method to send a string over usart 
+ Method to send a string over usart allowing for the sending of char arrays 
  */
 
-void USART0_SendString(char *ptr){
+void USART0_SendString(unsigned char *ptr){
     
     // loop through the string until the \n character is met
     // call send as it sends each individual character to be put as a string
