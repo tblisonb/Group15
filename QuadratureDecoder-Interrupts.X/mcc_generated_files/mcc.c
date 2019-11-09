@@ -35,7 +35,6 @@ void SYSTEM_Initialize(void)
     CLKCTRL_Initialize();
     CPUINT_Initialize();
     USART0_Initialize();
-    USART1_Initialize();
 }
 
 /**

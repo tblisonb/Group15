@@ -18,7 +18,6 @@
           <itemPath>mcc_generated_files/include/usart0.h</itemPath>
           <itemPath>mcc_generated_files/include/protected_io.h</itemPath>
           <itemPath>mcc_generated_files/include/pin_manager.h</itemPath>
-          <itemPath>mcc_generated_files/include/usart1.h</itemPath>
         </logicalFolder>
         <logicalFolder name="utils" displayName="utils" projectFiles="true">
           <logicalFolder name="assembler" displayName="assembler" projectFiles="true">
@@ -50,7 +49,6 @@
           <itemPath>mcc_generated_files/src/cpuint.c</itemPath>
           <itemPath>mcc_generated_files/src/usart0.c</itemPath>
           <itemPath>mcc_generated_files/src/protected_io.S</itemPath>
-          <itemPath>mcc_generated_files/src/usart1.c</itemPath>
         </logicalFolder>
         <itemPath>mcc_generated_files/device_config.c</itemPath>
         <itemPath>mcc_generated_files/mcc.c</itemPath>

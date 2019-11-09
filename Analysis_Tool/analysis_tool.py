@@ -5,13 +5,12 @@ import time
 """ Initialize serial I/O with ATmega4809 and call parser function. """
 def init(port, baud):
     print("Attempting to open port " + port + " at " + baud + " Hz.")
-    ser = serial.Serial(port, baud)     # open port
+    ser = serial.Serial(port, baud, timeout=1)     # open port
     print("Successfully opened port: " + ser.name)
     start = time.time()                 # track time after opening
-    while (time.time() - start < 5):    # timeout after 5 seconds
-        s = ser.read(4)                # read first 20 characters in buffer
-        print(s)                        # print them to the terminal
-        parse_inputs(s)
+    s = ser.read(4)                     # read block
+    print(s, time.time() - start)       # print  to the terminal
+    parse_inputs(s)
     ser.close()                         # close port
     
 """ Assuming the ATmega4809 will transmit rotary data in the format abAB

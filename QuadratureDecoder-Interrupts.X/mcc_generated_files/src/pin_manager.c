@@ -22,20 +22,14 @@
 */
 
 #include "../include/pin_manager.h"
-#include <stdio.h>
-#include <stdlib.h>
 static void (*PORTA_PA1_InterruptHandler)(void);
+static void (*PORTF_IO_PF6_InterruptHandler)(void);
 static void (*PORTE_IO_PE0_InterruptHandler)(void);
 static void (*PORTF_IO_PF3_InterruptHandler)(void);
-static void (*PORTC_PC0_InterruptHandler)(void);
 static void (*PORTE_IO_PE1_InterruptHandler)(void);
 static void (*PORTA_PA0_InterruptHandler)(void);
+static void (*PORTF_IO_PF5_InterruptHandler)(void);
 static void (*PORTF_IO_PF4_InterruptHandler)(void);
-static void (*PORTC_PC1_InterruptHandler)(void);
-
-int oldA = IO_PE0_GetValue(); //get the initial value of clkPin
-int oldB = IO_PE1_GetValue() >> 1; //get the initial value of dtPin
-unsigned int state = 2;
 
 void PORT_Initialize(void);
 
@@ -46,7 +40,7 @@ void PIN_MANAGER_Initialize()
     /* DIR Registers Initialization */
     PORTA.DIR = 0x01;
     PORTB.DIR = 0x00;
-    PORTC.DIR = 0x01;
+    PORTC.DIR = 0x00;
     PORTD.DIR = 0x00;
     PORTE.DIR = 0x00;
     PORTF.DIR = 0x18;
@@ -93,7 +87,7 @@ void PIN_MANAGER_Initialize()
     PORTD.PIN6CTRL = 0x00;
     PORTD.PIN7CTRL = 0x00;
     PORTE.PIN0CTRL = 0x03;
-    PORTE.PIN1CTRL = 0x02;
+    PORTE.PIN1CTRL = 0x03;
     PORTE.PIN2CTRL = 0x00;
     PORTE.PIN3CTRL = 0x00;
     PORTE.PIN4CTRL = 0x00;
@@ -106,7 +100,7 @@ void PIN_MANAGER_Initialize()
     PORTF.PIN3CTRL = 0x00;
     PORTF.PIN4CTRL = 0x00;
     PORTF.PIN5CTRL = 0x00;
-    PORTF.PIN6CTRL = 0x00;
+    PORTF.PIN6CTRL = 0x0B;
     PORTF.PIN7CTRL = 0x00;
 
     /* PORTMUX Initialization */
@@ -119,13 +113,13 @@ void PIN_MANAGER_Initialize()
 
     // register default ISC callback functions at runtime; use these methods to register a custom function
     PORTA_PA1_SetInterruptHandler(PORTA_PA1_DefaultInterruptHandler);
+    PORTF_IO_PF6_SetInterruptHandler(PORTF_IO_PF6_DefaultInterruptHandler);
     PORTE_IO_PE0_SetInterruptHandler(PORTE_IO_PE0_DefaultInterruptHandler);
     PORTF_IO_PF3_SetInterruptHandler(PORTF_IO_PF3_DefaultInterruptHandler);
-    PORTC_PC0_SetInterruptHandler(PORTC_PC0_DefaultInterruptHandler);
     PORTE_IO_PE1_SetInterruptHandler(PORTE_IO_PE1_DefaultInterruptHandler);
     PORTA_PA0_SetInterruptHandler(PORTA_PA0_DefaultInterruptHandler);
+    PORTF_IO_PF5_SetInterruptHandler(PORTF_IO_PF5_DefaultInterruptHandler);
     PORTF_IO_PF4_SetInterruptHandler(PORTF_IO_PF4_DefaultInterruptHandler);
-    PORTC_PC1_SetInterruptHandler(PORTC_PC1_DefaultInterruptHandler);
 }
 
 void PORT_Initialize(void)
@@ -175,6 +169,18 @@ void PORTA_PA1_DefaultInterruptHandler(void)
     // or set custom function using PORTA_PA1_SetInterruptHandler()
 }
 /**
+  Allows selecting an interrupt handler for PORTF_IO_PF6 at application runtime
+*/
+void PORTF_IO_PF6_SetInterruptHandler(void (* interruptHandler)(void)) 
+{
+    PORTF_IO_PF6_InterruptHandler = interruptHandler;
+}
+
+void PORTF_IO_PF6_DefaultInterruptHandler(void)
+{
+    IO_PF5_Toggle();
+}
+/**
   Allows selecting an interrupt handler for PORTE_IO_PE0 at application runtime
 */
 void PORTE_IO_PE0_SetInterruptHandler(void (* interruptHandler)(void)) 
@@ -184,27 +190,15 @@ void PORTE_IO_PE0_SetInterruptHandler(void (* interruptHandler)(void))
 
 void PORTE_IO_PE0_DefaultInterruptHandler(void)
 {
-    // add your PORTE_IO_PE0 interrupt custom code
-    // or set custom function using PORTE_IO_PE0_SetInterruptHandler()
-    unsigned char newA = IO_PE0_GetValue(); //get the initial value of clkPin
-    unsigned char newB = IO_PE1_GetValue() >> 1; //get the initial value of dtPin
-    unsigned char result = 0;
-    if (oldA == 1 && newA == 0) {
-        if (oldB == newB && oldB == 1) {
-            printf("Clockwise turn detected");
-        } else if (oldB == newB && oldB == 0) {
-            printf("Counter-clockwise turn detected");
-        }
-        //increment the state or decrement the state based on result, 
-        //state can never be negative or greater then 31
-        result = (oldB * 8) - 1; 
+    unsigned char state_PE1 = IO_PE1_GetValue() >> 1;
+    if (state_PE1 == 0) {
+        printf("Counter-clockwise");
+    } else {
+        printf("Clockwise");
     }
     //increment the state or decrement the state based on result, 
     //state can never be negative or greater then 7
-    state = (state + result) % 32;
-    //store the new state of clkPin and dtPin for the next cycle through
-    oldA = newA;
-    oldB = newB;
+    unsigned char state = (IO_PE0_GetValue() | IO_PE1_GetValue()) << 3;
     //display the state to the connected lights
     VPORTF.OUT = state;
 }
@@ -222,19 +216,6 @@ void PORTF_IO_PF3_DefaultInterruptHandler(void)
     // or set custom function using PORTF_IO_PF3_SetInterruptHandler()
 }
 /**
-  Allows selecting an interrupt handler for PORTC_PC0 at application runtime
-*/
-void PORTC_PC0_SetInterruptHandler(void (* interruptHandler)(void)) 
-{
-    PORTC_PC0_InterruptHandler = interruptHandler;
-}
-
-void PORTC_PC0_DefaultInterruptHandler(void)
-{
-    // add your PORTC_PC0 interrupt custom code
-    // or set custom function using PORTC_PC0_SetInterruptHandler()
-}
-/**
   Allows selecting an interrupt handler for PORTE_IO_PE1 at application runtime
 */
 void PORTE_IO_PE1_SetInterruptHandler(void (* interruptHandler)(void)) 
@@ -244,8 +225,17 @@ void PORTE_IO_PE1_SetInterruptHandler(void (* interruptHandler)(void))
 
 void PORTE_IO_PE1_DefaultInterruptHandler(void)
 {
-    // add your PORTE_IO_PE1 interrupt custom code
-    // or set custom function using PORTE_IO_PE1_SetInterruptHandler()
+    unsigned char state_PE0 = IO_PE0_GetValue();
+    if (state_PE0 == 0) {
+        printf("Clockwise");
+    } else {
+        printf("Counter-clockwise");
+    }
+    //increment the state or decrement the state based on result, 
+    //state can never be negative or greater then 7
+    unsigned char state = (IO_PE0_GetValue() | IO_PE1_GetValue()) << 3;
+    //display the state to the connected lights
+    VPORTF.OUT = state;
 }
 /**
   Allows selecting an interrupt handler for PORTA_PA0 at application runtime
@@ -261,6 +251,19 @@ void PORTA_PA0_DefaultInterruptHandler(void)
     // or set custom function using PORTA_PA0_SetInterruptHandler()
 }
 /**
+  Allows selecting an interrupt handler for PORTF_IO_PF5 at application runtime
+*/
+void PORTF_IO_PF5_SetInterruptHandler(void (* interruptHandler)(void)) 
+{
+    PORTF_IO_PF5_InterruptHandler = interruptHandler;
+}
+
+void PORTF_IO_PF5_DefaultInterruptHandler(void)
+{
+    // add your PORTF_IO_PF5 interrupt custom code
+    // or set custom function using PORTF_IO_PF5_SetInterruptHandler()
+}
+/**
   Allows selecting an interrupt handler for PORTF_IO_PF4 at application runtime
 */
 void PORTF_IO_PF4_SetInterruptHandler(void (* interruptHandler)(void)) 
@@ -272,19 +275,6 @@ void PORTF_IO_PF4_DefaultInterruptHandler(void)
 {
     // add your PORTF_IO_PF4 interrupt custom code
     // or set custom function using PORTF_IO_PF4_SetInterruptHandler()
-}
-/**
-  Allows selecting an interrupt handler for PORTC_PC1 at application runtime
-*/
-void PORTC_PC1_SetInterruptHandler(void (* interruptHandler)(void)) 
-{
-    PORTC_PC1_InterruptHandler = interruptHandler;
-}
-
-void PORTC_PC1_DefaultInterruptHandler(void)
-{
-    // add your PORTC_PC1 interrupt custom code
-    // or set custom function using PORTC_PC1_SetInterruptHandler()
 }
 ISR(PORTE_PORT_vect)
 {  
@@ -300,5 +290,29 @@ ISR(PORTE_PORT_vect)
 
     /* Clear interrupt flags */
     VPORTE.INTFLAGS = 0xff;
+}
+
+ISR(PORTF_PORT_vect)
+{  
+    // Call the interrupt handler for the callback registered at runtime
+    if(VPORTF.INTFLAGS & PORT_INT6_bm)
+    {
+       PORTF_IO_PF6_InterruptHandler();
+    }
+    if(VPORTF.INTFLAGS & PORT_INT3_bm)
+    {
+       PORTF_IO_PF3_InterruptHandler();
+    }
+    if(VPORTF.INTFLAGS & PORT_INT5_bm)
+    {
+       PORTF_IO_PF5_InterruptHandler();
+    }
+    if(VPORTF.INTFLAGS & PORT_INT4_bm)
+    {
+       PORTF_IO_PF4_InterruptHandler();
+    }
+
+    /* Clear interrupt flags */
+    VPORTF.INTFLAGS = 0xff;
 }
 
