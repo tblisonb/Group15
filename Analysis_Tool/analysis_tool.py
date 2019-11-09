@@ -2,6 +2,7 @@ import sys
 import serial
 import time
 
+""" Initialize serial I/O with ATmega4809 and call parser function. """
 def init(port, baud):
     print("Attempting to open port " + port + " at " + baud + " Hz.")
     ser = serial.Serial(port, baud)     # open port
@@ -13,10 +14,10 @@ def init(port, baud):
         parse_inputs(s)
     ser.close()                         # close port
     
-# Assuming the ATmega4809 will transmit rotary data in the format abAB
-# where a and b are the previous line states on channel A and B, and AB is 
-# the most recent states. Based on the change between these states, the 
-# turn direciton can be determined.
+""" Assuming the ATmega4809 will transmit rotary data in the format abAB
+    where a and b are the previous line states on channel A and B, and AB is 
+    the most recent states. Based on the change between these states, the 
+    turn direciton can be determined. """
 def parse_inputs(data):
     prev_A = (data & 8) >> 3
     prev_B = (data & 4) >> 2
