@@ -24,9 +24,14 @@ line[i] = 0;
  * further testing is required.
  */
 unsigned char usart_getchar(void) {
-  while ((UCSR0A & (1 << RXC)) == 0) {
+    
+  while ((UCSR0A & (1 << RXC0)) == 0) {
+      //return data received from RXC0
+      return UDR0;
   }
-  return UDR0;
+  // return null character if no data is available to get
+  return 0x00;
+  
 }
 
 /*
@@ -34,10 +39,20 @@ unsigned char usart_getchar(void) {
  */
 void USART0_Send(unsigned char data){
  
-    
     while(!(UCSR0A & (1 << UDRE0)));
- 
-    
     UDR0 = data;
  
+}
+
+/*
+ Method to send a string over usart 
+ */
+
+void USART0_SendString(char *ptr){
+    
+    // loop through the string until the \n character is met
+    // call send as it sends each individual character to be put as a string
+    while(*ptr){
+        USART0_Send(*ptr++);
+    }
 }
