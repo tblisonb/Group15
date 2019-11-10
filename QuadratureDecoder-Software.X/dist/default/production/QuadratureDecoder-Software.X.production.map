@@ -98,15 +98,6 @@ Discarded input sections
  .text          0x00000000        0x0 build/default/production/mcc_generated_files/src/protected_io.o
  .data          0x00000000        0x0 build/default/production/mcc_generated_files/src/protected_io.o
  .bss           0x00000000        0x0 build/default/production/mcc_generated_files/src/protected_io.o
- .text          0x00000000        0x0 build/default/production/mcc_generated_files/device_config.o
- .data          0x00000000        0x0 build/default/production/mcc_generated_files/device_config.o
- .bss           0x00000000        0x0 build/default/production/mcc_generated_files/device_config.o
- .text          0x00000000        0x0 build/default/production/mcc_generated_files/mcc.o
- .data          0x00000000        0x0 build/default/production/mcc_generated_files/mcc.o
- .bss           0x00000000        0x0 build/default/production/mcc_generated_files/mcc.o
- .text          0x00000000        0x0 build/default/production/main.o
- .data          0x00000000        0x0 build/default/production/main.o
- .bss           0x00000000        0x0 build/default/production/main.o
  .text          0x00000000        0x0 build/default/production/mcc_generated_files/src/usart1.o
  .data          0x00000000        0x0 build/default/production/mcc_generated_files/src/usart1.o
  .bss           0x00000000        0x0 build/default/production/mcc_generated_files/src/usart1.o
@@ -130,6 +121,15 @@ Discarded input sections
                 0x00000000        0xc build/default/production/mcc_generated_files/src/usart1.o
  .text.USART1_Read
                 0x00000000       0x10 build/default/production/mcc_generated_files/src/usart1.o
+ .text          0x00000000        0x0 build/default/production/mcc_generated_files/device_config.o
+ .data          0x00000000        0x0 build/default/production/mcc_generated_files/device_config.o
+ .bss           0x00000000        0x0 build/default/production/mcc_generated_files/device_config.o
+ .text          0x00000000        0x0 build/default/production/mcc_generated_files/mcc.o
+ .data          0x00000000        0x0 build/default/production/mcc_generated_files/mcc.o
+ .bss           0x00000000        0x0 build/default/production/mcc_generated_files/mcc.o
+ .text          0x00000000        0x0 build/default/production/main.o
+ .data          0x00000000        0x0 build/default/production/main.o
+ .bss           0x00000000        0x0 build/default/production/main.o
  .text          0x00000000        0x0 c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_exit.o)
  .data          0x00000000        0x0 c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_exit.o)
  .bss           0x00000000        0x0 c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_exit.o)
@@ -234,10 +234,10 @@ LOAD build/default/production/mcc_generated_files/src/pin_manager.o
 LOAD build/default/production/mcc_generated_files/src/cpuint.o
 LOAD build/default/production/mcc_generated_files/src/usart0.o
 LOAD build/default/production/mcc_generated_files/src/protected_io.o
+LOAD build/default/production/mcc_generated_files/src/usart1.o
 LOAD build/default/production/mcc_generated_files/device_config.o
 LOAD build/default/production/mcc_generated_files/mcc.o
 LOAD build/default/production/main.o
-LOAD build/default/production/mcc_generated_files/src/usart1.o
 START GROUP
 LOAD c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a
 END GROUP
@@ -506,10 +506,10 @@ END GROUP
                                  0x30 (size before relaxing)
  .comment       0x0000002f       0x30 build/default/production/mcc_generated_files/src/cpuint.o
  .comment       0x0000002f       0x30 build/default/production/mcc_generated_files/src/usart0.o
+ .comment       0x0000002f       0x30 build/default/production/mcc_generated_files/src/usart1.o
  .comment       0x0000002f       0x30 build/default/production/mcc_generated_files/device_config.o
  .comment       0x0000002f       0x30 build/default/production/mcc_generated_files/mcc.o
  .comment       0x0000002f       0x30 build/default/production/main.o
- .comment       0x0000002f       0x30 build/default/production/mcc_generated_files/src/usart1.o
  .comment       0x0000002f       0x2c c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libc.a(iob.o)
                                  0x2d (size before relaxing)
  .comment       0x0000005b       0x2d c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libc.a(printf.o)
@@ -542,28 +542,28 @@ END GROUP
  .debug_aranges
                 0x00000190       0x20 build/default/production/mcc_generated_files/src/protected_io.o
  .debug_aranges
-                0x000001b0       0x18 build/default/production/mcc_generated_files/device_config.o
+                0x000001b0       0x80 build/default/production/mcc_generated_files/src/usart1.o
  .debug_aranges
-                0x000001c8       0x48 build/default/production/mcc_generated_files/mcc.o
+                0x00000230       0x18 build/default/production/mcc_generated_files/device_config.o
  .debug_aranges
-                0x00000210       0x20 build/default/production/main.o
+                0x00000248       0x48 build/default/production/mcc_generated_files/mcc.o
  .debug_aranges
-                0x00000230       0x80 build/default/production/mcc_generated_files/src/usart1.o
+                0x00000290       0x20 build/default/production/main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x5e92
+.debug_info     0x00000000     0x5f42
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000     0x248a C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
- .debug_info    0x0000248a      0xd3e build/default/production/mcc_generated_files/src/pin_manager.o
- .debug_info    0x000031c8      0x3c3 build/default/production/mcc_generated_files/src/cpuint.o
- .debug_info    0x0000358b      0xae6 build/default/production/mcc_generated_files/src/usart0.o
- .debug_info    0x00004071       0x83 build/default/production/mcc_generated_files/src/protected_io.o
- .debug_info    0x000040f4      0x7d7 build/default/production/mcc_generated_files/device_config.o
- .debug_info    0x000048cb      0xb09 build/default/production/mcc_generated_files/mcc.o
- .debug_info    0x000053d4      0x38f build/default/production/main.o
- .debug_info    0x00005763      0x72f build/default/production/mcc_generated_files/src/usart1.o
+ .debug_info    0x0000248a      0xd54 build/default/production/mcc_generated_files/src/pin_manager.o
+ .debug_info    0x000031de      0x3d9 build/default/production/mcc_generated_files/src/cpuint.o
+ .debug_info    0x000035b7      0xafc build/default/production/mcc_generated_files/src/usart0.o
+ .debug_info    0x000040b3       0x99 build/default/production/mcc_generated_files/src/protected_io.o
+ .debug_info    0x0000414c      0x745 build/default/production/mcc_generated_files/src/usart1.o
+ .debug_info    0x00004891      0x7ed build/default/production/mcc_generated_files/device_config.o
+ .debug_info    0x0000507e      0xb1f build/default/production/mcc_generated_files/mcc.o
+ .debug_info    0x00005b9d      0x3a5 build/default/production/main.o
 
 .debug_abbrev   0x00000000     0x2ca5
  *(.debug_abbrev)
@@ -572,10 +572,10 @@ END GROUP
  .debug_abbrev  0x0000242c       0xfa build/default/production/mcc_generated_files/src/cpuint.o
  .debug_abbrev  0x00002526      0x2df build/default/production/mcc_generated_files/src/usart0.o
  .debug_abbrev  0x00002805       0x14 build/default/production/mcc_generated_files/src/protected_io.o
- .debug_abbrev  0x00002819       0x85 build/default/production/mcc_generated_files/device_config.o
- .debug_abbrev  0x0000289e      0x157 build/default/production/mcc_generated_files/mcc.o
- .debug_abbrev  0x000029f5       0xd5 build/default/production/main.o
- .debug_abbrev  0x00002aca      0x1db build/default/production/mcc_generated_files/src/usart1.o
+ .debug_abbrev  0x00002819      0x1db build/default/production/mcc_generated_files/src/usart1.o
+ .debug_abbrev  0x000029f4       0x85 build/default/production/mcc_generated_files/device_config.o
+ .debug_abbrev  0x00002a79      0x157 build/default/production/mcc_generated_files/mcc.o
+ .debug_abbrev  0x00002bd0       0xd5 build/default/production/main.o
 
 .debug_line     0x00000000     0x1428
  *(.debug_line .debug_line.* .debug_line_end)
@@ -584,19 +584,19 @@ END GROUP
  .debug_line    0x0000061c      0x186 build/default/production/mcc_generated_files/src/cpuint.o
  .debug_line    0x000007a2      0x44f build/default/production/mcc_generated_files/src/usart0.o
  .debug_line    0x00000bf1       0x66 build/default/production/mcc_generated_files/src/protected_io.o
- .debug_line    0x00000c57       0xf1 build/default/production/mcc_generated_files/device_config.o
- .debug_line    0x00000d48      0x266 build/default/production/mcc_generated_files/mcc.o
- .debug_line    0x00000fae      0x1da build/default/production/main.o
- .debug_line    0x00001188      0x2a0 build/default/production/mcc_generated_files/src/usart1.o
+ .debug_line    0x00000c57      0x2a0 build/default/production/mcc_generated_files/src/usart1.o
+ .debug_line    0x00000ef7       0xf1 build/default/production/mcc_generated_files/device_config.o
+ .debug_line    0x00000fe8      0x266 build/default/production/mcc_generated_files/mcc.o
+ .debug_line    0x0000124e      0x1da build/default/production/main.o
 
 .debug_frame    0x00000000      0x584
  *(.debug_frame)
  .debug_frame   0x00000000      0x1a0 build/default/production/mcc_generated_files/src/pin_manager.o
  .debug_frame   0x000001a0       0x24 build/default/production/mcc_generated_files/src/cpuint.o
  .debug_frame   0x000001c4      0x210 build/default/production/mcc_generated_files/src/usart0.o
- .debug_frame   0x000003d4       0x84 build/default/production/mcc_generated_files/mcc.o
- .debug_frame   0x00000458       0x48 build/default/production/main.o
- .debug_frame   0x000004a0       0xe4 build/default/production/mcc_generated_files/src/usart1.o
+ .debug_frame   0x000003d4       0xe4 build/default/production/mcc_generated_files/src/usart1.o
+ .debug_frame   0x000004b8       0x84 build/default/production/mcc_generated_files/mcc.o
+ .debug_frame   0x0000053c       0x48 build/default/production/main.o
 
 .debug_str      0x00000000     0x10da
  *(.debug_str)
@@ -604,19 +604,19 @@ END GROUP
  .debug_str     0x00000f85       0x60 build/default/production/mcc_generated_files/src/pin_manager.o
  .debug_str     0x00000fe5       0x13 build/default/production/mcc_generated_files/src/cpuint.o
  .debug_str     0x00000ff8        0x0 build/default/production/mcc_generated_files/src/usart0.o
+ .debug_str     0x00000ff8        0x0 build/default/production/mcc_generated_files/src/usart1.o
  .debug_str     0x00000ff8        0x0 build/default/production/mcc_generated_files/device_config.o
  .debug_str     0x00000ff8       0xd0 build/default/production/mcc_generated_files/mcc.o
  .debug_str     0x000010c8       0x12 build/default/production/main.o
- .debug_str     0x000010da        0x0 build/default/production/mcc_generated_files/src/usart1.o
 
 .debug_loc      0x00000000      0x474
  *(.debug_loc)
  .debug_loc     0x00000000       0x78 build/default/production/mcc_generated_files/src/pin_manager.o
  .debug_loc     0x00000078       0x2a build/default/production/mcc_generated_files/src/cpuint.o
  .debug_loc     0x000000a2      0x123 build/default/production/mcc_generated_files/src/usart0.o
- .debug_loc     0x000001c5      0x172 build/default/production/mcc_generated_files/mcc.o
- .debug_loc     0x00000337       0xf6 build/default/production/main.o
- .debug_loc     0x0000042d       0x47 build/default/production/mcc_generated_files/src/usart1.o
+ .debug_loc     0x000001c5       0x47 build/default/production/mcc_generated_files/src/usart1.o
+ .debug_loc     0x0000020c      0x172 build/default/production/mcc_generated_files/mcc.o
+ .debug_loc     0x0000037e       0xf6 build/default/production/main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -641,9 +641,9 @@ END GROUP
  .debug_ranges  0x00000000       0xa0 build/default/production/mcc_generated_files/src/pin_manager.o
  .debug_ranges  0x000000a0       0x10 build/default/production/mcc_generated_files/src/cpuint.o
  .debug_ranges  0x000000b0       0xb0 build/default/production/mcc_generated_files/src/usart0.o
- .debug_ranges  0x00000160       0x38 build/default/production/mcc_generated_files/mcc.o
- .debug_ranges  0x00000198       0x28 build/default/production/main.o
- .debug_ranges  0x000001c0       0x70 build/default/production/mcc_generated_files/src/usart1.o
+ .debug_ranges  0x00000160       0x70 build/default/production/mcc_generated_files/src/usart1.o
+ .debug_ranges  0x000001d0       0x38 build/default/production/mcc_generated_files/mcc.o
+ .debug_ranges  0x00000208       0x28 build/default/production/main.o
 
 .debug_macro
  *(.debug_macro)
@@ -842,23 +842,23 @@ LOAD data_init
  .text.avrlibc  0x00000c84       0x16 c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libc.a(strnlen.o)
                 0x00000c84                strnlen
 
-.text.SLPCTRL_Initialize
+.text.USART1_Write
                 0x00000c9a       0x10
+ .text.USART1_Write
+                0x00000c9a       0x10 build/default/production/mcc_generated_files/src/usart1.o
+                0x00000c9a                USART1_Write
+
+.text.SLPCTRL_Initialize
+                0x00000caa       0x10
  .text.SLPCTRL_Initialize
-                0x00000c9a       0x10 build/default/production/mcc_generated_files/mcc.o
-                0x00000c9a                SLPCTRL_Initialize
+                0x00000caa       0x10 build/default/production/mcc_generated_files/mcc.o
+                0x00000caa                SLPCTRL_Initialize
 
 .text.WDT_Initialize
-                0x00000caa       0x10
- .text.WDT_Initialize
-                0x00000caa       0x10 build/default/production/mcc_generated_files/mcc.o
-                0x00000caa                WDT_Initialize
-
-.text.USART1_Write
                 0x00000cba       0x10
- .text.USART1_Write
-                0x00000cba       0x10 build/default/production/mcc_generated_files/src/usart1.o
-                0x00000cba                USART1_Write
+ .text.WDT_Initialize
+                0x00000cba       0x10 build/default/production/mcc_generated_files/mcc.o
+                0x00000cba                WDT_Initialize
 
 .text.USART0_printCHAR
                 0x00000cca        0xa
