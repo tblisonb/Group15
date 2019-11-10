@@ -1,7 +1,7 @@
-build/default/production/mcc_generated_files/src/usart1.o.d \
- build/default/production/mcc_generated_files/src/usart1.o: \
- mcc_generated_files/src/usart1.c \
- mcc_generated_files/src/../include/usart1.h \
+build/default/production/mcc_generated_files/src/usart3.o.d \
+ build/default/production/mcc_generated_files/src/usart3.o: \
+ mcc_generated_files/src/usart3.c \
+ mcc_generated_files/src/../include/usart3.h \
  c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\lib\gcc\avr\5.4.0\include\stdbool.h \
  c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\avr\include\stdio.h \
  c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\avr\include\inttypes.h \
@@ -26,7 +26,7 @@ build/default/production/mcc_generated_files/src/usart1.o.d \
  mcc_generated_files/src/../include/../utils/atomic.h \
  mcc_generated_files/src/../include/../config/clock_config.h
 
-mcc_generated_files/src/../include/usart1.h:
+mcc_generated_files/src/../include/usart3.h:
 
 c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\lib\gcc\avr\5.4.0\include\stdbool.h:
 

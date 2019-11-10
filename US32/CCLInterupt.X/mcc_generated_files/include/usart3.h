@@ -21,8 +21,8 @@
     SOFTWARE.
 */
 
-#ifndef USART1_H_INCLUDED
-#define USART1_H_INCLUDED
+#ifndef USART3_H_INCLUDED
+#define USART3_H_INCLUDED
 
 #include <stdbool.h>
 #include <stdio.h>
@@ -35,17 +35,7 @@ extern "C" {
 #endif
 
 /* Normal Mode, Baud register value */
-#define USART1_BAUD_RATE(BAUD_RATE) (((float)3333333 * 64 / (16 * (float)BAUD_RATE)) + 0.5)
-
-/* USART1 Ringbuffer */
-
-#define USART1_RX_BUFFER_SIZE 8
-#define USART1_TX_BUFFER_SIZE 8
-#define USART1_RX_BUFFER_MASK (USART1_RX_BUFFER_SIZE - 1)
-#define USART1_TX_BUFFER_MASK (USART1_TX_BUFFER_SIZE - 1)
-
-typedef enum { USART1_RX_CB = 1, USART1_TX_CB } usart1_cb_t;
-typedef void (*usart_callback)(void);
+#define USART3_BAUD_RATE(BAUD_RATE) (((float)3333333 * 64 / (16 * (float)BAUD_RATE)) + 0.5)
 
 /**
  * \brief Initialize USART interface
@@ -56,50 +46,50 @@ typedef void (*usart_callback)(void);
  * \retval 0 the USART init was successful
  * \retval 1 the USART init was not successful
  */
-void USART1_Initialize();
+void USART3_Initialize();
 
 /**
- * \brief Enable RX and TX in USART1
+ * \brief Enable RX and TX in USART3
  * 1. If supported by the clock system, enables the clock to the USART
  * 2. Enables the USART module by setting the RX and TX enable-bits in the USART control register
  *
  * \return Nothing
  */
-void USART1_Enable();
+void USART3_Enable();
 
 /**
- * \brief Enable RX in USART1
+ * \brief Enable RX in USART3
  * 1. If supported by the clock system, enables the clock to the USART
  * 2. Enables the USART module by setting the RX enable-bit in the USART control register
  *
  * \return Nothing
  */
-void USART1_EnableRx();
+void USART3_EnableRx();
 
 /**
- * \brief Enable TX in USART1
+ * \brief Enable TX in USART3
  * 1. If supported by the clock system, enables the clock to the USART
  * 2. Enables the USART module by setting the TX enable-bit in the USART control register
  *
  * \return Nothing
  */
-void USART1_EnableTx();
+void USART3_EnableTx();
 
 /**
- * \brief Disable USART1
+ * \brief Disable USART3
  * 1. Disables the USART module by clearing the enable-bit(s) in the USART control register
  * 2. If supported by the clock system, disables the clock to the USART
  *
  * \return Nothing
  */
-void USART1_Disable();
+void USART3_Disable();
 
 /**
- * \brief Get recieved data from USART1
+ * \brief Get recieved data from USART3
  *
- * \return Data register from USART1 module
+ * \return Data register from USART3 module
  */
-uint8_t USART1_GetData();
+uint8_t USART3_GetData();
 
 /**
  * \brief Check if the usart can accept data to be transmitted
@@ -108,7 +98,7 @@ uint8_t USART1_GetData();
  * \retval false The USART can not receive data to be transmitted
  * \retval true The USART can receive data to be transmitted
  */
-bool USART1_IsTxReady();
+bool USART3_IsTxReady();
 
 /**
  * \brief Check if the USART has received data
@@ -117,31 +107,30 @@ bool USART1_IsTxReady();
  * \retval true The USART has received data
  * \retval false The USART has not received data
  */
-bool USART1_IsRxReady();
+bool USART3_IsRxReady();
 
 /**
- * \brief Check if USART1 data is transmitted
+ * \brief Check if USART3 data is transmitted
  *
  * \return Receiver ready status
  * \retval true  Data is not completely shifted out of the shift register
  * \retval false Data completely shifted out if the USART shift register
  */
-bool USART1_IsTxBusy();
+bool USART3_IsTxBusy();
 
+bool USART3_IsTxDone();
 
-
-bool USART1_IsTxDone();
 /**
- * \brief Read one character from USART1
+ * \brief Read one character from USART3
  *
  * Function will block if a character is not available.
  *
- * \return Data read from the USART1 module
+ * \return Data read from the USART3 module
  */
-uint8_t USART1_Read(void);
+uint8_t USART3_Read(void);
 
 /**
- * \brief Write one character to USART1
+ * \brief Write one character to USART3
  *
  * Function will block until a character can be accepted.
  *
@@ -149,30 +138,10 @@ uint8_t USART1_Read(void);
  *
  * \return Nothing
  */
-void USART1_Write(const uint8_t data);
-
-/**
- * \brief Set call back function for USART1
- *
- * \param[in] cb The call back function to set
- *
- * \param[in] type The type of ISR to be set
- *
- * \return Nothing
- */
- 
-void USART1_DefaultRxIsrCb(void);
-
-void USART1_DefaultTxIsrCb(void);
-
-void USART1_SetISRCb(usart_callback cb, usart1_cb_t type);
-
-void USART1_SetRXISRCb(usart_callback cb);
-
-void USART1_SetTXISRCb(usart_callback cb);
+void USART3_Write(const uint8_t data);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* USART1_H_INCLUDED */
+#endif /* USART3_H_INCLUDED */
