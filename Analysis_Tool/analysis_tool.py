@@ -3,17 +3,18 @@ import serial
 import time
 
 """ Initialize serial I/O with ATmega4809 and call parser function. """
-def init(port, baud):
+def run(port, baud, timeout):
     print("Attempting to open port " + port + " at " + baud + " Hz.")
-    ser = serial.Serial(port, baud, timeout=5)     # open port
-    print("Successfully opened port: " + ser.name)
-    start = time.time()                 # track time after opening
-    while time.time() - start < 5:
-        s = ser.read(255)                     # read char
-        print(s, time.time() - start)       # print  to the terminal
-        parse_inputs(s)
-        start = time.time()
-    ser.close()                         # close port
+    prev = time.time()                 # track time after opening
+    while time.time() - prev < timeout:
+        ser = serial.Serial(port, baud, timeout=5)     # open port
+        prev = time.time()                 # start time
+        s = ser.read(1)                     # read char
+        cur = time.time()   # end time
+        inst_v = (1 / 20) / (cur - prev) # compute velocity of turn
+        result = parse_inputs(s)
+        self.display(result, inst_v)
+        ser.close()                         # close port
     
 """ Assuming the ATmega4809 will transmit rotary data in the format abAB
     where a and b are the previous line states on channel A and B, and AB is 
@@ -30,7 +31,6 @@ def parse_inputs(data):
             (prev_B > new_B and prev_A == new_A and new_A == 0 or 
             prev_B < new_B and prev_A == new_A and new_A == 1)
         ):
-        print('CW')
         return 'CW'
     elif (
             (prev_A > new_A and prev_B == new_B and new_B == 0 or 
@@ -38,14 +38,20 @@ def parse_inputs(data):
             (prev_B > new_B and prev_A == new_A and new_A == 1 or 
             prev_B < new_B and prev_A == new_A and new_A == 0)
         ):
-        print('CC')
         return 'CC'
     elif prev_A == new_A and prev_B == new_B:
-        print('NT')
         return 'NT'
     else:
-        print('IV')
         return 'IV'
+
+""" Formats output of the turn direction & velocity. """
+def display(direction, velocity):
+    if direction == CW:
+        print("Clockwise turn detected @ " + velocity + " revolutions per second.")
+    elif direction == CC:
+        print("Counter-clockwise turn detected @ " + velocity + " revolutions per second.")
+    else:
+        print("Invalid inputs (measured: direction - " + direction + ", velocity - " + velocity + ").")
 
 def main():
     """## -- TEST parse_inputs -- ##
@@ -82,23 +88,14 @@ def main():
     assert(result14 == 'CC')
     assert(result15 == 'NT')"""
     
-    if len(sys.argv) == 5:              # check for correct command line args
-        port = 0
-        baud = 0
-        if sys.argv[1] == "--port":
-            port = sys.argv[2]          # assign arg value for port
-        else:
-            print("Port must be the first argument")
-            exit()                      # err and exit
-        if sys.argv[3] == "--baud":
-            baud = sys.argv[4]          # assign arg value for port
-        else:
-            print("Baud must be the second argument")
-            exit()                      # err and exit
-        init(port, baud)
+    if len(sys.argv) == 4:          # check for correct command line args
+        port = sys.argv[1]          # assign arg value for port
+        baud = sys.argv[2]          # assign arg value for baud
+        time = sys.argv[3]          # assign arg value for timeout
+        run(port, baud, time)
     else:
         print("Incorrect arguments provided")
-        print("Format: python analysis_tool.py --port [value] --baud [rate]")
+        print("Format: python analysis_tool.py [port] [baud] [timeout]")
     
 if __name__ == "__main__":
     main()
