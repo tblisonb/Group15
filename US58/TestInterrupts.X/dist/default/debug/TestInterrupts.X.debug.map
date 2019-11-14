@@ -3,72 +3,72 @@ Archive member included to satisfy reference by file (symbol)
 c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_exit.o)
                               C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o (exit)
 c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_copy_data.o)
-                              build/default/production/mcc_generated_files/device_config.o (__do_copy_data)
+                              build/default/debug/mcc_generated_files/device_config.o (__do_copy_data)
 
 Allocating common symbols
 Common symbol       size              file
 
-logicB              0x2               build/default/production/mcc_generated_files/src/pin_manager.o
-logic               0x2               build/default/production/mcc_generated_files/src/pin_manager.o
+logicB              0x2               build/default/debug/mcc_generated_files/src/pin_manager.o
+logic               0x2               build/default/debug/mcc_generated_files/src/pin_manager.o
 
 Discarded input sections
 
  .data          0x00000000        0x0 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
  .bss           0x00000000        0x0 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
- .text          0x00000000        0x0 build/default/production/mcc_generated_files/src/pin_manager.o
- .data          0x00000000        0x0 build/default/production/mcc_generated_files/src/pin_manager.o
- .bss           0x00000000        0x0 build/default/production/mcc_generated_files/src/pin_manager.o
+ .text          0x00000000        0x0 build/default/debug/mcc_generated_files/src/pin_manager.o
+ .data          0x00000000        0x0 build/default/debug/mcc_generated_files/src/pin_manager.o
+ .bss           0x00000000        0x0 build/default/debug/mcc_generated_files/src/pin_manager.o
  .text.PORTD_IO_PD5_DefaultInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000000        0x2 build/default/debug/mcc_generated_files/src/pin_manager.o
  .text.PORTF_IO_PF6_DefaultInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000000        0x2 build/default/debug/mcc_generated_files/src/pin_manager.o
  .text.PORTD_IO_PD4_DefaultInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000000        0x2 build/default/debug/mcc_generated_files/src/pin_manager.o
  .text.PORTF_IO_PF3_DefaultInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000000        0x2 build/default/debug/mcc_generated_files/src/pin_manager.o
  .text.PORTF_IO_PF2_DefaultInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000000        0x2 build/default/debug/mcc_generated_files/src/pin_manager.o
  .text.PORTF_IO_PF5_DefaultInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000000        0x2 build/default/debug/mcc_generated_files/src/pin_manager.o
  .text.PORTD_IO_PD3_DefaultInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000000        0x2 build/default/debug/mcc_generated_files/src/pin_manager.o
  .text.PORTF_IO_PF4_DefaultInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000000        0x2 build/default/debug/mcc_generated_files/src/pin_manager.o
  .text.PORTD_IO_PD5_SetInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000000        0x2 build/default/debug/mcc_generated_files/src/pin_manager.o
  .text.PORTF_IO_PF6_SetInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000000        0x2 build/default/debug/mcc_generated_files/src/pin_manager.o
  .text.PORTD_IO_PD4_SetInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000000        0x2 build/default/debug/mcc_generated_files/src/pin_manager.o
  .text.PORTA_IO_PA1_SetInterruptHandler
-                0x00000000        0xa build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000000        0xa build/default/debug/mcc_generated_files/src/pin_manager.o
  .text.PORTF_IO_PF3_SetInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000000        0x2 build/default/debug/mcc_generated_files/src/pin_manager.o
  .text.PORTF_IO_PF2_SetInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000000        0x2 build/default/debug/mcc_generated_files/src/pin_manager.o
  .text.PORTF_IO_PF5_SetInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000000        0x2 build/default/debug/mcc_generated_files/src/pin_manager.o
  .text.PORTD_IO_PD3_SetInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000000        0x2 build/default/debug/mcc_generated_files/src/pin_manager.o
  .text.PORTA_IO_PA0_SetInterruptHandler
-                0x00000000        0xa build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000000        0xa build/default/debug/mcc_generated_files/src/pin_manager.o
  .text.PORTF_IO_PF4_SetInterruptHandler
-                0x00000000        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
- .text          0x00000000        0x0 build/default/production/mcc_generated_files/src/cpuint.o
- .data          0x00000000        0x0 build/default/production/mcc_generated_files/src/cpuint.o
- .bss           0x00000000        0x0 build/default/production/mcc_generated_files/src/cpuint.o
- .text          0x00000000        0x0 build/default/production/mcc_generated_files/src/protected_io.o
- .data          0x00000000        0x0 build/default/production/mcc_generated_files/src/protected_io.o
- .bss           0x00000000        0x0 build/default/production/mcc_generated_files/src/protected_io.o
- .text          0x00000000        0x0 build/default/production/mcc_generated_files/device_config.o
- .data          0x00000000        0x0 build/default/production/mcc_generated_files/device_config.o
- .bss           0x00000000        0x0 build/default/production/mcc_generated_files/device_config.o
- .text          0x00000000        0x0 build/default/production/mcc_generated_files/mcc.o
- .data          0x00000000        0x0 build/default/production/mcc_generated_files/mcc.o
- .bss           0x00000000        0x0 build/default/production/mcc_generated_files/mcc.o
- .text          0x00000000        0x0 build/default/production/main.o
- .data          0x00000000        0x0 build/default/production/main.o
- .bss           0x00000000        0x0 build/default/production/main.o
+                0x00000000        0x2 build/default/debug/mcc_generated_files/src/pin_manager.o
+ .text          0x00000000        0x0 build/default/debug/mcc_generated_files/src/cpuint.o
+ .data          0x00000000        0x0 build/default/debug/mcc_generated_files/src/cpuint.o
+ .bss           0x00000000        0x0 build/default/debug/mcc_generated_files/src/cpuint.o
+ .text          0x00000000        0x0 build/default/debug/mcc_generated_files/src/protected_io.o
+ .data          0x00000000        0x0 build/default/debug/mcc_generated_files/src/protected_io.o
+ .bss           0x00000000        0x0 build/default/debug/mcc_generated_files/src/protected_io.o
+ .text          0x00000000        0x0 build/default/debug/mcc_generated_files/device_config.o
+ .data          0x00000000        0x0 build/default/debug/mcc_generated_files/device_config.o
+ .bss           0x00000000        0x0 build/default/debug/mcc_generated_files/device_config.o
+ .text          0x00000000        0x0 build/default/debug/mcc_generated_files/mcc.o
+ .data          0x00000000        0x0 build/default/debug/mcc_generated_files/mcc.o
+ .bss           0x00000000        0x0 build/default/debug/mcc_generated_files/mcc.o
+ .text          0x00000000        0x0 build/default/debug/main.o
+ .data          0x00000000        0x0 build/default/debug/main.o
+ .bss           0x00000000        0x0 build/default/debug/main.o
  .text          0x00000000        0x0 c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_exit.o)
  .data          0x00000000        0x0 c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_exit.o)
  .bss           0x00000000        0x0 c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_exit.o)
@@ -120,15 +120,17 @@ Address of section .data set to 0x802800
                 0x00004000                __RODATA_PM_OFFSET__ = 0x4000
 LOAD C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
                 0x00000001                __MPLAB_BUILD = 0x1
-LOAD build/default/production/mcc_generated_files/src/pin_manager.o
-LOAD build/default/production/mcc_generated_files/src/cpuint.o
-LOAD build/default/production/mcc_generated_files/src/protected_io.o
-LOAD build/default/production/mcc_generated_files/device_config.o
-LOAD build/default/production/mcc_generated_files/mcc.o
-LOAD build/default/production/main.o
+LOAD build/default/debug/mcc_generated_files/src/pin_manager.o
+LOAD build/default/debug/mcc_generated_files/src/cpuint.o
+LOAD build/default/debug/mcc_generated_files/src/protected_io.o
+LOAD build/default/debug/mcc_generated_files/device_config.o
+LOAD build/default/debug/mcc_generated_files/mcc.o
+LOAD build/default/debug/main.o
 START GROUP
 LOAD c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a
 END GROUP
+                0x00000001                __MPLAB_DEBUG = 0x1
+                0x00000001                __DEBUG = 0x1
 START GROUP
 LOAD c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a
 LOAD c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega3\libm.a
@@ -336,7 +338,7 @@ END GROUP
 .bss            0x00802800        0x4
                 [!provide]                PROVIDE (__bss_start, .)
  *(COMMON)
- COMMON         0x00802800        0x4 build/default/production/mcc_generated_files/src/pin_manager.o
+ COMMON         0x00802800        0x4 build/default/debug/mcc_generated_files/src/pin_manager.o
                 0x00802800                logicB
                 0x00802802                logic
                 [!provide]                PROVIDE (__bss_end, .)
@@ -355,7 +357,7 @@ END GROUP
 
 .fuse           0x00820000        0x9
  *(.fuse)
- .fuse          0x00820000        0x9 build/default/production/mcc_generated_files/device_config.o
+ .fuse          0x00820000        0x9 build/default/debug/mcc_generated_files/device_config.o
                 0x00820000                __fuse
  *(.lfuse)
  *(.hfuse)
@@ -390,12 +392,12 @@ END GROUP
 
 .comment        0x00000000       0x2f
  *(.comment)
- .comment       0x00000000       0x2f build/default/production/mcc_generated_files/src/pin_manager.o
+ .comment       0x00000000       0x2f build/default/debug/mcc_generated_files/src/pin_manager.o
                                  0x30 (size before relaxing)
- .comment       0x0000002f       0x30 build/default/production/mcc_generated_files/src/cpuint.o
- .comment       0x0000002f       0x30 build/default/production/mcc_generated_files/device_config.o
- .comment       0x0000002f       0x30 build/default/production/mcc_generated_files/mcc.o
- .comment       0x0000002f       0x30 build/default/production/main.o
+ .comment       0x0000002f       0x30 build/default/debug/mcc_generated_files/src/cpuint.o
+ .comment       0x0000002f       0x30 build/default/debug/mcc_generated_files/device_config.o
+ .comment       0x0000002f       0x30 build/default/debug/mcc_generated_files/mcc.o
+ .comment       0x0000002f       0x30 build/default/debug/main.o
 
 .note.gnu.build-id
  *(.note.gnu.build-id)
@@ -415,73 +417,73 @@ END GROUP
 .debug_aranges  0x00000000      0x190
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0xd0 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000000       0xd0 build/default/debug/mcc_generated_files/src/pin_manager.o
  .debug_aranges
-                0x000000d0       0x20 build/default/production/mcc_generated_files/src/cpuint.o
+                0x000000d0       0x20 build/default/debug/mcc_generated_files/src/cpuint.o
  .debug_aranges
-                0x000000f0       0x20 build/default/production/mcc_generated_files/src/protected_io.o
+                0x000000f0       0x20 build/default/debug/mcc_generated_files/src/protected_io.o
  .debug_aranges
-                0x00000110       0x18 build/default/production/mcc_generated_files/device_config.o
+                0x00000110       0x18 build/default/debug/mcc_generated_files/device_config.o
  .debug_aranges
-                0x00000128       0x48 build/default/production/mcc_generated_files/mcc.o
+                0x00000128       0x48 build/default/debug/mcc_generated_files/mcc.o
  .debug_aranges
-                0x00000170       0x20 build/default/production/main.o
+                0x00000170       0x20 build/default/debug/main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x4d6b
+.debug_info     0x00000000     0x4dac
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000     0x248a C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
- .debug_info    0x0000248a      0xf18 build/default/production/mcc_generated_files/src/pin_manager.o
- .debug_info    0x000033a2      0x3bc build/default/production/mcc_generated_files/src/cpuint.o
- .debug_info    0x0000375e       0x7c build/default/production/mcc_generated_files/src/protected_io.o
- .debug_info    0x000037da      0x7d0 build/default/production/mcc_generated_files/device_config.o
- .debug_info    0x00003faa      0xb12 build/default/production/mcc_generated_files/mcc.o
- .debug_info    0x00004abc      0x2af build/default/production/main.o
+ .debug_info    0x0000248a      0xf25 build/default/debug/mcc_generated_files/src/pin_manager.o
+ .debug_info    0x000033af      0x3c9 build/default/debug/mcc_generated_files/src/cpuint.o
+ .debug_info    0x00003778       0x7c build/default/debug/mcc_generated_files/src/protected_io.o
+ .debug_info    0x000037f4      0x7dd build/default/debug/mcc_generated_files/device_config.o
+ .debug_info    0x00003fd1      0xb1f build/default/debug/mcc_generated_files/mcc.o
+ .debug_info    0x00004af0      0x2bc build/default/debug/main.o
 
 .debug_abbrev   0x00000000     0x2800
  *(.debug_abbrev)
  .debug_abbrev  0x00000000     0x2296 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
- .debug_abbrev  0x00002296      0x1be build/default/production/mcc_generated_files/src/pin_manager.o
- .debug_abbrev  0x00002454       0xfa build/default/production/mcc_generated_files/src/cpuint.o
- .debug_abbrev  0x0000254e       0x14 build/default/production/mcc_generated_files/src/protected_io.o
- .debug_abbrev  0x00002562       0x85 build/default/production/mcc_generated_files/device_config.o
- .debug_abbrev  0x000025e7      0x17c build/default/production/mcc_generated_files/mcc.o
- .debug_abbrev  0x00002763       0x9d build/default/production/main.o
+ .debug_abbrev  0x00002296      0x1be build/default/debug/mcc_generated_files/src/pin_manager.o
+ .debug_abbrev  0x00002454       0xfa build/default/debug/mcc_generated_files/src/cpuint.o
+ .debug_abbrev  0x0000254e       0x14 build/default/debug/mcc_generated_files/src/protected_io.o
+ .debug_abbrev  0x00002562       0x85 build/default/debug/mcc_generated_files/device_config.o
+ .debug_abbrev  0x000025e7      0x17c build/default/debug/mcc_generated_files/mcc.o
+ .debug_abbrev  0x00002763       0x9d build/default/debug/main.o
 
 .debug_line     0x00000000      0xc90
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x187 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
- .debug_line    0x00000187      0x4fe build/default/production/mcc_generated_files/src/pin_manager.o
- .debug_line    0x00000685      0x18c build/default/production/mcc_generated_files/src/cpuint.o
- .debug_line    0x00000811       0x66 build/default/production/mcc_generated_files/src/protected_io.o
- .debug_line    0x00000877       0xf1 build/default/production/mcc_generated_files/device_config.o
- .debug_line    0x00000968      0x242 build/default/production/mcc_generated_files/mcc.o
- .debug_line    0x00000baa       0xe6 build/default/production/main.o
+ .debug_line    0x00000187      0x4fe build/default/debug/mcc_generated_files/src/pin_manager.o
+ .debug_line    0x00000685      0x18c build/default/debug/mcc_generated_files/src/cpuint.o
+ .debug_line    0x00000811       0x66 build/default/debug/mcc_generated_files/src/protected_io.o
+ .debug_line    0x00000877       0xf1 build/default/debug/mcc_generated_files/device_config.o
+ .debug_line    0x00000968      0x242 build/default/debug/mcc_generated_files/mcc.o
+ .debug_line    0x00000baa       0xe6 build/default/debug/main.o
 
 .debug_frame    0x00000000      0x2ac
  *(.debug_frame)
- .debug_frame   0x00000000      0x1e0 build/default/production/mcc_generated_files/src/pin_manager.o
- .debug_frame   0x000001e0       0x24 build/default/production/mcc_generated_files/src/cpuint.o
- .debug_frame   0x00000204       0x84 build/default/production/mcc_generated_files/mcc.o
- .debug_frame   0x00000288       0x24 build/default/production/main.o
+ .debug_frame   0x00000000      0x1e0 build/default/debug/mcc_generated_files/src/pin_manager.o
+ .debug_frame   0x000001e0       0x24 build/default/debug/mcc_generated_files/src/cpuint.o
+ .debug_frame   0x00000204       0x84 build/default/debug/mcc_generated_files/mcc.o
+ .debug_frame   0x00000288       0x24 build/default/debug/main.o
 
 .debug_str      0x00000000     0x10b6
  *(.debug_str)
  .debug_str     0x00000000      0xf85 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
- .debug_str     0x00000f85       0x60 build/default/production/mcc_generated_files/src/pin_manager.o
- .debug_str     0x00000fe5       0x13 build/default/production/mcc_generated_files/src/cpuint.o
- .debug_str     0x00000ff8        0x0 build/default/production/mcc_generated_files/device_config.o
- .debug_str     0x00000ff8       0xac build/default/production/mcc_generated_files/mcc.o
- .debug_str     0x000010a4       0x12 build/default/production/main.o
+ .debug_str     0x00000f85       0x60 build/default/debug/mcc_generated_files/src/pin_manager.o
+ .debug_str     0x00000fe5       0x13 build/default/debug/mcc_generated_files/src/cpuint.o
+ .debug_str     0x00000ff8        0x0 build/default/debug/mcc_generated_files/device_config.o
+ .debug_str     0x00000ff8       0xac build/default/debug/mcc_generated_files/mcc.o
+ .debug_str     0x000010a4       0x12 build/default/debug/main.o
 
 .debug_loc      0x00000000      0x2fc
  *(.debug_loc)
- .debug_loc     0x00000000       0xc4 build/default/production/mcc_generated_files/src/pin_manager.o
- .debug_loc     0x000000c4       0x2a build/default/production/mcc_generated_files/src/cpuint.o
- .debug_loc     0x000000ee      0x1be build/default/production/mcc_generated_files/mcc.o
- .debug_loc     0x000002ac       0x50 build/default/production/main.o
+ .debug_loc     0x00000000       0xc4 build/default/debug/mcc_generated_files/src/pin_manager.o
+ .debug_loc     0x000000c4       0x2a build/default/debug/mcc_generated_files/src/cpuint.o
+ .debug_loc     0x000000ee      0x1be build/default/debug/mcc_generated_files/mcc.o
+ .debug_loc     0x000002ac       0x50 build/default/debug/main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -503,14 +505,14 @@ END GROUP
 
 .debug_ranges   0x00000000      0x118
  *(.debug_ranges)
- .debug_ranges  0x00000000       0xc0 build/default/production/mcc_generated_files/src/pin_manager.o
- .debug_ranges  0x000000c0       0x10 build/default/production/mcc_generated_files/src/cpuint.o
- .debug_ranges  0x000000d0       0x38 build/default/production/mcc_generated_files/mcc.o
- .debug_ranges  0x00000108       0x10 build/default/production/main.o
+ .debug_ranges  0x00000000       0xc0 build/default/debug/mcc_generated_files/src/pin_manager.o
+ .debug_ranges  0x000000c0       0x10 build/default/debug/mcc_generated_files/src/cpuint.o
+ .debug_ranges  0x000000d0       0x38 build/default/debug/mcc_generated_files/mcc.o
+ .debug_ranges  0x00000108       0x10 build/default/debug/main.o
 
 .debug_macro
  *(.debug_macro)
-OUTPUT(dist/default/production/TestInterrupts.X.production.elf elf32-avr)
+OUTPUT(dist/default/debug/TestInterrupts.X.debug.elf elf32-avr)
 LOAD linker stubs
 LOAD data_init
 
@@ -522,93 +524,93 @@ LOAD data_init
 .bss.PORTA_IO_PA0_InterruptHandler
                 0x00802804        0x2
  .bss.PORTA_IO_PA0_InterruptHandler
-                0x00802804        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00802804        0x2 build/default/debug/mcc_generated_files/src/pin_manager.o
 
 .bss.PORTA_IO_PA1_InterruptHandler
                 0x00802806        0x2
  .bss.PORTA_IO_PA1_InterruptHandler
-                0x00802806        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00802806        0x2 build/default/debug/mcc_generated_files/src/pin_manager.o
 
 .text.PIN_MANAGER_Initialize
                 0x00000104      0x120
  .text.PIN_MANAGER_Initialize
-                0x00000104      0x120 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000104      0x120 build/default/debug/mcc_generated_files/src/pin_manager.o
                 0x00000104                PIN_MANAGER_Initialize
 
 .text.PORT_Initialize
                 0x00000224       0x6e
  .text.PORT_Initialize
-                0x00000224       0x6e build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000224       0x6e build/default/debug/mcc_generated_files/src/pin_manager.o
                 0x00000224                PORT_Initialize
 
 .text.__vector_6
                 0x00000292       0x64
  .text.__vector_6
-                0x00000292       0x64 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x00000292       0x64 build/default/debug/mcc_generated_files/src/pin_manager.o
                 0x00000292                __vector_6
 
 .text.CLKCTRL_Initialize
                 0x000002f6       0x4c
  .text.CLKCTRL_Initialize
-                0x000002f6       0x4c build/default/production/mcc_generated_files/mcc.o
+                0x000002f6       0x4c build/default/debug/mcc_generated_files/mcc.o
                 0x000002f6                CLKCTRL_Initialize
 
 .text.main      0x00000342       0x48
- .text.main     0x00000342       0x48 build/default/production/main.o
+ .text.main     0x00000342       0x48 build/default/debug/main.o
                 0x00000342                main
 
 .text.PORTA_IO_PA0_DefaultInterruptHandler
                 0x0000038a       0x28
  .text.PORTA_IO_PA0_DefaultInterruptHandler
-                0x0000038a       0x28 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x0000038a       0x28 build/default/debug/mcc_generated_files/src/pin_manager.o
                 0x0000038a                PORTA_IO_PA0_DefaultInterruptHandler
 
 .text.__vector_2
                 0x000003b2       0x1e
  .text.__vector_2
-                0x000003b2       0x1e build/default/production/mcc_generated_files/mcc.o
+                0x000003b2       0x1e build/default/debug/mcc_generated_files/mcc.o
                 0x000003b2                __vector_2
 
 .text.CPUINT_Initialize
                 0x000003d0       0x1a
  .text.CPUINT_Initialize
-                0x000003d0       0x1a build/default/production/mcc_generated_files/src/cpuint.o
+                0x000003d0       0x1a build/default/debug/mcc_generated_files/src/cpuint.o
                 0x000003d0                CPUINT_Initialize
 
 .text.BOD_Initialize
                 0x000003ea       0x1a
  .text.BOD_Initialize
-                0x000003ea       0x1a build/default/production/mcc_generated_files/mcc.o
+                0x000003ea       0x1a build/default/debug/mcc_generated_files/mcc.o
                 0x000003ea                BOD_Initialize
 
 .text.SYSTEM_Initialize
                 0x00000404       0x1a
  .text.SYSTEM_Initialize
-                0x00000404       0x1a build/default/production/mcc_generated_files/mcc.o
+                0x00000404       0x1a build/default/debug/mcc_generated_files/mcc.o
                 0x00000404                SYSTEM_Initialize
 
 .text.PORTA_IO_PA1_DefaultInterruptHandler
                 0x0000041e       0x14
  .text.PORTA_IO_PA1_DefaultInterruptHandler
-                0x0000041e       0x14 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x0000041e       0x14 build/default/debug/mcc_generated_files/src/pin_manager.o
                 0x0000041e                PORTA_IO_PA1_DefaultInterruptHandler
 
 .text.SLPCTRL_Initialize
                 0x00000432       0x10
  .text.SLPCTRL_Initialize
-                0x00000432       0x10 build/default/production/mcc_generated_files/mcc.o
+                0x00000432       0x10 build/default/debug/mcc_generated_files/mcc.o
                 0x00000432                SLPCTRL_Initialize
 
 .text.WDT_Initialize
                 0x00000442       0x10
  .text.WDT_Initialize
-                0x00000442       0x10 build/default/production/mcc_generated_files/mcc.o
+                0x00000442       0x10 build/default/debug/mcc_generated_files/mcc.o
                 0x00000442                WDT_Initialize
 
 .text.protected_write_io
                 0x00000452        0x8
  .text.protected_write_io
-                0x00000452        0x8 build/default/production/mcc_generated_files/src/protected_io.o
+                0x00000452        0x8 build/default/debug/mcc_generated_files/src/protected_io.o
                 0x00000452                protected_write_io
 
 .text           0x0000045a        0x4

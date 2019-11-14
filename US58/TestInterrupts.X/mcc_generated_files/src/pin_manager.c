@@ -54,7 +54,7 @@ void PIN_MANAGER_Initialize(int* ctrl, int* ctrlB)
     PORTF.DIR = 0x38;
 
     /* OUT Registers Initialization */
-    PORTA.OUT = 0x01;
+    PORTA.OUT = 0x00;
     PORTB.OUT = 0x00;
     PORTC.OUT = 0x00;
     PORTD.OUT = 0x00;
@@ -62,8 +62,8 @@ void PIN_MANAGER_Initialize(int* ctrl, int* ctrlB)
     PORTF.OUT = 0x20;
 
     /* PINxCTRL registers Initialization */
-    PORTA.PIN0CTRL = 0x09;
-    PORTA.PIN1CTRL = 0x01;
+    PORTA.PIN0CTRL = 0x03;
+    PORTA.PIN1CTRL = 0x00;
     PORTA.PIN2CTRL = 0x00;
     PORTA.PIN3CTRL = 0x00;
     PORTA.PIN4CTRL = 0x00;
@@ -104,7 +104,7 @@ void PIN_MANAGER_Initialize(int* ctrl, int* ctrlB)
     PORTE.PIN7CTRL = 0x00;
     PORTF.PIN0CTRL = 0x00;
     PORTF.PIN1CTRL = 0x00;
-    PORTF.PIN2CTRL = 0x01;
+    PORTF.PIN2CTRL = 0x00;
     PORTF.PIN3CTRL = 0x00;
     PORTF.PIN4CTRL = 0x00;
     PORTF.PIN5CTRL = 0x00;
@@ -284,7 +284,12 @@ void PORTA_IO_PA0_DefaultInterruptHandler(void)
 {
     // add your PORTA_IO_PA0 interrupt custom code
     // or set custom function using PORTA_IO_PA0_SetInterruptHandler()
-    *logic = IO_PA0_GetValue();
+    if(IO_PA1_GetValue() >> 1){
+        *logic = 1;
+    }
+    else{
+        *logic = -1;
+    }
 }
 /**
   Allows selecting an interrupt handler for PORTF_IO_PF4 at application runtime
@@ -299,34 +304,6 @@ void PORTF_IO_PF4_DefaultInterruptHandler(void)
     // add your PORTF_IO_PF4 interrupt custom code
     // or set custom function using PORTF_IO_PF4_SetInterruptHandler()
 }
-ISR(PORTF_PORT_vect)
-{  
-    // Call the interrupt handler for the callback registered at runtime
-    if(VPORTF.INTFLAGS & PORT_INT6_bm)
-    {
-       PORTF_IO_PF6_InterruptHandler();
-    }
-    if(VPORTF.INTFLAGS & PORT_INT3_bm)
-    {
-       PORTF_IO_PF3_InterruptHandler();
-    }
-    if(VPORTF.INTFLAGS & PORT_INT2_bm)
-    {
-       PORTF_IO_PF2_InterruptHandler();
-    }
-    if(VPORTF.INTFLAGS & PORT_INT5_bm)
-    {
-       PORTF_IO_PF5_InterruptHandler();
-    }
-    if(VPORTF.INTFLAGS & PORT_INT4_bm)
-    {
-       PORTF_IO_PF4_InterruptHandler();
-    }
-
-    /* Clear interrupt flags */
-    VPORTF.INTFLAGS = 0xff;
-}
-
 ISR(PORTA_PORT_vect)
 {  
     // Call the interrupt handler for the callback registered at runtime
