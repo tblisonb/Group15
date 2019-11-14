@@ -1,30 +1,40 @@
 import sys
 import serial
 import time
+from gpiozero import LED
+
+NUM_STEPS = 20
+# channel_A = LED("GPIO16")
+# channel_B = LED("GPIO20")
 
 """ Initialize serial I/O with ATmega4809 and call parser function. """
 def run(port, baud, timeout):
     print("Attempting to open port " + port + " at " + baud + " Hz.")
     prev = time.time()                 # track time after opening
     while time.time() - prev < timeout:
-        ser = serial.Serial(port, baud, timeout=5)     # open port
-        prev = time.time()                 # start time
-        s = ser.read(1)                     # read char
+        ser = serial.Serial(port, baud, timeout=5)      # open port
+        prev = time.time()  # track time after opening
+        s = ser.read(1)     # read char
         cur = time.time()   # end time
-        inst_v = (1 / 20) / (cur - prev) # compute velocity of turn
+        inst_v = (float(1) / float(NUM_STEPS)) / (cur - prev) # compute velocity of turn
         result = parse_inputs(s)
-        self.display(result, inst_v)
-        ser.close()                         # close port
+        display(result, inst_v)
+    ser.close()  # close port
     
 """ Assuming the ATmega4809 will transmit rotary data in the format abAB
     where a and b are the previous line states on channel A and B, and AB is 
     the most recent states. Based on the change between these states, the 
     turn direciton can be determined. """
 def parse_inputs(data):
-    prev_A = (int(data) & 8) >> 3
-    prev_B = (int(data) & 4) >> 2
-    new_A = (int(data) & 2) >> 1
-    new_B = (int(data) & 1)
+    if len(data) != 1:
+        return
+    # parse hex data sent over serial
+    prev_A = (ord(data) & 8) >> 3
+    prev_B = (ord(data) & 4) >> 2
+    new_A = (ord(data) & 2) >> 1
+    new_B = (ord(data) & 1)
+    print(prev_A, prev_B, new_A, new_B)
+    # if clockwise turn detected from state change...
     if (
             (prev_A > new_A and prev_B == new_B and new_B == 1 or 
             prev_A < new_A and prev_B == new_B and new_B == 0) or 
@@ -32,6 +42,7 @@ def parse_inputs(data):
             prev_B < new_B and prev_A == new_A and new_A == 1)
         ):
         return 'CW'
+    # if counter-clockwise turn detected from state change...
     elif (
             (prev_A > new_A and prev_B == new_B and new_B == 0 or 
             prev_A < new_A and prev_B == new_B and new_B == 1) or 
@@ -39,19 +50,41 @@ def parse_inputs(data):
             prev_B < new_B and prev_A == new_A and new_A == 0)
         ):
         return 'CC'
+    # no change detected (since the values remained the same)
     elif prev_A == new_A and prev_B == new_B:
         return 'NT'
+    # anything else is an invalid state change (shouldn't technically be possible)
     else:
         return 'IV'
 
 """ Formats output of the turn direction & velocity. """
 def display(direction, velocity):
-    if direction == CW:
-        print("Clockwise turn detected @ " + velocity + " revolutions per second.")
-    elif direction == CC:
-        print("Counter-clockwise turn detected @ " + velocity + " revolutions per second.")
+    if direction == 'CW':
+        print("Clockwise turn detected @ " + str(velocity) + " revolutions per second.")
+    elif direction == 'CC':
+        print("Counter-clockwise turn detected @ " + str(velocity) + " revolutions per second.")
     else:
-        print("Invalid inputs (measured: direction - " + direction + ", velocity - " + velocity + ").")
+        print("Invalid inputs (measured: direction - " + str(direction) + ", velocity - " + str(velocity) + ").")
+        
+""" Simulate a rotary encoder turn with a certain speed, number of rotations,
+    in either the clockwise or counter-clockwise direction. """
+def rotate(velocity, num_rotations, direction):
+    channel_A = 0
+    channel_B = 0
+    if direction == 'CW':
+        for i in range(num_rotations):
+            channel_A ^= 1
+            # channel_A.value ^= 1
+            time.sleep(float(velocity) / float(NUM_STEPS))
+            channel_B ^= 1
+            # channel_B.value ^= 1
+    elif direction == 'CC':
+        for i in range(num_rotations):
+            channel_B ^= 1
+            # channel_B.value ^= 1
+            time.sleep(float(velocity) / float(NUM_STEPS))
+            channel_A ^= 1
+            # channel_A.value ^= 1
 
 def main():
     """## -- TEST parse_inputs -- ##
