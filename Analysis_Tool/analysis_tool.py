@@ -4,15 +4,19 @@ import time
 from gpiozero import LED
 
 NUM_STEPS = 20
+old_channel_A = 0
+old_channel_B = 0
 # channel_A = LED("GPIO16")
 # channel_B = LED("GPIO20")
 
 """ Initialize serial I/O with ATmega4809 and call parser function. """
 def run(port, baud, timeout):
     print("Attempting to open port " + port + " at " + baud + " Hz.")
+    ser = serial.Serial(port, baud, timeout=5)      # open port
     prev = time.time()                 # track time after opening
     while time.time() - prev < timeout:
-        ser = serial.Serial(port, baud, timeout=5)      # open port
+        # rotate(0.1, 50, CC, ser)
+        # delay 50 ms
         prev = time.time()  # track time after opening
         s = ser.read(1)     # read char
         cur = time.time()   # end time
@@ -68,7 +72,7 @@ def display(direction, velocity):
         
 """ Simulate a rotary encoder turn with a certain speed, number of rotations,
     in either the clockwise or counter-clockwise direction. """
-def rotate(velocity, num_rotations, direction):
+def rotate(velocity, num_rotations, direction, ser):
     channel_A = 0
     channel_B = 0
     if direction == 'CW':
@@ -85,6 +89,11 @@ def rotate(velocity, num_rotations, direction):
             time.sleep(float(velocity) / float(NUM_STEPS))
             channel_A ^= 1
             # channel_A.value ^= 1
+    result = (old_channel_A << 3) + (old_channel_B << 2) + (channel_A << 1) + (channel_B)
+    ser.write(result)
+    ser.flush()
+    old_channel_A = channel_A
+    old_channel_B = channel_B
 
 def main():
     """## -- TEST parse_inputs -- ##
@@ -120,6 +129,8 @@ def main():
     assert(result13 == 'CW')
     assert(result14 == 'CC')
     assert(result15 == 'NT')"""
+    
+    #
     
     if len(sys.argv) == 4:          # check for correct command line args
         port = sys.argv[1]          # assign arg value for port
