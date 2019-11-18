@@ -45,16 +45,16 @@ int main(void)
         //Sense falling edge of clkPin
         if (oldA == 0 && newA == 1) {
             if (oldB == newB && oldB == 0) {
-                printf("Clockwise turn detected");
+                printf("Clockwise turn detected\n");
             } else if (oldB == newB && oldB == 1) {
-                printf("Counter-clockwise turn detected");
+                printf("Counter-clockwise turn detected\n");
             }
         }
         if (oldA == 1 && newA == 0) {
             if (oldB == newB && oldB == 1) {
-                printf("Clockwise turn detected");
+                printf("Clockwise turn detected\n");
             } else if (oldB == newB && oldB == 0) {
-                printf("Counter-clockwise turn detected");
+                printf("Counter-clockwise turn detected\n");
             }
             //increment the state or decrement the state based on result, 
             //state can never be negative or greater then 31
