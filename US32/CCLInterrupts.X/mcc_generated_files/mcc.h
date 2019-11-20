@@ -30,9 +30,9 @@ extern "C" {
 
 #include "utils/compiler.h"
 #include "include/pin_manager.h"
+#include "include/ccl.h"
 #include "include/usart3.h"
 #include "include/cpuint.h"
-#include "include/ccl.h"
 #include "config/clock_config.h"
 
 /**
