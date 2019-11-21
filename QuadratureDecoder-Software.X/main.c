@@ -43,18 +43,21 @@ int main(void)
         unsigned char newA = IO_PE0_GetValue();//read the value of clkPin to newA
         unsigned char newB = IO_PE1_GetValue() >> 1;//read the value of dtPin to newB
         //Sense falling edge of clkPin
+        
+        // Want to have a timer set up to find the response between recognized signals
+        // and the program decode of turn direction - US 66
         if (oldA == 0 && newA == 1) {
             if (oldB == newB && oldB == 0) {
-                printf("Clockwise turn detected\n");
+                printf("Clockwise turn detected\r\n");
             } else if (oldB == newB && oldB == 1) {
-                printf("Counter-clockwise turn detected\n");
+                printf("Counter-clockwise turn detected\r\n");
             }
         }
         if (oldA == 1 && newA == 0) {
             if (oldB == newB && oldB == 1) {
-                printf("Clockwise turn detected\n");
+                printf("Clockwise turn detected\r\n");
             } else if (oldB == newB && oldB == 0) {
-                printf("Counter-clockwise turn detected\n");
+                printf("Counter-clockwise turn detected\r\n");
             }
             //increment the state or decrement the state based on result, 
             //state can never be negative or greater then 31
