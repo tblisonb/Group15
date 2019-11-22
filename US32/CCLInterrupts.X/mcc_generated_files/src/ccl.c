@@ -73,7 +73,7 @@ int8_t CCL_Initialize()
 	CCL.TRUTH1 = 0x40;
 
     //Truth 2
-	CCL.TRUTH2 = 0x01;
+	CCL.TRUTH2 = 0x08;
 
     //Truth 3
 	CCL.TRUTH3 = 0x09;

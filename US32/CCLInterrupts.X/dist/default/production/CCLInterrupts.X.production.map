@@ -663,170 +663,170 @@ LOAD data_init
                 0x00000450                CLKCTRL_Initialize
 
 .text.CCL_Initialize
-                0x0000049c       0x40
+                0x0000049c       0x42
  .text.CCL_Initialize
-                0x0000049c       0x40 build/default/production/mcc_generated_files/src/ccl.o
+                0x0000049c       0x42 build/default/production/mcc_generated_files/src/ccl.o
                 0x0000049c                CCL_Initialize
 
 .text.USART3_Initialize
-                0x000004dc       0x2c
+                0x000004de       0x2c
  .text.USART3_Initialize
-                0x000004dc       0x2c build/default/production/mcc_generated_files/src/usart3.o
-                0x000004dc                USART3_Initialize
+                0x000004de       0x2c build/default/production/mcc_generated_files/src/usart3.o
+                0x000004de                USART3_Initialize
 
 .text.SYSTEM_Initialize
-                0x00000508       0x22
+                0x0000050a       0x22
  .text.SYSTEM_Initialize
-                0x00000508       0x22 build/default/production/mcc_generated_files/mcc.o
-                0x00000508                SYSTEM_Initialize
+                0x0000050a       0x22 build/default/production/mcc_generated_files/mcc.o
+                0x0000050a                SYSTEM_Initialize
 
 .text.__vector_2
-                0x0000052a       0x1e
+                0x0000052c       0x1e
  .text.__vector_2
-                0x0000052a       0x1e build/default/production/mcc_generated_files/mcc.o
-                0x0000052a                __vector_2
+                0x0000052c       0x1e build/default/production/mcc_generated_files/mcc.o
+                0x0000052c                __vector_2
 
 .text.CPUINT_Initialize
-                0x00000548       0x1a
+                0x0000054a       0x1a
  .text.CPUINT_Initialize
-                0x00000548       0x1a build/default/production/mcc_generated_files/src/cpuint.o
-                0x00000548                CPUINT_Initialize
+                0x0000054a       0x1a build/default/production/mcc_generated_files/src/cpuint.o
+                0x0000054a                CPUINT_Initialize
 
 .text.BOD_Initialize
-                0x00000562       0x18
+                0x00000564       0x18
  .text.BOD_Initialize
-                0x00000562       0x18 build/default/production/mcc_generated_files/mcc.o
-                0x00000562                BOD_Initialize
+                0x00000564       0x18 build/default/production/mcc_generated_files/mcc.o
+                0x00000564                BOD_Initialize
 
 .text.__vector_5
-                0x0000057a       0x14
+                0x0000057c       0x14
  .text.__vector_5
-                0x0000057a       0x14 build/default/production/mcc_generated_files/src/ccl.o
-                0x0000057a                __vector_5
+                0x0000057c       0x14 build/default/production/mcc_generated_files/src/ccl.o
+                0x0000057c                __vector_5
 
 .text.USART3_Write
-                0x0000058e       0x10
+                0x00000590       0x10
  .text.USART3_Write
-                0x0000058e       0x10 build/default/production/mcc_generated_files/src/usart3.o
-                0x0000058e                USART3_Write
+                0x00000590       0x10 build/default/production/mcc_generated_files/src/usart3.o
+                0x00000590                USART3_Write
 
 .text.SLPCTRL_Initialize
-                0x0000059e       0x10
+                0x000005a0       0x10
  .text.SLPCTRL_Initialize
-                0x0000059e       0x10 build/default/production/mcc_generated_files/mcc.o
-                0x0000059e                SLPCTRL_Initialize
+                0x000005a0       0x10 build/default/production/mcc_generated_files/mcc.o
+                0x000005a0                SLPCTRL_Initialize
 
 .text.WDT_Initialize
-                0x000005ae       0x10
+                0x000005b0       0x10
  .text.WDT_Initialize
-                0x000005ae       0x10 build/default/production/mcc_generated_files/mcc.o
-                0x000005ae                WDT_Initialize
+                0x000005b0       0x10 build/default/production/mcc_generated_files/mcc.o
+                0x000005b0                WDT_Initialize
 
 .text.PORTC_PC3_DefaultInterruptHandler
-                0x000005be        0xa
+                0x000005c0        0xa
  .text.PORTC_PC3_DefaultInterruptHandler
-                0x000005be        0xa build/default/production/mcc_generated_files/src/pin_manager.o
-                0x000005be                PORTC_PC3_DefaultInterruptHandler
+                0x000005c0        0xa build/default/production/mcc_generated_files/src/pin_manager.o
+                0x000005c0                PORTC_PC3_DefaultInterruptHandler
 
 .text.PORTA_PA3_DefaultInterruptHandler
-                0x000005c8        0xa
+                0x000005ca        0xa
  .text.PORTA_PA3_DefaultInterruptHandler
-                0x000005c8        0xa build/default/production/mcc_generated_files/src/pin_manager.o
-                0x000005c8                PORTA_PA3_DefaultInterruptHandler
+                0x000005ca        0xa build/default/production/mcc_generated_files/src/pin_manager.o
+                0x000005ca                PORTA_PA3_DefaultInterruptHandler
 
 .text.USART3_printCHAR
-                0x000005d2        0xa
+                0x000005d4        0xa
  .text.USART3_printCHAR
-                0x000005d2        0xa build/default/production/mcc_generated_files/src/usart3.o
-                0x000005d2                USART3_printCHAR
+                0x000005d4        0xa build/default/production/mcc_generated_files/src/usart3.o
+                0x000005d4                USART3_printCHAR
 
 .text.protected_write_io
-                0x000005dc        0x8
+                0x000005de        0x8
  .text.protected_write_io
-                0x000005dc        0x8 build/default/production/mcc_generated_files/src/protected_io.o
-                0x000005dc                protected_write_io
+                0x000005de        0x8 build/default/production/mcc_generated_files/src/protected_io.o
+                0x000005de                protected_write_io
 
-.text.main      0x000005e4        0x6
- .text.main     0x000005e4        0x6 build/default/production/main.o
-                0x000005e4                main
+.text.main      0x000005e6        0x6
+ .text.main     0x000005e6        0x6 build/default/production/main.o
+                0x000005e6                main
 
-.text           0x000005ea        0x4
- .text          0x000005ea        0x4 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
-                0x000005ea                __vector_38
-                0x000005ea                __vector_22
-                0x000005ea                __vector_28
-                0x000005ea                __vector_1
-                0x000005ea                __vector_32
-                0x000005ea                __vector_34
-                0x000005ea                __vector_12
-                0x000005ea                __bad_interrupt
-                0x000005ea                __vector_31
-                0x000005ea                __vector_35
-                0x000005ea                __vector_39
-                0x000005ea                __vector_3
-                0x000005ea                __vector_23
-                0x000005ea                __vector_30
-                0x000005ea                __vector_25
-                0x000005ea                __vector_11
-                0x000005ea                __vector_13
-                0x000005ea                __vector_17
-                0x000005ea                __vector_19
-                0x000005ea                __vector_7
-                0x000005ea                __vector_27
-                0x000005ea                __vector_33
-                0x000005ea                __vector_37
-                0x000005ea                __vector_4
-                0x000005ea                __vector_9
-                0x000005ea                __vector_21
-                0x000005ea                __vector_15
-                0x000005ea                __vector_36
-                0x000005ea                __vector_29
-                0x000005ea                __vector_8
-                0x000005ea                __vector_26
-                0x000005ea                __vector_14
-                0x000005ea                __vector_10
-                0x000005ea                __vector_16
-                0x000005ea                __vector_18
-                0x000005ea                __vector_20
+.text           0x000005ec        0x4
+ .text          0x000005ec        0x4 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
+                0x000005ec                __vector_38
+                0x000005ec                __vector_22
+                0x000005ec                __vector_28
+                0x000005ec                __vector_1
+                0x000005ec                __vector_32
+                0x000005ec                __vector_34
+                0x000005ec                __vector_12
+                0x000005ec                __bad_interrupt
+                0x000005ec                __vector_31
+                0x000005ec                __vector_35
+                0x000005ec                __vector_39
+                0x000005ec                __vector_3
+                0x000005ec                __vector_23
+                0x000005ec                __vector_30
+                0x000005ec                __vector_25
+                0x000005ec                __vector_11
+                0x000005ec                __vector_13
+                0x000005ec                __vector_17
+                0x000005ec                __vector_19
+                0x000005ec                __vector_7
+                0x000005ec                __vector_27
+                0x000005ec                __vector_33
+                0x000005ec                __vector_37
+                0x000005ec                __vector_4
+                0x000005ec                __vector_9
+                0x000005ec                __vector_21
+                0x000005ec                __vector_15
+                0x000005ec                __vector_36
+                0x000005ec                __vector_29
+                0x000005ec                __vector_8
+                0x000005ec                __vector_26
+                0x000005ec                __vector_14
+                0x000005ec                __vector_10
+                0x000005ec                __vector_16
+                0x000005ec                __vector_18
+                0x000005ec                __vector_20
 
 .text.PORTA_PA2_DefaultInterruptHandler
-                0x000005ee        0x2
+                0x000005f0        0x2
  .text.PORTA_PA2_DefaultInterruptHandler
-                0x000005ee        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
-                0x000005ee                PORTA_PA2_DefaultInterruptHandler
+                0x000005f0        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x000005f0                PORTA_PA2_DefaultInterruptHandler
 
 .text.PORTA_PA1_DefaultInterruptHandler
-                0x000005f0        0x2
+                0x000005f2        0x2
  .text.PORTA_PA1_DefaultInterruptHandler
-                0x000005f0        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
-                0x000005f0                PORTA_PA1_DefaultInterruptHandler
+                0x000005f2        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x000005f2                PORTA_PA1_DefaultInterruptHandler
 
 .text.PORTC_PC0_DefaultInterruptHandler
-                0x000005f2        0x2
+                0x000005f4        0x2
  .text.PORTC_PC0_DefaultInterruptHandler
-                0x000005f2        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
-                0x000005f2                PORTC_PC0_DefaultInterruptHandler
+                0x000005f4        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x000005f4                PORTC_PC0_DefaultInterruptHandler
 
 .text.PORTA_PA0_DefaultInterruptHandler
-                0x000005f4        0x2
+                0x000005f6        0x2
  .text.PORTA_PA0_DefaultInterruptHandler
-                0x000005f4        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
-                0x000005f4                PORTA_PA0_DefaultInterruptHandler
+                0x000005f6        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x000005f6                PORTA_PA0_DefaultInterruptHandler
 
 .text.PORTC_PC2_DefaultInterruptHandler
-                0x000005f6        0x2
+                0x000005f8        0x2
  .text.PORTC_PC2_DefaultInterruptHandler
-                0x000005f6        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
-                0x000005f6                PORTC_PC2_DefaultInterruptHandler
+                0x000005f8        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x000005f8                PORTC_PC2_DefaultInterruptHandler
 
 .text.PORTC_PC1_DefaultInterruptHandler
-                0x000005f8        0x2
+                0x000005fa        0x2
  .text.PORTC_PC1_DefaultInterruptHandler
-                0x000005f8        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
-                0x000005f8                PORTC_PC1_DefaultInterruptHandler
+                0x000005fa        0x2 build/default/production/mcc_generated_files/src/pin_manager.o
+                0x000005fa                PORTC_PC1_DefaultInterruptHandler
 
 .data.USART3_stream
-                0x00802806        0xe load address 0x000005fa
+                0x00802806        0xe load address 0x000005fc
  .data.USART3_stream
                 0x00802806        0xe build/default/production/mcc_generated_files/src/usart3.o
                 0x00802806                USART3_stream
