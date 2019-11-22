@@ -32,7 +32,8 @@ build/default/production/main.o.d build/default/production/main.o: main.c \
  mcc_generated_files/config/clock_config.h \
  c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\avr\include\util\delay.h \
  c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\avr\include\util\delay_basic.h \
- c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\avr\include\math.h
+ c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\avr\include\math.h \
+ c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\avr\include\time.h
 
 mcc_generated_files/mcc.h:
 
@@ -105,3 +106,5 @@ c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\avr\include\util\delay.h:
 c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\avr\include\util\delay_basic.h:
 
 c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\avr\include\math.h:
+
+c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\avr\include\time.h:

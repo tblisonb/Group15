@@ -8,4 +8,5 @@ The stopwatch funciton in the debugging window is what we are looking for
 	
 Alternative is the TCA peripherals (timer counters)
 	- Set up one of peripherals at an empty pin(s) and enable the use in the debugger via register DBGCTRL
-	- Still working on how to update the timer to restart at provided breakpoints
+	- Works as a Pulse Width Modulation peripheral
+	- Currently working on a way to utilize this as a program timer which counts with every pulse 
