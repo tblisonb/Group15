@@ -18,7 +18,7 @@ def run(port, baud, timeout, dir, num_rotations, vel):
     ser = serial.Serial(port, baud, timeout=5)      # open port
     prev = time.time()                 # track time after opening
     print("Expected: Direction = " + str(dir) + ", Num Rotations = " + str(num_rotations) + ", Velocity = " + str(vel))
-    for i in range(num_rotations):
+    for i in range(int(num_rotations)):
         rotate(vel, dir, ser)
         prev = time.time()  # start rotation
         s = ser.read(1)     # read char
@@ -76,6 +76,9 @@ def display(direction, velocity):
 """ Simulate a rotary encoder turn with a certain speed, number of rotations,
     in either the clockwise or counter-clockwise direction. """
 def rotate(velocity, direction, ser):
+    global prev_change
+    global channel_A
+    global channel_B
     if direction == 'CW':
         if prev_change == 'B':
             channel_A ^= 1
@@ -102,7 +105,7 @@ def rotate(velocity, direction, ser):
     old_channel_B = channel_B
 
 def main():
-    if len(sys.argv) == 6:          # check for correct command line args
+    if len(sys.argv) == 7:          # check for correct command line args
         port = sys.argv[1]          # assign arg value for port
         baud = sys.argv[2]          # assign arg value for baud
         time = sys.argv[3]          # assign arg value for timeout
@@ -112,7 +115,7 @@ def main():
         run(port, baud, time, dir, num_rotations, vel)
     else:
         print("Incorrect arguments provided")
-        print("Format: python encoder_simulator.py [port] [baud] [timeout] [direction] [num rotations]")
+        print("Format: python encoder_simulator.py [port] [baud] [timeout] [direction] [num rotations] [velocity]")
     
 if __name__ == "__main__":
     main()
