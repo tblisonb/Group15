@@ -1,0 +1,11 @@
+Watch function / Response time metrics 
+
+The watch function is a variable value monitor only, not a timer.
+	- Can be used to see how a variable changes at each instruction/line of code
+	
+The stopwatch funciton in the debugging window is what we are looking for
+	- Not available in the ATmega4908 Curiosity Nano on board debugger
+	
+Alternative is the TCA peripherals (timer counters)
+	- Set up one of peripherals at an empty pin(s) and enable the use in the debugger via register DBGCTRL
+	- Still working on how to update the timer to restart at provided breakpoints

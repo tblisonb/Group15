@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<project>                                  
+  <executable name="dist/default/debug/QuadratureDecoder-Software.X.debug.elf">                 
+    <memory name="program">              
+      <units>bytes</units>                 
+      <length>49152</length>                 
+      <used>1944</used>                     
+      <free>47208</free>                     
+    </memory>                              
+    <memory name="data">                 
+      <units>bytes</units>                 
+      <length>6144</length>                 
+      <used>64</used>                     
+      <free>6080</free>                     
+    </memory>                              
+  </executable>                            
+</project>                                 

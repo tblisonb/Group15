@@ -199,6 +199,12 @@
         <property key="stack-type" value="compiled"/>
         <property key="user-pack-device-support" value=""/>
       </XC8-config-global>
+      <nEdbgTool>
+        <property key="debugoptions.useswbreakpoints" value="true"/>
+        <property key="memories.programmemory.ranges" value="0-5fff"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Users/plati/Desktop/School/Capstone/Group15/QuadratureDecoder-Software.X/debug/default/QuadratureDecoder-Software_ptg"/>
+      </nEdbgTool>
     </conf>
   </confs>
 </configurationDescriptor>
