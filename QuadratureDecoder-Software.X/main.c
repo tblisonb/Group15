@@ -41,6 +41,7 @@ int main(void)
     time_t start;   // Variable used to see the execution time
     time_t end;
     double total_time;
+    char str[50];   // for USART double print purposes
 
     /* Replace with your application code */
     while (1){
@@ -57,12 +58,14 @@ int main(void)
                 time(&end);
                 total_time = difftime(end,start);
                 printf("Clockwise turn detected\r\n");
-                printf("  sec to detect: %0.9f\r\n",total_time);
+                sprintf(str,"%f",total_time);
+                printf("  sec to detect: %s\r\n",str);
             } else if (oldB == newB && oldB == 1) {
                 time(&end);
                 total_time = difftime(end,start);
                 printf("Counter-clockwise turn detected\r\n");
-                printf("  sec to detect: %0.9f\r\n",total_time);
+                sprintf(str,"%f",total_time);
+                printf("  sec to detect: %s\r\n",str);
             }
         }
         if (oldA == 1 && newA == 0) {
@@ -71,12 +74,14 @@ int main(void)
                 time(&end);
                 total_time = difftime(end,start);
                 printf("Clockwise turn detected\r\n");
-                printf("  sec to detect: %0.9f\r\n",total_time);
+                sprintf(str,"%f",total_time);
+                printf("  sec to detect: %s\r\n",str);
             } else if (oldB == newB && oldB == 0) {
                 time(&end);
                 total_time = difftime(end,start);
                 printf("Counter-clockwise turn detected\r\n");
-                printf("  sec to detect: %0.9f\r\n",total_time);
+                sprintf(str,"%f",total_time);
+                printf("  sec to detect: %s\r\n",str);
             }
             //increment the state or decrement the state based on result, 
             //state can never be negative or greater then 31
