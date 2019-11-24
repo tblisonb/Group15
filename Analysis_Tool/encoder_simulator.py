@@ -1,6 +1,7 @@
 import sys
 import serial
 import time
+import threading
 from gpiozero import LED
 
 NUM_STEPS = 20
@@ -19,10 +20,13 @@ def run(port, baud, timeout, dir, num_rotations, vel):
     prev = time.time()                 # track time after opening
     print("Expected: Direction = " + str(dir) + ", Num Rotations = " + str(num_rotations) + ", Velocity = " + str(vel))
     for i in range(int(num_rotations)):
-        rotate(vel, dir, ser)
+        t = threading.Thread(target=rotate, args=(vel, dir, ser))
+        t.start()
         prev = time.time()  # start rotation
         s = ser.read(1)     # read char
+        t.join()
         cur = time.time()   # end time
+        print("Response received: " + str(cur - prev) + " ms.")
         inst_v = (float(1) / float(NUM_STEPS)) / (cur - prev) # compute velocity of turn
         result = parse_inputs(s)
         display(result, inst_v)
@@ -35,6 +39,7 @@ def run(port, baud, timeout, dir, num_rotations, vel):
 def parse_inputs(data):
     if len(data) != 1:
         return
+    print(data)
     # parse hex data sent over serial
     prev_A = (ord(data) & 8) >> 3
     prev_B = (ord(data) & 4) >> 2
