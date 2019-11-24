@@ -10,3 +10,8 @@ Alternative is the TCA peripherals (timer counters)
 	- Set up one of peripherals at an empty pin(s) and enable the use in the debugger via register DBGCTRL
 	- Works as a Pulse Width Modulation peripheral
 	- Currently working on a way to utilize this as a program timer which counts with every pulse 
+
+Another method to find response time is via the time.h library, found in the C standard library
+	- Can measure by time in seconds or by system clocks
+	- For system clocks, we can get seconds by dividing the found clocks by the CLOCKS_PER_SEC macro included in the library
+	- Functions to use are time(&variableName) and variableName = clock();
