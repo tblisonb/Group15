@@ -31,19 +31,21 @@
 */
 int main(void)
 {
+    
+    // ----- INITIALIZATIONS ----- //
     /* Initializes MCU, drivers and middleware */
     SYSTEM_Initialize();
 
     int oldA = IO_PE0_GetValue(); //get the initial value of clkPin
     int oldB = IO_PE1_GetValue() >> 1; //get the initial value of dtPin
-    unsigned int state = 2;
+    unsigned int state = 2; // tracks by clockwise turns 
     
     time_t start;   // Variable used to see the execution time
     time_t end;
     double total_time;
-    char str[50];   // for USART double print purposes
+    char str[50];   // for USART double type variable print purposes
 
-    /* Replace with your application code */
+    // ----- MAIN EVENT LOOP ----- //
     while (1){
         unsigned char result = 0;
         unsigned char newA = IO_PE0_GetValue();//read the value of clkPin to newA
