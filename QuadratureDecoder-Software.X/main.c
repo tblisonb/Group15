@@ -46,15 +46,27 @@ int main(void)
         if (oldA == 0 && newA == 1) {
             if (oldB == newB && oldB == 0) {
                 printf("Clockwise turn detected\n");
-            } else if (oldB == newB && oldB == 1) {
+                IO_PF3_SetHigh();
+                _delay_ms(50);
+                IO_PF3_SetLow();
+            } else {
                 printf("Counter-clockwise turn detected\n");
+                IO_PF4_SetHigh();
+                _delay_ms(50);
+                IO_PF4_SetLow();
             }
         }
-        if (oldA == 1 && newA == 0) {
+        else if (oldA == 1 && newA == 0) {
             if (oldB == newB && oldB == 1) {
                 printf("Clockwise turn detected\n");
-            } else if (oldB == newB && oldB == 0) {
+                IO_PF3_SetHigh();
+                _delay_ms(50);
+                IO_PF3_SetLow();
+            } else {
                 printf("Counter-clockwise turn detected\n");
+                IO_PF4_SetHigh();
+                _delay_ms(50);
+                IO_PF4_SetLow();
             }
             //increment the state or decrement the state based on result, 
             //state can never be negative or greater then 31
@@ -62,12 +74,12 @@ int main(void)
         }
         //increment the state or decrement the state based on result, 
         //state can never be negative or greater then 7
-        state = (state + result) % 32;
+        /*state = (state + result) % 32;
         //store the new state of clkPin and dtPin for the next cycle through
         oldA = newA;
         oldB = newB;
         //display the state to the connected lights
-        VPORTF.OUT = state;
+        VPORTF.OUT = state;*/
     }
 }
 /**
