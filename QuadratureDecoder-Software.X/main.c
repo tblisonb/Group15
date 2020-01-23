@@ -35,34 +35,42 @@ int main(void)
 
     int oldA = IO_PE0_GetValue(); //get the initial value of clkPin
     int oldB = IO_PE1_GetValue() >> 1; //get the initial value of dtPin
-    unsigned int state = 2;
+    unsigned char state = 2;
+    
+    IO_PE1_SetHigh();
+    _delay_ms(1000);
+    IO_PE1_SetLow();
 
     /* Replace with your application code */
     while (1){
         unsigned char result = 0;
         unsigned char newA = IO_PE0_GetValue();//read the value of clkPin to newA
         unsigned char newB = IO_PE1_GetValue() >> 1;//read the value of dtPin to newB
+        //increment the state or decrement the state based on result, 
+        //state can never be negative or greater then 7
+        state = (state + result) % 32;
         //Sense falling edge of clkPin
         if (oldA == 0 && newA == 1) {
             if (oldB == newB && oldB == 0) {
-                printf("Clockwise turn detected");
+                //printf("Clockwise turn detected");
+                USART0_Write(state);
             } else if (oldB == newB && oldB == 1) {
-                printf("Counter-clockwise turn detected");
+                //printf("Counter-clockwise turn detected");
+                USART0_Write(state);
             }
         }
         if (oldA == 1 && newA == 0) {
             if (oldB == newB && oldB == 1) {
-                printf("Clockwise turn detected");
+                //printf("Clockwise turn detected");
+                USART0_Write(state);
             } else if (oldB == newB && oldB == 0) {
-                printf("Counter-clockwise turn detected");
+                //printf("Counter-clockwise turn detected");
+                USART0_Write(state);
             }
             //increment the state or decrement the state based on result, 
             //state can never be negative or greater then 31
             result = (oldB * 8) - 1; 
         }
-        //increment the state or decrement the state based on result, 
-        //state can never be negative or greater then 7
-        state = (state + result) % 32;
         //store the new state of clkPin and dtPin for the next cycle through
         oldA = newA;
         oldB = newB;
