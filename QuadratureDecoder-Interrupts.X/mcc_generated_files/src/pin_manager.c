@@ -32,6 +32,8 @@ static void (*PORTA_PA0_InterruptHandler)(void);
 static void (*PORTF_IO_PF5_InterruptHandler)(void);
 static void (*PORTF_IO_PF4_InterruptHandler)(void);
 
+int oldA = IO_PE0_GetValue(); //get the initial value of clkPin
+int oldB = IO_PE1_GetValue() >> 1; //get the initial value of dtPin
 void PORT_Initialize(void);
 
 void PIN_MANAGER_Initialize()
@@ -191,12 +193,31 @@ void PORTE_IO_PE0_SetInterruptHandler(void (* interruptHandler)(void))
 
 void PORTE_IO_PE0_DefaultInterruptHandler(void)
 {
-    uint8_t data;
-    data = 8 + ((IO_PE1_GetValue() >> 1) * 4) + (IO_PE1_GetValue() >> 1);
-    USART0_Write(4);
+    unsigned char newA = IO_PE0_GetValue();//read the value of clkPin to newA
+    unsigned char newB = IO_PE1_GetValue() >> 1;//read the value of dtPin to newB
     //increment the state or decrement the state based on result, 
     //state can never be negative or greater then 7
-    unsigned char state = (IO_PE0_GetValue() | IO_PE1_GetValue()) << 3;
+    unsigned char state = oldA + (oldB << 1) + (newA << 2) + (newB << 3);
+    printf(state);
+    //Sense falling edge of clkPin
+    if (oldA == 0 && newA == 1) {
+        if (oldB == newB && oldB == 0) {
+            //printf(state);
+        } else if (oldB == newB && oldB == 1) {
+            //printf(state);
+        }
+    }
+    if (oldA == 1 && newA == 0) {
+        if (oldB == newB && oldB == 1) {
+            //printf(state);
+        } else if (oldB == newB && oldB == 0) {
+            //printf(state);
+        }
+    }
+    state = state << 1;
+    //store the new state of clkPin and dtPin for the next cycle through
+    oldA = newA;
+    oldB = newB;
     //display the state to the connected lights
     VPORTF.OUT = state;
 }
@@ -223,12 +244,31 @@ void PORTE_IO_PE1_SetInterruptHandler(void (* interruptHandler)(void))
 
 void PORTE_IO_PE1_DefaultInterruptHandler(void)
 {
-    uint8_t data;
-    data = (IO_PE0_GetValue() * 8) + 4 + (IO_PE0_GetValue() * 2);
-    USART0_Write(data);
+    unsigned char newA = IO_PE0_GetValue();//read the value of clkPin to newA
+    unsigned char newB = IO_PE1_GetValue() >> 1;//read the value of dtPin to newB
     //increment the state or decrement the state based on result, 
     //state can never be negative or greater then 7
-    unsigned char state = (IO_PE0_GetValue() | IO_PE1_GetValue()) << 3;
+    unsigned char state = oldA + (oldB << 1) + (newA << 2) + (newB << 3);
+    printf(state);
+    //Sense falling edge of clkPin
+    if (oldA == 0 && newA == 1) {
+        if (oldB == newB && oldB == 0) {
+            //printf(state);
+        } else if (oldB == newB && oldB == 1) {
+            //printf(state);
+        }
+    }
+    if (oldA == 1 && newA == 0) {
+        if (oldB == newB && oldB == 1) {
+            //printf(state);
+        } else if (oldB == newB && oldB == 0) {
+            //printf(state);
+        }
+    }
+    state = state << 1;
+    //store the new state of clkPin and dtPin for the next cycle through
+    oldA = newA;
+    oldB = newB;
     //display the state to the connected lights
     VPORTF.OUT = state;
 }
