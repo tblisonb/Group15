@@ -22,6 +22,7 @@
 */
 
 #include "mcc_generated_files/mcc.h"
+#include "../include/pin_manager.h"
 
 /*
     Main application
@@ -33,6 +34,12 @@ int main(void)
 
     /* Replace with your application code */
     while (1){
+        if (PA3_GetValue()){
+            printf("R\n");
+        }
+        if (PC3_GetValue()){
+            printf("L\n");
+        }
     }
 }
 /**
