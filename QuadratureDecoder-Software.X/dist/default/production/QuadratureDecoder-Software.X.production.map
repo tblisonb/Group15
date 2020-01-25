@@ -512,7 +512,7 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x575a
+.debug_info     0x00000000     0x574b
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000     0x248a C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
  .debug_info    0x0000248a      0xc52 build/default/production/mcc_generated_files/src/pin_manager.o
@@ -521,9 +521,9 @@ END GROUP
  .debug_info    0x00003fa3       0x92 build/default/production/mcc_generated_files/src/protected_io.o
  .debug_info    0x00004035      0x7e6 build/default/production/mcc_generated_files/device_config.o
  .debug_info    0x0000481b      0xb02 build/default/production/mcc_generated_files/mcc.o
- .debug_info    0x0000531d      0x43d build/default/production/main.o
+ .debug_info    0x0000531d      0x42e build/default/production/main.o
 
-.debug_abbrev   0x00000000     0x2b2b
+.debug_abbrev   0x00000000     0x2b1c
  *(.debug_abbrev)
  .debug_abbrev  0x00000000     0x2296 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
  .debug_abbrev  0x00002296      0x17e build/default/production/mcc_generated_files/src/pin_manager.o
@@ -532,7 +532,7 @@ END GROUP
  .debug_abbrev  0x000027ed       0x14 build/default/production/mcc_generated_files/src/protected_io.o
  .debug_abbrev  0x00002801       0x85 build/default/production/mcc_generated_files/device_config.o
  .debug_abbrev  0x00002886      0x157 build/default/production/mcc_generated_files/mcc.o
- .debug_abbrev  0x000029dd      0x14e build/default/production/main.o
+ .debug_abbrev  0x000029dd      0x13f build/default/production/main.o
 
 .debug_line     0x00000000     0x1155
  *(.debug_line .debug_line.* .debug_line_end)

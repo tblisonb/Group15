@@ -35,10 +35,7 @@ int main(void)
     
 
     /* Replace with your application code */
-    while (1){
-        IO_PF3_Toggle();
-        _delay_ms(500);
-    }
+    while (1){}
 }
 /**
     End of File
