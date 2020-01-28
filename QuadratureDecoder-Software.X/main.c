@@ -26,23 +26,28 @@
 #include <util/delay.h>
 
 /*
-    Main application
+    Main application entry point, no user input
 */
 int main(void)
 {
-    /* Initializes MCU, drivers and middleware */
+    /* Initializes MCU, drivers and middle-ware */
     SYSTEM_Initialize();
 
-    int oldA = IO_PE0_GetValue(); //get the initial value of clkPin
-    int oldB = IO_PE1_GetValue() >> 1; //get the initial value of dtPin
+    /* Variable declarations/initializations */
+    int oldA = IO_PE0_GetValue();       //get the initial value of clkPin (Decoder)
+    int oldB = IO_PE1_GetValue() >> 1;  //get the initial value of dtPin  (Decoder)
     unsigned int state = 2;
 
-    /* Replace with your application code */
+    /* Infinite execution loop */
     while (1){
+        
+        /* Loop auto variables */
         unsigned char result = 0;
-        unsigned char newA = IO_PE0_GetValue();//read the value of clkPin to newA
+        unsigned char newA = IO_PE0_GetValue();     //read the value of clkPin to newA
         unsigned char newB = IO_PE1_GetValue() >> 1;//read the value of dtPin to newB
-        //Sense falling edge of clkPin
+        
+        // Sense falling edge of clkPin
+        /* Two if statements to account for turns from right to left or vice versa */
         if (oldA == 0 && newA == 1) {
             if (oldB == newB && oldB == 0) {
                 printf("Clockwise turn detected\n");
@@ -60,13 +65,14 @@ int main(void)
             //state can never be negative or greater then 31
             result = (oldB * 8) - 1; 
         }
-        //increment the state or decrement the state based on result, 
-        //state can never be negative or greater then 7
+        
+        /* state is incremented/decremented based on the result, and can
+         never be a negative number or greater than 7*/
         state = (state + result) % 32;
         //store the new state of clkPin and dtPin for the next cycle through
-        oldA = newA;
-        oldB = newB;
-        //display the state to the connected lights
+        oldA = newA;    // clkPin
+        oldB = newB;    // dtPin
+        // display the state to the connected LEDs
         VPORTF.OUT = state;
     }
 }
