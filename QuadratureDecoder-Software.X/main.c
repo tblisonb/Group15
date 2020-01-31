@@ -19,8 +19,12 @@
     CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
     OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
     SOFTWARE.
+ * 
+ * @author ASU Capstone Team 15 2019-2020
+ * @version 01.2020
 */
 
+/* Includes files */
 #include "mcc_generated_files/mcc.h"
 #include <stdlib.h>
 #include <util/delay.h>
@@ -54,6 +58,8 @@ int main(void)
             } else if (oldB == newB && oldB == 1) {
                 printf("Counter-clockwise turn detected\n");
             }
+            /* Change state based on result */
+            result = (oldB * 8) - 1; 
         }
         if (oldA == 1 && newA == 0) {
             if (oldB == newB && oldB == 1) {
@@ -73,7 +79,7 @@ int main(void)
         oldA = newA;    // clkPin
         oldB = newB;    // dtPin
         // display the state to the connected LEDs
-        VPORTF.OUT = state;
+        VPORTF.OUT = state; // May display VPORT as an error, it will still work fine
     }
 }
 /**
