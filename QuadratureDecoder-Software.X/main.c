@@ -28,6 +28,7 @@
 #include "mcc_generated_files/mcc.h"
 #include <stdlib.h>
 #include <util/delay.h>
+#include <time.h>
 
 /*
     Main application entry point, no user input
@@ -49,15 +50,20 @@ int main(void)
         unsigned char result = 0;
         unsigned char newA = IO_PE0_GetValue();     //read the value of clkPin to newA
         unsigned char newB = IO_PE1_GetValue() >> 1;//read the value of dtPin to newB
+        int mseconds = 0;                           // Variable for storing recorded response time
         
         // Sense falling edge of clkPin
         /* Two if statements to account for turns from right to left or vice versa */
+        clock_t begin = clock();    // This records the current clock before processing decoder input
+        clock_t difference;         // declaration for the end time to record
         if (oldA == 0 && newA == 1) {
             if (oldB == newB && oldB == 0) {
                 printf("Clockwise turn detected\n");
             } else if (oldB == newB && oldB == 1) {
                 printf("Counter-clockwise turn detected\n");
             }
+            difference = clock() - begin;   // capture the difference between the initial and current clock
+            mseconds = difference * 1000 / CLOCKS_PER_SEC;  // Use the difference to find mseconds response time
             /* Change state based on result */
             result = (oldB * 8) - 1; 
         }
@@ -67,6 +73,8 @@ int main(void)
             } else if (oldB == newB && oldB == 0) {
                 printf("Counter-clockwise turn detected\n");
             }
+            difference = clock() - begin;
+            mseconds = difference * 1000 / CLOCKS_PER_SEC;
             //increment the state or decrement the state based on result, 
             //state can never be negative or greater then 31
             result = (oldB * 8) - 1; 
