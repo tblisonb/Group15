@@ -31,16 +31,6 @@ int main(void)
 {
     /* Initializes MCU, drivers and middleware */
     SYSTEM_Initialize();
-
-    /* Replace with your application code */
-    while (1){
-        if (PA3_GetValue()){
-            printf("R\n");
-        }
-        if (PC3_GetValue()){
-            printf("L\n");
-        }
-    }
 }
 /**
     End of File

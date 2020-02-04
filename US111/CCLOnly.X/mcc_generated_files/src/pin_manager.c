@@ -43,6 +43,8 @@ static void (*PORTE_IO_PE3_InterruptHandler)(void);
 static void (*PORTB_PB0_InterruptHandler)(void);
 static void (*PORTC_PC1_InterruptHandler)(void);
 
+char rotation = 0;
+
 void PORT_Initialize(void);
 
 void PIN_MANAGER_Initialize()
@@ -217,6 +219,7 @@ void PORTC_PC3_DefaultInterruptHandler(void)
 {
     // add your PORTC_PC3 interrupt custom code
     // or set custom function using PORTC_PC3_SetInterruptHandler()
+    rotation--;
 }
 /**
   Allows selecting an interrupt handler for PORTA_PA3 at application runtime
@@ -230,6 +233,7 @@ void PORTA_PA3_DefaultInterruptHandler(void)
 {
     // add your PORTA_PA3 interrupt custom code
     // or set custom function using PORTA_PA3_SetInterruptHandler()
+    rotation++;
 }
 /**
   Allows selecting an interrupt handler for PORTE_IO_PE0 at application runtime
