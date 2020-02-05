@@ -23,6 +23,7 @@
 
 #include "mcc_generated_files/mcc.h"
 #include "../include/pin_manager.h"
+#include "pin_manager.c"
 
 /*
     Main application

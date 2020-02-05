@@ -22,6 +22,8 @@
 */
 
 #include "../include/pin_manager.h"
+char rotation = 0;
+
 static void (*PORTA_PA2_InterruptHandler)(void);
 static void (*PORTA_PA1_InterruptHandler)(void);
 static void (*PORTC_PC3_InterruptHandler)(void);
@@ -42,8 +44,11 @@ static void (*PORTD_PD3_InterruptHandler)(void);
 static void (*PORTE_IO_PE3_InterruptHandler)(void);
 static void (*PORTB_PB0_InterruptHandler)(void);
 static void (*PORTC_PC1_InterruptHandler)(void);
-
-char rotation = 0;
+static char GetRotation(){
+    char hold = rotation;
+    rotation = 0;
+    return hold;
+}
 
 void PORT_Initialize(void);
 
