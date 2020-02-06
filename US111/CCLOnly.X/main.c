@@ -32,6 +32,8 @@ int main(void)
 {
     /* Initializes MCU, drivers and middleware */
     SYSTEM_Initialize();
+    while (0){
+    }
 }
 /**
     End of File
