@@ -33,6 +33,7 @@
         <itemPath>mcc_generated_files/mcc.h</itemPath>
       </logicalFolder>
       <itemPath>stepper.h</itemPath>
+      <itemPath>actuator.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -54,6 +55,7 @@
       </logicalFolder>
       <itemPath>main.c</itemPath>
       <itemPath>stepper.c</itemPath>
+      <itemPath>actuator.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

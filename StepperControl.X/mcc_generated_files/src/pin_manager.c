@@ -23,6 +23,7 @@
 
 #include "../include/pin_manager.h"
 static void (*PORTD_IO_PD1_InterruptHandler)(void);
+static void (*PORTC_IO_PC0_InterruptHandler)(void);
 static void (*PORTD_IO_PD0_InterruptHandler)(void);
 static void (*PORTD_IO_PD3_InterruptHandler)(void);
 static void (*PORTD_IO_PD2_InterruptHandler)(void);
@@ -36,7 +37,7 @@ void PIN_MANAGER_Initialize()
     /* DIR Registers Initialization */
     PORTA.DIR = 0x00;
     PORTB.DIR = 0x00;
-    PORTC.DIR = 0x00;
+    PORTC.DIR = 0x01;
     PORTD.DIR = 0x0F;
     PORTE.DIR = 0x00;
     PORTF.DIR = 0x00;
@@ -109,6 +110,7 @@ void PIN_MANAGER_Initialize()
 
     // register default ISC callback functions at runtime; use these methods to register a custom function
     PORTD_IO_PD1_SetInterruptHandler(PORTD_IO_PD1_DefaultInterruptHandler);
+    PORTC_IO_PC0_SetInterruptHandler(PORTC_IO_PC0_DefaultInterruptHandler);
     PORTD_IO_PD0_SetInterruptHandler(PORTD_IO_PD0_DefaultInterruptHandler);
     PORTD_IO_PD3_SetInterruptHandler(PORTD_IO_PD3_DefaultInterruptHandler);
     PORTD_IO_PD2_SetInterruptHandler(PORTD_IO_PD2_DefaultInterruptHandler);
@@ -159,6 +161,19 @@ void PORTD_IO_PD1_DefaultInterruptHandler(void)
 {
     // add your PORTD_IO_PD1 interrupt custom code
     // or set custom function using PORTD_IO_PD1_SetInterruptHandler()
+}
+/**
+  Allows selecting an interrupt handler for PORTC_IO_PC0 at application runtime
+*/
+void PORTC_IO_PC0_SetInterruptHandler(void (* interruptHandler)(void)) 
+{
+    PORTC_IO_PC0_InterruptHandler = interruptHandler;
+}
+
+void PORTC_IO_PC0_DefaultInterruptHandler(void)
+{
+    // add your PORTC_IO_PC0 interrupt custom code
+    // or set custom function using PORTC_IO_PC0_SetInterruptHandler()
 }
 /**
   Allows selecting an interrupt handler for PORTD_IO_PD0 at application runtime
