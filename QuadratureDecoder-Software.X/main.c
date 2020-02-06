@@ -28,7 +28,7 @@
 #include "mcc_generated_files/mcc.h"
 #include <stdlib.h>
 #include <util/delay.h>
-#include <time.h>
+#include "time.h"
 
 /*
     Main application entry point, no user input
@@ -54,16 +54,17 @@ int main(void)
         
         // Sense falling edge of clkPin
         /* Two if statements to account for turns from right to left or vice versa */
-        clock_t begin = clock();    // This records the current clock before processing decoder input
-        clock_t difference;         // declaration for the end time to record
+        time_t begin = time(NULL);    // This records the current clock before processing decoder input
+        time_t difference;         // declaration for the end time to record
         if (oldA == 0 && newA == 1) {
             if (oldB == newB && oldB == 0) {
                 printf("Clockwise turn detected\n");
             } else if (oldB == newB && oldB == 1) {
                 printf("Counter-clockwise turn detected\n");
             }
-            difference = clock() - begin;   // capture the difference between the initial and current clock
-            mseconds = difference * 1000 / CLOCKS_PER_SEC;  // Use the difference to find mseconds response time
+            difference = time(NULL) - begin;   // capture the difference between the initial and current clock
+            mseconds = difference * 1000;  // Use the difference to find mseconds response time
+            printf("mseconds: %d",mseconds);
             /* Change state based on result */
             result = (oldB * 8) - 1; 
         }
@@ -73,8 +74,9 @@ int main(void)
             } else if (oldB == newB && oldB == 0) {
                 printf("Counter-clockwise turn detected\n");
             }
-            difference = clock() - begin;
-            mseconds = difference * 1000 / CLOCKS_PER_SEC;
+            difference = time(NULL) - begin;
+            mseconds = difference * 1000;
+            printf("mseconds: %d",mseconds);
             //increment the state or decrement the state based on result, 
             //state can never be negative or greater then 31
             result = (oldB * 8) - 1; 
