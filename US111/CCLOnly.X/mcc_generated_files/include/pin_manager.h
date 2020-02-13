@@ -427,4 +427,5 @@ void PORTC_PC1_DefaultInterruptHandler(void);
 void PORTC_PC1_SetInterruptHandler(void (* interruptHandler)(void)) ;
 void PORTB_PB0_DefaultInterruptHandler(void);
 void PORTB_PB0_SetInterruptHandler(void (* interruptHandler)(void)) ;
+static char GetRotation();
 #endif /* PINS_H_INCLUDED */

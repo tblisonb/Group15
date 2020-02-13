@@ -5,6 +5,10 @@
          <string>class com.microchip.mcc.mcu8.systemManager.SystemManager</string>
       </entry>
       <entry>
+         <string>USART1</string>
+         <string>class com.microchip.mcc.mcu8.modules.usart.tiny_mega_init.USART</string>
+      </entry>
+      <entry>
          <string>CPUINT</string>
          <string>class com.microchip.mcc.mcu8.interruptManager.cpuint.CPUINT</string>
       </entry>
@@ -25,14 +29,17 @@
          <string>class com.microchip.mcc.mcu8.pinManager.PinManager</string>
       </entry>
       <entry>
-         <string>RSTCTRL</string>
-         <string>class com.microchip.mcc.mcu8.systemManager.tiny_mega_init.rstctrl.RSTCTRL</string>
-      </entry>
-      <entry>
          <string>SLPCTRL</string>
          <string>class com.microchip.mcc.mcu8.systemManager.tiny_mega_init.slpctrl.SLPCTRL</string>
       </entry>
       <entry>
+<<<<<<< HEAD
+=======
+         <string>RSTCTRL</string>
+         <string>class com.microchip.mcc.mcu8.systemManager.tiny_mega_init.rstctrl.RSTCTRL</string>
+      </entry>
+      <entry>
+>>>>>>> origin/US111
          <string>Interrupt Manager</string>
          <string>class com.microchip.mcc.mcu8.interruptManager.InterruptManager</string>
       </entry>
@@ -634,6 +641,17 @@
          <value>2</value>
       </entry>
       <entry>
+<<<<<<< HEAD
+=======
+         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="USART1" registerAlias="DBGCTRL"/>
+         <value>0</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="USART1" name="CLK_PER"/>
+         <value>3333333</value>
+      </entry>
+      <entry>
+>>>>>>> origin/US111
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="USART0" registerAlias="DBGCTRL"/>
          <value>0</value>
       </entry>
@@ -978,6 +996,13 @@
          <value>5</value>
       </entry>
       <entry>
+<<<<<<< HEAD
+=======
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="USART1" registerAlias="CTRLC" settingAlias="UDORD" alias="disabled"/>
+         <value>0</value>
+      </entry>
+      <entry>
+>>>>>>> origin/US111
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="USART0" registerAlias="CTRLC" settingAlias="UDORD" alias="enabled"/>
          <value>1</value>
       </entry>
@@ -1646,6 +1671,10 @@
          <value>NORMAL</value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="USART1" registerAlias="CTRLB" settingAlias="RXMODE"/>
+         <value>NORMAL</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="USART0" registerAlias="CTRLB" settingAlias="SFDEN" alias="disabled"/>
          <value>0</value>
       </entry>
@@ -1854,6 +1883,13 @@
          <value>INTDISABLE</value>
       </entry>
       <entry>
+<<<<<<< HEAD
+=======
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="USART1" name="RxBufferSize"/>
+         <value>8</value>
+      </entry>
+      <entry>
+>>>>>>> origin/US111
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="USART0" registerAlias="CTRLB" settingAlias="RXEN"/>
          <value>enabled</value>
       </entry>
@@ -4486,10 +4522,24 @@
          <value>0</value>
       </entry>
       <entry>
+<<<<<<< HEAD
+=======
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="USART1" name="Printf"/>
+         <value>true</value>
+      </entry>
+      <entry>
+>>>>>>> origin/US111
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="USART0" registerAlias="DBGCTRL" settingAlias="ABMBP"/>
          <value>disabled</value>
       </entry>
       <entry>
+<<<<<<< HEAD
+=======
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="USART1" registerAlias="DBGCTRL" settingAlias="ABMBP"/>
+         <value>disabled</value>
+      </entry>
+      <entry>
+>>>>>>> origin/US111
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTA.PIN3CTRL" settingAlias="ISC" alias="RISING"/>
          <value>2</value>
       </entry>
@@ -6510,6 +6560,13 @@
          <value>1</value>
       </entry>
       <entry>
+<<<<<<< HEAD
+=======
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="USART1" registerAlias="STATUS" settingAlias="RXCIF" alias="enabled"/>
+         <value>1</value>
+      </entry>
+      <entry>
+>>>>>>> origin/US111
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="USART0" registerAlias="TXDATAH" settingAlias="DATA8" alias="disabled"/>
          <value>0</value>
       </entry>

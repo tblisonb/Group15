@@ -22,8 +22,10 @@
 */
 
 #include "mcc_generated_files/mcc.h"
-#include "../include/pin_manager.h"
-#include "pin_manager.c"
+#include <stdlib.h>
+#include "stepper.h"
+#include "actuator.h"
+#include "mcc_generated_files/include/pin_manager.h"
 
 /*
     Main application
@@ -32,7 +34,32 @@ int main(void)
 {
     /* Initializes MCU, drivers and middleware */
     SYSTEM_Initialize();
-    while (0){
+    
+    /*
+     * The following control will spin the stepper motor 5 steps at a time with
+     * a delay in between each 5 step increment.
+     */
+    
+    while (1) {
+        // Turn the stepper motor 5 steps in the clockwise direction
+        cw_turn(&PORTB, 5, 200);
+        _delay_ms(1000);
+        
+        // Pulse the actuator with a length of 0.5 seconds
+        actuator_pulse(&PORTF, 2, 5);
+        _delay_ms(1000);
+        // Return the actuator to the extended position
+        actuator_extend(&PORTF, 2);
+        
+        // Turn the stepper motor 5 steps in the counterclockwise direction
+        cc_turn(&PORTB, 5, 200);
+        _delay_ms(1000);
+        
+        // Send an inverted pulse to the actuator with a length of 0.5 seconds
+        actuator_pulse_inv(&PORTF, 2, 5);
+        _delay_ms(1000);
+        // Return the actuator to the released position
+        actuator_release(&PORTF, 2);
     }
 }
 /**

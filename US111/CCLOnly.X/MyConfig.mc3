@@ -13,12 +13,12 @@
          <string>class com.microchip.mcc.mcu8.interruptManager.cpuint.CPUINT</string>
       </entry>
       <entry>
-         <string>BOD</string>
-         <string>class com.microchip.mcc.mcu8.systemManager.tiny_mega_init.bod.BOD</string>
-      </entry>
-      <entry>
          <string>WDT</string>
          <string>class com.microchip.mcc.mcu8.systemManager.tiny_mega_init.wdt.WDT</string>
+      </entry>
+      <entry>
+         <string>BOD</string>
+         <string>class com.microchip.mcc.mcu8.systemManager.tiny_mega_init.bod.BOD</string>
       </entry>
       <entry>
          <string>Pin Module</string>
@@ -37,12 +37,12 @@
          <string>class com.microchip.mcc.mcu8.systemManager.tiny_mega_init.rstctrl.RSTCTRL</string>
       </entry>
       <entry>
-         <string>CLKCTRL</string>
-         <string>class com.microchip.mcc.mcu8.systemManager.tiny_mega_init.clkctrl.CLKCTRL</string>
-      </entry>
-      <entry>
          <string>Interrupt Manager</string>
          <string>class com.microchip.mcc.mcu8.interruptManager.InterruptManager</string>
+      </entry>
+      <entry>
+         <string>CLKCTRL</string>
+         <string>class com.microchip.mcc.mcu8.systemManager.tiny_mega_init.clkctrl.CLKCTRL</string>
       </entry>
    </usedClasses>
    <usedLibraries class="java.util.ArrayList">
@@ -63,7 +63,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="PF2"/>
-         <value>disabled</value>
+         <value>output</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="PF5"/>
@@ -115,7 +115,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="PORTB.DIR"/>
-         <value>1</value>
+         <value>31</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTC.PIN0CTRL" settingAlias="ISC" alias="RISING"/>
@@ -127,7 +127,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="PORTF.DIR"/>
-         <value>8</value>
+         <value>12</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="PORTA.PIN1CTRL"/>
@@ -351,7 +351,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="PORTF.DIR" settingAlias="PORTF.DIR"/>
-         <value>8</value>
+         <value>12</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="USART3" registerAlias="TXC" settingAlias="flag"/>
@@ -730,12 +730,12 @@
          <value>2</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="USART3" name="ErrorPer"/>
-         <value>-0.063%</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCL" registerAlias="INTCTRL0" settingAlias="INTMODE0" alias="BOTH"/>
          <value>3</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="USART3" name="ErrorPer"/>
+         <value>-0.063%</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTE.PIN5CTRL" settingAlias="INVEN" alias="enabled"/>
@@ -902,12 +902,12 @@
          <value>enabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="USART3" registerAlias="EVCTRL"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="CCL" registerAlias="LUT3CTRLA" settingAlias="OUTEN"/>
          <value>enabled</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="USART3" registerAlias="EVCTRL"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="VPORTA.IN"/>
@@ -954,12 +954,12 @@
          <value>3</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="USART3" registerAlias="EVCTRL" settingAlias="IREI" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCL" registerAlias="LUT0CTRLB" settingAlias="INSEL0" alias="FEEDBACK"/>
          <value>1</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="USART3" registerAlias="EVCTRL" settingAlias="IREI" alias="disabled"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCL" registerAlias="CTRLA" settingAlias="ENABLE" alias="disabled"/>
@@ -982,12 +982,12 @@
          <value>INTDISABLE</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="USART3" registerAlias="CTRLA" settingAlias="DREIE" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCL" registerAlias="LUT1CTRLB" settingAlias="INSEL0" alias="TCB0"/>
          <value>12</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="USART3" registerAlias="CTRLA" settingAlias="DREIE" alias="disabled"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="PORTE.DIRCLR"/>
@@ -1414,12 +1414,12 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="USART3" registerAlias="CTRLA" settingAlias="LBME"/>
-         <value>disabled</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCL" registerAlias="LUT0CTRLA" settingAlias="CLKSRC" alias="CLKPER"/>
          <value>0</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="USART3" registerAlias="CTRLA" settingAlias="LBME"/>
+         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="OUT_PF3"/>
@@ -1675,7 +1675,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="USART3" name="PIN_TXD_DEF"/>
-         <value>TXD_DEF</value>
+         <value>alternate</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="PORTA.PIN1CTRL" settingAlias="INVEN"/>
@@ -1967,7 +1967,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="USART3" name="PIN_RXD_DEF"/>
-         <value>RXD_DEF</value>
+         <value>alternate</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="PORTMUX.EVSYSROUTEA" settingAlias="EVOUT4"/>
@@ -2139,7 +2139,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name PF2"/>
-         <value/>
+         <value>IO_PF2</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name PF3"/>
@@ -2391,19 +2391,19 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name PB0"/>
-         <value/>
+         <value>IO_PB0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name PB1"/>
-         <value/>
+         <value>IO_PB1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name PB2"/>
-         <value/>
+         <value>IO_PB2</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name PB3"/>
-         <value/>
+         <value>IO_PB3</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="VPORTC.DIR" settingAlias="VPORTC.DIR"/>
@@ -2923,7 +2923,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="PORTMUX.USARTROUTEA" settingAlias="USART3"/>
-         <value>DEFAULT</value>
+         <value>ALT1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTE.PIN7CTRL" settingAlias="ISC" alias="INTDISABLE"/>
@@ -3094,12 +3094,12 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="USART3" registerAlias="TXDATAH" settingAlias="DATA8" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="CCL" registerAlias="LUT2CTRLA" settingAlias="EDGEDET"/>
          <value>DIS</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="USART3" registerAlias="TXDATAH" settingAlias="DATA8" alias="disabled"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="WDTCFG" settingAlias="PERIOD" alias="2KCLK"/>
@@ -3243,11 +3243,11 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="DIR_PB4"/>
-         <value>false</value>
+         <value>true</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="DIR_PB1"/>
-         <value>false</value>
+         <value>true</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="DIR_PB0"/>
@@ -3255,7 +3255,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="DIR_PB3"/>
-         <value>false</value>
+         <value>true</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="CCL" registerAlias="LUT1CTRLC"/>
@@ -3263,7 +3263,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="DIR_PB2"/>
-         <value>false</value>
+         <value>true</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTD.PIN7CTRL" settingAlias="ISC" alias="INTDISABLE"/>
@@ -3538,12 +3538,12 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="USART3" registerAlias="CTRLB" settingAlias="SFDEN"/>
-         <value>disabled</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCL" registerAlias="LUT3CTRLB" settingAlias="INSEL1" alias="AC0"/>
          <value>6</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="USART3" registerAlias="CTRLB" settingAlias="SFDEN"/>
+         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="USART3" name="PIN_XCK_DEF"/>
@@ -3814,12 +3814,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="USART3" registerAlias="TXDATAH" settingAlias="DATA8" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCL" registerAlias="LUT0CTRLC" settingAlias="INSEL2" alias="TCA0"/>
          <value>10</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="USART3" registerAlias="TXDATAH" settingAlias="DATA8" alias="enabled"/>
+         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="WDT" registerAlias="CTRLA" settingAlias="WINDOW" alias="8CLK"/>
@@ -4147,7 +4147,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="DIR_PF2"/>
-         <value>false</value>
+         <value>true</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="CCL" name="PIN_LUT3_IN1"/>
@@ -4575,7 +4575,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="PORTMUX.USARTROUTEA"/>
-         <value>0</value>
+         <value>64</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTB.PIN5CTRL" settingAlias="ISC" alias="INPUT_DISABLE"/>
@@ -4822,12 +4822,12 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="USART3" name="Printf"/>
-         <value>true</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCL" registerAlias="SEQCTRL0" settingAlias="SEQSEL0" alias="DISABLE"/>
          <value>0</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="USART3" name="Printf"/>
+         <value>true</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="WDTCFG" settingAlias="PERIOD" alias="512CLK"/>
@@ -5406,12 +5406,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="USART3" registerAlias="CTRLA" settingAlias="RXSIE"/>
-         <value>enabled</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="CCL" registerAlias="INTFLAGS"/>
          <value>0</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="USART3" registerAlias="CTRLA" settingAlias="RXSIE"/>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="PORTC.OUTCLR"/>
@@ -5658,12 +5658,12 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="USART3" name="USART3_ABEISRFunction"/>
-         <value>ISR_USART3_ABE</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCL" registerAlias="LUT2CTRLA" settingAlias="CLKSRC" alias="OSC20M"/>
          <value>4</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="USART3" name="USART3_ABEISRFunction"/>
+         <value>ISR_USART3_ABE</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTC.PIN1CTRL" settingAlias="ISC" alias="RISING"/>
@@ -5986,12 +5986,12 @@
          <value>4</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="USART3" registerAlias="CTRLC" settingAlias="CMODE" alias="ASYNCHRONOUS"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCL" registerAlias="LUT0CTRLC" settingAlias="INSEL2" alias="EVENTA"/>
          <value>3</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="USART3" registerAlias="CTRLC" settingAlias="CMODE" alias="ASYNCHRONOUS"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTA.PIN2CTRL" settingAlias="INVEN" alias="disabled"/>
@@ -6279,7 +6279,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="PORTB.DIR" settingAlias="PORTB.DIR"/>
-         <value>1</value>
+         <value>31</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTB.PIN4CTRL" settingAlias="ISC" alias="RISING"/>
@@ -7079,7 +7079,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="USART3" name="PIN_TXD_ALT"/>
-         <value>alternate</value>
+         <value>TXD_ALT</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="CCL" registerAlias="TRUTH0"/>
@@ -7191,7 +7191,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="USART3" name="PIN_RXD_ALT"/>
-         <value>alternate</value>
+         <value>RXD_ALT</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="CCL" registerAlias="INT2" settingAlias="enable"/>
@@ -7450,12 +7450,12 @@
          <value>false</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="USART3" name="CLK_PER"/>
-         <value>3333333</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCL" registerAlias="LUT3CTRLA" settingAlias="CLKSRC" alias="OSC20M"/>
          <value>4</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="USART3" name="CLK_PER"/>
+         <value>3333333</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTA.PIN7CTRL" settingAlias="ISC" alias="BOTHEDGES"/>
@@ -7762,12 +7762,12 @@
          <value>false</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="USART3" registerAlias="CTRLC"/>
-         <value>3</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="CCL" registerAlias="INT1" settingAlias="flag"/>
          <value>disabled</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="USART3" registerAlias="CTRLC"/>
+         <value>3</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="PORTMUX.CCLROUTEA" settingAlias="LUT3"/>
@@ -7807,7 +7807,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="PB2"/>
-         <value>disabled</value>
+         <value>output</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="PORTC.PIN0CTRL"/>
@@ -7823,7 +7823,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="PB3"/>
-         <value>disabled</value>
+         <value>output</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="RSTCTRL" registerAlias="RSTFR" settingAlias="PORF"/>
@@ -7839,11 +7839,11 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="PB0"/>
-         <value>disabled</value>
+         <value>output</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="PB1"/>
-         <value>disabled</value>
+         <value>output</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCL" registerAlias="LUT3CTRLA" settingAlias="CLKSRC" alias="OSCULP1K"/>
@@ -8152,32 +8152,32 @@
    </tokenMap>
    <generatedFileHashHistoryMap class="java.util.HashMap">
       <entry>
-         <file>mcc_generated_files\include\pin_manager.h</file>
-         <hash>427e4f532df533d994e59f93983979df9341f4c0991130c976d9cef1199d1cbe</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\src\protected_io.S</file>
          <hash>f39bf9146566e71309959e1118fca5d33a738b265907608f74f17d42f8ff9afb</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\include\pin_manager.h</file>
+         <hash>56a8f6e7eb2e6697372b40d538f1c273fc71b4ba96a42218e295d45f87635f8a</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\utils\compiler.h</file>
          <hash>701125bb2cc35e7b702045f6668e847ad756bc24992b94242a827e3786b40b30</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\src\pin_manager.c</file>
-         <hash>f9caa9ed0e7891c3e1e0c2230860bab3a56fcb2844e69845c98c2e43033f8c08</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\utils\atomic.h</file>
          <hash>69e8baa2b6af4ef9497dc17c8b213b3c5c1533a323b41bb0a5c79fc5c490c342</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\src\cpuint.c</file>
-         <hash>37105734d038107d252d95c37165feaf012425c4e500306bc475ba74fd8ee29f</hash>
+         <file>mcc_generated_files\src\pin_manager.c</file>
+         <hash>0c0184adfd4eb19613b1e3051288af28205d13a6f489ea8cb373d87e8f7e991d</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\utils\interrupt_avr8.h</file>
          <hash>c7ab02c0a91bda858b1d56194df4b7471ecc79c590409f98435c8a8b7a1253ec</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\src\cpuint.c</file>
+         <hash>37105734d038107d252d95c37165feaf012425c4e500306bc475ba74fd8ee29f</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\include\ccp.h</file>
@@ -8189,27 +8189,27 @@
       </entry>
       <entry>
          <file>mcc_generated_files\mcc.c</file>
-         <hash>dc039df39b878d48f047a969f7e475b4d2c4d5753d788190de70c6a4baa48d46</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\include\ccl.h</file>
-         <hash>52066b0f6533d560d5d57ddef72e40ef37ae3dc98c3f1a27007f43e1de0b6cd9</hash>
+         <hash>2156d4930a3ede239030cec626e8be24b5d2746492a4a51399dba9bb62cac6df</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\src\usart3.c</file>
          <hash>4c087bedd52abe5750cfbadf1ee357029536cbd7be15e5d2deb8aca6833ccb0b</hash>
       </entry>
       <entry>
+         <file>mcc_generated_files\include\ccl.h</file>
+         <hash>52066b0f6533d560d5d57ddef72e40ef37ae3dc98c3f1a27007f43e1de0b6cd9</hash>
+      </entry>
+      <entry>
          <file>mcc_generated_files\utils\assembler\iar.h</file>
          <hash>e028f1f4acdfae835f03d0732e46301d6d6a087adcf81fbd182cd30c72d9caf7</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\include\port.h</file>
-         <hash>e71cd906876239a49d5fe7d087f7a7df66ee67874bc55e343cea547fe4cecc40</hash>
+         <file>mcc_generated_files\mcc.h</file>
+         <hash>fdd535cd4141a3ec7ea0bc85aa83705980a8b71f7db91e346ec53f3ed942215e</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\mcc.h</file>
-         <hash>f313bb60ab400467a43f1d5c2492d5f2b40d59016b202aff1e59c6427884858f</hash>
+         <file>mcc_generated_files\include\port.h</file>
+         <hash>e71cd906876239a49d5fe7d087f7a7df66ee67874bc55e343cea547fe4cecc40</hash>
       </entry>
       <entry>
          <file>main.c</file>
@@ -8232,20 +8232,20 @@
          <hash>7781ec46266b766ced71fd60df34b416247c84dae4f2a8be29500e9b5774166a</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\include\cpuint.h</file>
-         <hash>2d855f2c022a00a9bd55dd527af7c8281c06a5534676dfdef13945b35966f056</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\include\rstctrl.h</file>
          <hash>a683d191f49cd21f445cd9cf76206d0e1808c5f2bd18cb77c8c5978573eedec0</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\src\ccl.c</file>
-         <hash>74880a93a4e4f0513eb3fa13c85d664487c168377f2564d079a9823c31199899</hash>
+         <file>mcc_generated_files\include\cpuint.h</file>
+         <hash>2d855f2c022a00a9bd55dd527af7c8281c06a5534676dfdef13945b35966f056</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\config\clock_config.h</file>
          <hash>7f9fb7c00e1898ecae6b266c591202fe0ab12db71bd08b8bb530212158064914</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\src\ccl.c</file>
+         <hash>74880a93a4e4f0513eb3fa13c85d664487c168377f2564d079a9823c31199899</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\include\usart3.h</file>

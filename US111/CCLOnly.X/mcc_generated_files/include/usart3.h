@@ -26,6 +26,7 @@
 
 #include <stdbool.h>
 #include <stdio.h>
+#include "pin_manager.h"
 #include "../utils/compiler.h"
 #include "../utils/atomic.h"
 #include "../config/clock_config.h"
