@@ -34,8 +34,11 @@
         </logicalFolder>
         <itemPath>mcc_generated_files/mcc.h</itemPath>
       </logicalFolder>
+<<<<<<< HEAD
       <itemPath>actuator.h</itemPath>
       <itemPath>stepper.h</itemPath>
+=======
+>>>>>>> origin/US138
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -58,8 +61,11 @@
         <itemPath>mcc_generated_files/device_config.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
+<<<<<<< HEAD
       <itemPath>actuator.c</itemPath>
       <itemPath>stepper.c</itemPath>
+=======
+>>>>>>> origin/US138
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -68,9 +74,12 @@
       <itemPath>MyConfig.mc3</itemPath>
     </logicalFolder>
   </logicalFolder>
+<<<<<<< HEAD
   <sourceRootList>
     <Elem>.</Elem>
   </sourceRootList>
+=======
+>>>>>>> origin/US138
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="default" type="2">
@@ -230,7 +239,11 @@
         <property key="memories.programmemory.ranges" value="0-5fff"/>
         <property key="poweroptions.powerenable" value="false"/>
         <property key="programmerToGoFilePath"
+<<<<<<< HEAD
                   value="C:/Users/tblisonb/Documents/Git/Group15/US111/CCLOnly.X/debug/default/CCLOnly_ptg"/>
+=======
+                  value="C:/Users/1mano/Documents/CCLInterrupts.X/debug/default/CCLInterrupts_ptg"/>
+>>>>>>> origin/US138
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preservedataflash.ranges"

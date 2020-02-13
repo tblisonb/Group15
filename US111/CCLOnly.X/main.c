@@ -25,7 +25,8 @@
 #include <stdlib.h>
 #include "stepper.h"
 #include "actuator.h"
-#include "mcc_generated_files/include/pin_manager.h"
+#include "../include/pin_manager.h"
+#include "pin_manager.c"
 
 /*
     Main application
