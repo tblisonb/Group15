@@ -16,7 +16,9 @@
 		E43E6C4023EF8BEE0002AA76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E43E6C3E23EF8BEE0002AA76 /* LaunchScreen.storyboard */; };
 		E43E6C4B23EF8BEF0002AA76 /* CoilWindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C4A23EF8BEF0002AA76 /* CoilWindTests.swift */; };
 		E43E6C5623EF8BEF0002AA76 /* CoilWindUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C5523EF8BEF0002AA76 /* CoilWindUITests.swift */; };
-		E43E6C6823F35D600002AA76 /* Coil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C6723F35D600002AA76 /* Coil.swift */; };
+		E43E6C6823F35D600002AA76 /* CoilCoreDataDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C6723F35D600002AA76 /* CoilCoreDataDB.swift */; };
+		E43E6C6A23F62F6D0002AA76 /* CoilCoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C6923F62F6D0002AA76 /* CoilCoreDataClass.swift */; };
+		E43E6C6E23F636460002AA76 /* CoilCoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C6D23F636460002AA76 /* CoilCoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +54,9 @@
 		E43E6C5123EF8BEF0002AA76 /* CoilWindUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoilWindUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E43E6C5523EF8BEF0002AA76 /* CoilWindUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoilWindUITests.swift; sourceTree = "<group>"; };
 		E43E6C5723EF8BEF0002AA76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E43E6C6723F35D600002AA76 /* Coil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coil.swift; sourceTree = "<group>"; };
+		E43E6C6723F35D600002AA76 /* CoilCoreDataDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoilCoreDataDB.swift; sourceTree = "<group>"; };
+		E43E6C6923F62F6D0002AA76 /* CoilCoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoilCoreDataClass.swift; sourceTree = "<group>"; };
+		E43E6C6D23F636460002AA76 /* CoilCoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoilCoreDataProperties.swift; path = ../../../../../../../../../../.Trash/CoilCoreDataProperties.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,7 +156,9 @@
 		E43E6C6423EF8BFA0002AA76 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E43E6C6723F35D600002AA76 /* Coil.swift */,
+				E43E6C6723F35D600002AA76 /* CoilCoreDataDB.swift */,
+				E43E6C6923F62F6D0002AA76 /* CoilCoreDataClass.swift */,
+				E43E6C6D23F636460002AA76 /* CoilCoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -306,9 +312,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E43E6C3623EF8BEE0002AA76 /* CoilWind.xcdatamodeld in Sources */,
+				E43E6C6E23F636460002AA76 /* CoilCoreDataProperties.swift in Sources */,
 				E43E6C3123EF8BEE0002AA76 /* AppDelegate.swift in Sources */,
 				E43E6C3823EF8BEE0002AA76 /* ContentView.swift in Sources */,
-				E43E6C6823F35D600002AA76 /* Coil.swift in Sources */,
+				E43E6C6823F35D600002AA76 /* CoilCoreDataDB.swift in Sources */,
+				E43E6C6A23F62F6D0002AA76 /* CoilCoreDataClass.swift in Sources */,
 				E43E6C3323EF8BEE0002AA76 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
