@@ -13,13 +13,9 @@
             <asminc-extensions/>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
-<<<<<<< HEAD
             <sourceRootList>
                 <sourceRootElem>.</sourceRootElem>
             </sourceRootList>
-=======
-            <sourceRootList/>
->>>>>>> origin/US138
             <confList>
                 <confElem>
                     <name>default</name>

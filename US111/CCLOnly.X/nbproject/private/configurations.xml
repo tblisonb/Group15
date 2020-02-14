@@ -4,11 +4,7 @@
   <defaultConf>0</defaultConf>
   <confs>
     <conf name="default" type="2">
-<<<<<<< HEAD
       <platformToolSN>:=MPLABComm-USB-Microchip:=&lt;vid>03EB:=&lt;pid>2175:=&lt;rev>0100:=&lt;man>Microchip Technology Incorporated:=&lt;prod>nEDBG CMSIS-DAP:=&lt;sn>ATML3094051800001410:=&lt;drv>x:=&lt;xpt>h:=end</platformToolSN>
-=======
-      <platformToolSN>:=MPLABComm-USB-Microchip:=&lt;vid>03EB:=&lt;pid>2175:=&lt;rev>0100:=&lt;man>Microchip Technology Incorporated:=&lt;prod>nEDBG CMSIS-DAP:=&lt;sn>ATML3094051800002489:=&lt;drv>x:=&lt;xpt>h:=end</platformToolSN>
->>>>>>> origin/US138
       <languageToolchainDir>C:\Program Files (x86)\Microchip\xc8\v2.10\bin</languageToolchainDir>
       <mdbdebugger version="1">
         <placeholder1>place holder 1</placeholder1>
