@@ -21,48 +21,31 @@
     SOFTWARE.
 */
 
-#include "mcc_generated_files/mcc.h"
-#include <stdlib.h>
-#include "stepper.h"
-#include "actuator.h"
-#include "../include/pin_manager.h"
-#include "pin_manager.c"
-
-/*
-    Main application
-*/
-int main(void)
-{
-    /* Initializes MCU, drivers and middleware */
-    SYSTEM_Initialize();
-    
-    /*
-     * The following control will spin the stepper motor 5 steps at a time with
-     * a delay in between each 5 step increment.
-     */
-    
-    while (1) {
-        // Turn the stepper motor 5 steps in the clockwise direction
-        cw_turn(&PORTB, 5, 200);
-        _delay_ms(1000);
-        
-        // Pulse the actuator with a length of 0.5 seconds
-        actuator_pulse(&PORTF, 2, 5);
-        _delay_ms(1000);
-        // Return the actuator to the extended position
-        actuator_extend(&PORTF, 2);
-        
-        // Turn the stepper motor 5 steps in the counterclockwise direction
-        cc_turn(&PORTB, 5, 200);
-        _delay_ms(1000);
-        
-        // Send an inverted pulse to the actuator with a length of 0.5 seconds
-        actuator_pulse_inv(&PORTF, 2, 5);
-        _delay_ms(1000);
-        // Return the actuator to the released position
-        actuator_release(&PORTF, 2);
-    }
-}
 /**
-    End of File
-*/
+ * \defgroup doc_driver_utils AVR Code utility functions
+ *
+ * Compiler abstraction layer and code utilities for AVR.
+ * This module provides various abstraction layers and utilities
+ * to make code compatible between different compilers.
+ *
+ * \{
+ */
+
+#ifndef UTILS_H_INCLUDED
+#define UTILS_H_INCLUDED
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/**
+ * \brief Retrieve array size
+ */
+#define ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))
+
+/** @} */
+
+#ifdef __cplusplus
+}
+#endif
+#endif /* UTILS_H_INCLUDED */

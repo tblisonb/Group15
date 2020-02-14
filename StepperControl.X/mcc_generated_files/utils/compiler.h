@@ -21,48 +21,50 @@
     SOFTWARE.
 */
 
-#include "mcc_generated_files/mcc.h"
-#include <stdlib.h>
-#include "stepper.h"
-#include "actuator.h"
-#include "../include/pin_manager.h"
-#include "pin_manager.c"
+#ifndef UTILS_COMPILER_H
+#define UTILS_COMPILER_H
 
-/*
-    Main application
-*/
-int main(void)
-{
-    /* Initializes MCU, drivers and middleware */
-    SYSTEM_Initialize();
-    
-    /*
-     * The following control will spin the stepper motor 5 steps at a time with
-     * a delay in between each 5 step increment.
-     */
-    
-    while (1) {
-        // Turn the stepper motor 5 steps in the clockwise direction
-        cw_turn(&PORTB, 5, 200);
-        _delay_ms(1000);
-        
-        // Pulse the actuator with a length of 0.5 seconds
-        actuator_pulse(&PORTF, 2, 5);
-        _delay_ms(1000);
-        // Return the actuator to the extended position
-        actuator_extend(&PORTF, 2);
-        
-        // Turn the stepper motor 5 steps in the counterclockwise direction
-        cc_turn(&PORTB, 5, 200);
-        _delay_ms(1000);
-        
-        // Send an inverted pulse to the actuator with a length of 0.5 seconds
-        actuator_pulse_inv(&PORTF, 2, 5);
-        _delay_ms(1000);
-        // Return the actuator to the released position
-        actuator_release(&PORTF, 2);
-    }
-}
 /**
-    End of File
-*/
+ * \defgroup doc_driver_utils_compiler Compiler abstraction
+ * \ingroup doc_driver_utils
+ *
+ * Compiler abstraction layer and code utilities for 8-bit AVR.
+ * This module provides various abstraction layers and utilities
+ * to make code compatible between different compilers.
+ *
+ * \{
+ */
+
+#if defined(__GNUC__)
+#include <avr/io.h>
+#include <avr/builtins.h>
+#elif defined(__ICCAVR__)
+#define ENABLE_BIT_DEFINITIONS 1
+#include <ioavr.h>
+#include <intrinsics.h>
+
+#ifndef CCP_IOREG_gc
+#define CCP_IOREG_gc 0xD8 /* CPU_CCP_IOREG_gc */
+#endif
+#ifndef CCP_SPM_gc
+#define CCP_SPM_gc 0x9D /* CPU_CCP_SPM_gc */
+#endif
+
+#else
+#error Unsupported compiler.
+#endif
+
+#include <stdbool.h>
+#include <stdint.h>
+#include <stddef.h>
+#include <stdlib.h>
+
+#include "interrupt_avr8.h"
+
+/**
+ * \def UNUSED
+ * \brief Marking \a v as a unused parameter or value.
+ */
+#define UNUSED(v) (void)(v)
+
+#endif /* UTILS_COMPILER_H */

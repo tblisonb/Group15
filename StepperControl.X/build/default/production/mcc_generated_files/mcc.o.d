@@ -23,13 +23,9 @@ build/default/production/mcc_generated_files/mcc.o.d \
  mcc_generated_files/include/pin_manager.h \
  mcc_generated_files/include/port.h \
  mcc_generated_files/include/../utils/compiler.h \
- mcc_generated_files/include/ccl.h mcc_generated_files/include/usart3.h \
- c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\avr\include\stdio.h \
- c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\lib\gcc\avr\5.4.0\include\stdarg.h \
- mcc_generated_files/include/../utils/atomic.h \
- mcc_generated_files/include/../config/clock_config.h \
  mcc_generated_files/include/cpuint.h mcc_generated_files/include/ccp.h \
  mcc_generated_files/include/../include/protected_io.h \
+ mcc_generated_files/include/../utils/atomic.h \
  mcc_generated_files/config/clock_config.h
 
 mcc_generated_files/mcc.h:
@@ -78,22 +74,12 @@ mcc_generated_files/include/port.h:
 
 mcc_generated_files/include/../utils/compiler.h:
 
-mcc_generated_files/include/ccl.h:
-
-mcc_generated_files/include/usart3.h:
-
-c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\avr\include\stdio.h:
-
-c:\program\ files\ (x86)\microchip\xc8\v2.10\avr\lib\gcc\avr\5.4.0\include\stdarg.h:
-
-mcc_generated_files/include/../utils/atomic.h:
-
-mcc_generated_files/include/../config/clock_config.h:
-
 mcc_generated_files/include/cpuint.h:
 
 mcc_generated_files/include/ccp.h:
 
 mcc_generated_files/include/../include/protected_io.h:
+
+mcc_generated_files/include/../utils/atomic.h:
 
 mcc_generated_files/config/clock_config.h:

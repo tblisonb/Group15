@@ -21,48 +21,24 @@
     SOFTWARE.
 */
 
-#include "mcc_generated_files/mcc.h"
-#include <stdlib.h>
-#include "stepper.h"
-#include "actuator.h"
-#include "../include/pin_manager.h"
-#include "pin_manager.c"
+#include "../include/cpuint.h"
 
-/*
-    Main application
-*/
-int main(void)
-{
-    /* Initializes MCU, drivers and middleware */
-    SYSTEM_Initialize();
-    
-    /*
-     * The following control will spin the stepper motor 5 steps at a time with
-     * a delay in between each 5 step increment.
-     */
-    
-    while (1) {
-        // Turn the stepper motor 5 steps in the clockwise direction
-        cw_turn(&PORTB, 5, 200);
-        _delay_ms(1000);
-        
-        // Pulse the actuator with a length of 0.5 seconds
-        actuator_pulse(&PORTF, 2, 5);
-        _delay_ms(1000);
-        // Return the actuator to the extended position
-        actuator_extend(&PORTF, 2);
-        
-        // Turn the stepper motor 5 steps in the counterclockwise direction
-        cc_turn(&PORTB, 5, 200);
-        _delay_ms(1000);
-        
-        // Send an inverted pulse to the actuator with a length of 0.5 seconds
-        actuator_pulse_inv(&PORTF, 2, 5);
-        _delay_ms(1000);
-        // Return the actuator to the released position
-        actuator_release(&PORTF, 2);
-    }
-}
 /**
-    End of File
-*/
+ * \brief Initialize cpuint interface
+ */
+int8_t CPUINT_Initialize()
+{
+    /* IVSEL and CVT are Configuration Change Protected */
+
+    //IVSEL disabled; CVT disabled; LVL0RR disabled; 
+    ccp_write_io((void*)&(CPUINT.CTRLA),0x00);
+    
+    //LVL0PRI 0; 
+    CPUINT.LVL0PRI = 0x00;
+    
+    //LVL1VEC 0; 
+    CPUINT.LVL1VEC = 0x00;
+
+        
+    return 0;
+}

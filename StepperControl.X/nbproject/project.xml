@@ -3,9 +3,8 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>CCLOnly</name>
-            <name>CCLInterrupts</name>
-            <creation-uuid>d4abb723-0a32-4ef1-ae6e-41aff3e0586c</creation-uuid>
+            <name>StepperControl</name>
+            <creation-uuid>f2b2c715-af64-4c60-9061-c6341ad324b4</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>
             <cpp-extensions/>
@@ -13,9 +12,7 @@
             <asminc-extensions/>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
-            <sourceRootList>
-                <sourceRootElem>.</sourceRootElem>
-            </sourceRootList>
+            <sourceRootList/>
             <confList>
                 <confElem>
                     <name>default</name>

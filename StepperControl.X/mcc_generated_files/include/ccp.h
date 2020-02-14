@@ -21,48 +21,52 @@
     SOFTWARE.
 */
 
-#include "mcc_generated_files/mcc.h"
-#include <stdlib.h>
-#include "stepper.h"
-#include "actuator.h"
-#include "../include/pin_manager.h"
-#include "pin_manager.c"
+#ifndef CPU_CCP_H
+#define CPU_CCP_H
 
-/*
-    Main application
-*/
-int main(void)
-{
-    /* Initializes MCU, drivers and middleware */
-    SYSTEM_Initialize();
-    
-    /*
-     * The following control will spin the stepper motor 5 steps at a time with
-     * a delay in between each 5 step increment.
-     */
-    
-    while (1) {
-        // Turn the stepper motor 5 steps in the clockwise direction
-        cw_turn(&PORTB, 5, 200);
-        _delay_ms(1000);
-        
-        // Pulse the actuator with a length of 0.5 seconds
-        actuator_pulse(&PORTF, 2, 5);
-        _delay_ms(1000);
-        // Return the actuator to the extended position
-        actuator_extend(&PORTF, 2);
-        
-        // Turn the stepper motor 5 steps in the counterclockwise direction
-        cc_turn(&PORTB, 5, 200);
-        _delay_ms(1000);
-        
-        // Send an inverted pulse to the actuator with a length of 0.5 seconds
-        actuator_pulse_inv(&PORTF, 2, 5);
-        _delay_ms(1000);
-        // Return the actuator to the released position
-        actuator_release(&PORTF, 2);
-    }
-}
+#include "../utils/compiler.h"
+#include "../include/protected_io.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
-    End of File
-*/
+ * \brief Write to a CCP-protected 8-bit I/O register
+ *
+ * \param addr Address of the I/O register
+ * \param value Value to be written
+ *
+ * \note Using IAR Embedded workbench, the choice of memory model has an impact
+ *       on calling convention. The memory model is not visible to the
+ *       preprocessor, so it must be defined in the Assembler preprocessor directives.
+ */
+static inline void ccp_write_io(void *addr, uint8_t value)
+{
+	protected_write_io(addr, CCP_IOREG_gc, value);
+}
+
+/** @} */
+
+/**
+ * \brief Write to CCP-protected 8-bit SPM register
+ *
+ * \param addr Address of the SPM register
+ * \param value Value to be written
+ *
+ * \note Using IAR Embedded workbench, the choice of memory model has an impact
+ *       on calling convention. The memory model is not visible to the
+ *       preprocessor, so it must be defined in the Assembler preprocessor directives.
+ */
+static inline void ccp_write_spm(void *addr, uint8_t value)
+{
+	protected_write_io(addr, CCP_SPM_gc, value);
+}
+
+/** @} */
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* CPU_CCP_H */
