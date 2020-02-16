@@ -19,6 +19,7 @@
 		E43E6C6823F35D600002AA76 /* CoilCoreDataDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C6723F35D600002AA76 /* CoilCoreDataDB.swift */; };
 		E43E6C6A23F62F6D0002AA76 /* CoilCoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C6923F62F6D0002AA76 /* CoilCoreDataClass.swift */; };
 		E43E6C6E23F636460002AA76 /* CoilCoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C6D23F636460002AA76 /* CoilCoreDataProperties.swift */; };
+		E43E6C7023F8CFB20002AA76 /* main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E43E6C6F23F8CFB20002AA76 /* main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		E43E6C6723F35D600002AA76 /* CoilCoreDataDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoilCoreDataDB.swift; sourceTree = "<group>"; };
 		E43E6C6923F62F6D0002AA76 /* CoilCoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoilCoreDataClass.swift; sourceTree = "<group>"; };
 		E43E6C6D23F636460002AA76 /* CoilCoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoilCoreDataProperties.swift; path = ../../../../../../../../../../.Trash/CoilCoreDataProperties.swift; sourceTree = "<group>"; };
+		E43E6C6F23F8CFB20002AA76 /* main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				E43E6C3E23EF8BEE0002AA76 /* LaunchScreen.storyboard */,
+				E43E6C6F23F8CFB20002AA76 /* main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				E43E6C4023EF8BEE0002AA76 /* LaunchScreen.storyboard in Resources */,
 				E43E6C3D23EF8BEE0002AA76 /* Preview Assets.xcassets in Resources */,
 				E43E6C3A23EF8BEE0002AA76 /* Assets.xcassets in Resources */,
+				E43E6C7023F8CFB20002AA76 /* main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

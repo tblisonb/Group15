@@ -5,7 +5,7 @@
 //  Created by Zane Guess on 2/8/20.
 //  Copyright © 2020 Capstone Team 15. All rights reserved.
 //
-
+/*
 import SwiftUI
 
 struct ContentView: View {
@@ -19,3 +19,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+*/
