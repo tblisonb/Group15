@@ -23,6 +23,7 @@
 
 #include "../include/usart3.h"
 #include "../include/pin_manager.h"
+#include "pin_manager.c"
 
 #if defined(__GNUC__)
 
@@ -129,7 +130,9 @@ void USART3_SetTXISRCb(usart_callback cb)
 /* Interrupt service routine for RX complete */
 ISR(USART3_RXC_vect)
 {
-    //printf(GetRotation());
+    char buff[8];
+    sprintf(buff, "%i", GetRotation());
+    printf(buff);
     if (USART3_rx_isr_cb != NULL)
     {
         (*USART3_rx_isr_cb)();
