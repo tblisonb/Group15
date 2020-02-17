@@ -9,19 +9,23 @@
 #include <xc.h>
 #include "actuator.h"
 
-void actuator_toggle(volatile uint8_t* reg, int bit_num) {
+void actuator_toggle(volatile void* regist, int bit_num) {
+    volatile unsigned char* reg = (volatile unsigned char*) regist;
     (*reg) ^= (1 << bit_num); // flip output bit on 'reg'
 }
 
-void actuator_extend(volatile uint8_t* reg, int bit_num) {
+void actuator_extend(volatile void* regist, int bit_num) {
+    volatile unsigned char* reg = (volatile unsigned char*) regist;
     (*reg) |= (1 << bit_num); // turn output bit high on 'reg'
 }
 
-void actuator_release(volatile uint8_t* reg, int bit_num) {
+void actuator_release(volatile void* regist, int bit_num) {
+    volatile unsigned char* reg = (volatile unsigned char*) regist;
     (*reg) &= (1 << bit_num); // turn output bit low on 'reg'
 }
 
-void actuator_pulse(volatile uint8_t* reg, int bit_num, int length) {
+void actuator_pulse(volatile void* regist, int bit_num, int length) {
+    volatile unsigned char* reg = (volatile unsigned char*) regist;
     (*reg) |= (1 << bit_num); // turn output high
     int i;
     // delay (for loop since _delay_ms cannot take variable input)
@@ -31,7 +35,8 @@ void actuator_pulse(volatile uint8_t* reg, int bit_num, int length) {
     (*reg) &= (1 << bit_num); // turn output low
 }
 
-void actuator_pulse_inv(volatile uint8_t* reg, int bit_num, int length) {
+void actuator_pulse_inv(volatile void* regist, int bit_num, int length) {
+    volatile unsigned char* reg = (volatile unsigned char*) regist;
     (*reg) &= (1 << bit_num); // turn output low
     int i;
     // delay (for loop since _delay_ms cannot take variable input)

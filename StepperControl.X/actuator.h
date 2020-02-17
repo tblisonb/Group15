@@ -13,7 +13,7 @@
 #include <stdint.h>
 #include <util/delay.h>  
 
-#define F_CPU 3333333
+#define F_CPU 1000000UL
 
 /*
  * Reads the state of the actuator bit (given by 'reg' and 'bit_num' and inverts
@@ -23,7 +23,7 @@
  * @param reg Register assigned to the actuator output
  * @param bit_num Bit number in the IO register assigned to output
  */
-void actuator_toggle(volatile uint8_t* reg, int bit_num);
+void actuator_toggle(volatile void* reg, int bit_num);
 
 /*
  * Updates the state of the actuator control bit to be high, thus providing 
@@ -32,7 +32,7 @@ void actuator_toggle(volatile uint8_t* reg, int bit_num);
  * @param reg Register assigned to the actuator output
  * @param bit_num Bit number in the IO register assigned to output
  */
-void actuator_extend(volatile uint8_t* reg, int bit_num);
+void actuator_extend(volatile void* reg, int bit_num);
 
 /*
  * Updates the state of the actuator control bit to be low, thus removing power
@@ -41,7 +41,7 @@ void actuator_extend(volatile uint8_t* reg, int bit_num);
  * @param reg Register assigned to the actuator output
  * @param bit_num Bit number in the IO register assigned to output
  */
-void actuator_release(volatile uint8_t* reg, int bit_num);
+void actuator_release(volatile void* reg, int bit_num);
 
 /*
  * Sets the output bit for the actuator to high for a specified amount of time
@@ -51,7 +51,7 @@ void actuator_release(volatile uint8_t* reg, int bit_num);
  * @param bit_num Bit number in the IO register assigned to output
  * @param length Length in 1/10 seconds that the pulse should hold
  */
-void actuator_pulse(volatile uint8_t* reg, int bit_num, int length);
+void actuator_pulse(volatile void* reg, int bit_num, int length);
 
 /*
  * Sets the output bit for the actuator to low for a specified amount of time
@@ -61,7 +61,7 @@ void actuator_pulse(volatile uint8_t* reg, int bit_num, int length);
  * @param bit_num Bit number in the IO register assigned to output
  * @param length Length in 1/10 seconds that the pulse should hold
  */
-void actuator_pulse_inv(volatile uint8_t* reg, int bit_num, int length);
+void actuator_pulse_inv(volatile void* reg, int bit_num, int length);
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 
