@@ -20,6 +20,10 @@
 		E43E6C6A23F62F6D0002AA76 /* CoilCoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C6923F62F6D0002AA76 /* CoilCoreDataClass.swift */; };
 		E43E6C6E23F636460002AA76 /* CoilCoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C6D23F636460002AA76 /* CoilCoreDataProperties.swift */; };
 		E43E6C7023F8CFB20002AA76 /* main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E43E6C6F23F8CFB20002AA76 /* main.storyboard */; };
+		E43E6C7223FC9CCC0002AA76 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C7123FC9CCC0002AA76 /* HomeViewController.swift */; };
+		E43E6C7423FC9CE80002AA76 /* CoilTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C7323FC9CE80002AA76 /* CoilTableViewController.swift */; };
+		E43E6C7623FC9D1A0002AA76 /* QuickRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C7523FC9D1A0002AA76 /* QuickRunViewController.swift */; };
+		E43E6C7823FCA2340002AA76 /* CoilRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C7723FCA2340002AA76 /* CoilRunViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,10 @@
 		E43E6C6923F62F6D0002AA76 /* CoilCoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoilCoreDataClass.swift; sourceTree = "<group>"; };
 		E43E6C6D23F636460002AA76 /* CoilCoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoilCoreDataProperties.swift; path = ../../../../../../../../../../.Trash/CoilCoreDataProperties.swift; sourceTree = "<group>"; };
 		E43E6C6F23F8CFB20002AA76 /* main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = main.storyboard; sourceTree = "<group>"; };
+		E43E6C7123FC9CCC0002AA76 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E43E6C7323FC9CE80002AA76 /* CoilTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoilTableViewController.swift; sourceTree = "<group>"; };
+		E43E6C7523FC9D1A0002AA76 /* QuickRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickRunViewController.swift; sourceTree = "<group>"; };
+		E43E6C7723FCA2340002AA76 /* CoilRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoilRunViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +177,10 @@
 		E43E6C6523EF8C010002AA76 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E43E6C7123FC9CCC0002AA76 /* HomeViewController.swift */,
+				E43E6C7323FC9CE80002AA76 /* CoilTableViewController.swift */,
+				E43E6C7523FC9D1A0002AA76 /* QuickRunViewController.swift */,
+				E43E6C7723FCA2340002AA76 /* CoilRunViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -318,10 +330,14 @@
 				E43E6C3623EF8BEE0002AA76 /* CoilWind.xcdatamodeld in Sources */,
 				E43E6C6E23F636460002AA76 /* CoilCoreDataProperties.swift in Sources */,
 				E43E6C3123EF8BEE0002AA76 /* AppDelegate.swift in Sources */,
+				E43E6C7223FC9CCC0002AA76 /* HomeViewController.swift in Sources */,
+				E43E6C7623FC9D1A0002AA76 /* QuickRunViewController.swift in Sources */,
 				E43E6C3823EF8BEE0002AA76 /* ContentView.swift in Sources */,
+				E43E6C7823FCA2340002AA76 /* CoilRunViewController.swift in Sources */,
 				E43E6C6823F35D600002AA76 /* CoilCoreDataDB.swift in Sources */,
 				E43E6C6A23F62F6D0002AA76 /* CoilCoreDataClass.swift in Sources */,
 				E43E6C3323EF8BEE0002AA76 /* SceneDelegate.swift in Sources */,
+				E43E6C7423FC9CE80002AA76 /* CoilTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

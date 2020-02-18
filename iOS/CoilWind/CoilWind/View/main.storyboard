@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Coil Table View Controller-->
         <scene sceneID="A5P-PP-xuR">
             <objects>
-                <tableViewController id="wDh-EW-gjv" sceneMemberID="viewController">
+                <tableViewController id="wDh-EW-gjv" customClass="CoilTableViewController" customModule="CoilWind" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9RY-XB-i68">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,10 +55,10 @@
             </objects>
             <point key="canvasLocation" x="1781" y="129"/>
         </scene>
-        <!--View Controller-->
+        <!--Coil Run View Controller-->
         <scene sceneID="zYc-Ar-s1y">
             <objects>
-                <viewController id="gyq-6c-GGD" sceneMemberID="viewController">
+                <viewController id="gyq-6c-GGD" customClass="CoilRunViewController" customModule="CoilWind" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i26-ue-Bs0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -137,10 +137,10 @@
             </objects>
             <point key="canvasLocation" x="2825" y="143"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="e8G-gk-wAf">
             <objects>
-                <viewController id="bJl-Xl-uSI" sceneMemberID="viewController">
+                <viewController id="bJl-Xl-uSI" customClass="HomeViewController" customModule="CoilWind" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bTj-wR-hAF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -201,10 +201,10 @@
             </objects>
             <point key="canvasLocation" x="628.98550724637687" y="-305.35714285714283"/>
         </scene>
-        <!--View Controller-->
+        <!--Quick Run View Controller-->
         <scene sceneID="xSU-X2-99f">
             <objects>
-                <viewController id="qUB-1t-NcO" sceneMemberID="viewController">
+                <viewController id="qUB-1t-NcO" customClass="QuickRunViewController" customModule="CoilWind" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lcL-Rr-DAw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -286,7 +286,7 @@
         <!--Navigation Controller-->
         <scene sceneID="8Yz-bS-sEO">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xcy-VU-jZc" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsWhenKeyboardAppears="YES" id="xcy-VU-jZc" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Y5j-dW-IQa">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
