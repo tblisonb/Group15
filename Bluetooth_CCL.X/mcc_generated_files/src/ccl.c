@@ -46,11 +46,11 @@ int8_t CCL_Initialize()
     //INT 0; 
 	CCL.INTFLAGS = 0x00;
 
-    //INSEL1 MASK; INSEL0 MASK; 
-	CCL.LUT0CTRLB = 0x00;
+    //INSEL1 IO; INSEL0 IO; 
+	CCL.LUT0CTRLB = 0x55;
 
-    //INSEL2 MASK; 
-	CCL.LUT0CTRLC = 0x00;
+    //INSEL2 IO; 
+	CCL.LUT0CTRLC = 0x05;
 
     //INSEL1 MASK; INSEL0 MASK; 
 	CCL.LUT1CTRLB = 0x00;
@@ -77,7 +77,7 @@ int8_t CCL_Initialize()
 	CCL.SEQCTRL1 = 0x00;
 
     //Truth 0
-	CCL.TRUTH0 = 0x00;
+	CCL.TRUTH0 = 0x20;
 
     //Truth 1
 	CCL.TRUTH1 = 0x00;
@@ -88,8 +88,8 @@ int8_t CCL_Initialize()
     //Truth 3
 	CCL.TRUTH3 = 0x00;
 
-    //EDGEDET DIS; OUTEN disabled; FILTSEL DISABLE; CLKSRC CLKPER; ENABLE disabled; 
-	CCL.LUT0CTRLA = 0x00;
+    //EDGEDET DIS; OUTEN enabled; FILTSEL SYNCH; CLKSRC CLKPER; ENABLE enabled; 
+	CCL.LUT0CTRLA = 0x51;
 
     //EDGEDET DIS; OUTEN disabled; FILTSEL DISABLE; CLKSRC CLKPER; ENABLE disabled; 
 	CCL.LUT1CTRLA = 0x00;
