@@ -18,7 +18,7 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
     @IBOutlet weak var nameTV: UITextField!
     @IBOutlet weak var colorTV: UITextField!
     @IBOutlet weak var lengthTV: UITextField!
-    @IBOutlet weak var quantityTV: UITextField!
+    @IBOutlet weak var quantityTV: UITextField!    
     @IBOutlet weak var gaugeTV: UITextField!
     
     
@@ -105,6 +105,7 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
         let coilDB = CoilCoreDataDB()
         let ret = coilDB.addCoil(saveName, color: saveColor, length: saveLength, gauge: saveGauge, quantity: saveQuantity)
         _ = coilDB.saveContext()
+        print(coilDB.getCoil(saveName).length)
          print("coil \(saveName) added. Add coil return is: \(ret)")
     }
     

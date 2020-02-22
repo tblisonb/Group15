@@ -35,7 +35,7 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
     @IBOutlet weak var savedNameLabel: UILabel!
     
     // variables
-    var selectedCoil:String = ""
+    var selectedCoil:String = "unknown"
     var gaugePickerRange = Array(stride(from: 20.0, through: 32.0, by: 1.0))
     var gaugeNameForPicker:[String] = [String]()
     var selectedGauge:String = ""
@@ -63,7 +63,7 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
   
             print(gaugePickerRange.count)
   
-           
+           self.navigationController?.delegate = self
            
             
         }

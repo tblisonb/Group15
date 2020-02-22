@@ -146,18 +146,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7k1-dP-rR3">
-                                <rect key="frame" x="137" y="395" width="216" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QIL-0z-CwN">
-                                <rect key="frame" x="137" y="473" width="216" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QyO-cL-oh0">
                                 <rect key="frame" x="0.0" y="713" width="414" height="183"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -181,6 +169,18 @@
                                     <action selector="quickSaveBtn:" destination="0iK-cN-raS" eventType="touchUpInside" id="Cwa-ZF-Dkg"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M76-R2-VJ8">
+                                <rect key="frame" x="137" y="473" width="216" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QIL-0z-CwN">
+                                <rect key="frame" x="137" y="401" width="216" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="XvY-t4-x7C"/>
@@ -197,7 +197,7 @@
                         <outlet property="nameLabel" destination="GO8-OS-KvB" id="iwC-Tr-iZh"/>
                         <outlet property="nameTV" destination="3L0-5A-2iT" id="ku1-Uv-6iY"/>
                         <outlet property="quantityLabel" destination="yNt-oq-TZT" id="K9x-Oz-HVK"/>
-                        <outlet property="quantityTV" destination="QIL-0z-CwN" id="Fct-rf-eTA"/>
+                        <outlet property="quantityTV" destination="M76-R2-VJ8" id="bS1-rc-f95"/>
                         <outlet property="quickRunLabel" destination="2Ip-8Z-1Id" id="K8M-ou-smt"/>
                     </connections>
                 </viewController>

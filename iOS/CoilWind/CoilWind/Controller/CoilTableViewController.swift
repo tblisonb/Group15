@@ -35,10 +35,17 @@ class CoilTableViewController: UITableViewController {
         //------------------------------------------------------------
         // add an edit button, which is handled by the table view editing forRowAt
         self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        
 
 
         // obtain the values from the model
         self.updateModel()
+        
+        //test problem with length
+//        let db:CoilCoreDataDB = CoilCoreDataDB()
+//        let aCoil = db.getCoil(coilNames[1])
+//        print(aCoil.length)
 
 
         self.title = "Saved Coil List"
@@ -51,28 +58,6 @@ class CoilTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // initialize data base with a hard cored example for a few places.
-    // this data will reset after the hard delete of the application from the simulator or device
-    func initializeCoreData(){
-//        let jsonPlace:[String] = ["{\"name\":\"ASU-WEST\", \"category\":\"School\", \"des\":\"Home of ASU's Applied Computing Program\", \"address_title\":\"ASU West Campus\", \"address_street\":\"13591 N 47th Ave$Phoenix AZ 85051\", \"elevation\":1100.0, \"latitude\":33.608979, \"longitude\":-112.159469}","{\"name\":\"UAK-Anchorage\", \"category\":\"School\", \"des\":\"University of Alaska's largest campus\", \"address_title\":\"University of Alaska at Anchorage\", \"address_street\":\"290 Spirit Dr$Anchorage AK 99508\", \"elevation\":0.0, \"latitude\":61.189748, \"longitude\":-149.826721}","{\"name\":\"Toreros\", \"category\":\"School\", \"des\":\"The University of San Diego, a private Catholic undergraduate university.\", \"address_title\":\"University of San Diego\", \"address_street\":\"5998 Alcala Park$San Diego CA 92110\", \"elevation\":200.0, \"latitude\":32.771923, \"longitude\":-117.188204}","{\"name\":\"New-York-NY\", \"category\":\"Travel\", \"des\":\"New York City Hall at West end of Brooklyn Bridge\", \"address_title\":\"New York City Hall\", \"address_street\":\"1 Elk St$New York NY 10007\", \"elevation\":2.0, \"latitude\":40.712991, \"longitude\":-74.005948}","{\"name\":\"Reavis-Grave\", \"category\":\"Hike\", \"des\":\"Grave site of Reavis Ranch Proprietor.\", \"address_title\":\"\", \"address_street\":\"\", \"elevation\":3900.0, \"latitude\":33.441499, \"longitude\":-111.182511}"]
-//
-//        // add the values to data base
-//        do {
-//            for aPlaceJson:String in jsonPlace {
-//                let data:Data = aPlaceJson.data(using: String.Encoding.utf8)!
-//                let dict:[String:Any] = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! [String:Any]
-//                let db:PlaceCoreDB = PlaceCoreDB()
-//                if !db.placeExists(withName: dict["name"] as! String){
-//                    _ = db.addPlace(dict["name"] as! String, category: dict["category"] as! String, des: dict["des"] as! String, addrT:  dict["address_title"] as! String, addrS: dict["address_street"] as! String, ele: dict["elevation"] as! Double, lat:  dict["latitude"] as! Double, lon: dict["longitude"] as! Double)
-//
-//
-//                }
-//                _ = db.saveContext()
-//            }
-//        }catch let error as NSError{
-//            print("unable to add student. Error \(error)")
-//        }
-    }
     
     // update the model for viewing
     public func updateModel(){
@@ -145,7 +130,7 @@ class CoilTableViewController: UITableViewController {
         if segue.identifier == "SavedSettingSegue" {
             let viewController:CoilRunViewController = segue.destination as! CoilRunViewController
             let indexPath = self.tableView.indexPathForSelectedRow!
-            print("resut of delete student \(coilNames)")
+            
             viewController.selectedCoil = self.coilNames[indexPath.row]
             viewController.coilNames = self.coilNames
         }
