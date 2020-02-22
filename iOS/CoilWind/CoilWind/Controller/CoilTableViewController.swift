@@ -2,9 +2,10 @@
 //  CoilTableViewController.swift
 //  CoilWind
 //
-//  Created by Zane Guess on 2/18/20.
+//  Created by Zane Guess on 2/21/20.
 //  Copyright © 2020 Capstone Team 15. All rights reserved.
 //
+
 
 import Foundation
 
@@ -13,12 +14,13 @@ import UIKit
 class CoilTableViewController: UITableViewController {
     
     // table view
-//    @IBOutlet var placesTable: UITableView!
+
+    //@IBOutlet var TableView: UITableView!
     
     
     // global variables
 //    var urlString:String = "http://127.0.0.1:8080"
-//    var pnames: [String] = [String]()
+    var coilNames: [String] = [String]()
 //
     
     //var places:[String:Place] = [String:Place]()
@@ -27,21 +29,19 @@ class CoilTableViewController: UITableViewController {
     // view did load
     override func viewDidLoad() {
         super.viewDidLoad()
-        initializeCoreData()
+        print("in table view")
+ //       initializeCoreData()
         // by default the button does not appear must add in code!!!!
         //------------------------------------------------------------
         // add an edit button, which is handled by the table view editing forRowAt
-        self.navigationItem.leftBarButtonItem = self.editButtonItem
-        // place an add button on the right side of the nav bar for adding a student
-        // call addStudent function when clicked.
-        let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(CoilTableViewController.addCoil))
-        self.navigationItem.rightBarButtonItem = addButton
-        
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
+
+
         // obtain the values from the model
         self.updateModel()
-        
-        
-        self.title = "Place List"
+
+
+        self.title = "Saved Coil List"
        
         
     }
@@ -76,114 +76,34 @@ class CoilTableViewController: UITableViewController {
     
     // update the model for viewing
     public func updateModel(){
-//        let db:PlaceCoreDB = PlaceCoreDB()
-//        pnames = db.getNames().sorted()
-//        self.tableView.reloadData()
+        let db:CoilCoreDataDB = CoilCoreDataDB()
+        coilNames = db.getNames().sorted()
+        self.tableView.reloadData()
     }
     
-    
-
- 
-    // called with the Navigation Bar Add button (+) is clicked
-    // adding a new place via an alert style prompt dialog
-    @objc func addCoil() {
-//        print("add place button clicked")
-//
-//        // message for adding a new student
-//        let promptND = UIAlertController(title: "New Place", message: "Enter the place description you wish to add!", preferredStyle: UIAlertController.Style.alert)
-//        // if the user cancels, we don't want to add a place so nil handler
-//        promptND.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: nil))
-//        // setup the OK action and provide a closure to be executed when/if OK selected
-//        promptND.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) -> Void in
-//
-//            // providing default values if text is left blank in the prompts
-//            // first defining the string values for the new place
-//            let newPlaceName:String = (promptND.textFields?[0].text == "") ?
-//                "unknown" : (promptND.textFields?[0].text)!
-//            let newCat:String = (promptND.textFields?[1].text == "") ?
-//                "unknown" : (promptND.textFields?[1].text)!
-//            let newDes:String = (promptND.textFields?[2].text == "") ?
-//                "unknown" : (promptND.textFields?[2].text)!
-//            let newaddrT:String = (promptND.textFields?[3].text == "") ?
-//                "unknown" : (promptND.textFields?[3].text)!
-//            let newaddrS:String = (promptND.textFields?[4].text == "") ?
-//                "unknown" : (promptND.textFields?[4].text)!
-//
-//            // defining the double values for the place
-//            var newEle:Double = 0.0
-//            if let myNumber = NumberFormatter().number(from: (promptND.textFields?[5].text)!) {
-//                newEle = myNumber.doubleValue
-//            }
-//
-//            var newLat:Double = 0.0
-//            if let myNumber = NumberFormatter().number(from: (promptND.textFields?[6].text)!) {
-//                newLat = myNumber.doubleValue
-//            }
-//
-//            var newLon:Double = 0.0
-//            if let myNumber = NumberFormatter().number(from: (promptND.textFields?[7].text)!) {
-//                newLon = myNumber.doubleValue
-//            }
-//
-//            // add the new place values to the collection of places, followed by sorting and saving the new updated list to the tableview
-//            let placeDB = PlaceCoreDB()
-//            let ret = placeDB.addPlace(newPlaceName, category: newCat, des: newDes, addrT: newaddrT, addrS: newaddrS, ele: newEle, lat: newLat, lon: newLon)
-//            _ = placeDB.saveContext()
-//            print("Place \(newPlaceName) added. Add place return is: \(ret)")
-//            self.updateModel()
-//            _ = self.navigationController?.popViewController(animated: true)
-//        }))
-//
-//        // defining the textfields for the user to enter with a generic placeholder
-//        promptND.addTextField(configurationHandler: {(textField: UITextField!) in
-//            textField.placeholder = "Place Name"
-//        })
-//        promptND.addTextField(configurationHandler: {(textField: UITextField!) in
-//            textField.placeholder = "Place Category"
-//        })
-//        promptND.addTextField(configurationHandler: {(textField: UITextField!) in
-//            textField.placeholder = "Place Description"
-//        })
-//        promptND.addTextField(configurationHandler: {(textField: UITextField!) in
-//            textField.placeholder = "Address Title for Place"
-//        })
-//        promptND.addTextField(configurationHandler: {(textField: UITextField!) in
-//            textField.placeholder = "Street Address of Place"
-//        })
-//        promptND.addTextField(configurationHandler: {(textField: UITextField!) in
-//            textField.placeholder = "Place's elevation"
-//        })
-//        promptND.addTextField(configurationHandler: {(textField: UITextField!) in
-//            textField.placeholder = "Place's Latitude"
-//        })
-//        promptND.addTextField(configurationHandler: {(textField: UITextField!) in
-//            textField.placeholder = "Place's Longitude"
-//        })
-//        present(promptND, animated: true, completion: nil)
-    }
     
     // MARK: - Table view data source
     
     // Support editing of the table view. Note, edit button must have been added
     // to the navigationitem (in this case left side) explicitly (view did load)
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        print("tableView editing row at: \(indexPath.row)")
-//        let selectedPlace:String = pnames[indexPath.row]
-//
-//        // remove name from database that way when updatemodel returns the array of place names it will not
-//        // crash from out of bounds exceptions
-//        if editingStyle == .delete {
-//            print("deleting \(selectedPlace)")
-//            let db:PlaceCoreDB = PlaceCoreDB()
-//            let places = db.getPlace(selectedPlace).name
-//            let ret = db.deletePlace(name: places)
-//            _ = db.saveContext()
-//
-//
-//            // reload data
-//            self.updateModel()
-//            print("resut of delete student \(ret)")
-//        }
+        print("tableView editing row at: \(indexPath.row)")
+        let selectedSavedCoil:String = coilNames[indexPath.row]
+
+        // remove name from database that way when updatemodel returns the array of coil names it will not
+        // crash from out of bounds exceptions
+        if editingStyle == .delete {
+            print("deleting \(selectedSavedCoil)")
+            let db:CoilCoreDataDB = CoilCoreDataDB()
+            let coil = db.getCoil(selectedSavedCoil).name
+            let ret = db.deleteCoil(name: coil)
+            _ = db.saveContext()
+
+
+            // reload data
+            self.updateModel()
+            print("resut of delete saved coil \(ret)")
+        }
        
 
     }
@@ -194,23 +114,25 @@ class CoilTableViewController: UITableViewController {
     }
     
     // the number of rows in the table equals the count of the names array
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        //return self.pnames.count
-//    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.coilNames.count
+    }
     
     
     // configure what to display in each row cell
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-////        // Get and configure the cell...
-////        print("loading table view")
-////        let cell = tableView.dequeueReusableCell(withIdentifier: "PlacesCell", for: indexPath)
-////        let db:PlaceCoreDB = PlaceCoreDB()
-////        let des = db.getPlace(pnames[indexPath.row]).des
-////        cell.textLabel?.text = pnames[indexPath.row]
-////        cell.detailTextLabel?.text = des
-////
-// //       return cell
-//    }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       // Get and configure the cell...
+        print("loading table view")
+        
+        // get the individual cell information
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CoilCell", for: indexPath)
+        let db:CoilCoreDataDB = CoilCoreDataDB()
+        let color = db.getCoil(coilNames[indexPath.row]).color
+        cell.textLabel?.text = coilNames[indexPath.row]
+        cell.detailTextLabel?.text = color
+
+        return cell
+    }
     
     
     
@@ -220,13 +142,13 @@ class CoilTableViewController: UITableViewController {
         super.prepare(for: segue, sender: sender)
         
         // prepping the the segue to include the relative data to be passed
-//        if segue.identifier == "PlaceDetail" {
-//            let viewController:ViewController = segue.destination as! ViewController
-//            let indexPath = self.tableView.indexPathForSelectedRow!
-//            print("resut of delete student \(pnames)")
+        if segue.identifier == "SavedSettingSegue" {
+            let viewController:CoilRunViewController = segue.destination as! CoilRunViewController
+            let indexPath = self.tableView.indexPathForSelectedRow!
+            print("resut of delete student \(coilNames)")
 //            viewController.selectedPlace = self.pnames[indexPath.row]
 //            viewController.pnames = self.pnames
-//        }
+        }
     }
     
     

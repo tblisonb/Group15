@@ -7,84 +7,80 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E43E6C3123EF8BEE0002AA76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C3023EF8BEE0002AA76 /* AppDelegate.swift */; };
-		E43E6C3323EF8BEE0002AA76 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C3223EF8BEE0002AA76 /* SceneDelegate.swift */; };
-		E43E6C3623EF8BEE0002AA76 /* CoilWind.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C3423EF8BEE0002AA76 /* CoilWind.xcdatamodeld */; };
-		E43E6C3823EF8BEE0002AA76 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C3723EF8BEE0002AA76 /* ContentView.swift */; };
-		E43E6C3A23EF8BEE0002AA76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E43E6C3923EF8BEE0002AA76 /* Assets.xcassets */; };
-		E43E6C3D23EF8BEE0002AA76 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E43E6C3C23EF8BEE0002AA76 /* Preview Assets.xcassets */; };
-		E43E6C4023EF8BEE0002AA76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E43E6C3E23EF8BEE0002AA76 /* LaunchScreen.storyboard */; };
-		E43E6C4B23EF8BEF0002AA76 /* CoilWindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C4A23EF8BEF0002AA76 /* CoilWindTests.swift */; };
-		E43E6C5623EF8BEF0002AA76 /* CoilWindUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C5523EF8BEF0002AA76 /* CoilWindUITests.swift */; };
-		E43E6C6823F35D600002AA76 /* CoilCoreDataDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C6723F35D600002AA76 /* CoilCoreDataDB.swift */; };
-		E43E6C6A23F62F6D0002AA76 /* CoilCoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C6923F62F6D0002AA76 /* CoilCoreDataClass.swift */; };
-		E43E6C6E23F636460002AA76 /* CoilCoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C6D23F636460002AA76 /* CoilCoreDataProperties.swift */; };
-		E43E6C7023F8CFB20002AA76 /* main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E43E6C6F23F8CFB20002AA76 /* main.storyboard */; };
-		E43E6C7223FC9CCC0002AA76 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C7123FC9CCC0002AA76 /* HomeViewController.swift */; };
-		E43E6C7423FC9CE80002AA76 /* CoilTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C7323FC9CE80002AA76 /* CoilTableViewController.swift */; };
-		E43E6C7623FC9D1A0002AA76 /* QuickRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C7523FC9D1A0002AA76 /* QuickRunViewController.swift */; };
-		E43E6C7823FCA2340002AA76 /* CoilRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43E6C7723FCA2340002AA76 /* CoilRunViewController.swift */; };
+		E4F57F1F2400A4E300411D20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57F1E2400A4E300411D20 /* AppDelegate.swift */; };
+		E4F57F212400A4E300411D20 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57F202400A4E300411D20 /* SceneDelegate.swift */; };
+		E4F57F232400A4E300411D20 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57F222400A4E300411D20 /* HomeViewController.swift */; };
+		E4F57F262400A4E300411D20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4F57F242400A4E300411D20 /* Main.storyboard */; };
+		E4F57F292400A4E300411D20 /* CoilWind.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E4F57F272400A4E300411D20 /* CoilWind.xcdatamodeld */; };
+		E4F57F2B2400A4E400411D20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4F57F2A2400A4E400411D20 /* Assets.xcassets */; };
+		E4F57F2E2400A4E400411D20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4F57F2C2400A4E400411D20 /* LaunchScreen.storyboard */; };
+		E4F57F392400A4E400411D20 /* CoilWindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57F382400A4E400411D20 /* CoilWindTests.swift */; };
+		E4F57F442400A4E400411D20 /* CoilWindUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57F432400A4E400411D20 /* CoilWindUITests.swift */; };
+		E4F57F562400A5B100411D20 /* CoilCoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57F552400A5B100411D20 /* CoilCoreDataClass.swift */; };
+		E4F57F582400A5C300411D20 /* CoilCoreDataDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57F572400A5C300411D20 /* CoilCoreDataDB.swift */; };
+		E4F57F5A2400A5E800411D20 /* CoilRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57F592400A5E800411D20 /* CoilRunViewController.swift */; };
+		E4F57F5C2400A5F800411D20 /* CoilTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57F5B2400A5F800411D20 /* CoilTableViewController.swift */; };
+		E4F57F5E2400A60400411D20 /* QuickRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57F5D2400A60400411D20 /* QuickRunViewController.swift */; };
+		E4F57F602400A77200411D20 /* CoilCoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57F5F2400A77200411D20 /* CoilCoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E43E6C4723EF8BEF0002AA76 /* PBXContainerItemProxy */ = {
+		E4F57F352400A4E400411D20 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E43E6C2523EF8BEE0002AA76 /* Project object */;
+			containerPortal = E4F57F132400A4E300411D20 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E43E6C2C23EF8BEE0002AA76;
+			remoteGlobalIDString = E4F57F1A2400A4E300411D20;
 			remoteInfo = CoilWind;
 		};
-		E43E6C5223EF8BEF0002AA76 /* PBXContainerItemProxy */ = {
+		E4F57F402400A4E400411D20 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E43E6C2523EF8BEE0002AA76 /* Project object */;
+			containerPortal = E4F57F132400A4E300411D20 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E43E6C2C23EF8BEE0002AA76;
+			remoteGlobalIDString = E4F57F1A2400A4E300411D20;
 			remoteInfo = CoilWind;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E43E6C2D23EF8BEE0002AA76 /* CoilWind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoilWind.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E43E6C3023EF8BEE0002AA76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E43E6C3223EF8BEE0002AA76 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E43E6C3523EF8BEE0002AA76 /* CoilWind.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoilWind.xcdatamodel; sourceTree = "<group>"; };
-		E43E6C3723EF8BEE0002AA76 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		E43E6C3923EF8BEE0002AA76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E43E6C3C23EF8BEE0002AA76 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E43E6C3F23EF8BEE0002AA76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E43E6C4123EF8BEE0002AA76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E43E6C4623EF8BEF0002AA76 /* CoilWindTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoilWindTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E43E6C4A23EF8BEF0002AA76 /* CoilWindTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoilWindTests.swift; sourceTree = "<group>"; };
-		E43E6C4C23EF8BEF0002AA76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E43E6C5123EF8BEF0002AA76 /* CoilWindUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoilWindUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E43E6C5523EF8BEF0002AA76 /* CoilWindUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoilWindUITests.swift; sourceTree = "<group>"; };
-		E43E6C5723EF8BEF0002AA76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E43E6C6723F35D600002AA76 /* CoilCoreDataDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoilCoreDataDB.swift; sourceTree = "<group>"; };
-		E43E6C6923F62F6D0002AA76 /* CoilCoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoilCoreDataClass.swift; sourceTree = "<group>"; };
-		E43E6C6D23F636460002AA76 /* CoilCoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoilCoreDataProperties.swift; path = ../../../../../../../../../../.Trash/CoilCoreDataProperties.swift; sourceTree = "<group>"; };
-		E43E6C6F23F8CFB20002AA76 /* main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = main.storyboard; sourceTree = "<group>"; };
-		E43E6C7123FC9CCC0002AA76 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		E43E6C7323FC9CE80002AA76 /* CoilTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoilTableViewController.swift; sourceTree = "<group>"; };
-		E43E6C7523FC9D1A0002AA76 /* QuickRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickRunViewController.swift; sourceTree = "<group>"; };
-		E43E6C7723FCA2340002AA76 /* CoilRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoilRunViewController.swift; sourceTree = "<group>"; };
+		E4F57F1B2400A4E300411D20 /* CoilWind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoilWind.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4F57F1E2400A4E300411D20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E4F57F202400A4E300411D20 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E4F57F222400A4E300411D20 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E4F57F252400A4E300411D20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E4F57F282400A4E300411D20 /* CoilWind.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoilWind.xcdatamodel; sourceTree = "<group>"; };
+		E4F57F2A2400A4E400411D20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E4F57F2D2400A4E400411D20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E4F57F2F2400A4E400411D20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4F57F342400A4E400411D20 /* CoilWindTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoilWindTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4F57F382400A4E400411D20 /* CoilWindTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoilWindTests.swift; sourceTree = "<group>"; };
+		E4F57F3A2400A4E400411D20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4F57F3F2400A4E400411D20 /* CoilWindUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoilWindUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4F57F432400A4E400411D20 /* CoilWindUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoilWindUITests.swift; sourceTree = "<group>"; };
+		E4F57F452400A4E400411D20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4F57F552400A5B100411D20 /* CoilCoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoilCoreDataClass.swift; sourceTree = "<group>"; };
+		E4F57F572400A5C300411D20 /* CoilCoreDataDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoilCoreDataDB.swift; sourceTree = "<group>"; };
+		E4F57F592400A5E800411D20 /* CoilRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoilRunViewController.swift; sourceTree = "<group>"; };
+		E4F57F5B2400A5F800411D20 /* CoilTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoilTableViewController.swift; sourceTree = "<group>"; };
+		E4F57F5D2400A60400411D20 /* QuickRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickRunViewController.swift; sourceTree = "<group>"; };
+		E4F57F5F2400A77200411D20 /* CoilCoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoilCoreDataProperties.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E43E6C2A23EF8BEE0002AA76 /* Frameworks */ = {
+		E4F57F182400A4E300411D20 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E43E6C4323EF8BEF0002AA76 /* Frameworks */ = {
+		E4F57F312400A4E400411D20 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E43E6C4E23EF8BEF0002AA76 /* Frameworks */ = {
+		E4F57F3C2400A4E400411D20 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -94,117 +90,107 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E43E6C2423EF8BEE0002AA76 = {
+		E4F57F122400A4E300411D20 = {
 			isa = PBXGroup;
 			children = (
-				E43E6C2F23EF8BEE0002AA76 /* CoilWind */,
-				E43E6C4923EF8BEF0002AA76 /* CoilWindTests */,
-				E43E6C5423EF8BEF0002AA76 /* CoilWindUITests */,
-				E43E6C2E23EF8BEE0002AA76 /* Products */,
+				E4F57F1D2400A4E300411D20 /* CoilWind */,
+				E4F57F372400A4E400411D20 /* CoilWindTests */,
+				E4F57F422400A4E400411D20 /* CoilWindUITests */,
+				E4F57F1C2400A4E300411D20 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		E43E6C2E23EF8BEE0002AA76 /* Products */ = {
+		E4F57F1C2400A4E300411D20 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E43E6C2D23EF8BEE0002AA76 /* CoilWind.app */,
-				E43E6C4623EF8BEF0002AA76 /* CoilWindTests.xctest */,
-				E43E6C5123EF8BEF0002AA76 /* CoilWindUITests.xctest */,
+				E4F57F1B2400A4E300411D20 /* CoilWind.app */,
+				E4F57F342400A4E400411D20 /* CoilWindTests.xctest */,
+				E4F57F3F2400A4E400411D20 /* CoilWindUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E43E6C2F23EF8BEE0002AA76 /* CoilWind */ = {
+		E4F57F1D2400A4E300411D20 /* CoilWind */ = {
 			isa = PBXGroup;
 			children = (
-				E43E6C6623EF8C070002AA76 /* AppDelegate */,
-				E43E6C6423EF8BFA0002AA76 /* Model */,
-				E43E6C6323EF8BF40002AA76 /* View */,
-				E43E6C6523EF8C010002AA76 /* Controller */,
-				E43E6C3923EF8BEE0002AA76 /* Assets.xcassets */,
-				E43E6C4123EF8BEE0002AA76 /* Info.plist */,
-				E43E6C3423EF8BEE0002AA76 /* CoilWind.xcdatamodeld */,
-				E43E6C3B23EF8BEE0002AA76 /* Preview Content */,
+				E4F57F542400A50300411D20 /* Controller */,
+				E4F57F532400A4FE00411D20 /* View */,
+				E4F57F522400A4F500411D20 /* Delegate */,
+				E4F57F512400A4F000411D20 /* Model */,
+				E4F57F2A2400A4E400411D20 /* Assets.xcassets */,
+				E4F57F2F2400A4E400411D20 /* Info.plist */,
+				E4F57F272400A4E300411D20 /* CoilWind.xcdatamodeld */,
 			);
 			path = CoilWind;
 			sourceTree = "<group>";
 		};
-		E43E6C3B23EF8BEE0002AA76 /* Preview Content */ = {
+		E4F57F372400A4E400411D20 /* CoilWindTests */ = {
 			isa = PBXGroup;
 			children = (
-				E43E6C3C23EF8BEE0002AA76 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		E43E6C4923EF8BEF0002AA76 /* CoilWindTests */ = {
-			isa = PBXGroup;
-			children = (
-				E43E6C4A23EF8BEF0002AA76 /* CoilWindTests.swift */,
-				E43E6C4C23EF8BEF0002AA76 /* Info.plist */,
+				E4F57F382400A4E400411D20 /* CoilWindTests.swift */,
+				E4F57F3A2400A4E400411D20 /* Info.plist */,
 			);
 			path = CoilWindTests;
 			sourceTree = "<group>";
 		};
-		E43E6C5423EF8BEF0002AA76 /* CoilWindUITests */ = {
+		E4F57F422400A4E400411D20 /* CoilWindUITests */ = {
 			isa = PBXGroup;
 			children = (
-				E43E6C5523EF8BEF0002AA76 /* CoilWindUITests.swift */,
-				E43E6C5723EF8BEF0002AA76 /* Info.plist */,
+				E4F57F432400A4E400411D20 /* CoilWindUITests.swift */,
+				E4F57F452400A4E400411D20 /* Info.plist */,
 			);
 			path = CoilWindUITests;
 			sourceTree = "<group>";
 		};
-		E43E6C6323EF8BF40002AA76 /* View */ = {
+		E4F57F512400A4F000411D20 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E43E6C3E23EF8BEE0002AA76 /* LaunchScreen.storyboard */,
-				E43E6C6F23F8CFB20002AA76 /* main.storyboard */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		E43E6C6423EF8BFA0002AA76 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E43E6C6723F35D600002AA76 /* CoilCoreDataDB.swift */,
-				E43E6C6923F62F6D0002AA76 /* CoilCoreDataClass.swift */,
-				E43E6C6D23F636460002AA76 /* CoilCoreDataProperties.swift */,
+				E4F57F552400A5B100411D20 /* CoilCoreDataClass.swift */,
+				E4F57F572400A5C300411D20 /* CoilCoreDataDB.swift */,
+				E4F57F5F2400A77200411D20 /* CoilCoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		E43E6C6523EF8C010002AA76 /* Controller */ = {
+		E4F57F522400A4F500411D20 /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
-				E43E6C7123FC9CCC0002AA76 /* HomeViewController.swift */,
-				E43E6C7323FC9CE80002AA76 /* CoilTableViewController.swift */,
-				E43E6C7523FC9D1A0002AA76 /* QuickRunViewController.swift */,
-				E43E6C7723FCA2340002AA76 /* CoilRunViewController.swift */,
+				E4F57F202400A4E300411D20 /* SceneDelegate.swift */,
+				E4F57F1E2400A4E300411D20 /* AppDelegate.swift */,
 			);
-			path = Controller;
+			path = Delegate;
 			sourceTree = "<group>";
 		};
-		E43E6C6623EF8C070002AA76 /* AppDelegate */ = {
+		E4F57F532400A4FE00411D20 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E43E6C3723EF8BEE0002AA76 /* ContentView.swift */,
-				E43E6C3223EF8BEE0002AA76 /* SceneDelegate.swift */,
-				E43E6C3023EF8BEE0002AA76 /* AppDelegate.swift */,
+				E4F57F242400A4E300411D20 /* Main.storyboard */,
+				E4F57F2C2400A4E400411D20 /* LaunchScreen.storyboard */,
 			);
-			path = AppDelegate;
+			path = View;
+			sourceTree = "<group>";
+		};
+		E4F57F542400A50300411D20 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E4F57F222400A4E300411D20 /* HomeViewController.swift */,
+				E4F57F592400A5E800411D20 /* CoilRunViewController.swift */,
+				E4F57F5B2400A5F800411D20 /* CoilTableViewController.swift */,
+				E4F57F5D2400A60400411D20 /* QuickRunViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E43E6C2C23EF8BEE0002AA76 /* CoilWind */ = {
+		E4F57F1A2400A4E300411D20 /* CoilWind */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E43E6C5A23EF8BEF0002AA76 /* Build configuration list for PBXNativeTarget "CoilWind" */;
+			buildConfigurationList = E4F57F482400A4E400411D20 /* Build configuration list for PBXNativeTarget "CoilWind" */;
 			buildPhases = (
-				E43E6C2923EF8BEE0002AA76 /* Sources */,
-				E43E6C2A23EF8BEE0002AA76 /* Frameworks */,
-				E43E6C2B23EF8BEE0002AA76 /* Resources */,
+				E4F57F172400A4E300411D20 /* Sources */,
+				E4F57F182400A4E300411D20 /* Frameworks */,
+				E4F57F192400A4E300411D20 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -212,69 +198,69 @@
 			);
 			name = CoilWind;
 			productName = CoilWind;
-			productReference = E43E6C2D23EF8BEE0002AA76 /* CoilWind.app */;
+			productReference = E4F57F1B2400A4E300411D20 /* CoilWind.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E43E6C4523EF8BEF0002AA76 /* CoilWindTests */ = {
+		E4F57F332400A4E400411D20 /* CoilWindTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E43E6C5D23EF8BEF0002AA76 /* Build configuration list for PBXNativeTarget "CoilWindTests" */;
+			buildConfigurationList = E4F57F4B2400A4E400411D20 /* Build configuration list for PBXNativeTarget "CoilWindTests" */;
 			buildPhases = (
-				E43E6C4223EF8BEF0002AA76 /* Sources */,
-				E43E6C4323EF8BEF0002AA76 /* Frameworks */,
-				E43E6C4423EF8BEF0002AA76 /* Resources */,
+				E4F57F302400A4E400411D20 /* Sources */,
+				E4F57F312400A4E400411D20 /* Frameworks */,
+				E4F57F322400A4E400411D20 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E43E6C4823EF8BEF0002AA76 /* PBXTargetDependency */,
+				E4F57F362400A4E400411D20 /* PBXTargetDependency */,
 			);
 			name = CoilWindTests;
 			productName = CoilWindTests;
-			productReference = E43E6C4623EF8BEF0002AA76 /* CoilWindTests.xctest */;
+			productReference = E4F57F342400A4E400411D20 /* CoilWindTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E43E6C5023EF8BEF0002AA76 /* CoilWindUITests */ = {
+		E4F57F3E2400A4E400411D20 /* CoilWindUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E43E6C6023EF8BEF0002AA76 /* Build configuration list for PBXNativeTarget "CoilWindUITests" */;
+			buildConfigurationList = E4F57F4E2400A4E400411D20 /* Build configuration list for PBXNativeTarget "CoilWindUITests" */;
 			buildPhases = (
-				E43E6C4D23EF8BEF0002AA76 /* Sources */,
-				E43E6C4E23EF8BEF0002AA76 /* Frameworks */,
-				E43E6C4F23EF8BEF0002AA76 /* Resources */,
+				E4F57F3B2400A4E400411D20 /* Sources */,
+				E4F57F3C2400A4E400411D20 /* Frameworks */,
+				E4F57F3D2400A4E400411D20 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E43E6C5323EF8BEF0002AA76 /* PBXTargetDependency */,
+				E4F57F412400A4E400411D20 /* PBXTargetDependency */,
 			);
 			name = CoilWindUITests;
 			productName = CoilWindUITests;
-			productReference = E43E6C5123EF8BEF0002AA76 /* CoilWindUITests.xctest */;
+			productReference = E4F57F3F2400A4E400411D20 /* CoilWindUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E43E6C2523EF8BEE0002AA76 /* Project object */ = {
+		E4F57F132400A4E300411D20 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Capstone Team 15";
 				TargetAttributes = {
-					E43E6C2C23EF8BEE0002AA76 = {
+					E4F57F1A2400A4E300411D20 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
-					E43E6C4523EF8BEF0002AA76 = {
+					E4F57F332400A4E400411D20 = {
 						CreatedOnToolsVersion = 11.3.1;
-						TestTargetID = E43E6C2C23EF8BEE0002AA76;
+						TestTargetID = E4F57F1A2400A4E300411D20;
 					};
-					E43E6C5023EF8BEF0002AA76 = {
+					E4F57F3E2400A4E400411D20 = {
 						CreatedOnToolsVersion = 11.3.1;
-						TestTargetID = E43E6C2C23EF8BEE0002AA76;
+						TestTargetID = E4F57F1A2400A4E300411D20;
 					};
 				};
 			};
-			buildConfigurationList = E43E6C2823EF8BEE0002AA76 /* Build configuration list for PBXProject "CoilWind" */;
+			buildConfigurationList = E4F57F162400A4E300411D20 /* Build configuration list for PBXProject "CoilWind" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -282,38 +268,37 @@
 				en,
 				Base,
 			);
-			mainGroup = E43E6C2423EF8BEE0002AA76;
-			productRefGroup = E43E6C2E23EF8BEE0002AA76 /* Products */;
+			mainGroup = E4F57F122400A4E300411D20;
+			productRefGroup = E4F57F1C2400A4E300411D20 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E43E6C2C23EF8BEE0002AA76 /* CoilWind */,
-				E43E6C4523EF8BEF0002AA76 /* CoilWindTests */,
-				E43E6C5023EF8BEF0002AA76 /* CoilWindUITests */,
+				E4F57F1A2400A4E300411D20 /* CoilWind */,
+				E4F57F332400A4E400411D20 /* CoilWindTests */,
+				E4F57F3E2400A4E400411D20 /* CoilWindUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E43E6C2B23EF8BEE0002AA76 /* Resources */ = {
+		E4F57F192400A4E300411D20 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E43E6C4023EF8BEE0002AA76 /* LaunchScreen.storyboard in Resources */,
-				E43E6C3D23EF8BEE0002AA76 /* Preview Assets.xcassets in Resources */,
-				E43E6C3A23EF8BEE0002AA76 /* Assets.xcassets in Resources */,
-				E43E6C7023F8CFB20002AA76 /* main.storyboard in Resources */,
+				E4F57F2E2400A4E400411D20 /* LaunchScreen.storyboard in Resources */,
+				E4F57F2B2400A4E400411D20 /* Assets.xcassets in Resources */,
+				E4F57F262400A4E300411D20 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E43E6C4423EF8BEF0002AA76 /* Resources */ = {
+		E4F57F322400A4E400411D20 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E43E6C4F23EF8BEF0002AA76 /* Resources */ = {
+		E4F57F3D2400A4E400411D20 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -323,60 +308,67 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E43E6C2923EF8BEE0002AA76 /* Sources */ = {
+		E4F57F172400A4E300411D20 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E43E6C3623EF8BEE0002AA76 /* CoilWind.xcdatamodeld in Sources */,
-				E43E6C6E23F636460002AA76 /* CoilCoreDataProperties.swift in Sources */,
-				E43E6C3123EF8BEE0002AA76 /* AppDelegate.swift in Sources */,
-				E43E6C7223FC9CCC0002AA76 /* HomeViewController.swift in Sources */,
-				E43E6C7623FC9D1A0002AA76 /* QuickRunViewController.swift in Sources */,
-				E43E6C3823EF8BEE0002AA76 /* ContentView.swift in Sources */,
-				E43E6C7823FCA2340002AA76 /* CoilRunViewController.swift in Sources */,
-				E43E6C6823F35D600002AA76 /* CoilCoreDataDB.swift in Sources */,
-				E43E6C6A23F62F6D0002AA76 /* CoilCoreDataClass.swift in Sources */,
-				E43E6C3323EF8BEE0002AA76 /* SceneDelegate.swift in Sources */,
-				E43E6C7423FC9CE80002AA76 /* CoilTableViewController.swift in Sources */,
+				E4F57F602400A77200411D20 /* CoilCoreDataProperties.swift in Sources */,
+				E4F57F232400A4E300411D20 /* HomeViewController.swift in Sources */,
+				E4F57F1F2400A4E300411D20 /* AppDelegate.swift in Sources */,
+				E4F57F5A2400A5E800411D20 /* CoilRunViewController.swift in Sources */,
+				E4F57F292400A4E300411D20 /* CoilWind.xcdatamodeld in Sources */,
+				E4F57F212400A4E300411D20 /* SceneDelegate.swift in Sources */,
+				E4F57F562400A5B100411D20 /* CoilCoreDataClass.swift in Sources */,
+				E4F57F5E2400A60400411D20 /* QuickRunViewController.swift in Sources */,
+				E4F57F5C2400A5F800411D20 /* CoilTableViewController.swift in Sources */,
+				E4F57F582400A5C300411D20 /* CoilCoreDataDB.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E43E6C4223EF8BEF0002AA76 /* Sources */ = {
+		E4F57F302400A4E400411D20 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E43E6C4B23EF8BEF0002AA76 /* CoilWindTests.swift in Sources */,
+				E4F57F392400A4E400411D20 /* CoilWindTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E43E6C4D23EF8BEF0002AA76 /* Sources */ = {
+		E4F57F3B2400A4E400411D20 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E43E6C5623EF8BEF0002AA76 /* CoilWindUITests.swift in Sources */,
+				E4F57F442400A4E400411D20 /* CoilWindUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E43E6C4823EF8BEF0002AA76 /* PBXTargetDependency */ = {
+		E4F57F362400A4E400411D20 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E43E6C2C23EF8BEE0002AA76 /* CoilWind */;
-			targetProxy = E43E6C4723EF8BEF0002AA76 /* PBXContainerItemProxy */;
+			target = E4F57F1A2400A4E300411D20 /* CoilWind */;
+			targetProxy = E4F57F352400A4E400411D20 /* PBXContainerItemProxy */;
 		};
-		E43E6C5323EF8BEF0002AA76 /* PBXTargetDependency */ = {
+		E4F57F412400A4E400411D20 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E43E6C2C23EF8BEE0002AA76 /* CoilWind */;
-			targetProxy = E43E6C5223EF8BEF0002AA76 /* PBXContainerItemProxy */;
+			target = E4F57F1A2400A4E300411D20 /* CoilWind */;
+			targetProxy = E4F57F402400A4E400411D20 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E43E6C3E23EF8BEE0002AA76 /* LaunchScreen.storyboard */ = {
+		E4F57F242400A4E300411D20 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E43E6C3F23EF8BEE0002AA76 /* Base */,
+				E4F57F252400A4E300411D20 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E4F57F2C2400A4E400411D20 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E4F57F2D2400A4E400411D20 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -384,7 +376,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		E43E6C5823EF8BEF0002AA76 /* Debug */ = {
+		E4F57F462400A4E400411D20 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -444,7 +436,7 @@
 			};
 			name = Debug;
 		};
-		E43E6C5923EF8BEF0002AA76 /* Release */ = {
+		E4F57F472400A4E400411D20 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -498,13 +490,11 @@
 			};
 			name = Release;
 		};
-		E43E6C5B23EF8BEF0002AA76 /* Debug */ = {
+		E4F57F492400A4E400411D20 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"CoilWind/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CoilWind/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -517,13 +507,11 @@
 			};
 			name = Debug;
 		};
-		E43E6C5C23EF8BEF0002AA76 /* Release */ = {
+		E4F57F4A2400A4E400411D20 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"CoilWind/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CoilWind/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -536,7 +524,7 @@
 			};
 			name = Release;
 		};
-		E43E6C5E23EF8BEF0002AA76 /* Debug */ = {
+		E4F57F4C2400A4E400411D20 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -557,7 +545,7 @@
 			};
 			name = Debug;
 		};
-		E43E6C5F23EF8BEF0002AA76 /* Release */ = {
+		E4F57F4D2400A4E400411D20 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -578,7 +566,7 @@
 			};
 			name = Release;
 		};
-		E43E6C6123EF8BEF0002AA76 /* Debug */ = {
+		E4F57F4F2400A4E400411D20 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -597,7 +585,7 @@
 			};
 			name = Debug;
 		};
-		E43E6C6223EF8BEF0002AA76 /* Release */ = {
+		E4F57F502400A4E400411D20 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -619,38 +607,38 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E43E6C2823EF8BEE0002AA76 /* Build configuration list for PBXProject "CoilWind" */ = {
+		E4F57F162400A4E300411D20 /* Build configuration list for PBXProject "CoilWind" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E43E6C5823EF8BEF0002AA76 /* Debug */,
-				E43E6C5923EF8BEF0002AA76 /* Release */,
+				E4F57F462400A4E400411D20 /* Debug */,
+				E4F57F472400A4E400411D20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E43E6C5A23EF8BEF0002AA76 /* Build configuration list for PBXNativeTarget "CoilWind" */ = {
+		E4F57F482400A4E400411D20 /* Build configuration list for PBXNativeTarget "CoilWind" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E43E6C5B23EF8BEF0002AA76 /* Debug */,
-				E43E6C5C23EF8BEF0002AA76 /* Release */,
+				E4F57F492400A4E400411D20 /* Debug */,
+				E4F57F4A2400A4E400411D20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E43E6C5D23EF8BEF0002AA76 /* Build configuration list for PBXNativeTarget "CoilWindTests" */ = {
+		E4F57F4B2400A4E400411D20 /* Build configuration list for PBXNativeTarget "CoilWindTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E43E6C5E23EF8BEF0002AA76 /* Debug */,
-				E43E6C5F23EF8BEF0002AA76 /* Release */,
+				E4F57F4C2400A4E400411D20 /* Debug */,
+				E4F57F4D2400A4E400411D20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E43E6C6023EF8BEF0002AA76 /* Build configuration list for PBXNativeTarget "CoilWindUITests" */ = {
+		E4F57F4E2400A4E400411D20 /* Build configuration list for PBXNativeTarget "CoilWindUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E43E6C6123EF8BEF0002AA76 /* Debug */,
-				E43E6C6223EF8BEF0002AA76 /* Release */,
+				E4F57F4F2400A4E400411D20 /* Debug */,
+				E4F57F502400A4E400411D20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -658,17 +646,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E43E6C3423EF8BEE0002AA76 /* CoilWind.xcdatamodeld */ = {
+		E4F57F272400A4E300411D20 /* CoilWind.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E43E6C3523EF8BEE0002AA76 /* CoilWind.xcdatamodel */,
+				E4F57F282400A4E300411D20 /* CoilWind.xcdatamodel */,
 			);
-			currentVersion = E43E6C3523EF8BEE0002AA76 /* CoilWind.xcdatamodel */;
+			currentVersion = E4F57F282400A4E300411D20 /* CoilWind.xcdatamodel */;
 			path = CoilWind.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = E43E6C2523EF8BEE0002AA76 /* Project object */;
+	rootObject = E4F57F132400A4E300411D20 /* Project object */;
 }

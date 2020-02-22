@@ -2,14 +2,11 @@
 //  CoilCoreDataDB.swift
 //  CoilWind
 //
-// --------------------------------------------------------------------------------
-// This class is to add functionality to the database allowing for dynamic changes
-// to be made depending on the user input/ choices
-// --------------------------------------------------------------------------------
-//
-//  Created by Zane Guess on 2/11/20.
+//  Created by Zane Guess on 2/21/20.
 //  Copyright © 2020 Capstone Team 15. All rights reserved.
 //
+
+
 
 import UIKit
 import Foundation

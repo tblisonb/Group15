@@ -1,36 +1,21 @@
 //
-//  HomeViewController.swift
+//  ViewController.swift
 //  CoilWind
 //
-//  Created by Zane Guess on 2/18/20.
+//  Created by Zane Guess on 2/21/20.
 //  Copyright © 2020 Capstone Team 15. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import Foundation
 
-class HomeViewController: UIViewController, UINavigationControllerDelegate {
-    
-    // table view
-//    @IBOutlet var placesTable: UITableView!
-    
-    
-    // global variables
-//    var urlString:String = "http://127.0.0.1:8080"
-//    var pnames: [String] = [String]()
-//
-    
-    //var places:[String:Place] = [String:Place]()
-    
-    
-    // view did load
+class HomeViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.title = "CoilWind"
-       
-        
+        print("loaded home page")
     }
-    
+   
     
 }
+
