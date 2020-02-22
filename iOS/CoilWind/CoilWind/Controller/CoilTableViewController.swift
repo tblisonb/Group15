@@ -146,8 +146,8 @@ class CoilTableViewController: UITableViewController {
             let viewController:CoilRunViewController = segue.destination as! CoilRunViewController
             let indexPath = self.tableView.indexPathForSelectedRow!
             print("resut of delete student \(coilNames)")
-//            viewController.selectedPlace = self.pnames[indexPath.row]
-//            viewController.pnames = self.pnames
+            viewController.selectedCoil = self.coilNames[indexPath.row]
+            viewController.coilNames = self.coilNames
         }
     }
     
