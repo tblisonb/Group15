@@ -46,7 +46,7 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
         override func viewDidLoad() {
             super.viewDidLoad()
             
-            print("in coil run view")
+            // populate uifields from the selected table value from the database
             self.populateUIFields(selectedCoil)
             
             // populate picker
@@ -61,16 +61,17 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
             self.gaugeNameForPicker = doubleArraytoStringArray(gaugePickerRange: gaugePickerRange)
 
   
-            print(gaugePickerRange.count)
-  
+            // allows you to return to the controller with the modified coil
            self.navigationController?.delegate = self
            
             
         }
+    
     // convert [double] to [string] so that the picker will show values
     func doubleArraytoStringArray (gaugePickerRange: [Double])-> [String] {
         var stringValue:String = ""
        
+        // for each double in array convert to string so that the picker will display
         for num in gaugePickerRange{
             stringValue = String(format: "%.02f",num)
             
@@ -85,6 +86,7 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
         let db:CoilCoreDataDB = CoilCoreDataDB()
         let aCoil = db.getCoil(name)
 
+        // populated text fields from the entry in the database
         self.title = name
         savedNameLabel.text = "\(aCoil.name)"
         lengthTV.text = String(format: "%.02f",aCoil.length)
@@ -95,45 +97,46 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
         
     }
     
-        // touch events on this view
-           override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-               self.gaugeTV.resignFirstResponder()
-           }
-    //
-    //       // MARK: -- UITextFieldDelegate Method
-           func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-               self.gaugeTV.resignFirstResponder()
-               return true
-           }
-
-           // MARK: -- UIPickerVeiwDelegate method
-           // originally had it set so when the picker changed the selected place the GCDB would calculate upon the change
-           // however due to the constraints the design choice was to remove this functionality and add to a button instead
-           func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-               selectedGauge = gaugeNameForPicker[row]
-               
-               let tokens:[String] = selectedGauge.components(separatedBy: " ")
-               self.gaugeTV.text = tokens[0]
-               
-               self.gaugeTV.resignFirstResponder()
-           }
-           
-           // UIPickerViewDelegate method
-           func pickerView (_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-               let crs:String = gaugeNameForPicker[row]
-               
-               let tokens:[String] = crs.components(separatedBy: " ")
-               return tokens[0]
-           }
-        
-        // function for picker. number of components in the picker
-        func numberOfComponents(in pickerView: UIPickerView) -> Int {
-            return 1
+    // touch events on this view
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.gaugeTV.resignFirstResponder()
+    }
+    
+    
+    // MARK: -- UITextFieldDelegate Method
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.gaugeTV.resignFirstResponder()
+        return true
     }
 
-         // UIPickerviewDataSource method
-        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-            return gaugeNameForPicker.count
+    // MARK: -- UIPickerVeiwDelegate method
+    // originally had it set so when the picker changed the selected place the GCDB would calculate upon the change
+    // however due to the constraints the design choice was to remove this functionality and add to a button instead
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedGauge = gaugeNameForPicker[row]
+               
+        let tokens:[String] = selectedGauge.components(separatedBy: " ")
+        self.gaugeTV.text = tokens[0]
+               
+        self.gaugeTV.resignFirstResponder()
+           }
+           
+    // UIPickerViewDelegate method
+    func pickerView (_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let crs:String = gaugeNameForPicker[row]
+               
+        let tokens:[String] = crs.components(separatedBy: " ")
+        return tokens[0]
+    }
+        
+    // function for picker. number of components in the picker
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    // UIPickerviewDataSource method
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return gaugeNameForPicker.count
     }
     
     // gets called when the coil description is modified to be saved as the new version of the table list so the edits save
@@ -162,8 +165,8 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
             // added the edited values to the table so it saves state to database
             self.coilNames = Array(self.coilNames).sorted()
 
-            // must reload table view with the updated place (if modified)
-            // calls update model in the controller so that pnames can be update which
+            // must reload table view with the updated coil (if modified)
+            // calls update model in the controller so that coilnames can be update which
             // also for the index length to remain consistant allowing for scrolling and viewing of the table
             controller.updateModel()
         }

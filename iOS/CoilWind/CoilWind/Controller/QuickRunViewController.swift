@@ -1,10 +1,16 @@
 //
 //  QuickRunViewController.swift
 //  CoilWind
+// -------------------------------------------------------
+// Quick run view controller allowing for quick entries
+// to run device. also allows for the functionality
+// to save to data base allowing the settings to be view in
+// and accessed from the table view
 //
+// -------------------------------------------------------
 //  Created by Zane Guess on 2/21/20.
 //  Copyright © 2020 Capstone Team 15. All rights reserved.
-//
+//  @version 1.0
 
 
 import Foundation
@@ -42,8 +48,10 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // the data source and delegates to populate the picker. allowing the values to show
         gaugePicker.delegate = self
         self.gaugePicker.dataSource = self
+        
         //set up picker
         gaugePicker.removeFromSuperview()
         gaugeTV.inputView = gaugePicker
@@ -51,21 +59,22 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
         // convert the [double] of values to string so the picker view can display
         self.gaugeNameForPicker = doubleArraytoStringArray(gaugePickerRange: gaugePickerRange)
 
+        // first index shows
         let crs:[String] = selectedGauge.components(separatedBy: " ")
         gaugeTV.text = crs[0]
-        
-        print(gaugePickerRange.count)
-        
-        print("in quickrun")
+
         
         }
     
+    // convert [double] to [string] so that the picker will show values
     func doubleArraytoStringArray (gaugePickerRange: [Double])-> [String] {
         var stringValue:String = ""
-        print("in converting array")
+        
+        // for each double in array convert to string so that the picker will display
+
         for num in gaugePickerRange{
             stringValue = String(format: "%.02f",num)
-            print(stringValue)
+            
             gaugeNameForPicker.append(stringValue)
         }
         return gaugeNameForPicker
@@ -78,13 +87,15 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
     
     // quick save button implements add function to database
     @IBAction func quickSaveBtn(_ sender: Any) {
+        
+        // assign variables of values from text fields to be passed to database add function
         let saveName:String = nameTV.text!
         let saveColor:String = colorTV.text!
         let saveLength:Double = NumberFormatter().number(from: (lengthTV.text)!) as! Double
         let saveGauge:Double = NumberFormatter().number(from: (gaugeTV.text)!) as! Double
         let saveQuantity:Int = NumberFormatter().number(from: (quantityTV.text)!) as! Int
         
-        
+        // simple exception checking ***** Will need more indepth checks.
         if(saveName == ""){
             nameTV.text = "Enter a name"
         }
@@ -101,47 +112,45 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
             gaugeTV.text = gaugeNameForPicker[1]
         }
         
-        
+        // save the entry to database so that the table will populate with this entry
         let coilDB = CoilCoreDataDB()
         let ret = coilDB.addCoil(saveName, color: saveColor, length: saveLength, gauge: saveGauge, quantity: saveQuantity)
         _ = coilDB.saveContext()
-        print(coilDB.getCoil(saveName).length)
-         print("coil \(saveName) added. Add coil return is: \(ret)")
+        
+        print("coil \(saveName) added. Add coil return is: \(ret)")
     }
-    
-
     
     
     // touch events on this view
-       override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-           self.gaugeTV.resignFirstResponder()
-       }
-//
-//       // MARK: -- UITextFieldDelegate Method
-       func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-           self.gaugeTV.resignFirstResponder()
-           return true
-       }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.gaugeTV.resignFirstResponder()
+    }
 
-       // MARK: -- UIPickerVeiwDelegate method
-       // originally had it set so when the picker changed the selected place the GCDB would calculate upon the change
-       // however due to the constraints the design choice was to remove this functionality and add to a button instead
-       func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-           selectedGauge = gaugeNameForPicker[row]
+    // MARK: -- UITextFieldDelegate Method
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.gaugeTV.resignFirstResponder()
+        return true
+    }
+
+    // MARK: -- UIPickerVeiwDelegate method
+    // originally had it set so when the picker changed the selected place the GCDB would calculate upon the change
+    // however due to the constraints the design choice was to remove this functionality and add to a button instead
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedGauge = gaugeNameForPicker[row]
            
-           let tokens:[String] = selectedGauge.components(separatedBy: " ")
-           self.gaugeTV.text = tokens[0]
+        let tokens:[String] = selectedGauge.components(separatedBy: " ")
+        self.gaugeTV.text = tokens[0]
            
-           self.gaugeTV.resignFirstResponder()
-       }
+        self.gaugeTV.resignFirstResponder()
+    }
        
-       // UIPickerViewDelegate method
-       func pickerView (_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-           let crs:String = gaugeNameForPicker[row]
+    // UIPickerViewDelegate method
+    func pickerView (_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let crs:String = gaugeNameForPicker[row]
            
-           let tokens:[String] = crs.components(separatedBy: " ")
-           return tokens[0]
-       }
+        let tokens:[String] = crs.components(separatedBy: " ")
+        return tokens[0]
+    }
     
     // function for picker. number of components in the picker
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

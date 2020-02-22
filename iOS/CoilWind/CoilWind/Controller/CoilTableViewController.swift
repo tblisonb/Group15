@@ -2,9 +2,14 @@
 //  CoilTableViewController.swift
 //  CoilWind
 //
+// -----------------------------------------------------------------------------------------------------------
+// Table view controller for the saved coils. Allows for deletion of entries. updates on return to table if new
+// entries have been added or modified
+// ------------------------------------------------------------------------------------------------------------
+//
 //  Created by Zane Guess on 2/21/20.
 //  Copyright © 2020 Capstone Team 15. All rights reserved.
-//
+//  @version 1.0
 
 
 import Foundation
@@ -13,40 +18,25 @@ import UIKit
 
 class CoilTableViewController: UITableViewController {
     
-    // table view
-
-    //@IBOutlet var TableView: UITableView!
-    
     
     // global variables
-//    var urlString:String = "http://127.0.0.1:8080"
     var coilNames: [String] = [String]()
-//
-    
-    //var places:[String:Place] = [String:Place]()
+
     
     
     // view did load
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("in table view")
- //       initializeCoreData()
+
         // by default the button does not appear must add in code!!!!
         //------------------------------------------------------------
         // add an edit button, which is handled by the table view editing forRowAt
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        
-
-
+ 
         // obtain the values from the model
         self.updateModel()
         
-        //test problem with length
-//        let db:CoilCoreDataDB = CoilCoreDataDB()
-//        let aCoil = db.getCoil(coilNames[1])
-//        print(aCoil.length)
-
 
         self.title = "Saved Coil List"
        
