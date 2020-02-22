@@ -2,9 +2,12 @@
 //  CoilCoreDataDB.swift
 //  CoilWind
 //
+//  Database functions class 
+//
+//
 //  Created by Zane Guess on 2/21/20.
 //  Copyright © 2020 Capstone Team 15. All rights reserved.
-//
+//  @version 1.0
 
 
 
