@@ -1,7 +1,10 @@
 //
 //  CoilRunViewController.swift
 //  CoilWind
-//
+//  ------------------------------------------------------------------------------
+//  CoilRunViewController class to run device from a saved entry
+//  Edits are automatically saved on back button
+//  ------------------------------------------------------------------------------
 //  Created by Zane Guess on 2/21/20.
 //  Copyright © 2020 Capstone Team 15. All rights reserved.
 //
@@ -43,29 +46,29 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
     
     
     // on view did load function
-        override func viewDidLoad() {
-            super.viewDidLoad()
+    override func viewDidLoad() {
+        super.viewDidLoad()
             
-            // populate uifields from the selected table value from the database
-            self.populateUIFields(selectedCoil)
+        // populate uifields from the selected table value from the database
+        self.populateUIFields(selectedCoil)
             
-            // populate picker
-            gaugePicker.delegate = self
-            self.gaugePicker.dataSource = self
+        // populate picker
+        gaugePicker.delegate = self
+        self.gaugePicker.dataSource = self
             
-            //set up picker
-            gaugePicker.removeFromSuperview()
-            gaugeTV.inputView = gaugePicker
+        //set up picker
+        gaugePicker.removeFromSuperview()
+        gaugeTV.inputView = gaugePicker
   
-            // convert the [double] of values to string so the picker view can display
-            self.gaugeNameForPicker = doubleArraytoStringArray(gaugePickerRange: gaugePickerRange)
+        // convert the [double] of values to string so the picker view can display
+        self.gaugeNameForPicker = doubleArraytoStringArray(gaugePickerRange: gaugePickerRange)
 
   
-            // allows you to return to the controller with the modified coil
-           self.navigationController?.delegate = self
+        // allows you to return to the controller with the modified coil
+        self.navigationController?.delegate = self
            
             
-        }
+    }
     
     // convert [double] to [string] so that the picker will show values
     func doubleArraytoStringArray (gaugePickerRange: [Double])-> [String] {
