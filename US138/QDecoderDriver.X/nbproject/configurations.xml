@@ -36,6 +36,8 @@
       </logicalFolder>
       <itemPath>actuator.h</itemPath>
       <itemPath>stepper.h</itemPath>
+      <itemPath>wire.h</itemPath>
+      <itemPath>servo.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -60,6 +62,8 @@
       <itemPath>main.c</itemPath>
       <itemPath>actuator.c</itemPath>
       <itemPath>stepper.c</itemPath>
+      <itemPath>wire.c</itemPath>
+      <itemPath>servo.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
