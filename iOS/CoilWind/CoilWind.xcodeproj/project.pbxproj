@@ -22,6 +22,8 @@
 		E4F57F5C2400A5F800411D20 /* CoilTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57F5B2400A5F800411D20 /* CoilTableViewController.swift */; };
 		E4F57F5E2400A60400411D20 /* QuickRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57F5D2400A60400411D20 /* QuickRunViewController.swift */; };
 		E4F57F602400A77200411D20 /* CoilCoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57F5F2400A77200411D20 /* CoilCoreDataProperties.swift */; };
+		E4F57F632408805A00411D20 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4F57F622408805A00411D20 /* CoreBluetooth.framework */; };
+		E4F57F652408878C00411D20 /* BlueToothModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F57F642408878C00411D20 /* BlueToothModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		E4F57F5B2400A5F800411D20 /* CoilTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoilTableViewController.swift; sourceTree = "<group>"; };
 		E4F57F5D2400A60400411D20 /* QuickRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickRunViewController.swift; sourceTree = "<group>"; };
 		E4F57F5F2400A77200411D20 /* CoilCoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoilCoreDataProperties.swift; sourceTree = "<group>"; };
+		E4F57F622408805A00411D20 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		E4F57F642408878C00411D20 /* BlueToothModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueToothModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4F57F632408805A00411D20 /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +102,7 @@
 				E4F57F372400A4E400411D20 /* CoilWindTests */,
 				E4F57F422400A4E400411D20 /* CoilWindUITests */,
 				E4F57F1C2400A4E300411D20 /* Products */,
+				E4F57F612408805A00411D20 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,6 +154,7 @@
 				E4F57F552400A5B100411D20 /* CoilCoreDataClass.swift */,
 				E4F57F572400A5C300411D20 /* CoilCoreDataDB.swift */,
 				E4F57F5F2400A77200411D20 /* CoilCoreDataProperties.swift */,
+				E4F57F642408878C00411D20 /* BlueToothModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,6 +186,14 @@
 				E4F57F5D2400A60400411D20 /* QuickRunViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		E4F57F612408805A00411D20 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4F57F622408805A00411D20 /* CoreBluetooth.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,6 +337,7 @@
 				E4F57F5E2400A60400411D20 /* QuickRunViewController.swift in Sources */,
 				E4F57F5C2400A5F800411D20 /* CoilTableViewController.swift in Sources */,
 				E4F57F582400A5C300411D20 /* CoilCoreDataDB.swift in Sources */,
+				E4F57F652408878C00411D20 /* BlueToothModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
