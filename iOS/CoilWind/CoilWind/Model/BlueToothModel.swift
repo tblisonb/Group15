@@ -33,6 +33,13 @@ public class BlueToothModel: NSObject, CBCentralManagerDelegate, CBPeripheralDel
     private var coilService : CBService!
     private var coilCharacteristic : CBCharacteristic!
     
+    
+    //Functions to start of the central manager
+    //*****************************************
+    func startUpCentralManager() {
+        centralManager = CBCentralManager(delegate: self, queue: nil)
+    }
+    
     public func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch (central.state) {
         case .poweredOff: break
@@ -47,7 +54,8 @@ public class BlueToothModel: NSObject, CBCentralManagerDelegate, CBPeripheralDel
             <#fatalError()#>
         }
     }
-    
+    // end functions to start the central manager
+    //*****************************************
    
 
     
