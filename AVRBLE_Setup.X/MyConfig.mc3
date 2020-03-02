@@ -9,12 +9,12 @@
          <string>class com.microchip.mcc.mcu8.interruptManager.cpuint.CPUINT</string>
       </entry>
       <entry>
-         <string>BOD</string>
-         <string>class com.microchip.mcc.mcu8.systemManager.tiny_mega_init.bod.BOD</string>
-      </entry>
-      <entry>
          <string>WDT</string>
          <string>class com.microchip.mcc.mcu8.systemManager.tiny_mega_init.wdt.WDT</string>
+      </entry>
+      <entry>
+         <string>BOD</string>
+         <string>class com.microchip.mcc.mcu8.systemManager.tiny_mega_init.bod.BOD</string>
       </entry>
       <entry>
          <string>Pin Module</string>
@@ -919,11 +919,11 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="CCL" name="lut-3"/>
-         <value>{&quot;lutSequentialSelection&quot;:&quot;DFF&quot;,&quot;lutInput0Selection&quot;:&quot;IO&quot;,&quot;module&quot;:&quot;CCL-write&quot;,&quot;isLutEdgeDetectorEnabled&quot;:false,&quot;type&quot;:&quot;custom&quot;,&quot;isLutOutputEnabled&quot;:true,&quot;lutClockSelection&quot;:&quot;CLKPER&quot;,&quot;lutInput1Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART1&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB1&quot;],&quot;lutInput2Selection&quot;:&quot;MASK&quot;,&quot;lutFilterOptions&quot;:[&quot;DISABLE&quot;,&quot;SYNCH&quot;,&quot;FILTER&quot;],&quot;lutFilterSelection&quot;:&quot;SYNCH&quot;,&quot;lutInput0Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART0&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB0&quot;],&quot;lutInput2Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART2&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB2&quot;],&quot;lutClockSelectionOptions&quot;:[&quot;CLKPER&quot;,&quot;IN2&quot;,&quot;OSC20M&quot;,&quot;OSCULP32K&quot;,&quot;OSCULP1K&quot;],&quot;ttOut&quot;:9,&quot;lut-name&quot;:&quot;lut-3&quot;,&quot;lutInput1Selection&quot;:&quot;IO&quot;,&quot;selectedGateType&quot;:&quot;Custom&quot;,&quot;isLutEnabled&quot;:true,&quot;lutSequentialOptions&quot;:[&quot;DISABLE&quot;,&quot;DFF&quot;,&quot;JK&quot;,&quot;LATCH&quot;,&quot;RS&quot;]}</value>
+         <value>{&quot;lutSequentialSelection&quot;:&quot;DFF&quot;,&quot;lutInput0Selection&quot;:&quot;IO&quot;,&quot;module&quot;:&quot;CCL-write&quot;,&quot;isLutEdgeDetectorEnabled&quot;:false,&quot;type&quot;:&quot;custom&quot;,&quot;isLutOutputEnabled&quot;:true,&quot;lutClockSelection&quot;:&quot;CLKPER&quot;,&quot;lutInput1Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART1&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB1&quot;],&quot;lutInput2Selection&quot;:&quot;MASK&quot;,&quot;lutFilterOptions&quot;:[&quot;DISABLE&quot;,&quot;SYNCH&quot;,&quot;FILTER&quot;],&quot;lutFilterSelection&quot;:&quot;SYNCH&quot;,&quot;lutInput0Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART0&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB0&quot;],&quot;lutInput2Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART2&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB2&quot;],&quot;lutClockSelectionOptions&quot;:[&quot;CLKPER&quot;,&quot;IN2&quot;,&quot;OSC20M&quot;,&quot;OSCULP32K&quot;,&quot;OSCULP1K&quot;],&quot;ttOut&quot;:8,&quot;lut-name&quot;:&quot;lut-3&quot;,&quot;lutInput1Selection&quot;:&quot;IO&quot;,&quot;selectedGateType&quot;:&quot;AND&quot;,&quot;isLutEnabled&quot;:true,&quot;lutSequentialOptions&quot;:[&quot;DISABLE&quot;,&quot;DFF&quot;,&quot;JK&quot;,&quot;LATCH&quot;,&quot;RS&quot;]}</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="CCL" name="lut-0"/>
-         <value>{&quot;lutSequentialSelection&quot;:&quot;DISABLE&quot;,&quot;lutInput0Selection&quot;:&quot;IO&quot;,&quot;module&quot;:&quot;CCL-write&quot;,&quot;isLutEdgeDetectorEnabled&quot;:false,&quot;type&quot;:&quot;custom&quot;,&quot;isLutOutputEnabled&quot;:true,&quot;lutClockSelection&quot;:&quot;CLKPER&quot;,&quot;lutInput1Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART1&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB1&quot;],&quot;lutInput2Selection&quot;:&quot;IO&quot;,&quot;lutFilterOptions&quot;:[&quot;DISABLE&quot;,&quot;SYNCH&quot;,&quot;FILTER&quot;],&quot;lutFilterSelection&quot;:&quot;SYNCH&quot;,&quot;lutInput0Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART0&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB0&quot;],&quot;lutInput2Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART2&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB2&quot;],&quot;lutClockSelectionOptions&quot;:[&quot;CLKPER&quot;,&quot;IN2&quot;,&quot;OSC20M&quot;,&quot;OSCULP32K&quot;,&quot;OSCULP1K&quot;],&quot;ttOut&quot;:32,&quot;lut-name&quot;:&quot;lut-0&quot;,&quot;lutInput1Selection&quot;:&quot;IO&quot;,&quot;selectedGateType&quot;:&quot;Custom&quot;,&quot;isLutEnabled&quot;:true,&quot;lutSequentialOptions&quot;:[&quot;DISABLE&quot;,&quot;DFF&quot;,&quot;JK&quot;,&quot;LATCH&quot;,&quot;RS&quot;]}</value>
+         <value>{&quot;lutSequentialSelection&quot;:&quot;DISABLE&quot;,&quot;lutInput0Selection&quot;:&quot;MASK&quot;,&quot;module&quot;:&quot;CCL-write&quot;,&quot;isLutEdgeDetectorEnabled&quot;:false,&quot;type&quot;:&quot;custom&quot;,&quot;isLutOutputEnabled&quot;:true,&quot;lutClockSelection&quot;:&quot;CLKPER&quot;,&quot;lutInput1Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART1&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB1&quot;],&quot;lutInput2Selection&quot;:&quot;MASK&quot;,&quot;lutFilterOptions&quot;:[&quot;DISABLE&quot;,&quot;SYNCH&quot;,&quot;FILTER&quot;],&quot;lutFilterSelection&quot;:&quot;SYNCH&quot;,&quot;lutInput0Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART0&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB0&quot;],&quot;lutInput2Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART2&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB2&quot;],&quot;lutClockSelectionOptions&quot;:[&quot;CLKPER&quot;,&quot;IN2&quot;,&quot;OSC20M&quot;,&quot;OSCULP32K&quot;,&quot;OSCULP1K&quot;],&quot;ttOut&quot;:0,&quot;lut-name&quot;:&quot;lut-0&quot;,&quot;lutInput1Selection&quot;:&quot;MASK&quot;,&quot;selectedGateType&quot;:&quot;Custom&quot;,&quot;isLutEnabled&quot;:true,&quot;lutSequentialOptions&quot;:[&quot;DISABLE&quot;,&quot;DFF&quot;,&quot;JK&quot;,&quot;LATCH&quot;,&quot;RS&quot;]}</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTA.PIN7CTRL" settingAlias="ISC" alias="RISING"/>
@@ -935,11 +935,11 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="CCL" name="lut-2"/>
-         <value>{&quot;lutSequentialSelection&quot;:&quot;DFF&quot;,&quot;lutInput0Selection&quot;:&quot;IO&quot;,&quot;module&quot;:&quot;CCL-write&quot;,&quot;isLutEdgeDetectorEnabled&quot;:false,&quot;type&quot;:&quot;custom&quot;,&quot;isLutOutputEnabled&quot;:true,&quot;lutClockSelection&quot;:&quot;CLKPER&quot;,&quot;lutInput1Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART1&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB1&quot;],&quot;lutInput2Selection&quot;:&quot;MASK&quot;,&quot;lutFilterOptions&quot;:[&quot;DISABLE&quot;,&quot;SYNCH&quot;,&quot;FILTER&quot;],&quot;lutFilterSelection&quot;:&quot;SYNCH&quot;,&quot;lutInput0Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART0&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB0&quot;],&quot;lutInput2Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART2&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB2&quot;],&quot;lutClockSelectionOptions&quot;:[&quot;CLKPER&quot;,&quot;IN2&quot;,&quot;OSC20M&quot;,&quot;OSCULP32K&quot;,&quot;OSCULP1K&quot;],&quot;ttOut&quot;:1,&quot;lut-name&quot;:&quot;lut-2&quot;,&quot;lutInput1Selection&quot;:&quot;IO&quot;,&quot;selectedGateType&quot;:&quot;NOR&quot;,&quot;isLutEnabled&quot;:true,&quot;lutSequentialOptions&quot;:[&quot;DISABLE&quot;,&quot;DFF&quot;,&quot;JK&quot;,&quot;LATCH&quot;,&quot;RS&quot;]}</value>
+         <value>{&quot;lutSequentialSelection&quot;:&quot;DFF&quot;,&quot;lutInput0Selection&quot;:&quot;IO&quot;,&quot;module&quot;:&quot;CCL-write&quot;,&quot;isLutEdgeDetectorEnabled&quot;:false,&quot;type&quot;:&quot;custom&quot;,&quot;isLutOutputEnabled&quot;:true,&quot;lutClockSelection&quot;:&quot;CLKPER&quot;,&quot;lutInput1Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART1&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB1&quot;],&quot;lutInput2Selection&quot;:&quot;MASK&quot;,&quot;lutFilterOptions&quot;:[&quot;DISABLE&quot;,&quot;SYNCH&quot;,&quot;FILTER&quot;],&quot;lutFilterSelection&quot;:&quot;SYNCH&quot;,&quot;lutInput0Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART0&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB0&quot;],&quot;lutInput2Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART2&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB2&quot;],&quot;lutClockSelectionOptions&quot;:[&quot;CLKPER&quot;,&quot;IN2&quot;,&quot;OSC20M&quot;,&quot;OSCULP32K&quot;,&quot;OSCULP1K&quot;],&quot;ttOut&quot;:8,&quot;lut-name&quot;:&quot;lut-2&quot;,&quot;lutInput1Selection&quot;:&quot;IO&quot;,&quot;selectedGateType&quot;:&quot;Custom&quot;,&quot;isLutEnabled&quot;:true,&quot;lutSequentialOptions&quot;:[&quot;DISABLE&quot;,&quot;DFF&quot;,&quot;JK&quot;,&quot;LATCH&quot;,&quot;RS&quot;]}</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="CCL" name="lut-1"/>
-         <value>{&quot;lutSequentialSelection&quot;:&quot;DISABLE&quot;,&quot;lutInput0Selection&quot;:&quot;IO&quot;,&quot;module&quot;:&quot;CCL-write&quot;,&quot;isLutEdgeDetectorEnabled&quot;:false,&quot;type&quot;:&quot;custom&quot;,&quot;isLutOutputEnabled&quot;:true,&quot;lutClockSelection&quot;:&quot;CLKPER&quot;,&quot;lutInput1Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART1&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB1&quot;],&quot;lutInput2Selection&quot;:&quot;IO&quot;,&quot;lutFilterOptions&quot;:[&quot;DISABLE&quot;,&quot;SYNCH&quot;,&quot;FILTER&quot;],&quot;lutFilterSelection&quot;:&quot;FILTER&quot;,&quot;lutInput0Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART0&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB0&quot;],&quot;lutInput2Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART2&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB2&quot;],&quot;lutClockSelectionOptions&quot;:[&quot;CLKPER&quot;,&quot;IN2&quot;,&quot;OSC20M&quot;,&quot;OSCULP32K&quot;,&quot;OSCULP1K&quot;],&quot;ttOut&quot;:64,&quot;lut-name&quot;:&quot;lut-1&quot;,&quot;lutInput1Selection&quot;:&quot;IO&quot;,&quot;selectedGateType&quot;:&quot;Custom&quot;,&quot;isLutEnabled&quot;:true,&quot;lutSequentialOptions&quot;:[&quot;DISABLE&quot;,&quot;DFF&quot;,&quot;JK&quot;,&quot;LATCH&quot;,&quot;RS&quot;]}</value>
+         <value>{&quot;lutSequentialSelection&quot;:&quot;DISABLE&quot;,&quot;lutInput0Selection&quot;:&quot;IO&quot;,&quot;module&quot;:&quot;CCL-write&quot;,&quot;isLutEdgeDetectorEnabled&quot;:false,&quot;type&quot;:&quot;custom&quot;,&quot;isLutOutputEnabled&quot;:true,&quot;lutClockSelection&quot;:&quot;CLKPER&quot;,&quot;lutInput1Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART1&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB1&quot;],&quot;lutInput2Selection&quot;:&quot;MASK&quot;,&quot;lutFilterOptions&quot;:[&quot;DISABLE&quot;,&quot;SYNCH&quot;,&quot;FILTER&quot;],&quot;lutFilterSelection&quot;:&quot;FILTER&quot;,&quot;lutInput0Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART0&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB0&quot;],&quot;lutInput2Options&quot;:[&quot;MASK&quot;,&quot;FEEDBACK&quot;,&quot;LINK&quot;,&quot;EVENTA&quot;,&quot;EVENTB&quot;,&quot;IO&quot;,&quot;AC0&quot;,&quot;USART2&quot;,&quot;SPI0&quot;,&quot;TCA0&quot;,&quot;TCB2&quot;],&quot;lutClockSelectionOptions&quot;:[&quot;CLKPER&quot;,&quot;IN2&quot;,&quot;OSC20M&quot;,&quot;OSCULP32K&quot;,&quot;OSCULP1K&quot;],&quot;ttOut&quot;:8,&quot;lut-name&quot;:&quot;lut-1&quot;,&quot;lutInput1Selection&quot;:&quot;IO&quot;,&quot;selectedGateType&quot;:&quot;AND&quot;,&quot;isLutEnabled&quot;:true,&quot;lutSequentialOptions&quot;:[&quot;DISABLE&quot;,&quot;DFF&quot;,&quot;JK&quot;,&quot;LATCH&quot;,&quot;RS&quot;]}</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTB.PIN7CTRL" settingAlias="INVEN" alias="enabled"/>
@@ -1930,12 +1930,12 @@
          <value>INTDISABLE</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CPUINT" registerAlias="CTRLA" settingAlias="IVSEL" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="SYSCFG0" settingAlias="RSTPINCFG"/>
          <value>GPIO</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CPUINT" registerAlias="CTRLA" settingAlias="IVSEL" alias="disabled"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="PORTE.DIRSET" settingAlias="PORTE.DIRSET"/>
@@ -2147,7 +2147,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name PA7"/>
-         <value/>
+         <value>IO_PA7</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTA.PIN3CTRL" settingAlias="PULLUPEN" alias="enabled"/>
@@ -2159,15 +2159,15 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name PA4"/>
-         <value/>
+         <value>IO_PA4</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name PA5"/>
-         <value/>
+         <value>IO_PA5</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name PA6"/>
-         <value/>
+         <value>IO_PA6</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCL" registerAlias="LUT1CTRLB" settingAlias="INSEL0" alias="LINK"/>
@@ -2223,7 +2223,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="CCL" name="PIN_LUT1_IN2"/>
-         <value>LUT1_IN2</value>
+         <value></value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="PORTF.PIN6CTRL" settingAlias="INVEN"/>
@@ -2831,7 +2831,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="CCL" registerAlias="LUT1CTRLC"/>
-         <value>5</value>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTD.PIN7CTRL" settingAlias="ISC" alias="INTDISABLE"/>
@@ -4903,7 +4903,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="CCL" registerAlias="LUT0CTRLC"/>
-         <value>5</value>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTMUX.TCBROUTEA" settingAlias="TCB1" alias="disabled"/>
@@ -4943,7 +4943,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="CCL" registerAlias="LUT0CTRLB"/>
-         <value>85</value>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTE.PIN4CTRL" settingAlias="ISC" alias="LEVEL"/>
@@ -5007,7 +5007,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="CCL" registerAlias="LUT0CTRLB" settingAlias="INSEL1"/>
-         <value>IO</value>
+         <value>MASK</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCL" registerAlias="LUT3CTRLC" settingAlias="INSEL2" alias="AC0"/>
@@ -5022,11 +5022,11 @@
          <value>6</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="CPUINT" registerAlias="CTRLA"/>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="BODCFG" settingAlias="ACTIVE" alias="DIS"/>
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="BODCFG" settingAlias="ACTIVE" alias="DIS"/>
+         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="CPUINT" registerAlias="CTRLA"/>
          <value>0</value>
       </entry>
       <entry>
@@ -5159,7 +5159,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="CCL" registerAlias="LUT0CTRLB" settingAlias="INSEL0"/>
-         <value>IO</value>
+         <value>MASK</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTA.PIN2CTRL" settingAlias="PULLUPEN" alias="enabled"/>
@@ -5823,7 +5823,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="CCL" name="PIN_LUT0_IN2"/>
-         <value>LUT0_IN2</value>
+         <value></value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTMUX.EVSYSROUTEA" settingAlias="EVOUT1" alias="enabled"/>
@@ -5855,7 +5855,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="CCL" name="PIN_LUT0_IN1"/>
-         <value>LUT0_IN1</value>
+         <value></value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCL" registerAlias="LUT3CTRLC" settingAlias="INSEL2" alias="TCA0"/>
@@ -5863,7 +5863,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="CCL" name="PIN_LUT0_IN0"/>
-         <value>LUT0_IN0</value>
+         <value></value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTB.PIN4CTRL" settingAlias="INVEN" alias="enabled"/>
@@ -5939,7 +5939,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="CCL" registerAlias="LUT0CTRLC" settingAlias="INSEL2"/>
-         <value>IO</value>
+         <value>MASK</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTE.PIN6CTRL" settingAlias="ISC" alias="INPUT_DISABLE"/>
@@ -6007,7 +6007,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="CCL" registerAlias="TRUTH1"/>
-         <value>64</value>
+         <value>8</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCL" registerAlias="LUT0CTRLB" settingAlias="INSEL0" alias="TCB0"/>
@@ -6103,7 +6103,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="CCL" registerAlias="TRUTH2"/>
-         <value>1</value>
+         <value>8</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="CCL" name="isCCLEnabled"/>
@@ -6187,7 +6187,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="CCL" registerAlias="TRUTH0"/>
-         <value>32</value>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTA.PIN2CTRL" settingAlias="ISC" alias="LEVEL"/>
@@ -6363,7 +6363,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="CCL" registerAlias="TRUTH3"/>
-         <value>9</value>
+         <value>8</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="BOD" registerAlias="CTRLB" settingAlias="LVL" alias="BODLEVEL1"/>
@@ -6515,7 +6515,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="CCL" registerAlias="LUT1CTRLC" settingAlias="INSEL2"/>
-         <value>IO</value>
+         <value>MASK</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="CCL" registerAlias="LUT2CTRLB" settingAlias="INSEL0"/>
@@ -7107,7 +7107,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="PA4"/>
-         <value>disabled</value>
+         <value>input</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="PORTMUX.CCLROUTEA" settingAlias="LUT1"/>
@@ -7123,15 +7123,15 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="PA5"/>
-         <value>disabled</value>
+         <value>input</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="PA6"/>
-         <value>disabled</value>
+         <value>input</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="PA7"/>
-         <value>disabled</value>
+         <value>input</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="PORTC.PIN1CTRL" settingAlias="ISC" alias="FALLING"/>
@@ -7164,20 +7164,20 @@
    </tokenMap>
    <generatedFileHashHistoryMap class="java.util.HashMap">
       <entry>
-         <file>mcc_generated_files\include\port.h</file>
-         <hash>2cbca36d0ae0501333b71a678a15eb5f30b7d2829c091e5b0331a8d8350bed79</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\include\pin_manager.h</file>
-         <hash>e2380b6d8c187741e15cfedc8e094ee72b22796075e6b9904b1bfe326424fd6a</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\mcc.h</file>
          <hash>e05df7806424e7ddeef0b9977eda49216259fbc5035e7ed5231ac7435ad6f2a7</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\src\protected_io.S</file>
          <hash>69d7d2c54bccf38027e4950b66dadc2d9c0be7a2523ffbe4648ec79e87f33522</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\include\port.h</file>
+         <hash>2cbca36d0ae0501333b71a678a15eb5f30b7d2829c091e5b0331a8d8350bed79</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\include\pin_manager.h</file>
+         <hash>e66c0cf01f711480afff7d1a7b7a7642d38df52c95be4362d783bc09c00672cb</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\utils\compiler.h</file>
@@ -7196,16 +7196,16 @@
          <hash>38ff19ccdabdd432c321983f3c9190d1767c6e2ac0dc1bba384fc36c62989559</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\src\pin_manager.c</file>
-         <hash>40285331e91a2e067c3a9fe25717adfbb07a020ebf3217baab7579198f54b300</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\utils\assembler.h</file>
          <hash>90b346ff1c59de9e2d44827ebdb0d696965fdfc8a741bc69a880a8ebc2bf61cc</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\utils\atomic.h</file>
          <hash>80e018fe02cd0c54394bb9a54dcf927d346410567dc6dded62bea9b49e322acf</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\src\pin_manager.c</file>
+         <hash>a57d6bd52262e8f38f8b633ddcbb80ed78f7de04d4531ab2b0d623a0088aa359</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\utils\interrupt_avr8.h</file>
@@ -7228,12 +7228,12 @@
          <hash>802591ef9a8f76d82a9ebdd96dac4c62c9a3c56d991188efaebd5ec3ca4228e2</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\src\ccl.c</file>
-         <hash>267628a10a1a77b21e99b4124d1709ce2c7215277325672832b81676d10b3622</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\config\clock_config.h</file>
          <hash>56f694263d4754dd00df1651b3953025623ece2a102b61f6ff8dc099be70ea33</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\src\ccl.c</file>
+         <hash>5c8290a15cdd789527d0b0612587e21258059093e4f7d03decbb992753267098</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\utils\assembler\gas.h</file>

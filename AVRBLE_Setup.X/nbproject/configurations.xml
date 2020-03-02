@@ -54,7 +54,6 @@
         <itemPath>mcc_generated_files/mcc.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
-      <itemPath>i2c_lcd_lib.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
