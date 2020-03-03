@@ -54,6 +54,24 @@
 #define PC3_DisableDigitalInputBuffer() do { PORTC.PIN3CTRL = (PORTC.PIN3CTRL & ~PORT_ISC_gm) | 0x4 ; } while(0)
 #define PC3_EnableInterruptForLowLevelSensing() do { PORTC.PIN3CTRL = (PORTC.PIN3CTRL & ~PORT_ISC_gm) | 0x5 ; } while(0)
 
+//get/set IO_PF6 aliases
+#define IO_PF6_SetHigh() do { PORTF_OUTSET = 0x40; } while(0)
+#define IO_PF6_SetLow() do { PORTF_OUTCLR = 0x40; } while(0)
+#define IO_PF6_Toggle() do { PORTF_OUTTGL = 0x40; } while(0)
+#define IO_PF6_GetValue() (VPORTF.IN & (0x1 << 6))
+#define IO_PF6_SetDigitalInput() do { PORTF_DIRCLR = 0x40; } while(0)
+#define IO_PF6_SetDigitalOutput() do { PORTF_DIRSET = 0x40; } while(0)
+#define IO_PF6_SetPullUp() do { PORTF_PIN6CTRL  |= PORT_PULLUPEN_bm; } while(0)
+#define IO_PF6_ResetPullUp() do { PORTF_PIN6CTRL  &= ~PORT_PULLUPEN_bm; } while(0)
+#define IO_PF6_SetInverted() do { PORTF_PIN6CTRL  |= PORT_INVEN_bm; } while(0)
+#define IO_PF6_ResetInverted() do { PORTF_PIN6CTRL  &= ~PORT_INVEN_bm; } while(0)
+#define IO_PF6_DisableInterruptOnChange() do { PORTF.PIN6CTRL = (PORTF.PIN6CTRL & ~PORT_ISC_gm) | 0x0 ; } while(0)
+#define IO_PF6_EnableInterruptForBothEdges() do { PORTF.PIN6CTRL = (PORTF.PIN6CTRL & ~PORT_ISC_gm) | 0x1 ; } while(0)
+#define IO_PF6_EnableInterruptForRisingEdge() do { PORTF.PIN6CTRL = (PORTF.PIN6CTRL & ~PORT_ISC_gm) | 0x2 ; } while(0)
+#define IO_PF6_EnableInterruptForFallingEdge() do { PORTF.PIN6CTRL = (PORTF.PIN6CTRL & ~PORT_ISC_gm) | 0x3 ; } while(0)
+#define IO_PF6_DisableDigitalInputBuffer() do { PORTF.PIN6CTRL = (PORTF.PIN6CTRL & ~PORT_ISC_gm) | 0x4 ; } while(0)
+#define IO_PF6_EnableInterruptForLowLevelSensing() do { PORTF.PIN6CTRL = (PORTF.PIN6CTRL & ~PORT_ISC_gm) | 0x5 ; } while(0)
+
 //get/set IO_PA4 aliases
 #define IO_PA4_SetHigh() do { PORTA_OUTSET = 0x10; } while(0)
 #define IO_PA4_SetLow() do { PORTA_OUTCLR = 0x10; } while(0)
@@ -125,24 +143,6 @@
 #define IO_PA5_EnableInterruptForFallingEdge() do { PORTA.PIN5CTRL = (PORTA.PIN5CTRL & ~PORT_ISC_gm) | 0x3 ; } while(0)
 #define IO_PA5_DisableDigitalInputBuffer() do { PORTA.PIN5CTRL = (PORTA.PIN5CTRL & ~PORT_ISC_gm) | 0x4 ; } while(0)
 #define IO_PA5_EnableInterruptForLowLevelSensing() do { PORTA.PIN5CTRL = (PORTA.PIN5CTRL & ~PORT_ISC_gm) | 0x5 ; } while(0)
-
-//get/set IO_PA7 aliases
-#define IO_PA7_SetHigh() do { PORTA_OUTSET = 0x80; } while(0)
-#define IO_PA7_SetLow() do { PORTA_OUTCLR = 0x80; } while(0)
-#define IO_PA7_Toggle() do { PORTA_OUTTGL = 0x80; } while(0)
-#define IO_PA7_GetValue() (VPORTA.IN & (0x1 << 7))
-#define IO_PA7_SetDigitalInput() do { PORTA_DIRCLR = 0x80; } while(0)
-#define IO_PA7_SetDigitalOutput() do { PORTA_DIRSET = 0x80; } while(0)
-#define IO_PA7_SetPullUp() do { PORTA_PIN7CTRL  |= PORT_PULLUPEN_bm; } while(0)
-#define IO_PA7_ResetPullUp() do { PORTA_PIN7CTRL  &= ~PORT_PULLUPEN_bm; } while(0)
-#define IO_PA7_SetInverted() do { PORTA_PIN7CTRL  |= PORT_INVEN_bm; } while(0)
-#define IO_PA7_ResetInverted() do { PORTA_PIN7CTRL  &= ~PORT_INVEN_bm; } while(0)
-#define IO_PA7_DisableInterruptOnChange() do { PORTA.PIN7CTRL = (PORTA.PIN7CTRL & ~PORT_ISC_gm) | 0x0 ; } while(0)
-#define IO_PA7_EnableInterruptForBothEdges() do { PORTA.PIN7CTRL = (PORTA.PIN7CTRL & ~PORT_ISC_gm) | 0x1 ; } while(0)
-#define IO_PA7_EnableInterruptForRisingEdge() do { PORTA.PIN7CTRL = (PORTA.PIN7CTRL & ~PORT_ISC_gm) | 0x2 ; } while(0)
-#define IO_PA7_EnableInterruptForFallingEdge() do { PORTA.PIN7CTRL = (PORTA.PIN7CTRL & ~PORT_ISC_gm) | 0x3 ; } while(0)
-#define IO_PA7_DisableDigitalInputBuffer() do { PORTA.PIN7CTRL = (PORTA.PIN7CTRL & ~PORT_ISC_gm) | 0x4 ; } while(0)
-#define IO_PA7_EnableInterruptForLowLevelSensing() do { PORTA.PIN7CTRL = (PORTA.PIN7CTRL & ~PORT_ISC_gm) | 0x5 ; } while(0)
 
 //get/set PF1 aliases
 #define PF1_SetHigh() do { PORTF_OUTSET = 0x2; } while(0)
@@ -270,6 +270,24 @@
 #define PD3_DisableDigitalInputBuffer() do { PORTD.PIN3CTRL = (PORTD.PIN3CTRL & ~PORT_ISC_gm) | 0x4 ; } while(0)
 #define PD3_EnableInterruptForLowLevelSensing() do { PORTD.PIN3CTRL = (PORTD.PIN3CTRL & ~PORT_ISC_gm) | 0x5 ; } while(0)
 
+//get/set IO_PF5 aliases
+#define IO_PF5_SetHigh() do { PORTF_OUTSET = 0x20; } while(0)
+#define IO_PF5_SetLow() do { PORTF_OUTCLR = 0x20; } while(0)
+#define IO_PF5_Toggle() do { PORTF_OUTTGL = 0x20; } while(0)
+#define IO_PF5_GetValue() (VPORTF.IN & (0x1 << 5))
+#define IO_PF5_SetDigitalInput() do { PORTF_DIRCLR = 0x20; } while(0)
+#define IO_PF5_SetDigitalOutput() do { PORTF_DIRSET = 0x20; } while(0)
+#define IO_PF5_SetPullUp() do { PORTF_PIN5CTRL  |= PORT_PULLUPEN_bm; } while(0)
+#define IO_PF5_ResetPullUp() do { PORTF_PIN5CTRL  &= ~PORT_PULLUPEN_bm; } while(0)
+#define IO_PF5_SetInverted() do { PORTF_PIN5CTRL  |= PORT_INVEN_bm; } while(0)
+#define IO_PF5_ResetInverted() do { PORTF_PIN5CTRL  &= ~PORT_INVEN_bm; } while(0)
+#define IO_PF5_DisableInterruptOnChange() do { PORTF.PIN5CTRL = (PORTF.PIN5CTRL & ~PORT_ISC_gm) | 0x0 ; } while(0)
+#define IO_PF5_EnableInterruptForBothEdges() do { PORTF.PIN5CTRL = (PORTF.PIN5CTRL & ~PORT_ISC_gm) | 0x1 ; } while(0)
+#define IO_PF5_EnableInterruptForRisingEdge() do { PORTF.PIN5CTRL = (PORTF.PIN5CTRL & ~PORT_ISC_gm) | 0x2 ; } while(0)
+#define IO_PF5_EnableInterruptForFallingEdge() do { PORTF.PIN5CTRL = (PORTF.PIN5CTRL & ~PORT_ISC_gm) | 0x3 ; } while(0)
+#define IO_PF5_DisableDigitalInputBuffer() do { PORTF.PIN5CTRL = (PORTF.PIN5CTRL & ~PORT_ISC_gm) | 0x4 ; } while(0)
+#define IO_PF5_EnableInterruptForLowLevelSensing() do { PORTF.PIN5CTRL = (PORTF.PIN5CTRL & ~PORT_ISC_gm) | 0x5 ; } while(0)
+
 //get/set PC1 aliases
 #define PC1_SetHigh() do { PORTC_OUTSET = 0x2; } while(0)
 #define PC1_SetLow() do { PORTC_OUTCLR = 0x2; } while(0)
@@ -291,6 +309,8 @@
 void PIN_MANAGER_Initialize();
 void PORTC_PC3_DefaultInterruptHandler(void);
 void PORTC_PC3_SetInterruptHandler(void (* interruptHandler)(void)) ;
+void PORTF_IO_PF6_DefaultInterruptHandler(void);
+void PORTF_IO_PF6_SetInterruptHandler(void (* interruptHandler)(void)) ;
 void PORTA_IO_PA4_DefaultInterruptHandler(void);
 void PORTA_IO_PA4_SetInterruptHandler(void (* interruptHandler)(void)) ;
 void PORTA_PA3_DefaultInterruptHandler(void);
@@ -299,8 +319,6 @@ void PORTA_IO_PA6_DefaultInterruptHandler(void);
 void PORTA_IO_PA6_SetInterruptHandler(void (* interruptHandler)(void)) ;
 void PORTA_IO_PA5_DefaultInterruptHandler(void);
 void PORTA_IO_PA5_SetInterruptHandler(void (* interruptHandler)(void)) ;
-void PORTA_IO_PA7_DefaultInterruptHandler(void);
-void PORTA_IO_PA7_SetInterruptHandler(void (* interruptHandler)(void)) ;
 void PORTF_PF1_DefaultInterruptHandler(void);
 void PORTF_PF1_SetInterruptHandler(void (* interruptHandler)(void)) ;
 void PORTF_PF0_DefaultInterruptHandler(void);
@@ -315,6 +333,8 @@ void PORTD_PD0_DefaultInterruptHandler(void);
 void PORTD_PD0_SetInterruptHandler(void (* interruptHandler)(void)) ;
 void PORTD_PD3_DefaultInterruptHandler(void);
 void PORTD_PD3_SetInterruptHandler(void (* interruptHandler)(void)) ;
+void PORTF_IO_PF5_DefaultInterruptHandler(void);
+void PORTF_IO_PF5_SetInterruptHandler(void (* interruptHandler)(void)) ;
 void PORTC_PC1_DefaultInterruptHandler(void);
 void PORTC_PC1_SetInterruptHandler(void (* interruptHandler)(void)) ;
 #endif /* PINS_H_INCLUDED */
