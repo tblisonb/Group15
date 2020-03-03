@@ -13,9 +13,11 @@
 #define EXTRUDER_GEAR_RADIUS 5 // mm
 #define ENCODER_NUM_STEPS 20 // steps for one full rotation
 #define STEP_RADIANS (62832 / ENCODER_NUM_STEPS) // angular displacement *= 10E-4
-#define STEPPER_PORT PORTB
-#define ACTUATOR_PORT PORTC
-#define ACTUATOR_BIT 0
+#define STEPPER_PORT ((volatile unsigned char*) &PORTB)
+#define SERVO_PORT ((volatile unsigned char*) &PORTC)
+#define SERVO_BIT 0
+#define STRIP_OFFSET_ANGLE 70
+#define CUT_OFFSET_ANGLE 90
 
 /*
  * Runs the stepper motor for a single step to extrude wire.
@@ -42,7 +44,12 @@ void retract_min_step();
 void retract(int length);
 
 /*
- * Triggers the linear actuator to cut the wire at the current length.
+ * Triggers the servo to score the wire to be stripped.
+ */
+void strip();
+
+/*
+ * Triggers the servo to cut the wire at the current length.
  */
 void cut();
 

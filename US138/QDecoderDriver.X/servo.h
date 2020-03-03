@@ -8,6 +8,8 @@
 #ifndef SERVO_H
 #define	SERVO_H
 
+#define F_CPU 1000000UL
+
 #include <xc.h> // include processor files - each processor file is guarded.  
 #include <util/delay.h>
 
@@ -22,7 +24,7 @@
  * @param reg Register assigned to servo output
  * @param pin Pin number in 'reg' for servo output
  */
-void return_neutral(volatile char* reg, char pin);
+void return_neutral(volatile unsigned char* reg, char pin);
 
 /**
  * Temporarily rotates the servo to 'degrees' offset from zero.
@@ -32,7 +34,7 @@ void return_neutral(volatile char* reg, char pin);
  * @param pin Pin number in 'reg' for servo output
  * @return Pulse length for rotation
  */
-int rotate_pulse(int degrees, volatile char* reg, char pin);
+int rotate_pulse(int degrees, volatile unsigned char* reg, char pin);
 
 /**
  * Rotates and holds at 'degrees' offset from zero.
@@ -42,7 +44,7 @@ int rotate_pulse(int degrees, volatile char* reg, char pin);
  * @param reg Register assigned to servo output
  * @param pin Pin number in 'reg' for servo output
  */
-void rotate_hold(int degrees, int hold_delay, volatile char* reg, char pin);
+void rotate_hold(int degrees, int hold_delay, volatile unsigned char* reg, char pin);
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 

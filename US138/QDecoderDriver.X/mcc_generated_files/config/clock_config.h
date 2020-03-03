@@ -25,7 +25,7 @@
 #define CLOCK_CONFIG_H
 
 #ifndef F_CPU
-#define F_CPU 3333333
+#define F_CPU 1000000UL
 #endif
 
 #endif // CLOCK_CONFIG_H

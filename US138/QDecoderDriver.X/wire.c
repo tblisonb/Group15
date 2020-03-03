@@ -7,7 +7,7 @@
 
 #include <xc.h>
 #include "wire.h"
-#include "actuator.h"
+#include "servo.h"
 #include "stepper.h"
 
 int steps_from_length(int length) {
@@ -15,23 +15,27 @@ int steps_from_length(int length) {
 }
 
 void extrude_min_step() {
-    cw_step(&STEPPER_PORT);
+    cw_step(STEPPER_PORT);
 }
 
 void extrude(int length) {
     int steps = steps_from_length(length);
-    cw_turn(&STEPPER_PORT, steps, 1);
+    cw_turn(STEPPER_PORT, steps, 1);
 }
 
 void retract_min_step() {
-    cc_step(&STEPPER_PORT);
+    cc_step(STEPPER_PORT);
 }
 
 void retract(int length) {
     int steps = steps_from_length(length);
-    cc_turn(&STEPPER_PORT, steps, 1);
+    cc_turn(STEPPER_PORT, steps, 1);
+}
+
+void strip() {
+    rotate_pulse(STRIP_OFFSET_ANGLE, SERVO_PORT, SERVO_BIT);
 }
 
 void cut() {
-    actuator_pulse(&ACTUATOR_PORT, ACTUATOR_BIT, 5);
+    rotate_pulse(CUT_OFFSET_ANGLE, SERVO_PORT, SERVO_BIT);
 }

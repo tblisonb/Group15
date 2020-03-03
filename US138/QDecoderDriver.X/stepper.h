@@ -8,7 +8,7 @@
 #ifndef XC_STEPPER_H
 #define	XC_STEPPER_H
 
-#define F_CPU 3333333
+#define F_CPU 1000000UL
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 #include <avr/io.h>

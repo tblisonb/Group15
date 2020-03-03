@@ -23,7 +23,6 @@
 
 #include "../include/usart3.h"
 #include "../include/pin_manager.h"
-#include "pin_manager.c"
 
 #if defined(__GNUC__)
 

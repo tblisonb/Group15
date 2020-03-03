@@ -14,14 +14,14 @@ static inline void variable_delay_us(int delay) {
     }
 }
 
-void return_neutral(volatile char* reg, char pin) {
+void return_neutral(volatile unsigned char* reg, char pin) {
     (*reg) |= (1 << pin); // set pin high to start pulse
     _delay_us(MIN_PULSE); // delay for min pulse to reset to 0 deg.
     (*reg) &= ~(1 << pin); // set pin low to end pulse
     _delay_us(CYCLE_TIME - MIN_PULSE); // wait for remaining cycle
 }
 
-int rotate_pulse(int degrees, volatile char* reg, char pin) {
+int rotate_pulse(int degrees, volatile unsigned char* reg, char pin) {
     long length = 0;
     if (degrees <= 180) { // verify input within bounds
         (*reg) |= (1 << pin); // set pin high to start pulse
@@ -33,7 +33,7 @@ int rotate_pulse(int degrees, volatile char* reg, char pin) {
     return length;
 }
 
-void rotate_hold(int degrees, int hold_delay, volatile char* reg, char pin) {
+void rotate_hold(int degrees, int hold_delay, volatile unsigned char* reg, char pin) {
     long us_remain = hold_delay * 1000; // convert to us
     // call rotate_pulse for as many cycles are within 'hold_delay'
     while (us_remain > 0) {
