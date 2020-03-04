@@ -119,8 +119,13 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
         
         print(coilDB.getCoil(saveName).gauge)
         let aCoil = coilDB.getCoil(saveName)
-
-  
+        let aCoilJson = Coil.coil(name: aCoil.name, color:aCoil.color, gauge:aCoil.gauge, length: aCoil.length, quantity:aCoil.quantity)
+        let jsonData = (try? JSONEncoder().encode(aCoilJson))!
+        
+        if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
+           print(JSONString)
+        }
+        //print(jsonData!)
         print("coil \(saveName) added. Add coil return is: \(ret)")
       
     }

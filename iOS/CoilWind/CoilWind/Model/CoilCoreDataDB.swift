@@ -66,6 +66,7 @@ public class CoilCoreDataDB{
         if !coilExists(withName: name) {
             let entity = NSEntityDescription.entity(forEntityName: "Coil", in: mContext!)
             let aCoil = NSManagedObject(entity: entity!, insertInto: mContext)
+
             aCoil.setValue(name, forKey:"name")
             aCoil.setValue(color, forKey:"color")
             aCoil.setValue(length, forKey:"length")

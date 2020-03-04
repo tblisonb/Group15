@@ -11,6 +11,14 @@ import Foundation
 import CoreData
 
 @objc(Coil)
-public class Coil: NSManagedObject, Encodable {
+public class Coil: NSManagedObject {
+    
+    struct coil:Encodable {
+        var name: String?
+        var color: String?
+        var gauge: Double
+        var length: Double
+        var quantity: Int
 
+    }
 }
