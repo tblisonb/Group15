@@ -117,9 +117,12 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
         let ret = coilDB.addCoil(saveName, color: saveColor, length: saveLength, gauge: saveGauge, quantity: saveQuantity)
         _ = coilDB.saveContext()
         
-        print(coilDB.getCoil(saveName))
+        print(coilDB.getCoil(saveName).gauge)
+        let aCoil = coilDB.getCoil(saveName)
 
+  
         print("coil \(saveName) added. Add coil return is: \(ret)")
+      
     }
     
 

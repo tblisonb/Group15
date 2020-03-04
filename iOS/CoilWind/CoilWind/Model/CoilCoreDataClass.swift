@@ -11,6 +11,6 @@ import Foundation
 import CoreData
 
 @objc(Coil)
-public class Coil: NSManagedObject {
+public class Coil: NSManagedObject, Encodable {
 
 }
