@@ -144,6 +144,24 @@
 #define IO_PA5_DisableDigitalInputBuffer() do { PORTA.PIN5CTRL = (PORTA.PIN5CTRL & ~PORT_ISC_gm) | 0x4 ; } while(0)
 #define IO_PA5_EnableInterruptForLowLevelSensing() do { PORTA.PIN5CTRL = (PORTA.PIN5CTRL & ~PORT_ISC_gm) | 0x5 ; } while(0)
 
+//get/set PF1 aliases
+#define PF1_SetHigh() do { PORTF_OUTSET = 0x2; } while(0)
+#define PF1_SetLow() do { PORTF_OUTCLR = 0x2; } while(0)
+#define PF1_Toggle() do { PORTF_OUTTGL = 0x2; } while(0)
+#define PF1_GetValue() (VPORTF.IN & (0x1 << 1))
+#define PF1_SetDigitalInput() do { PORTF_DIRCLR = 0x2; } while(0)
+#define PF1_SetDigitalOutput() do { PORTF_DIRSET = 0x2; } while(0)
+#define PF1_SetPullUp() do { PORTF_PIN1CTRL  |= PORT_PULLUPEN_bm; } while(0)
+#define PF1_ResetPullUp() do { PORTF_PIN1CTRL  &= ~PORT_PULLUPEN_bm; } while(0)
+#define PF1_SetInverted() do { PORTF_PIN1CTRL  |= PORT_INVEN_bm; } while(0)
+#define PF1_ResetInverted() do { PORTF_PIN1CTRL  &= ~PORT_INVEN_bm; } while(0)
+#define PF1_DisableInterruptOnChange() do { PORTF.PIN1CTRL = (PORTF.PIN1CTRL & ~PORT_ISC_gm) | 0x0 ; } while(0)
+#define PF1_EnableInterruptForBothEdges() do { PORTF.PIN1CTRL = (PORTF.PIN1CTRL & ~PORT_ISC_gm) | 0x1 ; } while(0)
+#define PF1_EnableInterruptForRisingEdge() do { PORTF.PIN1CTRL = (PORTF.PIN1CTRL & ~PORT_ISC_gm) | 0x2 ; } while(0)
+#define PF1_EnableInterruptForFallingEdge() do { PORTF.PIN1CTRL = (PORTF.PIN1CTRL & ~PORT_ISC_gm) | 0x3 ; } while(0)
+#define PF1_DisableDigitalInputBuffer() do { PORTF.PIN1CTRL = (PORTF.PIN1CTRL & ~PORT_ISC_gm) | 0x4 ; } while(0)
+#define PF1_EnableInterruptForLowLevelSensing() do { PORTF.PIN1CTRL = (PORTF.PIN1CTRL & ~PORT_ISC_gm) | 0x5 ; } while(0)
+
 //get/set PF0 aliases
 #define PF0_SetHigh() do { PORTF_OUTSET = 0x1; } while(0)
 #define PF0_SetLow() do { PORTF_OUTCLR = 0x1; } while(0)
@@ -301,6 +319,8 @@ void PORTA_IO_PA6_DefaultInterruptHandler(void);
 void PORTA_IO_PA6_SetInterruptHandler(void (* interruptHandler)(void)) ;
 void PORTA_IO_PA5_DefaultInterruptHandler(void);
 void PORTA_IO_PA5_SetInterruptHandler(void (* interruptHandler)(void)) ;
+void PORTF_PF1_DefaultInterruptHandler(void);
+void PORTF_PF1_SetInterruptHandler(void (* interruptHandler)(void)) ;
 void PORTF_PF0_DefaultInterruptHandler(void);
 void PORTF_PF0_SetInterruptHandler(void (* interruptHandler)(void)) ;
 void PORTC_PC0_DefaultInterruptHandler(void);
