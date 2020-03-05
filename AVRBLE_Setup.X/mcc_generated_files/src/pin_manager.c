@@ -50,6 +50,15 @@ static void (*PORTC_PC1_InterruptHandler)(void);
 
 void PORT_Initialize(void);
 
+//a count to keep track of rotations of the quadrature encoder
+static unsigned int rotation = 0;
+
+int Get_Rotation(){
+    int hold = rotation;
+    rotation = 0;
+    return hold;
+}
+
 void PIN_MANAGER_Initialize()
 {
     PORT_Initialize();
@@ -202,8 +211,7 @@ void PORTC_PC3_SetInterruptHandler(void (* interruptHandler)(void))
 
 void PORTC_PC3_DefaultInterruptHandler(void)
 {
-    // add your PORTC_PC3 interrupt custom code
-    // or set custom function using PORTC_PC3_SetInterruptHandler()
+    rotation++;
 }
 /**
   Allows selecting an interrupt handler for PORTA_IO_PA4 at application runtime
