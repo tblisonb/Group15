@@ -23,7 +23,7 @@
 #include "mcc_generated_files/mcc.h"
 #include "mcc_generated_files/include/pin_manager.h"
 #include <stdlib.h>
-#include "stepper.h"
+#include "wire.h"
 
 /*
     Main application
@@ -38,7 +38,12 @@ int main(void)
      * a delay in between each 5 step increment.
      */
     while (1) {
-        
+        extrude_min_step();
+        extrude(5);
+        retract_min_step();
+        retract(2);
+        strip();
+        cut();
     }
 }
 /**
