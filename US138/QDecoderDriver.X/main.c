@@ -20,10 +20,12 @@
     OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
     SOFTWARE.
 */
-#include "mcc_generated_files/mcc.h"
 #include "mcc_generated_files/include/pin_manager.h"
 #include <stdlib.h>
 #include "wire.h"
+#include "RN4870.h"
+#include "mcc_generated_files/mcc.h"
+#include <util/delay.h>
 
 /*
     Main application
@@ -32,7 +34,7 @@ int main(void)
 {
     /* Initializes MCU, drivers and middleware */
     SYSTEM_Initialize();
-    
+    init_BLE("Smart Wire");
     /*
      * The following control will spin the stepper motor 5 steps at a time with
      * a delay in between each 5 step increment.
@@ -44,8 +46,7 @@ int main(void)
         retract(2);
         strip();
         cut();
+        send_message("test");
+        _delay_ms(1000);
     }
 }
-/**
-    End of File
-*/

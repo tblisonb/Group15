@@ -10,6 +10,9 @@
         <logicalFolder name="config" displayName="config" projectFiles="true">
           <itemPath>mcc_generated_files/config/clock_config.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="drivers" displayName="drivers" projectFiles="true">
+          <itemPath>mcc_generated_files/drivers/uart.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="include" displayName="include" projectFiles="true">
           <itemPath>mcc_generated_files/include/cpuint.h</itemPath>
           <itemPath>mcc_generated_files/include/port.h</itemPath>
@@ -19,6 +22,7 @@
           <itemPath>mcc_generated_files/include/ccl.h</itemPath>
           <itemPath>mcc_generated_files/include/usart3.h</itemPath>
           <itemPath>mcc_generated_files/include/protected_io.h</itemPath>
+          <itemPath>mcc_generated_files/include/usart0.h</itemPath>
         </logicalFolder>
         <logicalFolder name="utils" displayName="utils" projectFiles="true">
           <logicalFolder name="assembler" displayName="assembler" projectFiles="true">
@@ -33,11 +37,14 @@
           <itemPath>mcc_generated_files/utils/atomic.h</itemPath>
         </logicalFolder>
         <itemPath>mcc_generated_files/mcc.h</itemPath>
+        <itemPath>mcc_generated_files/delay.h</itemPath>
+        <itemPath>mcc_generated_files/BLE2_driver.h</itemPath>
       </logicalFolder>
       <itemPath>actuator.h</itemPath>
       <itemPath>stepper.h</itemPath>
       <itemPath>wire.h</itemPath>
       <itemPath>servo.h</itemPath>
+      <itemPath>RN4870.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -49,21 +56,28 @@
       <logicalFolder name="MCC Generated Files"
                      displayName="MCC Generated Files"
                      projectFiles="true">
+        <logicalFolder name="drivers" displayName="drivers" projectFiles="true">
+          <itemPath>mcc_generated_files/drivers/uart.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="src" displayName="src" projectFiles="true">
           <itemPath>mcc_generated_files/src/pin_manager.c</itemPath>
           <itemPath>mcc_generated_files/src/cpuint.c</itemPath>
           <itemPath>mcc_generated_files/src/protected_io.S</itemPath>
           <itemPath>mcc_generated_files/src/ccl.c</itemPath>
           <itemPath>mcc_generated_files/src/usart3.c</itemPath>
+          <itemPath>mcc_generated_files/src/usart0.c</itemPath>
         </logicalFolder>
         <itemPath>mcc_generated_files/mcc.c</itemPath>
         <itemPath>mcc_generated_files/device_config.c</itemPath>
+        <itemPath>mcc_generated_files/BLE2_driver.c</itemPath>
+        <itemPath>mcc_generated_files/delay.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
       <itemPath>actuator.c</itemPath>
       <itemPath>stepper.c</itemPath>
       <itemPath>wire.c</itemPath>
       <itemPath>servo.c</itemPath>
+      <itemPath>RN4870.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
