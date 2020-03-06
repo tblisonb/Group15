@@ -21,4 +21,10 @@ public class Coil: NSManagedObject {
         var quantity: Int
 
     }
+    
+    struct sendCoil:Encodable{
+        var gauge: Double
+        var length: Double
+        var quantity: Int
+    }
 }

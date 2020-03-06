@@ -83,6 +83,7 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
     // run device button ----- unable to finish at this time
     // will finish once bluetooth functionality is implemented
     @IBAction func runDeviceBtn(_ sender: Any) {
+        
     }
     
     // quick save button implements add function to database
@@ -117,10 +118,16 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
         let ret = coilDB.addCoil(saveName, color: saveColor, length: saveLength, gauge: saveGauge, quantity: saveQuantity)
         _ = coilDB.saveContext()
         
-        print(coilDB.getCoil(saveName).gauge)
+        //***************************************************************************************************************************
+        //serialize the entry test this will be moved to the run device button when the ble connection test have come back successful
+        //***************************************************************************************************************************
         let aCoil = coilDB.getCoil(saveName)
         let aCoilJson = Coil.coil(name: aCoil.name, color:aCoil.color, gauge:aCoil.gauge, length: aCoil.length, quantity:aCoil.quantity)
+        let sendCoil = Coil.sendCoil(gauge: aCoil.gauge, length: aCoil.length, quantity: aCoil.quantity)
         let jsonData = (try? JSONEncoder().encode(aCoilJson))!
+        let jsonData2 = (try? JSONEncoder().encode(sendCoil))!
+        
+        print(jsonData2)
         
         if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
            print(JSONString)
