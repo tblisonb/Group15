@@ -41,8 +41,8 @@ void SYSTEM_Initialize(void)
     PIN_MANAGER_Initialize();
     BOD_Initialize();
     WDT_Initialize();
-    SLPCTRL_Initialize();
     CLKCTRL_Initialize();
+    SLPCTRL_Initialize();
     USART3_Initialize();
     CCL_Initialize();
     CPUINT_Initialize();
@@ -88,8 +88,8 @@ int8_t CLKCTRL_Initialize()
     //RUNSTDBY disabled; 
     ccp_write_io((void*)&(CLKCTRL.OSC20MCTRLA),0x00);
 
-    //PDIV 6X; PEN enabled; 
-    ccp_write_io((void*)&(CLKCTRL.MCLKCTRLB),0x11);
+    //PDIV 64X; PEN disabled; 
+    ccp_write_io((void*)&(CLKCTRL.MCLKCTRLB),0x0A);
 
     //CLKOUT disabled; CLKSEL OSC20M; 
     ccp_write_io((void*)&(CLKCTRL.MCLKCTRLA),0x00);

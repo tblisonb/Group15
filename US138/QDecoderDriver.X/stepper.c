@@ -43,9 +43,7 @@ void cw_turn(volatile void* regist, int num_steps, int delay) {
     // step 'num_steps' clockwise with 'delay' ms between steps
     for (i = 0; i < num_steps; i++) {
         //cw_step(reg);
-        for (j = 0; j < delay; j++) {
-            _delay_ms(100);
-        }
+        DELAY_microseconds(delay);
     }
 }
 
@@ -54,8 +52,6 @@ void cc_turn(volatile void* regist, int num_steps, int delay) {
     // step 'num_steps' counterclockwise with 'delay' ms between steps
     for (i = 0; i < num_steps; i++) {
         //cw_step(reg);
-        for (j = 0; j < delay; j++) {
-            _delay_ms(100);
-        }
+        DELAY_microseconds(delay);
     }
 }

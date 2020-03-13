@@ -22,8 +22,8 @@
 */
 
 #include <string.h>
-#include "../mcc.h"
-#include "../drivers/uart.h"
+#include "mcc_generated_files/mcc.h"
+#include "mcc_generated_files/include/usart0.h"
 #include "rn487x_interface.h"
 
 static bool connected = false;

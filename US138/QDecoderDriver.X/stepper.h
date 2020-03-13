@@ -8,12 +8,9 @@
 #ifndef XC_STEPPER_H
 #define	XC_STEPPER_H
 
-#define F_CPU 1000000UL
-
-#include <xc.h> // include processor files - each processor file is guarded.  
 #include <avr/io.h>
 #include <stdint.h>
-#include <util/delay.h>
+#include "mcc_generated_files/delay.h"
 
 #define STATE1 0xA
 #define STATE2 0x6
@@ -42,7 +39,7 @@ unsigned char cc_step(volatile unsigned char* reg, volatile unsigned char prev_s
  * 
  * @param reg Output register assigned for the stepper motor control
  * @param num_steps Number of steps to turn the stepper motor
- * @param delay Delay between state changes (for speed control) in 1/10 sec
+ * @param delay Delay between state changes (for speed control) in ms
  */
 void cw_turn(volatile void* reg, int num_steps, int delay);
 
@@ -52,7 +49,7 @@ void cw_turn(volatile void* reg, int num_steps, int delay);
  * 
  * @param reg Output register assigned for the stepper motor control
  * @param num_steps Number of steps to turn the stepper motor
- * @param delay Delay between state changes (for speed control) in 1/10 sec
+ * @param delay Delay between state changes (for speed control) in ms
  */
 void cc_turn(volatile void* reg, int num_steps, int delay);
 

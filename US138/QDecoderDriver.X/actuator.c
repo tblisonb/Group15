@@ -26,7 +26,7 @@ void actuator_pulse(volatile uint8_t* reg, int bit_num, int length) {
     int i;
     // delay (for loop since _delay_ms cannot take variable input)
     for (i = 0; i < length; i++) {
-        _delay_ms(100);
+        DELAY_milliseconds(100);
     }
     (*reg) &= (1 << bit_num); // turn output low
 }
@@ -36,7 +36,7 @@ void actuator_pulse_inv(volatile uint8_t* reg, int bit_num, int length) {
     int i;
     // delay (for loop since _delay_ms cannot take variable input)
     for (i = 0; i < length; i++) {
-        _delay_ms(100);
+        DELAY_milliseconds(100);
     }
     (*reg) |= (1 << bit_num); // turn output high
 }

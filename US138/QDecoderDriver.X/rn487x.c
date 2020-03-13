@@ -25,7 +25,7 @@
   Section: Included Files
  */
 #include <stdio.h>
-#include "../mcc.h"
+#include "mcc_generated_files/mcc.h"
 #include "rn487x.h"
 
 #define STATUS_MESSAGE_DELIMITER        '%'

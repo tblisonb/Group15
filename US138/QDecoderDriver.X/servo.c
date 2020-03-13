@@ -7,18 +7,11 @@
 
 #include "servo.h"
 
-// needed for delays without known delay amount
-static inline void variable_delay_us(int delay) {
-    while (delay--) {
-        _delay_us(1);
-    }
-}
-
 void return_neutral(volatile unsigned char* reg, char pin) {
     (*reg) |= (1 << pin); // set pin high to start pulse
-    _delay_us(MIN_PULSE); // delay for min pulse to reset to 0 deg.
+    DELAY_microseconds(MIN_PULSE); // delay for min pulse to reset to 0 deg.
     (*reg) &= ~(1 << pin); // set pin low to end pulse
-    _delay_us(CYCLE_TIME - MIN_PULSE); // wait for remaining cycle
+    DELAY_microseconds(CYCLE_TIME - MIN_PULSE); // wait for remaining cycle
 }
 
 int rotate_pulse(int degrees, volatile unsigned char* reg, char pin) {
@@ -27,7 +20,7 @@ int rotate_pulse(int degrees, volatile unsigned char* reg, char pin) {
         (*reg) |= (1 << pin); // set pin high to start pulse
         // calculate the length of the pulse needed for 'degrees' offset
         length = (((long)(MAX_PULSE - MIN_PULSE)) * degrees) / RANGE_DEGREES;
-        variable_delay_us(length); // delay for pulse to reach 'degrees' offset
+        DELAY_microseconds(length); // delay for pulse to reach 'degrees' offset
         (*reg) &= ~(1 << pin); // set pin low to end pulse
     }
     return length;
@@ -39,6 +32,6 @@ void rotate_hold(int degrees, int hold_delay, volatile unsigned char* reg, char 
     while (us_remain > 0) {
         int length = rotate_pulse(degrees, reg, pin);
         us_remain -= CYCLE_TIME; // update time remaining
-        variable_delay_us(CYCLE_TIME - length);
+        DELAY_microseconds(CYCLE_TIME - length);
     }
 }

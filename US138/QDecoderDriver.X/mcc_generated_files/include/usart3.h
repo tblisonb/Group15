@@ -45,7 +45,7 @@ extern "C" {
 #endif
 
 /* Normal Mode, Baud register value */
-#define USART3_BAUD_RATE(BAUD_RATE) (((float)3333333 * 64 / (16 * (float)BAUD_RATE)) + 0.5)
+#define USART3_BAUD_RATE(BAUD_RATE) (((float)20000000 * 64 / (16 * (float)BAUD_RATE)) + 0.5)
 
 /* USART3 Ringbuffer */
 

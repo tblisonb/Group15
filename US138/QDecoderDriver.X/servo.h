@@ -8,10 +8,7 @@
 #ifndef SERVO_H
 #define	SERVO_H
 
-#define F_CPU 1000000UL
-
-#include <xc.h> // include processor files - each processor file is guarded.  
-#include <util/delay.h>
+#include "mcc_generated_files/delay.h"
 
 #define MIN_PULSE     1000  // us for 0 degrees
 #define MAX_PULSE     2000  // us for max turn

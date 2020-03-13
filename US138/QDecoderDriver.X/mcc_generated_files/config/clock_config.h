@@ -30,11 +30,12 @@
     SOFTWARE.
 */
 
+
 #ifndef CLOCK_CONFIG_H
 #define CLOCK_CONFIG_H
 
 #ifndef F_CPU
-#define F_CPU 3333333
+#define F_CPU 2000000
 #endif
 
 #endif // CLOCK_CONFIG_H
