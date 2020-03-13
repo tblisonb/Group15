@@ -7,7 +7,7 @@
 
 #include "mcc_generated_files/mcc.h"
 #include <stdlib.h>
-#include "wire.h"
+#include "stepper.h"
 
 
 int main(void) {
@@ -20,12 +20,11 @@ int main(void) {
      * a delay in between each 5 step increment.
      */
     
+    volatile unsigned char state = STATE1;
+    
     while (1) {
-        extrude_min_step(); // single step the stepper motor
-        extrude(50); // extrude 50 mm of wire
-        cut();       // cut wire at current length
-        retract(10); // retract 10 mm of wire
-        retract_min_step(); // single step the stepper motor
+        state = cw_step((volatile unsigned char*)&PORTD.OUT, state);
+        _delay_ms(1000);
     }
 }
 

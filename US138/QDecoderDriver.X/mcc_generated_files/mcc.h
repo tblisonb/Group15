@@ -1,3 +1,12 @@
+/**
+  @Company
+    Microchip Technology Inc.
+
+  @Description
+    This Source file provides APIs.
+    Generation Information :
+    Driver Version    :   1.0.0
+*/
 /*
     (c) 2018 Microchip Technology Inc. and its subsidiaries. 
     
@@ -21,6 +30,7 @@
     SOFTWARE.
 */
 
+
 #ifndef MCC_H
 #define	MCC_H
 
@@ -30,11 +40,11 @@ extern "C" {
 
 #include "utils/compiler.h"
 #include "include/pin_manager.h"
-#include "include/cpuint.h"
 #include "include/usart0.h"
+#include "include/usart3.h"
+#include "include/cpuint.h"
 #include "delay.h"
 #include "include/ccl.h"
-#include "include/usart3.h"
 #include "config/clock_config.h"
 
 /**

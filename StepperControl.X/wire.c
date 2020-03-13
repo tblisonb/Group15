@@ -15,7 +15,7 @@ int steps_from_length(int length) {
 }
 
 void extrude_min_step() {
-    cw_step(&STEPPER_PORT);
+    //cw_step(&STEPPER_PORT);
 }
 
 void extrude(int length) {
@@ -24,7 +24,7 @@ void extrude(int length) {
 }
 
 void retract_min_step() {
-    cc_step(&STEPPER_PORT);
+    //cc_step(&STEPPER_PORT);
 }
 
 void retract(int length) {

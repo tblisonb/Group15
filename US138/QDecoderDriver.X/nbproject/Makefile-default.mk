@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=mcc_generated_files/src/pin_manager.c mcc_generated_files/src/cpuint.c mcc_generated_files/src/protected_io.S mcc_generated_files/src/ccl.c mcc_generated_files/src/usart3.c mcc_generated_files/mcc.c mcc_generated_files/device_config.c main.c actuator.c stepper.c wire.c servo.c mcc_generated_files/src/usart0.c mcc_generated_files/BLE2_driver.c mcc_generated_files/delay.c mcc_generated_files/drivers/uart.c RN4870.c
+SOURCEFILES_QUOTED_IF_SPACED=mcc_generated_files/src/pin_manager.c mcc_generated_files/src/cpuint.c mcc_generated_files/src/protected_io.S mcc_generated_files/src/ccl.c mcc_generated_files/src/usart3.c mcc_generated_files/src/usart0.c mcc_generated_files/mcc.c mcc_generated_files/device_config.c main.c actuator.c stepper.c wire.c servo.c rn487x.c rn487x_interface.c mcc_generated_files/delay.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/mcc_generated_files/src/pin_manager.o ${OBJECTDIR}/mcc_generated_files/src/cpuint.o ${OBJECTDIR}/mcc_generated_files/src/protected_io.o ${OBJECTDIR}/mcc_generated_files/src/ccl.o ${OBJECTDIR}/mcc_generated_files/src/usart3.o ${OBJECTDIR}/mcc_generated_files/mcc.o ${OBJECTDIR}/mcc_generated_files/device_config.o ${OBJECTDIR}/main.o ${OBJECTDIR}/actuator.o ${OBJECTDIR}/stepper.o ${OBJECTDIR}/wire.o ${OBJECTDIR}/servo.o ${OBJECTDIR}/mcc_generated_files/src/usart0.o ${OBJECTDIR}/mcc_generated_files/BLE2_driver.o ${OBJECTDIR}/mcc_generated_files/delay.o ${OBJECTDIR}/mcc_generated_files/drivers/uart.o ${OBJECTDIR}/RN4870.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/mcc_generated_files/src/pin_manager.o.d ${OBJECTDIR}/mcc_generated_files/src/cpuint.o.d ${OBJECTDIR}/mcc_generated_files/src/protected_io.o.d ${OBJECTDIR}/mcc_generated_files/src/ccl.o.d ${OBJECTDIR}/mcc_generated_files/src/usart3.o.d ${OBJECTDIR}/mcc_generated_files/mcc.o.d ${OBJECTDIR}/mcc_generated_files/device_config.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/actuator.o.d ${OBJECTDIR}/stepper.o.d ${OBJECTDIR}/wire.o.d ${OBJECTDIR}/servo.o.d ${OBJECTDIR}/mcc_generated_files/src/usart0.o.d ${OBJECTDIR}/mcc_generated_files/BLE2_driver.o.d ${OBJECTDIR}/mcc_generated_files/delay.o.d ${OBJECTDIR}/mcc_generated_files/drivers/uart.o.d ${OBJECTDIR}/RN4870.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/mcc_generated_files/src/pin_manager.o ${OBJECTDIR}/mcc_generated_files/src/cpuint.o ${OBJECTDIR}/mcc_generated_files/src/protected_io.o ${OBJECTDIR}/mcc_generated_files/src/ccl.o ${OBJECTDIR}/mcc_generated_files/src/usart3.o ${OBJECTDIR}/mcc_generated_files/src/usart0.o ${OBJECTDIR}/mcc_generated_files/mcc.o ${OBJECTDIR}/mcc_generated_files/device_config.o ${OBJECTDIR}/main.o ${OBJECTDIR}/actuator.o ${OBJECTDIR}/stepper.o ${OBJECTDIR}/wire.o ${OBJECTDIR}/servo.o ${OBJECTDIR}/rn487x.o ${OBJECTDIR}/rn487x_interface.o ${OBJECTDIR}/mcc_generated_files/delay.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/mcc_generated_files/src/pin_manager.o.d ${OBJECTDIR}/mcc_generated_files/src/cpuint.o.d ${OBJECTDIR}/mcc_generated_files/src/protected_io.o.d ${OBJECTDIR}/mcc_generated_files/src/ccl.o.d ${OBJECTDIR}/mcc_generated_files/src/usart3.o.d ${OBJECTDIR}/mcc_generated_files/src/usart0.o.d ${OBJECTDIR}/mcc_generated_files/mcc.o.d ${OBJECTDIR}/mcc_generated_files/device_config.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/actuator.o.d ${OBJECTDIR}/stepper.o.d ${OBJECTDIR}/wire.o.d ${OBJECTDIR}/servo.o.d ${OBJECTDIR}/rn487x.o.d ${OBJECTDIR}/rn487x_interface.o.d ${OBJECTDIR}/mcc_generated_files/delay.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/mcc_generated_files/src/pin_manager.o ${OBJECTDIR}/mcc_generated_files/src/cpuint.o ${OBJECTDIR}/mcc_generated_files/src/protected_io.o ${OBJECTDIR}/mcc_generated_files/src/ccl.o ${OBJECTDIR}/mcc_generated_files/src/usart3.o ${OBJECTDIR}/mcc_generated_files/mcc.o ${OBJECTDIR}/mcc_generated_files/device_config.o ${OBJECTDIR}/main.o ${OBJECTDIR}/actuator.o ${OBJECTDIR}/stepper.o ${OBJECTDIR}/wire.o ${OBJECTDIR}/servo.o ${OBJECTDIR}/mcc_generated_files/src/usart0.o ${OBJECTDIR}/mcc_generated_files/BLE2_driver.o ${OBJECTDIR}/mcc_generated_files/delay.o ${OBJECTDIR}/mcc_generated_files/drivers/uart.o ${OBJECTDIR}/RN4870.o
+OBJECTFILES=${OBJECTDIR}/mcc_generated_files/src/pin_manager.o ${OBJECTDIR}/mcc_generated_files/src/cpuint.o ${OBJECTDIR}/mcc_generated_files/src/protected_io.o ${OBJECTDIR}/mcc_generated_files/src/ccl.o ${OBJECTDIR}/mcc_generated_files/src/usart3.o ${OBJECTDIR}/mcc_generated_files/src/usart0.o ${OBJECTDIR}/mcc_generated_files/mcc.o ${OBJECTDIR}/mcc_generated_files/device_config.o ${OBJECTDIR}/main.o ${OBJECTDIR}/actuator.o ${OBJECTDIR}/stepper.o ${OBJECTDIR}/wire.o ${OBJECTDIR}/servo.o ${OBJECTDIR}/rn487x.o ${OBJECTDIR}/rn487x_interface.o ${OBJECTDIR}/mcc_generated_files/delay.o
 
 # Source Files
-SOURCEFILES=mcc_generated_files/src/pin_manager.c mcc_generated_files/src/cpuint.c mcc_generated_files/src/protected_io.S mcc_generated_files/src/ccl.c mcc_generated_files/src/usart3.c mcc_generated_files/mcc.c mcc_generated_files/device_config.c main.c actuator.c stepper.c wire.c servo.c mcc_generated_files/src/usart0.c mcc_generated_files/BLE2_driver.c mcc_generated_files/delay.c mcc_generated_files/drivers/uart.c RN4870.c
+SOURCEFILES=mcc_generated_files/src/pin_manager.c mcc_generated_files/src/cpuint.c mcc_generated_files/src/protected_io.S mcc_generated_files/src/ccl.c mcc_generated_files/src/usart3.c mcc_generated_files/src/usart0.c mcc_generated_files/mcc.c mcc_generated_files/device_config.c main.c actuator.c stepper.c wire.c servo.c rn487x.c rn487x_interface.c mcc_generated_files/delay.c
 
 
 
@@ -118,6 +118,12 @@ ${OBJECTDIR}/mcc_generated_files/src/usart3.o: mcc_generated_files/src/usart3.c 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/src/usart3.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__  -mdfp="C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/mcc_generated_files/src/usart3.o.d" -MT "${OBJECTDIR}/mcc_generated_files/src/usart3.o.d" -MT ${OBJECTDIR}/mcc_generated_files/src/usart3.o -o ${OBJECTDIR}/mcc_generated_files/src/usart3.o mcc_generated_files/src/usart3.c 
 	
+${OBJECTDIR}/mcc_generated_files/src/usart0.o: mcc_generated_files/src/usart0.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/src" 
+	@${RM} ${OBJECTDIR}/mcc_generated_files/src/usart0.o.d 
+	@${RM} ${OBJECTDIR}/mcc_generated_files/src/usart0.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__  -mdfp="C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/mcc_generated_files/src/usart0.o.d" -MT "${OBJECTDIR}/mcc_generated_files/src/usart0.o.d" -MT ${OBJECTDIR}/mcc_generated_files/src/usart0.o -o ${OBJECTDIR}/mcc_generated_files/src/usart0.o mcc_generated_files/src/usart0.c 
+	
 ${OBJECTDIR}/mcc_generated_files/mcc.o: mcc_generated_files/mcc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/mcc.o.d 
@@ -160,35 +166,23 @@ ${OBJECTDIR}/servo.o: servo.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/servo.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__  -mdfp="C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/servo.o.d" -MT "${OBJECTDIR}/servo.o.d" -MT ${OBJECTDIR}/servo.o -o ${OBJECTDIR}/servo.o servo.c 
 	
-${OBJECTDIR}/mcc_generated_files/src/usart0.o: mcc_generated_files/src/usart0.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/src" 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/src/usart0.o.d 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/src/usart0.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__  -mdfp="C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/mcc_generated_files/src/usart0.o.d" -MT "${OBJECTDIR}/mcc_generated_files/src/usart0.o.d" -MT ${OBJECTDIR}/mcc_generated_files/src/usart0.o -o ${OBJECTDIR}/mcc_generated_files/src/usart0.o mcc_generated_files/src/usart0.c 
+${OBJECTDIR}/rn487x.o: rn487x.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/rn487x.o.d 
+	@${RM} ${OBJECTDIR}/rn487x.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__  -mdfp="C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/rn487x.o.d" -MT "${OBJECTDIR}/rn487x.o.d" -MT ${OBJECTDIR}/rn487x.o -o ${OBJECTDIR}/rn487x.o rn487x.c 
 	
-${OBJECTDIR}/mcc_generated_files/BLE2_driver.o: mcc_generated_files/BLE2_driver.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/BLE2_driver.o.d 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/BLE2_driver.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__  -mdfp="C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/mcc_generated_files/BLE2_driver.o.d" -MT "${OBJECTDIR}/mcc_generated_files/BLE2_driver.o.d" -MT ${OBJECTDIR}/mcc_generated_files/BLE2_driver.o -o ${OBJECTDIR}/mcc_generated_files/BLE2_driver.o mcc_generated_files/BLE2_driver.c 
+${OBJECTDIR}/rn487x_interface.o: rn487x_interface.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/rn487x_interface.o.d 
+	@${RM} ${OBJECTDIR}/rn487x_interface.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__  -mdfp="C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/rn487x_interface.o.d" -MT "${OBJECTDIR}/rn487x_interface.o.d" -MT ${OBJECTDIR}/rn487x_interface.o -o ${OBJECTDIR}/rn487x_interface.o rn487x_interface.c 
 	
 ${OBJECTDIR}/mcc_generated_files/delay.o: mcc_generated_files/delay.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/delay.o.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/delay.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__  -mdfp="C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/mcc_generated_files/delay.o.d" -MT "${OBJECTDIR}/mcc_generated_files/delay.o.d" -MT ${OBJECTDIR}/mcc_generated_files/delay.o -o ${OBJECTDIR}/mcc_generated_files/delay.o mcc_generated_files/delay.c 
-	
-${OBJECTDIR}/mcc_generated_files/drivers/uart.o: mcc_generated_files/drivers/uart.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/drivers" 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/uart.o.d 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/uart.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__  -mdfp="C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/mcc_generated_files/drivers/uart.o.d" -MT "${OBJECTDIR}/mcc_generated_files/drivers/uart.o.d" -MT ${OBJECTDIR}/mcc_generated_files/drivers/uart.o -o ${OBJECTDIR}/mcc_generated_files/drivers/uart.o mcc_generated_files/drivers/uart.c 
-	
-${OBJECTDIR}/RN4870.o: RN4870.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/RN4870.o.d 
-	@${RM} ${OBJECTDIR}/RN4870.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__  -mdfp="C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/RN4870.o.d" -MT "${OBJECTDIR}/RN4870.o.d" -MT ${OBJECTDIR}/RN4870.o -o ${OBJECTDIR}/RN4870.o RN4870.c 
 	
 else
 ${OBJECTDIR}/mcc_generated_files/src/pin_manager.o: mcc_generated_files/src/pin_manager.c  nbproject/Makefile-${CND_CONF}.mk
@@ -214,6 +208,12 @@ ${OBJECTDIR}/mcc_generated_files/src/usart3.o: mcc_generated_files/src/usart3.c 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/src/usart3.o.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/src/usart3.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__  -mdfp="C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/mcc_generated_files/src/usart3.o.d" -MT "${OBJECTDIR}/mcc_generated_files/src/usart3.o.d" -MT ${OBJECTDIR}/mcc_generated_files/src/usart3.o -o ${OBJECTDIR}/mcc_generated_files/src/usart3.o mcc_generated_files/src/usart3.c 
+	
+${OBJECTDIR}/mcc_generated_files/src/usart0.o: mcc_generated_files/src/usart0.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/src" 
+	@${RM} ${OBJECTDIR}/mcc_generated_files/src/usart0.o.d 
+	@${RM} ${OBJECTDIR}/mcc_generated_files/src/usart0.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__  -mdfp="C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/mcc_generated_files/src/usart0.o.d" -MT "${OBJECTDIR}/mcc_generated_files/src/usart0.o.d" -MT ${OBJECTDIR}/mcc_generated_files/src/usart0.o -o ${OBJECTDIR}/mcc_generated_files/src/usart0.o mcc_generated_files/src/usart0.c 
 	
 ${OBJECTDIR}/mcc_generated_files/mcc.o: mcc_generated_files/mcc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
@@ -257,35 +257,23 @@ ${OBJECTDIR}/servo.o: servo.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/servo.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__  -mdfp="C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/servo.o.d" -MT "${OBJECTDIR}/servo.o.d" -MT ${OBJECTDIR}/servo.o -o ${OBJECTDIR}/servo.o servo.c 
 	
-${OBJECTDIR}/mcc_generated_files/src/usart0.o: mcc_generated_files/src/usart0.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/src" 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/src/usart0.o.d 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/src/usart0.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__  -mdfp="C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/mcc_generated_files/src/usart0.o.d" -MT "${OBJECTDIR}/mcc_generated_files/src/usart0.o.d" -MT ${OBJECTDIR}/mcc_generated_files/src/usart0.o -o ${OBJECTDIR}/mcc_generated_files/src/usart0.o mcc_generated_files/src/usart0.c 
+${OBJECTDIR}/rn487x.o: rn487x.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/rn487x.o.d 
+	@${RM} ${OBJECTDIR}/rn487x.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__  -mdfp="C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/rn487x.o.d" -MT "${OBJECTDIR}/rn487x.o.d" -MT ${OBJECTDIR}/rn487x.o -o ${OBJECTDIR}/rn487x.o rn487x.c 
 	
-${OBJECTDIR}/mcc_generated_files/BLE2_driver.o: mcc_generated_files/BLE2_driver.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/BLE2_driver.o.d 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/BLE2_driver.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__  -mdfp="C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/mcc_generated_files/BLE2_driver.o.d" -MT "${OBJECTDIR}/mcc_generated_files/BLE2_driver.o.d" -MT ${OBJECTDIR}/mcc_generated_files/BLE2_driver.o -o ${OBJECTDIR}/mcc_generated_files/BLE2_driver.o mcc_generated_files/BLE2_driver.c 
+${OBJECTDIR}/rn487x_interface.o: rn487x_interface.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/rn487x_interface.o.d 
+	@${RM} ${OBJECTDIR}/rn487x_interface.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__  -mdfp="C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/rn487x_interface.o.d" -MT "${OBJECTDIR}/rn487x_interface.o.d" -MT ${OBJECTDIR}/rn487x_interface.o -o ${OBJECTDIR}/rn487x_interface.o rn487x_interface.c 
 	
 ${OBJECTDIR}/mcc_generated_files/delay.o: mcc_generated_files/delay.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/delay.o.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/delay.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__  -mdfp="C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/mcc_generated_files/delay.o.d" -MT "${OBJECTDIR}/mcc_generated_files/delay.o.d" -MT ${OBJECTDIR}/mcc_generated_files/delay.o -o ${OBJECTDIR}/mcc_generated_files/delay.o mcc_generated_files/delay.c 
-	
-${OBJECTDIR}/mcc_generated_files/drivers/uart.o: mcc_generated_files/drivers/uart.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/drivers" 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/uart.o.d 
-	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/uart.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__  -mdfp="C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/mcc_generated_files/drivers/uart.o.d" -MT "${OBJECTDIR}/mcc_generated_files/drivers/uart.o.d" -MT ${OBJECTDIR}/mcc_generated_files/drivers/uart.o -o ${OBJECTDIR}/mcc_generated_files/drivers/uart.o mcc_generated_files/drivers/uart.c 
-	
-${OBJECTDIR}/RN4870.o: RN4870.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/RN4870.o.d 
-	@${RM} ${OBJECTDIR}/RN4870.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__  -mdfp="C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/RN4870.o.d" -MT "${OBJECTDIR}/RN4870.o.d" -MT ${OBJECTDIR}/RN4870.o -o ${OBJECTDIR}/RN4870.o RN4870.c 
 	
 endif
 

@@ -20,26 +20,35 @@
     OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
     SOFTWARE.
 */
-#include "mcc_generated_files/include/pin_manager.h"
-#include <stdlib.h>
-#include "wire.h"
-#include "RN4870.h"
-#include "mcc_generated_files/mcc.h"
-#include <util/delay.h>
+#ifndef RN487X_INTERFACE_H
+#define	RN487X_INTERFACE_H
+#include <stdbool.h>
+#include <stdint.h>
 
-/*
-    Main application
-*/
-int main(void)
+typedef struct
 {
-    /* Initializes MCU, drivers and middleware */
-    SYSTEM_Initialize();
-    init_BLE("Smart Wire");
-    /*
-     * The following control will spin the stepper motor 5 steps at a time with
-     * a delay in between each 5 step increment.
-     */
-    while (1) {
-        
-    }
-}
+    // RN487x UART interface control
+    void (*uartTx)(uint8_t);
+    uint8_t (*uartRx)(void);
+    bool (*isTxDone)(void);
+    bool (*isRxReady)(void);
+    // RN487x RX_IND pin control
+    void (*rxIndSet)(bool);
+    // RN487x Reset pin control
+    void (*rstSet)(bool);
+    // RN487x Mode pin set
+    void (*modeSet)(bool);
+    // RN487x Mode pin get
+    bool (*modeGet)(void);
+    // Delay API
+    void (*delayMs)(uint16_t);
+    // Status Message Handler
+    void (*asyncHandler)(char*);
+}iRN487X_FunctionPtrs_t;
+
+extern const iRN487X_FunctionPtrs_t RN487X;
+
+bool RN487X_IsConnected(void);
+
+#endif	/* RN487X_INTERFACE_H */
+

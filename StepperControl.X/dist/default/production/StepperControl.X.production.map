@@ -50,6 +50,9 @@ Discarded input sections
  .text          0x00000000        0x0 build/default/production/stepper.o
  .data          0x00000000        0x0 build/default/production/stepper.o
  .bss           0x00000000        0x0 build/default/production/stepper.o
+ .text.cc_step  0x00000000       0x46 build/default/production/stepper.o
+ .text.cw_turn  0x00000000       0x38 build/default/production/stepper.o
+ .text.cc_turn  0x00000000       0x38 build/default/production/stepper.o
  .text          0x00000000        0x0 build/default/production/actuator.o
  .data          0x00000000        0x0 build/default/production/actuator.o
  .bss           0x00000000        0x0 build/default/production/actuator.o
@@ -59,13 +62,42 @@ Discarded input sections
                 0x00000000       0x18 build/default/production/actuator.o
  .text.actuator_release
                 0x00000000       0x18 build/default/production/actuator.o
+ .text.actuator_pulse
+                0x00000000       0x42 build/default/production/actuator.o
  .text.actuator_pulse_inv
                 0x00000000       0x42 build/default/production/actuator.o
+ .debug_info    0x00000000      0x511 build/default/production/actuator.o
+ .debug_abbrev  0x00000000      0x126 build/default/production/actuator.o
+ .debug_loc     0x00000000      0x1c4 build/default/production/actuator.o
+ .debug_aranges
+                0x00000000       0x40 build/default/production/actuator.o
+ .debug_ranges  0x00000000       0x30 build/default/production/actuator.o
+ .debug_line    0x00000000      0x164 build/default/production/actuator.o
+ .debug_str     0x00000000        0xf build/default/production/actuator.o
+ .comment       0x00000000       0x30 build/default/production/actuator.o
+ .debug_frame   0x00000000       0x64 build/default/production/actuator.o
  .text          0x00000000        0x0 build/default/production/wire.o
  .data          0x00000000        0x0 build/default/production/wire.o
  .bss           0x00000000        0x0 build/default/production/wire.o
  .text.steps_from_length
                 0x00000000        0x6 build/default/production/wire.o
+ .text.extrude_min_step
+                0x00000000        0x2 build/default/production/wire.o
+ .text.extrude  0x00000000       0x12 build/default/production/wire.o
+ .text.retract_min_step
+                0x00000000        0x2 build/default/production/wire.o
+ .text.retract  0x00000000       0x12 build/default/production/wire.o
+ .text.cut      0x00000000       0x12 build/default/production/wire.o
+ .debug_info    0x00000000      0x699 build/default/production/wire.o
+ .debug_abbrev  0x00000000      0x13c build/default/production/wire.o
+ .debug_loc     0x00000000       0x72 build/default/production/wire.o
+ .debug_aranges
+                0x00000000       0x48 build/default/production/wire.o
+ .debug_ranges  0x00000000       0x38 build/default/production/wire.o
+ .debug_line    0x00000000      0x167 build/default/production/wire.o
+ .debug_str     0x00000000       0x16 build/default/production/wire.o
+ .comment       0x00000000       0x30 build/default/production/wire.o
+ .debug_frame   0x00000000       0x74 build/default/production/wire.o
  .text          0x00000000        0x0 c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_exit.o)
  .data          0x00000000        0x0 c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_exit.o)
  .bss           0x00000000        0x0 c:/program files (x86)/microchip/xc8/v2.10/avr/bin/../lib/gcc/avr/5.4.0/avrxmega3\libgcc.a(_exit.o)
@@ -393,8 +425,6 @@ END GROUP
  .comment       0x0000002f       0x30 build/default/production/mcc_generated_files/mcc.o
  .comment       0x0000002f       0x30 build/default/production/main.o
  .comment       0x0000002f       0x30 build/default/production/stepper.o
- .comment       0x0000002f       0x30 build/default/production/actuator.o
- .comment       0x0000002f       0x30 build/default/production/wire.o
 
 .note.gnu.build-id
  *(.note.gnu.build-id)
@@ -411,7 +441,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x1f8
+.debug_aranges  0x00000000      0x170
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x78 build/default/production/mcc_generated_files/src/pin_manager.o
@@ -427,28 +457,22 @@ END GROUP
                 0x00000118       0x20 build/default/production/main.o
  .debug_aranges
                 0x00000138       0x38 build/default/production/stepper.o
- .debug_aranges
-                0x00000170       0x40 build/default/production/actuator.o
- .debug_aranges
-                0x000001b0       0x48 build/default/production/wire.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x594f
+.debug_info     0x00000000     0x509b
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000     0x248a C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
- .debug_info    0x0000248a      0xa8f build/default/production/mcc_generated_files/src/pin_manager.o
- .debug_info    0x00002f19      0x3b7 build/default/production/mcc_generated_files/src/cpuint.o
- .debug_info    0x000032d0       0x77 build/default/production/mcc_generated_files/src/protected_io.o
- .debug_info    0x00003347      0x7cb build/default/production/mcc_generated_files/device_config.o
- .debug_info    0x00003b12      0xac9 build/default/production/mcc_generated_files/mcc.o
- .debug_info    0x000045db      0x2f1 build/default/production/main.o
- .debug_info    0x000048cc      0x497 build/default/production/stepper.o
- .debug_info    0x00004d63      0x502 build/default/production/actuator.o
- .debug_info    0x00005265      0x6ea build/default/production/wire.o
+ .debug_info    0x0000248a      0xa9e build/default/production/mcc_generated_files/src/pin_manager.o
+ .debug_info    0x00002f28      0x3c6 build/default/production/mcc_generated_files/src/cpuint.o
+ .debug_info    0x000032ee       0x86 build/default/production/mcc_generated_files/src/protected_io.o
+ .debug_info    0x00003374      0x7da build/default/production/mcc_generated_files/device_config.o
+ .debug_info    0x00003b4e      0xad8 build/default/production/mcc_generated_files/mcc.o
+ .debug_info    0x00004626      0x609 build/default/production/main.o
+ .debug_info    0x00004c2f      0x46c build/default/production/stepper.o
 
-.debug_abbrev   0x00000000     0x2ac3
+.debug_abbrev   0x00000000     0x2946
  *(.debug_abbrev)
  .debug_abbrev  0x00000000     0x2296 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
  .debug_abbrev  0x00002296      0x14e build/default/production/mcc_generated_files/src/pin_manager.o
@@ -456,12 +480,10 @@ END GROUP
  .debug_abbrev  0x000024de       0x14 build/default/production/mcc_generated_files/src/protected_io.o
  .debug_abbrev  0x000024f2       0x85 build/default/production/mcc_generated_files/device_config.o
  .debug_abbrev  0x00002577      0x157 build/default/production/mcc_generated_files/mcc.o
- .debug_abbrev  0x000026ce       0x88 build/default/production/main.o
- .debug_abbrev  0x00002756      0x121 build/default/production/stepper.o
- .debug_abbrev  0x00002877      0x126 build/default/production/actuator.o
- .debug_abbrev  0x0000299d      0x126 build/default/production/wire.o
+ .debug_abbrev  0x000026ce      0x145 build/default/production/main.o
+ .debug_abbrev  0x00002813      0x133 build/default/production/stepper.o
 
-.debug_line     0x00000000      0xfa9
+.debug_line     0x00000000      0xdeb
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x187 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
  .debug_line    0x00000187      0x3da build/default/production/mcc_generated_files/src/pin_manager.o
@@ -469,41 +491,33 @@ END GROUP
  .debug_line    0x000006e7       0x66 build/default/production/mcc_generated_files/src/protected_io.o
  .debug_line    0x0000074d       0xf1 build/default/production/mcc_generated_files/device_config.o
  .debug_line    0x0000083e      0x242 build/default/production/mcc_generated_files/mcc.o
- .debug_line    0x00000a80       0x93 build/default/production/main.o
- .debug_line    0x00000b13      0x1bf build/default/production/stepper.o
- .debug_line    0x00000cd2      0x164 build/default/production/actuator.o
- .debug_line    0x00000e36      0x173 build/default/production/wire.o
+ .debug_line    0x00000a80      0x17c build/default/production/main.o
+ .debug_line    0x00000bfc      0x1ef build/default/production/stepper.o
 
-.debug_frame    0x00000000      0x328
+.debug_frame    0x00000000      0x230
  *(.debug_frame)
  .debug_frame   0x00000000       0xe0 build/default/production/mcc_generated_files/src/pin_manager.o
  .debug_frame   0x000000e0       0x24 build/default/production/mcc_generated_files/src/cpuint.o
  .debug_frame   0x00000104       0x84 build/default/production/mcc_generated_files/mcc.o
- .debug_frame   0x00000188       0x24 build/default/production/main.o
- .debug_frame   0x000001ac       0xa4 build/default/production/stepper.o
- .debug_frame   0x00000250       0x64 build/default/production/actuator.o
- .debug_frame   0x000002b4       0x74 build/default/production/wire.o
+ .debug_frame   0x00000188       0x34 build/default/production/main.o
+ .debug_frame   0x000001bc       0x74 build/default/production/stepper.o
 
-.debug_str      0x00000000     0x1105
+.debug_str      0x00000000     0x10c2
  *(.debug_str)
  .debug_str     0x00000000      0xf85 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
  .debug_str     0x00000f85       0x57 build/default/production/mcc_generated_files/src/pin_manager.o
  .debug_str     0x00000fdc       0x13 build/default/production/mcc_generated_files/src/cpuint.o
  .debug_str     0x00000fef        0x0 build/default/production/mcc_generated_files/device_config.o
  .debug_str     0x00000fef       0xac build/default/production/mcc_generated_files/mcc.o
- .debug_str     0x0000109b       0x34 build/default/production/main.o
- .debug_str     0x000010cf       0x11 build/default/production/stepper.o
- .debug_str     0x000010e0        0xf build/default/production/actuator.o
- .debug_str     0x000010ef       0x16 build/default/production/wire.o
+ .debug_str     0x0000109b       0x12 build/default/production/main.o
+ .debug_str     0x000010ad       0x15 build/default/production/stepper.o
 
-.debug_loc      0x00000000      0x7ba
+.debug_loc      0x00000000      0x55c
  *(.debug_loc)
  .debug_loc     0x00000000       0x78 build/default/production/mcc_generated_files/src/pin_manager.o
  .debug_loc     0x00000078       0x2a build/default/production/mcc_generated_files/src/cpuint.o
  .debug_loc     0x000000a2      0x172 build/default/production/mcc_generated_files/mcc.o
- .debug_loc     0x00000214      0x370 build/default/production/stepper.o
- .debug_loc     0x00000584      0x1c4 build/default/production/actuator.o
- .debug_loc     0x00000748       0x72 build/default/production/wire.o
+ .debug_loc     0x00000214      0x348 build/default/production/stepper.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -523,15 +537,13 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x150
+.debug_ranges   0x00000000       0xe8
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x68 build/default/production/mcc_generated_files/src/pin_manager.o
  .debug_ranges  0x00000068       0x10 build/default/production/mcc_generated_files/src/cpuint.o
  .debug_ranges  0x00000078       0x38 build/default/production/mcc_generated_files/mcc.o
  .debug_ranges  0x000000b0       0x10 build/default/production/main.o
  .debug_ranges  0x000000c0       0x28 build/default/production/stepper.o
- .debug_ranges  0x000000e8       0x30 build/default/production/actuator.o
- .debug_ranges  0x00000118       0x38 build/default/production/wire.o
 
 .debug_macro
  *(.debug_macro)
@@ -556,142 +568,100 @@ LOAD data_init
                 0x000001e0       0x6e build/default/production/mcc_generated_files/src/pin_manager.o
                 0x000001e0                PORT_Initialize
 
-.text.cw_turn   0x0000024e       0x62
- .text.cw_turn  0x0000024e       0x62 build/default/production/stepper.o
-                0x0000024e                cw_turn
-
-.text.cc_turn   0x000002b0       0x62
- .text.cc_turn  0x000002b0       0x62 build/default/production/stepper.o
-                0x000002b0                cc_turn
-
 .text.CLKCTRL_Initialize
-                0x00000312       0x4c
+                0x0000024e       0x4c
  .text.CLKCTRL_Initialize
-                0x00000312       0x4c build/default/production/mcc_generated_files/mcc.o
-                0x00000312                CLKCTRL_Initialize
+                0x0000024e       0x4c build/default/production/mcc_generated_files/mcc.o
+                0x0000024e                CLKCTRL_Initialize
 
-.text.actuator_pulse
-                0x0000035e       0x42
- .text.actuator_pulse
-                0x0000035e       0x42 build/default/production/actuator.o
-                0x0000035e                actuator_pulse
+.text.cw_step   0x0000029a       0x46
+ .text.cw_step  0x0000029a       0x46 build/default/production/stepper.o
+                0x0000029a                cw_step
 
-.text.cw_step   0x000003a0       0x32
- .text.cw_step  0x000003a0       0x32 build/default/production/stepper.o
-                0x000003a0                cw_step
-
-.text.cc_step   0x000003d2       0x32
- .text.cc_step  0x000003d2       0x32 build/default/production/stepper.o
-                0x000003d2                cc_step
-
-.text.main      0x00000404       0x22
- .text.main     0x00000404       0x22 build/default/production/main.o
-                0x00000404                main
+.text.main      0x000002e0       0x32
+ .text.main     0x000002e0       0x32 build/default/production/main.o
+                0x000002e0                main
 
 .text.__vector_2
-                0x00000426       0x1e
+                0x00000312       0x1e
  .text.__vector_2
-                0x00000426       0x1e build/default/production/mcc_generated_files/mcc.o
-                0x00000426                __vector_2
+                0x00000312       0x1e build/default/production/mcc_generated_files/mcc.o
+                0x00000312                __vector_2
 
 .text.SYSTEM_Initialize
-                0x00000444       0x1a
+                0x00000330       0x1a
  .text.SYSTEM_Initialize
-                0x00000444       0x1a build/default/production/mcc_generated_files/mcc.o
-                0x00000444                SYSTEM_Initialize
+                0x00000330       0x1a build/default/production/mcc_generated_files/mcc.o
+                0x00000330                SYSTEM_Initialize
 
 .text.CPUINT_Initialize
-                0x0000045e       0x18
+                0x0000034a       0x18
  .text.CPUINT_Initialize
-                0x0000045e       0x18 build/default/production/mcc_generated_files/src/cpuint.o
-                0x0000045e                CPUINT_Initialize
+                0x0000034a       0x18 build/default/production/mcc_generated_files/src/cpuint.o
+                0x0000034a                CPUINT_Initialize
 
 .text.BOD_Initialize
-                0x00000476       0x18
+                0x00000362       0x18
  .text.BOD_Initialize
-                0x00000476       0x18 build/default/production/mcc_generated_files/mcc.o
-                0x00000476                BOD_Initialize
-
-.text.extrude   0x0000048e       0x12
- .text.extrude  0x0000048e       0x12 build/default/production/wire.o
-                0x0000048e                extrude
-
-.text.retract   0x000004a0       0x12
- .text.retract  0x000004a0       0x12 build/default/production/wire.o
-                0x000004a0                retract
-
-.text.cut       0x000004b2       0x12
- .text.cut      0x000004b2       0x12 build/default/production/wire.o
-                0x000004b2                cut
+                0x00000362       0x18 build/default/production/mcc_generated_files/mcc.o
+                0x00000362                BOD_Initialize
 
 .text.SLPCTRL_Initialize
-                0x000004c4       0x10
+                0x0000037a       0x10
  .text.SLPCTRL_Initialize
-                0x000004c4       0x10 build/default/production/mcc_generated_files/mcc.o
-                0x000004c4                SLPCTRL_Initialize
+                0x0000037a       0x10 build/default/production/mcc_generated_files/mcc.o
+                0x0000037a                SLPCTRL_Initialize
 
 .text.WDT_Initialize
-                0x000004d4       0x10
+                0x0000038a       0x10
  .text.WDT_Initialize
-                0x000004d4       0x10 build/default/production/mcc_generated_files/mcc.o
-                0x000004d4                WDT_Initialize
-
-.text.extrude_min_step
-                0x000004e4        0xa
- .text.extrude_min_step
-                0x000004e4        0xa build/default/production/wire.o
-                0x000004e4                extrude_min_step
-
-.text.retract_min_step
-                0x000004ee        0xa
- .text.retract_min_step
-                0x000004ee        0xa build/default/production/wire.o
-                0x000004ee                retract_min_step
+                0x0000038a       0x10 build/default/production/mcc_generated_files/mcc.o
+                0x0000038a                WDT_Initialize
 
 .text.protected_write_io
-                0x000004f8        0x8
+                0x0000039a        0x8
  .text.protected_write_io
-                0x000004f8        0x8 build/default/production/mcc_generated_files/src/protected_io.o
-                0x000004f8                protected_write_io
+                0x0000039a        0x8 build/default/production/mcc_generated_files/src/protected_io.o
+                0x0000039a                protected_write_io
 
-.text           0x00000500        0x4
- .text          0x00000500        0x4 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
-                0x00000500                __vector_38
-                0x00000500                __vector_22
-                0x00000500                __vector_28
-                0x00000500                __vector_1
-                0x00000500                __vector_32
-                0x00000500                __vector_34
-                0x00000500                __vector_24
-                0x00000500                __vector_12
-                0x00000500                __bad_interrupt
-                0x00000500                __vector_6
-                0x00000500                __vector_31
-                0x00000500                __vector_35
-                0x00000500                __vector_39
-                0x00000500                __vector_3
-                0x00000500                __vector_23
-                0x00000500                __vector_30
-                0x00000500                __vector_25
-                0x00000500                __vector_11
-                0x00000500                __vector_13
-                0x00000500                __vector_17
-                0x00000500                __vector_19
-                0x00000500                __vector_7
-                0x00000500                __vector_27
-                0x00000500                __vector_5
-                0x00000500                __vector_33
-                0x00000500                __vector_37
-                0x00000500                __vector_4
-                0x00000500                __vector_9
-                0x00000500                __vector_21
-                0x00000500                __vector_15
-                0x00000500                __vector_36
-                0x00000500                __vector_29
-                0x00000500                __vector_8
-                0x00000500                __vector_26
-                0x00000500                __vector_14
-                0x00000500                __vector_10
-                0x00000500                __vector_16
-                0x00000500                __vector_18
-                0x00000500                __vector_20
+.text           0x000003a2        0x4
+ .text          0x000003a2        0x4 C:/Program Files (x86)/Microchip/MPLABX/v5.25/packs/Microchip/ATmega_DFP/2.0.12/gcc/dev/atmega4809/avrxmega3/crtatmega4809.o
+                0x000003a2                __vector_38
+                0x000003a2                __vector_22
+                0x000003a2                __vector_28
+                0x000003a2                __vector_1
+                0x000003a2                __vector_32
+                0x000003a2                __vector_34
+                0x000003a2                __vector_24
+                0x000003a2                __vector_12
+                0x000003a2                __bad_interrupt
+                0x000003a2                __vector_6
+                0x000003a2                __vector_31
+                0x000003a2                __vector_35
+                0x000003a2                __vector_39
+                0x000003a2                __vector_3
+                0x000003a2                __vector_23
+                0x000003a2                __vector_30
+                0x000003a2                __vector_25
+                0x000003a2                __vector_11
+                0x000003a2                __vector_13
+                0x000003a2                __vector_17
+                0x000003a2                __vector_19
+                0x000003a2                __vector_7
+                0x000003a2                __vector_27
+                0x000003a2                __vector_5
+                0x000003a2                __vector_33
+                0x000003a2                __vector_37
+                0x000003a2                __vector_4
+                0x000003a2                __vector_9
+                0x000003a2                __vector_21
+                0x000003a2                __vector_15
+                0x000003a2                __vector_36
+                0x000003a2                __vector_29
+                0x000003a2                __vector_8
+                0x000003a2                __vector_26
+                0x000003a2                __vector_14
+                0x000003a2                __vector_10
+                0x000003a2                __vector_16
+                0x000003a2                __vector_18
+                0x000003a2                __vector_20

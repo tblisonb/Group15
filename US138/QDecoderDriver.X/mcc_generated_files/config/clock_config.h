@@ -1,3 +1,12 @@
+/**
+  @Company
+    Microchip Technology Inc.
+
+  @Description
+    This Source file provides APIs.
+    Generation Information :
+    Driver Version    :   1.0.0
+*/
 /*
     (c) 2018 Microchip Technology Inc. and its subsidiaries. 
     
@@ -25,7 +34,7 @@
 #define CLOCK_CONFIG_H
 
 #ifndef F_CPU
-#define F_CPU 1000000UL
+#define F_CPU 3333333
 #endif
 
 #endif // CLOCK_CONFIG_H

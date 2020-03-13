@@ -10,9 +10,6 @@
         <logicalFolder name="config" displayName="config" projectFiles="true">
           <itemPath>mcc_generated_files/config/clock_config.h</itemPath>
         </logicalFolder>
-        <logicalFolder name="drivers" displayName="drivers" projectFiles="true">
-          <itemPath>mcc_generated_files/drivers/uart.h</itemPath>
-        </logicalFolder>
         <logicalFolder name="include" displayName="include" projectFiles="true">
           <itemPath>mcc_generated_files/include/cpuint.h</itemPath>
           <itemPath>mcc_generated_files/include/port.h</itemPath>
@@ -38,13 +35,13 @@
         </logicalFolder>
         <itemPath>mcc_generated_files/mcc.h</itemPath>
         <itemPath>mcc_generated_files/delay.h</itemPath>
-        <itemPath>mcc_generated_files/BLE2_driver.h</itemPath>
       </logicalFolder>
       <itemPath>actuator.h</itemPath>
       <itemPath>stepper.h</itemPath>
       <itemPath>wire.h</itemPath>
       <itemPath>servo.h</itemPath>
-      <itemPath>RN4870.h</itemPath>
+      <itemPath>rn487x.h</itemPath>
+      <itemPath>rn487x_interface.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -56,9 +53,6 @@
       <logicalFolder name="MCC Generated Files"
                      displayName="MCC Generated Files"
                      projectFiles="true">
-        <logicalFolder name="drivers" displayName="drivers" projectFiles="true">
-          <itemPath>mcc_generated_files/drivers/uart.c</itemPath>
-        </logicalFolder>
         <logicalFolder name="src" displayName="src" projectFiles="true">
           <itemPath>mcc_generated_files/src/pin_manager.c</itemPath>
           <itemPath>mcc_generated_files/src/cpuint.c</itemPath>
@@ -69,7 +63,6 @@
         </logicalFolder>
         <itemPath>mcc_generated_files/mcc.c</itemPath>
         <itemPath>mcc_generated_files/device_config.c</itemPath>
-        <itemPath>mcc_generated_files/BLE2_driver.c</itemPath>
         <itemPath>mcc_generated_files/delay.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
@@ -77,7 +70,8 @@
       <itemPath>stepper.c</itemPath>
       <itemPath>wire.c</itemPath>
       <itemPath>servo.c</itemPath>
-      <itemPath>RN4870.c</itemPath>
+      <itemPath>rn487x.c</itemPath>
+      <itemPath>rn487x_interface.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
