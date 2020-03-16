@@ -41,7 +41,7 @@ unsigned char cc_step(volatile unsigned char* reg, volatile unsigned char prev_s
  * @param num_steps Number of steps to turn the stepper motor
  * @param delay Delay between state changes (for speed control) in ms
  */
-void cw_turn(volatile void* reg, int num_steps, int delay);
+void cw_turn(volatile unsigned char* reg, int num_steps, int delay);
 
 /*
  * Adjusts the state of the stepper motor over time to turn the output shaft in
@@ -51,7 +51,7 @@ void cw_turn(volatile void* reg, int num_steps, int delay);
  * @param num_steps Number of steps to turn the stepper motor
  * @param delay Delay between state changes (for speed control) in ms
  */
-void cc_turn(volatile void* reg, int num_steps, int delay);
+void cc_turn(volatile unsigned char* reg, int num_steps, int delay);
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 

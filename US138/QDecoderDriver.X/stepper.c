@@ -38,20 +38,22 @@ unsigned char cc_step(volatile unsigned char* reg, volatile unsigned char prev_s
     return 0;
 }
 
-void cw_turn(volatile void* regist, int num_steps, int delay) {
-    int i, j;
+void cw_turn(volatile unsigned char* reg, int num_steps, int delay) {
+    static volatile unsigned char state = STATE1;
+    int i;
     // step 'num_steps' clockwise with 'delay' ms between steps
     for (i = 0; i < num_steps; i++) {
-        //cw_step(reg);
-        DELAY_microseconds(delay);
+        state = cw_step(reg, state);
+        DELAY_milliseconds(delay);
     }
 }
 
-void cc_turn(volatile void* regist, int num_steps, int delay) {
-    int i, j;
+void cc_turn(volatile unsigned char* reg, int num_steps, int delay) {
+    static volatile unsigned char state = STATE1;
+    int i;
     // step 'num_steps' counterclockwise with 'delay' ms between steps
     for (i = 0; i < num_steps; i++) {
-        //cw_step(reg);
-        DELAY_microseconds(delay);
+        state = cc_step(reg, state);
+        DELAY_milliseconds(delay);
     }
 }

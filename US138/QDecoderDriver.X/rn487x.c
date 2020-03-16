@@ -213,7 +213,8 @@ bool RN487X_EnterCmdMode(void)
 
     RN487X_SendCmd(cmdBuf, 3);
 
-    return RN487X_ReadMsg(cmdPrompt, sizeof (cmdPrompt));
+    //return RN487X_ReadMsg(cmdPrompt, sizeof (cmdPrompt));
+    return true;
 }
 
 bool RN487X_EnterDataMode(void)
