@@ -19,9 +19,10 @@ private struct BLEIDs{
 
     // these are dummy ids so the sake of testing other code areas. once the offical ids are known from the
     // machine we will change
-    // ********************* UPDATE UUID WHEN KNOWN **************************************
-    static let coilServiceUUID = CBUUID(string: "00000000-0000-1000-8000-00805F9B34F0")
-    static let coilCharactersticUUID = CBUUID(string:"00000000-0000-1000-8000-00805F9B34F1")
+    static let coilServiceUUID = CBUUID(string: "49535343-FE7D-4AE5-8FA9-9FAFD205E455.")
+    static let coilCharactersticUUID = CBUUID(string:"49535343-8841-43F4-A8D4-ECBE34729BB3")
+    static let blockingUUID = CBUUID(string:"49535343-1E4D-4BD9-BA61-23C647249616")
+
 
 }
 
