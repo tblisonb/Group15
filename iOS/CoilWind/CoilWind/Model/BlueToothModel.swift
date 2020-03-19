@@ -28,6 +28,8 @@ private struct BLEIDs{
 
 // class to allow all the bluetooth functionality throughout application
 public class BlueToothModel: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate{
+    
+    var Home: HomeViewController!
 
     private var centralManager : CBCentralManager!
     private var ATmega3208Board : CBPeripheral?
@@ -40,6 +42,7 @@ public class BlueToothModel: NSObject, CBCentralManagerDelegate, CBPeripheralDel
     func startUpCentralManager() {
 
         centralManager = CBCentralManager(delegate: self, queue: nil)
+        
     }
 
     public func centralManagerDidUpdateState(_ central: CBCentralManager) {
@@ -47,7 +50,8 @@ public class BlueToothModel: NSObject, CBCentralManagerDelegate, CBPeripheralDel
         switch (central.state) {
 
         case .poweredOff: central.stopScan()
-        case .poweredOn:print("Bluetooth is on")
+        case .poweredOn: discoverDevice()
+            print("ble is on")
         case .resetting: break
         case .unauthorized: break
         case .unknown:break
@@ -77,6 +81,7 @@ public class BlueToothModel: NSObject, CBCentralManagerDelegate, CBPeripheralDel
 
             ATmega3208Board = peripheral
             centralManager.stopScan()
+            connectToDevice()
         }
     }
 
@@ -95,6 +100,8 @@ public class BlueToothModel: NSObject, CBCentralManagerDelegate, CBPeripheralDel
 
         print("Connection complete \(ATmega3208Board!) \(peripheral)")
         ATmega3208Board!.delegate = self
+        Home.connectedLabel.text = "Device connected"
+        discoverServices()
     }
 
     // end functions to connect to BLE device
@@ -112,6 +119,7 @@ public class BlueToothModel: NSObject, CBCentralManagerDelegate, CBPeripheralDel
 
         print("Disconnected \(peripheral)")
         ATmega3208Board = nil
+        Home.connectedLabel.text = "Device disconnected"
     }
     // end functions to disconnect to BLE device
     //*****************************************
@@ -135,6 +143,7 @@ public class BlueToothModel: NSObject, CBCentralManagerDelegate, CBPeripheralDel
                 coilService = service
             }
         }
+        discoverCharacteristics()
 
     }
     // end functions to connect to BLE device
