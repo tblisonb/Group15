@@ -43,14 +43,19 @@ class HomeViewController: UIViewController {
             return connectedLabel.text = "Device already connected"
         }
         connectedLabel.text = "Searching for device"
-        connectDeviceOutlet.isEnabled = false
+        
         bleLand.startUpCentralManager()
+        connectDeviceOutlet.isEnabled = false
+        disconnectButtonOutlet.isEnabled = true
     }
     
     
     @IBOutlet weak var disconnectButtonOutlet: UIButton!
     @IBAction func disconnectDevice(_ sender: Any) {
+        
         bleLand.disconnectDevice()
+        connectDeviceOutlet.isEnabled = true
+        disconnectButtonOutlet.isEnabled = false
         print("device disconnected")
     }
     
