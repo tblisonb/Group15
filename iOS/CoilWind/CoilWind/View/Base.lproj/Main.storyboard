@@ -298,6 +298,9 @@
                                 <state key="normal" title="Run Device">
                                     <color key="titleColor" red="0.93715226640000004" green="0.94421955960000004" blue="0.89540705239999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="RunDevice:" destination="qaR-hr-cWq" eventType="touchUpInside" id="W92-5E-raT"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9z5-wJ-Usu">
                                 <rect key="frame" x="148" y="339" width="216" height="34"/>

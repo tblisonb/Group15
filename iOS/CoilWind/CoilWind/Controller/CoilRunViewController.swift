@@ -12,10 +12,14 @@
 
 import Foundation
 import UIKit
+import CoreBluetooth
+
 
 class CoilRunViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
 UINavigationControllerDelegate, UIPickerViewDataSource{
     
+    var ble : BlueToothModel!
+
     
     //Text field variables
     @IBOutlet weak var colorTV: UITextField!
@@ -175,6 +179,23 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
         }
     }
 
+    @IBAction func RunDevice(_ sender: Any) {
+        
+        let sendLength:Double = NumberFormatter().number(from: (lengthTV.text)!) as! Double
+        let sendGauge:Double = NumberFormatter().number(from: (gaugeTV.text)!) as! Double
+        let sendQuantity:Int = NumberFormatter().number(from: (quantityTV.text)!) as! Int
+        
+        let sendCoil = Coil.sendCoil(gauge: sendGauge, length: sendLength, quantity: sendQuantity)
+        let jsonData = (try? JSONEncoder().encode(sendCoil))!
+        print(jsonData)
+
+        
+        if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
+           print(JSONString)
+        }
+        
+        ble.writeCoilCharacteristic(data: jsonData)
+    }
     
     
    

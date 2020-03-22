@@ -30,6 +30,8 @@ private struct BLEIDs{
 public class BlueToothModel: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate{
     
     var Home: HomeViewController!
+    var quickRun: QuickRunViewController!
+    var coilRun: CoilRunViewController!
 
     private var centralManager : CBCentralManager!
     private var ATmega3208Board : CBPeripheral?
@@ -181,6 +183,8 @@ public class BlueToothModel: NSObject, CBCentralManagerDelegate, CBPeripheralDel
     {
         let ns = NSData(data: data)
         ATmega3208Board!.writeValue(ns as Data, for: coilCharacteristic, type: CBCharacteristicWriteType.withResponse)
+        print("write complete")
+        
     }
     
     

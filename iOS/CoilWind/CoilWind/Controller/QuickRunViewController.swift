@@ -15,10 +15,14 @@
 
 import Foundation
 import UIKit
+import CoreBluetooth
+
 
 class QuickRunViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
 UINavigationControllerDelegate, UIPickerViewDataSource{
     
+    var ble : BlueToothModel!
+
     
     // text field variables
     @IBOutlet weak var nameTV: UITextField!
@@ -84,6 +88,23 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
     // will finish once bluetooth functionality is implemented
     @IBAction func runDeviceBtn(_ sender: Any) {
         
+        let sendLength:Double = NumberFormatter().number(from: (lengthTV.text)!) as! Double
+        let sendGauge:Double = NumberFormatter().number(from: (gaugeTV.text)!) as! Double
+        let sendQuantity:Int = NumberFormatter().number(from: (quantityTV.text)!) as! Int
+        
+        let sendCoil = Coil.sendCoil(gauge: sendGauge, length: sendLength, quantity: sendQuantity)
+        let jsonData = (try? JSONEncoder().encode(sendCoil))!
+        print(jsonData)
+
+        
+        if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
+           print(JSONString)
+        }
+        
+        ble.writeCoilCharacteristic(data: jsonData)
+        
+        
+
     }
     
     // quick save button implements add function to database

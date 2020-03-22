@@ -16,7 +16,7 @@ import CoreBluetooth
 
 class HomeViewController: UIViewController {
     
-    var bleLand : BlueToothModel!
+    var ble : BlueToothModel!
 
     // view did load function is all that is needed
     @IBOutlet weak var connectedLabel: UILabel!
@@ -33,7 +33,7 @@ class HomeViewController: UIViewController {
             connectDeviceOutlet.isEnabled = true
             disconnectButtonOutlet.isEnabled = false
         }
-        bleLand = BlueToothModel()
+        ble = BlueToothModel()
     }
     
     @IBOutlet weak var connectDeviceOutlet: UIButton!
@@ -44,7 +44,7 @@ class HomeViewController: UIViewController {
         }
         connectedLabel.text = "Searching for device"
         
-        bleLand.startUpCentralManager()
+        ble.startUpCentralManager()
         connectDeviceOutlet.isEnabled = false
         disconnectButtonOutlet.isEnabled = true
     }
@@ -53,7 +53,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var disconnectButtonOutlet: UIButton!
     @IBAction func disconnectDevice(_ sender: Any) {
         
-        bleLand.disconnectDevice()
+        ble.disconnectDevice()
         connectDeviceOutlet.isEnabled = true
         disconnectButtonOutlet.isEnabled = false
         print("device disconnected")
