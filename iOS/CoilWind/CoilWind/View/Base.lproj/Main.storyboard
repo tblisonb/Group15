@@ -108,13 +108,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quick Run" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ip-8Z-1Id">
-                                <rect key="frame" x="89" y="166" width="236" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
-                                <color key="textColor" red="0.93715226640000004" green="0.94421955960000004" blue="0.89540705239999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GO8-OS-KvB">
                                 <rect key="frame" x="37" y="270" width="66" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -226,7 +219,6 @@
                         <outlet property="nameTV" destination="3L0-5A-2iT" id="ku1-Uv-6iY"/>
                         <outlet property="quantityLabel" destination="yNt-oq-TZT" id="K9x-Oz-HVK"/>
                         <outlet property="quantityTV" destination="M76-R2-VJ8" id="bS1-rc-f95"/>
-                        <outlet property="quickRunLabel" destination="2Ip-8Z-1Id" id="K8M-ou-smt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Csg-Fc-VA7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -241,13 +233,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Run Device" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OY4-1W-v7l">
-                                <rect key="frame" x="89" y="157" width="259" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
-                                <color key="textColor" red="0.93715226640000004" green="0.94421955960000004" blue="0.89540705239999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmM-DJ-yBb">
                                 <rect key="frame" x="48" y="274" width="66" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -347,7 +332,6 @@
                         <outlet property="nameLabel" destination="fmM-DJ-yBb" id="D11-WA-PAe"/>
                         <outlet property="quantityLabel" destination="JpE-nw-XYh" id="5rB-Be-g3v"/>
                         <outlet property="quantityTV" destination="mon-Yx-iUx" id="yOn-jI-xyI"/>
-                        <outlet property="runDeviceLabel" destination="OY4-1W-v7l" id="jQc-4i-k6q"/>
                         <outlet property="savedNameLabel" destination="0V8-g0-JHx" id="nSc-Ww-P4o"/>
                     </connections>
                 </viewController>

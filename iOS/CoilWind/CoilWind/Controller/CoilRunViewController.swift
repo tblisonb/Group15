@@ -28,7 +28,6 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
     @IBOutlet weak var gaugeTV: UITextField!
     
     // label variables
-    @IBOutlet weak var runDeviceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var colorLabel: UILabel!
     @IBOutlet weak var lengthLabel: UILabel!
@@ -70,7 +69,7 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
   
         // allows you to return to the controller with the modified coil
         self.navigationController?.delegate = self
-           
+        self.title = "Run Device"
             
     }
     

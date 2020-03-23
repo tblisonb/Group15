@@ -37,6 +37,8 @@ public class BlueToothModel: NSObject, CBCentralManagerDelegate, CBPeripheralDel
     private var ATmega3208Board : CBPeripheral?
     private var coilService : CBService!
     private var coilCharacteristic : CBCharacteristic!
+    private var activeCharacteristic : CBCharacteristic!
+
 
 
     //MARK: - Functions to start the central manager
@@ -197,22 +199,21 @@ public class BlueToothModel: NSObject, CBCentralManagerDelegate, CBPeripheralDel
 //  MARK: -functions to have the coil cutting device update a value of the app so that the run device button can be toggled off while
 //  wire cutter is active
 //
-//    func writeActiveNotify(state: Bool)
-//    {
-//        ATmega3208Board!.setNotifyValue(state, forCharacteristic: activeCharacteristic)
-//    }
-//
-//    var activeValue = 0
-//
-//    // This delegate function is called when an updated value is received from the Bluetooth Stack
-      // if a 1 is received the function will toggle button as inactive
-//    func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
-//        if characteristic == activeCharacteristic {
-//            var out: NSInteger = 0
-//            characteristic.value!.getBytes(&out, length:sizeof(NSInteger))
-//            activeValue = out
-//
-//        }
-//    }
+    func writeActiveNotify(state: Bool)
+    {
+        ATmega3208Board!.setNotifyValue(state, for: activeCharacteristic)
+    }
+
+    var activeValue = 0
+
+    // This delegate function is called when an updated value is received from the Bluetooth Stack
+       //if a 1 is received the function will toggle button as inactive
+    private func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
+        if characteristic == activeCharacteristic {
+            let out: NSInteger = 0
+            activeValue = out
+
+        }
+    }
 
 }

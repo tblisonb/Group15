@@ -33,7 +33,6 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
     
     
     // label variables
-    @IBOutlet weak var quickRunLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var colorLabel: UILabel!
     @IBOutlet weak var lengthLabel: UILabel!
@@ -66,7 +65,7 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
         // first index shows
         let crs:[String] = selectedGauge.components(separatedBy: " ")
         gaugeTV.text = crs[0]
-
+        self.title = "Quick Run"
         
         }
     
