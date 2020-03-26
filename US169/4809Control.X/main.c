@@ -23,6 +23,9 @@
 
 #include "mcc_generated_files/mcc.h"
 #include "QECounter.h"
+#include "actuator.h"
+#include "stepper.h"
+#include "wire.h"
 
 /*
     Main application
