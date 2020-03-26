@@ -178,21 +178,27 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
         }
     }
 
+    // MARK: -- Run Device button to send the data to the wire cutting device.
+    // no fully functional blocking mechanism has been completed at this time
     @IBAction func RunDevice(_ sender: Any) {
         
         let sendLength:Double = NumberFormatter().number(from: (lengthTV.text)!) as! Double
         let sendGauge:Double = NumberFormatter().number(from: (gaugeTV.text)!) as! Double
         let sendQuantity:Int = NumberFormatter().number(from: (quantityTV.text)!) as! Int
         
+        //serialize the data to be send over bluetooth
         let sendCoil = Coil.sendCoil(gauge: sendGauge, length: sendLength, quantity: sendQuantity)
         let jsonData = (try? JSONEncoder().encode(sendCoil))!
+        //testing to see data size in case for bluetooth we have to break up the data packet
         print(jsonData)
 
         
+        // test purposes to see what is being sent
         if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
            print(JSONString)
         }
         
+        // send the data via bluetooth
         ble.writeCoilCharacteristic(data: jsonData)
     }
     
