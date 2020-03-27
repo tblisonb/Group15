@@ -31,29 +31,19 @@
 */
 
 
-#ifndef MCC_H
-#define	MCC_H
+#ifndef CCL_H_INCLUDED
+#define CCL_H_INCLUDED
+
+#include "../utils/compiler.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#include "utils/compiler.h"
-#include "include/pin_manager.h"
-#include "include/ccl.h"
-#include "include/cpuint.h"
-#include "config/clock_config.h"
-
-/**
- * Initializes MCU, drivers and middleware in the project
-**/
-void SYSTEM_Initialize(void);
-int8_t BOD_Initialize();
-int8_t CLKCTRL_Initialize();
-int8_t SLPCTRL_Initialize();
-int8_t WDT_Initialize();
+int8_t CCL_Initialize(void);
 
 #ifdef __cplusplus
 }
 #endif
-#endif	/* MCC_H */
+
+#endif /* CCL_H_INCLUDED */
