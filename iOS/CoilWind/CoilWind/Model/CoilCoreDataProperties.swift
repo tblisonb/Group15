@@ -33,8 +33,8 @@ extension Coil {
     
     @NSManaged public var name: String?
     @NSManaged public var color: String?
-    @NSManaged public var gauge: Double
-    @NSManaged public var length: Double
+    @NSManaged public var gauge: Int
+    @NSManaged public var length: Int
     @NSManaged public var quantity: Int
 
     

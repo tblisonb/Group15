@@ -61,7 +61,7 @@ public class CoilCoreDataDB{
     }
     
     // add a coil setting to the database
-    func addCoil(_ name:String, color:String, length:Double, gauge:Double, quantity:Int) -> Bool {
+    func addCoil(_ name:String, color:String, length:Int, gauge:Int, quantity:Int) -> Bool {
         var ret:Bool = false
         if !coilExists(withName: name) {
             let entity = NSEntityDescription.entity(forEntityName: "Coil", in: mContext!)
@@ -80,27 +80,13 @@ public class CoilCoreDataDB{
     }
     
 
-    
-//    func convertToJSONArray(moArray: [NSManagedObject]) -> Any {
-//        var jsonArray: [[String: Any]] = []
-//        for item in moArray {
-//            var dict: [String: Any] = [:]
-//            for attribute in item.entity.attributesByName {
-//                //check if value is present, then add key to dictionary so as to avoid the nil value crash
-//                if let value = item.value(forKey: attribute.key) {
-//                    dict[attribute.key] = value
-//                }
-//            }
-//            jsonArray.append(dict)
-//        }
-//        return jsonArray
-//    }
+
     
 
     // get a specific coil setting from data base with all associated description values of the coil
-    func getCoil(_ name:String) -> (name:String, color:String, length:Double, gauge:Double, quantity:Int) {
+    func getCoil(_ name:String) -> (name:String, color:String, length:Int, gauge:Int, quantity:Int) {
         
-        var aCoil:(name:String, color:String, length:Double, gauge:Double, quantity:Int) = ("name","",0.0,0.0,0)
+        var aCoil:(name:String, color:String, length:Int, gauge:Int, quantity:Int) = ("name","",0,0,0)
         
         let fetchACoil:NSFetchRequest<Coil> = Coil.fetchRequest()
         fetchACoil.predicate = NSPredicate(format:"name == %@",name)
@@ -108,12 +94,12 @@ public class CoilCoreDataDB{
             let results = try mContext!.fetch(fetchACoil)
             if results.count > 0 {
                 let color = (results[0] as AnyObject).value(forKey: "color") as? String
-                let length = (results[0] as AnyObject).value(forKey: "length") as? Double
-                let gauge = (results[0] as AnyObject).value(forKey: "gauge") as? Double
+                let length = (results[0] as AnyObject).value(forKey: "length") as? Int
+                let gauge = (results[0] as AnyObject).value(forKey: "gauge") as? Int
                 let quantity = (results[0] as AnyObject).value(forKey: "quantity") as? Int
 
                 
-                aCoil = (name,color,length,gauge,quantity) as! (name: String, color: String, length: Double, gauge: Double, quantity: Int)
+                aCoil = (name,color,length,gauge,quantity) as! (name: String, color: String, length: Int, gauge: Int, quantity: Int)
             }
         }catch let error as NSError{
             print("error getting coil \(name), error \(error)")

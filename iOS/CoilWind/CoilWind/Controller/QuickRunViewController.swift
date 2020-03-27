@@ -43,7 +43,7 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
     @IBOutlet weak var gaugePicker: UIPickerView!
     
     // variables for picker
-    var gaugePickerRange = Array(stride(from: 20.0, through: 32.0, by: 1.0))
+    var gaugePickerRange = Array(stride(from: 20, through: 32, by: 1))
     var gaugeNameForPicker:[String] = [String]()
     var selectedGauge:String = ""
     
@@ -70,13 +70,13 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
         }
     
     // convert [double] to [string] so that the picker will show values
-    func doubleArraytoStringArray (gaugePickerRange: [Double])-> [String] {
+    func doubleArraytoStringArray (gaugePickerRange: [Int])-> [String] {
         var stringValue:String = ""
         
         // for each double in array convert to string so that the picker will display
 
         for num in gaugePickerRange{
-            stringValue = String(format: "%.02f",num)
+            stringValue = String(num)
             
             gaugeNameForPicker.append(stringValue)
         }
@@ -88,8 +88,8 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
     @IBAction func runDeviceBtn(_ sender: Any) {
         
         // get the values
-        let sendLength:Double = NumberFormatter().number(from: (lengthTV.text)!) as! Double
-        let sendGauge:Double = NumberFormatter().number(from: (gaugeTV.text)!) as! Double
+        let sendLength:Int = NumberFormatter().number(from: (lengthTV.text)!) as! Int
+        let sendGauge:Int = NumberFormatter().number(from: (gaugeTV.text)!) as! Int
         let sendQuantity:Int = NumberFormatter().number(from: (quantityTV.text)!) as! Int
         
         // serialize the data to be sent over bluetooth
@@ -117,8 +117,8 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
         // assign variables of values from text fields to be passed to database add function
         let saveName:String = nameTV.text!
         let saveColor:String = colorTV.text!
-        let saveLength:Double = NumberFormatter().number(from: (lengthTV.text)!) as! Double
-        let saveGauge:Double = NumberFormatter().number(from: (gaugeTV.text)!) as! Double
+        let saveLength:Int = NumberFormatter().number(from: (lengthTV.text)!) as! Int
+        let saveGauge:Int = NumberFormatter().number(from: (gaugeTV.text)!) as! Int
         let saveQuantity:Int = NumberFormatter().number(from: (quantityTV.text)!) as! Int
         
         // simple exception checking ***** Will need more indepth checks.
@@ -128,35 +128,22 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
         if(saveColor == ""){
             colorTV.text = "enter a color"
         }
-        if(saveLength == 0.0){
-            lengthTV.text = String(format: "%.02f",5.0)
+        if(saveLength == 0){
+            lengthTV.text = String(5)
         }
         if(saveQuantity == 0){
             quantityTV.text = String(1)
         }
-        if(saveGauge < gaugePickerRange[0] && saveGauge > gaugePickerRange[gaugeNameForPicker.count]){
-            gaugeTV.text = gaugeNameForPicker[1]
-        }
+
         
         // save the entry to database so that the table will populate with this entry
         let coilDB = CoilCoreDataDB()
         let ret = coilDB.addCoil(saveName, color: saveColor, length: saveLength, gauge: saveGauge, quantity: saveQuantity)
         _ = coilDB.saveContext()
         
-        //***************************************************************************************************************************
-        //serialize the entry test this will be moved to the run device button when the ble connection test have come back successful
-        //***************************************************************************************************************************
         let aCoil = coilDB.getCoil(saveName)
-        let aCoilJson = Coil.coil(name: aCoil.name, color:aCoil.color, gauge:aCoil.gauge, length: aCoil.length, quantity:aCoil.quantity)
-        let sendCoil = Coil.sendCoil(gauge: aCoil.gauge, length: aCoil.length, quantity: aCoil.quantity)
-        let jsonData = (try? JSONEncoder().encode(aCoilJson))!
-        let jsonData2 = (try? JSONEncoder().encode(sendCoil))!
-        
-        print(jsonData2)
-        
-        if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
-           print(JSONString)
-        }
+        print(aCoil)
+       
         //print(jsonData!)
         print("coil \(saveName) added. Add coil return is: \(ret)")
       

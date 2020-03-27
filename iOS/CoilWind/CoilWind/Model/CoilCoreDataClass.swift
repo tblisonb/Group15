@@ -16,15 +16,15 @@ public class Coil: NSManagedObject {
     struct coil:Encodable {
         var name: String?
         var color: String?
-        var gauge: Double
-        var length: Double
+        var gauge: Int
+        var length: Int
         var quantity: Int
 
     }
     
     struct sendCoil:Encodable{
-        var gauge: Double
-        var length: Double
+        var gauge: Int
+        var length: Int
         var quantity: Int
     }
 }

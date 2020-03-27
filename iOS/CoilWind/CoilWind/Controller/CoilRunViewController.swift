@@ -42,7 +42,7 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
     
     // variables
     var selectedCoil:String = "unknown"
-    var gaugePickerRange = Array(stride(from: 20.0, through: 32.0, by: 1.0))
+    var gaugePickerRange = Array(stride(from: 20, through: 32, by: 1))
     var gaugeNameForPicker:[String] = [String]()
     var selectedGauge:String = ""
     var coilNames: [String] = [String]()
@@ -74,12 +74,12 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
     }
     
     // convert [double] to [string] so that the picker will show values
-    func doubleArraytoStringArray (gaugePickerRange: [Double])-> [String] {
+    func doubleArraytoStringArray (gaugePickerRange: [Int])-> [String] {
         var stringValue:String = ""
        
         // for each double in array convert to string so that the picker will display
         for num in gaugePickerRange{
-            stringValue = String(format: "%.02f",num)
+            stringValue = String(num)
             
             gaugeNameForPicker.append(stringValue)
         }
@@ -95,8 +95,8 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
         // populated text fields from the entry in the database
         self.title = name
         savedNameLabel.text = "\(aCoil.name)"
-        lengthTV.text = String(format: "%.02f",aCoil.length)
-        gaugeTV.text = String(format: "%.02f",aCoil.gauge)
+        lengthTV.text = String(aCoil.length)
+        gaugeTV.text = String(aCoil.gauge)
         quantityTV.text = String(aCoil.quantity)
         colorTV.text = "\(aCoil.color)"
 
@@ -161,8 +161,8 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
             // obtain the values that remain in the various text fields
             let newName = savedNameLabel.text ?? ""
             let newColor = colorTV.text ?? ""
-            let newLength: Double? = Double(lengthTV.text!)
-            let newGauge: Double? = Double(gaugeTV.text!)
+            let newLength: Int? = Int(lengthTV.text!)
+            let newGauge: Int? = Int(gaugeTV.text!)
             let newQuantity: Int? = Int(quantityTV.text!)
 
             // pass the above saved values from the text field into the add method in the database to allow for the new modifications
@@ -185,8 +185,8 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
     // no fully functional blocking mechanism has been completed at this time
     @IBAction func RunDevice(_ sender: Any) {
         
-        let sendLength:Double = NumberFormatter().number(from: (lengthTV.text)!) as! Double
-        let sendGauge:Double = NumberFormatter().number(from: (gaugeTV.text)!) as! Double
+        let sendLength:Int = NumberFormatter().number(from: (lengthTV.text)!) as! Int
+        let sendGauge:Int = NumberFormatter().number(from: (gaugeTV.text)!) as! Int
         let sendQuantity:Int = NumberFormatter().number(from: (quantityTV.text)!) as! Int
         
         //serialize the data to be send over bluetooth
