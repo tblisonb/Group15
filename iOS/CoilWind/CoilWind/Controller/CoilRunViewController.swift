@@ -102,10 +102,13 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
 
         
     }
+
     
     // touch events on this view
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.gaugeTV.resignFirstResponder()
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
     }
     
     

@@ -189,7 +189,17 @@ public class BlueToothModel: NSObject, CBCentralManagerDelegate, CBPeripheralDel
         
     }
     
-    
+    // possible set up for strings
+//         let string = "hello"
+//
+//
+//         let bytes: [UInt8] = Array(string.utf8)
+//
+//
+//         let data = NSData(bytes: bytes, length: bytes.count)
+//
+//
+//         capsenseLedBoard!.writeValue(data, forCharacteristic: ledCharacteristic, type: CBCharacteristicWriteType.WithResponse)
     
     //*************************************************************************************************************************
     //the below methods are for later version after main functionality has been established

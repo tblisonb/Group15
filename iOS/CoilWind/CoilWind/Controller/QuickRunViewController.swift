@@ -95,6 +95,7 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
         // serialize the data to be sent over bluetooth
         let sendCoil = Coil.sendCoil(gauge: sendGauge, length: sendLength, quantity: sendQuantity)
         let jsonData = (try? JSONEncoder().encode(sendCoil))!
+        
         // test purposes to see the size of data packet to be sent
         print(jsonData)
 
@@ -167,6 +168,8 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
     // touch events on this view
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.gaugeTV.resignFirstResponder()
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
     }
 
     // MARK: -- UITextFieldDelegate Method
