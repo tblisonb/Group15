@@ -26,6 +26,7 @@
 #include "actuator.h"
 #include "stepper.h"
 #include "wire.h"
+#include "LCD_Lib/lcd.h"
 
 /*
     Main application
@@ -34,14 +35,18 @@ int main(void)
 {
     /* Initializes MCU, drivers and middleware */
     SYSTEM_Initialize();
+    lcd_init();
 
     /* Replace with your application code */
-    display("Waiting");
+    lcd_on();
+    lcd_puts("Waiting");
     while (1){
         if(recieved_Data()){
-            display("Working");
+            lcd_clear();
+            lcd_puts("Working");
             int count = recieveCount();
             int length = recieveLength();
+            counter_get(); // clear the QE counter
             for(int i = 0; i < count; i++){
                 extrude(length);
                 int size = counter_get();
@@ -50,9 +55,11 @@ int main(void)
                     size += counter_get();
                 }
             }
-            display("Done");
+            lcd_clear();
+            lcd_puts("Done");
             _delay_ms(1000);
-            display("Waiting");
+            lcd_clear();
+            lcd_puts("Waiting");
         }
     }
 }
