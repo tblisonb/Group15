@@ -1,0 +1,373 @@
+/* Rectangle */
+
+
+position: absolute;
+width: 581px;
+height: 1206px;
+left: 0px;
+top: 44px;
+
+background: #FFFFFF;
+
+
+/* Register */
+
+
+position: absolute;
+width: 148px;
+height: 40px;
+left: 16px;
+top: 104px;
+
+
+
+/* Rectangle 24 */
+
+
+position: absolute;
+width: 203px;
+height: 543.01px;
+right: -95.96px;
+top: 427px;
+
+background: #C4C4C4;
+transform: rotate(45deg);
+
+
+/* Union */
+
+
+position: absolute;
+width: 12.21px;
+height: 11.35px;
+left: 16px;
+top: 60px;
+
+/* Black 8 */
+
+background: rgba(0, 0, 0, 0.8);
+
+
+/* Status Bar */
+
+
+position: absolute;
+height: 44px;
+left: 0px;
+right: 0px;
+top: 0px;
+
+
+
+/* Polygon 2 */
+
+
+position: absolute;
+height: 523px;
+left: 393px;
+right: -251px;
+bottom: -529px;
+
+background: #5B73F0;
+transform: rotate(-180deg);
+
+
+/* Button */
+
+
+position: absolute;
+height: 71px;
+left: 42px;
+right: 295px;
+bottom: 213px;
+
+
+
+/* Rectangle 22 */
+
+
+position: absolute;
+width: 203px;
+height: 543.01px;
+right: -19.96px;
+top: 153px;
+
+background: #C4C4C4;
+transform: rotate(45deg);
+
+
+/* Rectangle 23 */
+
+
+position: absolute;
+width: 203px;
+height: 543.01px;
+right: -48.96px;
+top: 283px;
+
+background: #C4C4C4;
+transform: rotate(45deg);
+
+
+/* Button */
+
+
+position: absolute;
+height: 67px;
+left: 49px;
+right: 327px;
+top: 326px;
+
+
+
+/* Rectangle 4 */
+
+
+position: absolute;
+width: 191px;
+height: 67px;
+left: 49px;
+top: 691px;
+
+background: #000000;
+border: 2px solid #000000;
+box-sizing: border-box;
+border-radius: 6px;
+
+
+/* Rectangle 26 */
+
+
+position: absolute;
+width: 269px;
+height: 67px;
+right: 26px;
+top: 416px;
+
+background: #FFFFFF;
+border: 2px solid #000000;
+box-sizing: border-box;
+border-radius: 6px;
+
+
+/* Rectangle 27 */
+
+
+position: absolute;
+width: 269px;
+height: 67px;
+right: 26px;
+top: 326px;
+
+background: #FFFFFF;
+border: 2px solid #000000;
+box-sizing: border-box;
+border-radius: 6px;
+
+
+/* Rectangle 28 */
+
+
+position: absolute;
+width: 269px;
+height: 67px;
+right: 26px;
+top: 508px;
+
+background: #FFFFFF;
+border: 2px solid #000000;
+box-sizing: border-box;
+border-radius: 6px;
+
+
+/* Rectangle 29 */
+
+
+position: absolute;
+width: 269px;
+height: 67px;
+right: 26px;
+top: 599px;
+
+background: #FFFFFF;
+border: 2px solid #000000;
+box-sizing: border-box;
+border-radius: 6px;
+
+
+/* Rectangle 30 */
+
+
+position: absolute;
+width: 269px;
+height: 67px;
+right: 31px;
+top: 691px;
+
+background: #FFFFFF;
+border: 2px solid #000000;
+box-sizing: border-box;
+border-radius: 6px;
+
+
+/* Rectangle 25 */
+
+
+position: absolute;
+width: 191px;
+height: 67px;
+left: 49px;
+top: 599px;
+
+background: #000000;
+border: 2px solid #000000;
+box-sizing: border-box;
+border-radius: 6px;
+
+
+/* Rectangle 2 */
+
+
+position: absolute;
+width: 191px;
+height: 67px;
+left: 49px;
+top: 507px;
+
+background: #000000;
+border: 2px solid #000000;
+box-sizing: border-box;
+border-radius: 6px;
+
+
+/* Polygon 1 */
+
+
+position: absolute;
+height: 523px;
+left: 178px;
+right: -36px;
+bottom: -136px;
+
+background: #5B73F0;
+
+
+/* Button */
+
+
+position: absolute;
+height: 71px;
+left: 306px;
+right: 31px;
+bottom: 213px;
+
+
+
+/* Rectangle 3 */
+
+
+position: absolute;
+width: 191px;
+height: 67px;
+left: 49px;
+top: 423px;
+
+background: #000000;
+border: 2px solid #000000;
+box-sizing: border-box;
+border-radius: 6px;
+
+
+/* Color */
+
+
+position: absolute;
+width: 137px;
+height: 27px;
+left: 75px;
+top: 443px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: 900;
+font-size: 18px;
+line-height: 21px;
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.04em;
+text-transform: uppercase;
+
+color: #FFFFFF;
+
+
+
+/* Length */
+
+
+position: absolute;
+width: 137px;
+height: 27px;
+left: 75px;
+top: 527px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: 900;
+font-size: 18px;
+line-height: 21px;
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.04em;
+text-transform: uppercase;
+
+color: #FFFFFF;
+
+
+
+/* Quantity */
+
+
+position: absolute;
+width: 137px;
+height: 27px;
+left: 75px;
+top: 618px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: 900;
+font-size: 18px;
+line-height: 21px;
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.04em;
+text-transform: uppercase;
+
+color: #FFFFFF;
+
+
+
+/* Gauge */
+
+
+position: absolute;
+width: 137px;
+height: 27px;
+left: 75px;
+top: 706px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: 900;
+font-size: 18px;
+line-height: 21px;
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: 0.04em;
+text-transform: uppercase;
+
+color: #FFFFFF;
