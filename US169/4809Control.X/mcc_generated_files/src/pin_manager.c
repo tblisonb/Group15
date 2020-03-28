@@ -32,6 +32,7 @@
 
 
 #include "../include/pin_manager.h"
+#include "../../QECounter.h"
 static void (*PORTB_IO_PB3_InterruptHandler)(void);
 static void (*PORTB_IO_PB2_InterruptHandler)(void);
 static void (*PORTA_PA1_InterruptHandler)(void);
@@ -235,8 +236,7 @@ void PORTA_PA3_SetInterruptHandler(void (* interruptHandler)(void))
 
 void PORTA_PA3_DefaultInterruptHandler(void)
 {
-    // add your PORTA_PA3 interrupt custom code
-    // or set custom function using PORTA_PA3_SetInterruptHandler()
+    counter_increment();
 }
 /**
   Allows selecting an interrupt handler for PORTD_PD1 at application runtime
