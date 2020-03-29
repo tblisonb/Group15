@@ -10,17 +10,6 @@ top: 44px;
 background: #FFFFFF;
 
 
-/* Register */
-
-
-position: absolute;
-width: 148px;
-height: 40px;
-left: 16px;
-top: 104px;
-
-
-
 /* Rectangle 24 */
 
 
@@ -72,7 +61,7 @@ background: #5B73F0;
 transform: rotate(-180deg);
 
 
-/* Button */
+/* Run_device_button */
 
 
 position: absolute;
@@ -120,7 +109,7 @@ top: 326px;
 
 
 
-/* Rectangle 4 */
+/* Gauge_box */
 
 
 position: absolute;
@@ -210,7 +199,7 @@ box-sizing: border-box;
 border-radius: 6px;
 
 
-/* Rectangle 25 */
+/* Quantity_box */
 
 
 position: absolute;
@@ -225,7 +214,7 @@ box-sizing: border-box;
 border-radius: 6px;
 
 
-/* Rectangle 2 */
+/* Length_box */
 
 
 position: absolute;
@@ -252,7 +241,7 @@ bottom: -136px;
 background: #5B73F0;
 
 
-/* Button */
+/* Quick_save_Button */
 
 
 position: absolute;
@@ -263,7 +252,7 @@ bottom: 213px;
 
 
 
-/* Rectangle 3 */
+/* Color_box */
 
 
 position: absolute;
