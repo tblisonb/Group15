@@ -10,8 +10,8 @@
 
 #include "mcc_generated_files/delay.h"
 
-#define MIN_PULSE     1000  // us for 0 degrees
-#define MAX_PULSE     2000  // us for max turn
+#define MIN_PULSE     500   // us for 0 degrees
+#define MAX_PULSE     2500  // us for max turn
 #define RANGE_DEGREES 180   // max turn in degrees
 #define CYCLE_TIME    20000 // total pulse cycle time in us
 

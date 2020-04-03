@@ -29,12 +29,39 @@
 
 void led_blink(int num_times) {
     for (int i = 0; i < num_times; i++) {
-        IO_PF5_SetHigh();
+        LED_SetHigh();
         DELAY_milliseconds(200);
-        IO_PF5_SetLow();
+        LED_SetLow();
         DELAY_milliseconds(200);
     }
     DELAY_milliseconds(800);
+}
+
+int int_pow(int b, int exp) {
+    int result = 1;
+    while (exp) {
+        if (exp % 2)
+           result *= b;
+        exp /= 2;
+        b *= b;
+    }
+    return result;
+}
+
+unsigned int hex_to_int(unsigned char* hex, int start, int end) {
+    unsigned int result = 0;
+    unsigned int i;
+    for (i = end; i >= start; i--) {
+        int value = 0;
+        if (hex[i] >= '0' && hex[i] <= '9')
+            value = hex[i] - '0';
+        else if (hex[i] >= 'A' && hex[i] <= 'F')
+            value = hex[i] - 'A' + 10;
+        else if (hex[i] >= 'a' && hex[i] <= 'f')
+            value = hex[i] - 'a' + 10;
+        result += int_pow(value, (end - start) - (i - start) + 1);
+    }
+    return result;
 }
 
 /*
@@ -48,6 +75,7 @@ int main(void)
     
     RN487X_Init();              // initialize BLE HW module
     DELAY_milliseconds(200);    // allow module to process commands
+    /*
     RN487X_EnterCmdMode();      // enter command mode
     DELAY_milliseconds(200);    // processing time
     uint8_t cmd_buf[16];        // command buffer
@@ -85,19 +113,26 @@ int main(void)
     RN487X_RebootCmd();         // reboot the device for the changes made
     DELAY_milliseconds(RN487X_STARTUP_DELAY);
     led_blink(2);               // ready signal
-    
+    */
+    rotate_hold(100, 1000, (volatile unsigned char*)&PORTF.OUT, 4);
     int idx = 0;
-    uint8_t msg[16];
+    unsigned char msg[16];
     while (1) {
         if (RN487X_DataReady()) {
-            msg[idx++] = RN487X_Read();
-            cw_turn((volatile unsigned char*)&PORTE.OUT, 100, 10);
-        }
-        if (idx == 15) {
-            led_blink(2);
-            RN487X_SendCmd(msg, 16);
+            msg[idx++] = (unsigned char) RN487X_Read();
+            LED_Toggle();
+        } else if (idx >= 4) {
+            if (msg[0] == 'c' && msg[1] == 'c')
+                cc_turn((volatile unsigned char*)&PORTE.OUT, hex_to_int(msg, 2, 3) * 10, 10);
+            if (msg[0] == 'c' && msg[1] == 'w')
+                cw_turn((volatile unsigned char*)&PORTE.OUT, hex_to_int(msg, 2, 3) * 10, 10);
+            if (msg[0] == 's' && msg[1] == 's')
+                rotate_hold(hex_to_int(msg, 2, 3), 1000, (volatile unsigned char*)&PORTF.OUT, 4);
+            if (msg[0] == 's' && msg[1] == 'c')
+                rotate_hold(hex_to_int(msg, 3, 3), 1000, (volatile unsigned char*)&PORTF.OUT, 4);
             idx = 0;
-            cc_turn((volatile unsigned char*)&PORTE.OUT, 300, 8);
+        } else if (idx > 15) {
+            idx = 15;
         }
     }
 }

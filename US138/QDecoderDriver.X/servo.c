@@ -6,6 +6,7 @@
  */
 
 #include "servo.h"
+#include "mcc_generated_files/include/tcb0.h"
 
 void return_neutral(volatile unsigned char* reg, char pin) {
     (*reg) |= (1 << pin); // set pin high to start pulse
@@ -34,4 +35,5 @@ void rotate_hold(int degrees, int hold_delay, volatile unsigned char* reg, char 
         us_remain -= CYCLE_TIME; // update time remaining
         DELAY_microseconds(CYCLE_TIME - length);
     }
+    
 }

@@ -31,33 +31,29 @@
 */
 
 
-#ifndef MCC_H
-#define	MCC_H
+#ifndef TCB0_H_INCLUDED
+#define TCB0_H_INCLUDED
+
+#include "../utils/compiler.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#include "utils/compiler.h"
-#include "include/pin_manager.h"
-#include "delay.h"
-#include "include/usart0.h"
-#include "include/usart3.h"
-#include "include/tcb0.h"
-#include "include/cpuint.h"
-#include "include/ccl.h"
-#include "config/clock_config.h"
+typedef void (*TCB0_cb_t)(void);
+void TCB0_SetCaptIsrCallback(TCB0_cb_t cb);
+void TCB0_SetOvfIsrCallback(TCB0_cb_t cb);
 
-/**
- * Initializes MCU, drivers and middleware in the project
-**/
-void SYSTEM_Initialize(void);
-int8_t BOD_Initialize();
-int8_t CLKCTRL_Initialize();
-int8_t SLPCTRL_Initialize();
-int8_t WDT_Initialize();
+int8_t TCB0_Initialize();
+void TCB0_EnableCaptInterrupt(void);
+void TCB0_DisableCaptInterrupt(void);
+uint16_t TCB0_ReadTimer(void);
+void TCB0_WriteTimer(uint16_t timerVal);
+void TCB0_ClearCaptInterruptFlag(void);
+bool TCB0_IsCaptInterruptEnabled();
 
 #ifdef __cplusplus
 }
 #endif
-#endif	/* MCC_H */
+
+#endif /* TCB0_H_INCLUDED */
