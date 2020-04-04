@@ -14,10 +14,11 @@ import UIKit
 import Foundation
 import CoreBluetooth
 
+
 class HomeViewController: UIViewController {
     
     // corebluetooth module
-    var ble : BlueToothModel!
+    var ble = BlueToothModel()
 
   
     @IBOutlet weak var connectedLabel: UILabel!
@@ -37,7 +38,8 @@ class HomeViewController: UIViewController {
             connectDeviceOutlet.isEnabled = true
             disconnectButtonOutlet.isEnabled = false
         }
-        ble = BlueToothModel()
+        
+
     }
     
     // connect button runs the connect methods in the bluetoothmodel class. while disabling and activating the proper buttons

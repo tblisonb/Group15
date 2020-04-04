@@ -19,11 +19,10 @@ private struct BLEIDs{
 
     // these are dummy ids so the sake of testing other code areas. once the offical ids are known from the
     // machine we will change
-    static let coilServiceUUID = CBUUID(string: "49535343-FE7D-4AE5-8FA9-9FAFD205E455.")
-    static let coilCharactersticUUID = CBUUID(string:"49535343-8841-43F4-A8D4-ECBE34729BB3")
-    static let blockingUUID = CBUUID(string:"49535343-1E4D-4BD9-BA61-23C647249616")
-
-
+    static let coilServiceUUID = CBUUID(string: "49535343-FE7D-4AE5-8FA9-9FAFD205E455")
+    static let coilCharactersticUUID = CBUUID(string:"49535343-1E4D-4BD9-BA61-23C647249616")
+    static let blockingUUID = CBUUID(string:"49535343-8841-43F4-A8D4-ECBE34729BB3")
+//49535343-8841-43F4-A8D4-ECBE34729BB3
 }
 
 // class to allow all the bluetooth functionality throughout application
@@ -54,89 +53,82 @@ public class BlueToothModel: NSObject, CBCentralManagerDelegate, CBPeripheralDel
         switch (central.state) {
 
         case .poweredOff: central.stopScan()
-        case .poweredOn: discoverDevice()
-            print("ble is on")
+        case .poweredOn:print("ble is on")
+              print("Starting scan")
+              centralManager?.scanForPeripherals(
+                withServices: [BLEIDs.coilServiceUUID], options: [
+                      CBCentralManagerScanOptionAllowDuplicatesKey : NSNumber(value: true as Bool)
+                  ]
+              )
         case .resetting: break
         case .unauthorized: break
         case .unknown:break
-        case .unsupported:fatalError("Unsupported BLE module")
+        
 
+        case .unsupported:break
+            
         @unknown default:
             fatalError("unknown state")
         }
     }
+    
     // end functions to start the central manager
     //*****************************************
 
 
     // MARK: - Functions to discover ble devices
     //*****************************************
-    func discoverDevice() {
+//    func discoverDevice() {
+//
+//        print("Starting scan")
+//        centralManager?.scanForPeripherals(withServices: [BLEIDs.coilServiceUUID], options: [CBCentralManagerScanOptionAllowDuplicatesKey:false])
+//    }
 
-        print("Starting scan")
-        centralManager.scanForPeripherals(withServices: [BLEIDs.coilServiceUUID], options: [CBCentralManagerScanOptionAllowDuplicatesKey:false])
-    }
-
-    private func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber){
-
+    public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber){
+        
         if ATmega3208Board == nil {
 
             print("Found a new Periphal advertising wire cutting service")
-
             ATmega3208Board = peripheral
-            centralManager.stopScan()
-            connectToDevice()
+            
+            centralManager?.connect(peripheral, options: nil)
+
+           
         }
     }
+    
+
 
     // end functions to discover BLE devices
     //*****************************************
 
     // MARK: - Functions to connect to a device
     //*****************************************
-    func connectToDevice(){
 
-        centralManager.connect(ATmega3208Board!, options: nil)
-    }
 
     // a device connection is complete
-    func centralManager(central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral) {
+    public func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
 
         print("Connection complete \(ATmega3208Board!) \(peripheral)")
-        ATmega3208Board!.delegate = self
+        peripheral.delegate = self
+        centralManager.stopScan()
+
         Home.connectedLabel.text = "Device connected"
-        discoverServices()
+        peripheral.discoverServices([BLEIDs.coilServiceUUID])
+
     }
 
     // end functions to connect to BLE device
     //*****************************************
 
-    // MARK: - Functions to handle disconnection
-    //*****************************************
-    func disconnectDevice(){
 
-        centralManager.cancelPeripheralConnection(ATmega3208Board!)
-    }
-
-    // disconnected a device
-    private func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?) {
-
-        print("Disconnected \(peripheral)")
-        ATmega3208Board = nil
-        Home.connectedLabel.text = "Device disconnected"
-    }
-    // end functions to disconnect to BLE device
-    //*****************************************
 
 
     // MARK: - Functions to discover the services on a device
      //*****************************************
-    func discoverServices(){
+ 
 
-        ATmega3208Board!.discoverServices(nil)
-    }
-
-    private func peripheral(peripheral: CBPeripheral, didDiscoverServices error: NSError?) {
+    public func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         print("discovered services")
 
         for service in peripheral.services! {
@@ -145,9 +137,11 @@ public class BlueToothModel: NSObject, CBCentralManagerDelegate, CBPeripheralDel
 
             if service.uuid == BLEIDs.coilServiceUUID {
                 coilService = service
+                peripheral.discoverCharacteristics([BLEIDs.coilCharactersticUUID], for: service)
+
             }
         }
-        discoverCharacteristics()
+
 
     }
     // end functions to connect to BLE device
@@ -158,23 +152,20 @@ public class BlueToothModel: NSObject, CBCentralManagerDelegate, CBPeripheralDel
 
     // MARK: - Functions to discover the characteristics
     //*****************************************
-    func discoverCharacteristics(){
 
-        ATmega3208Board!.discoverCharacteristics(nil, for: coilService)
-    }
-
-    private func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?) {
+    public func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
 
         for characteristic in service.characteristics!{
 
             print("Found characteristic \(characteristic)")
 
-            if characteristic.uuid == BLEIDs.coilCharactersticUUID{
-                coilCharacteristic = characteristic
-            }
+            switch characteristic.uuid {
+            case BLEIDs.coilCharactersticUUID:  coilCharacteristic = characteristic
+            case BLEIDs.blockingUUID: activeCharacteristic = characteristic
+            default: break
 
         }
-
+        }
     }
     
 
@@ -188,6 +179,24 @@ public class BlueToothModel: NSObject, CBCentralManagerDelegate, CBPeripheralDel
         print("write complete")
         
     }
+    
+    // MARK: - Functions to handle disconnection
+    //*****************************************
+    func disconnectDevice(){
+
+        centralManager.cancelPeripheralConnection(ATmega3208Board!)
+    }
+
+    // disconnected a device
+    private func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?) {
+
+        print("Disconnected \(peripheral)")
+        ATmega3208Board = nil
+        Home.connectedLabel.text = "Device disconnected"
+
+    }
+    // end functions to disconnect to BLE device
+    //*****************************************
     
     // possible set up for strings
 //         let string = "hello"
