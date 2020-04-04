@@ -14,12 +14,16 @@ import UIKit
 import Foundation
 import CoreBluetooth
 
+struct notifications{
+    static let ConnectionComplete = "connectioncomplete"
+    static let disconnectionComplete = "disconnect complete"
+}
 
 class HomeViewController: UIViewController {
     
     // corebluetooth module
-    var ble = BlueToothModel()
-
+    var ble : BlueToothModel!
+    var deviceName : String = ""
   
     @IBOutlet weak var connectedLabel: UILabel!
     
@@ -28,6 +32,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         print("loaded home page")
         
+        ble = BlueToothModel()
         // if device is already connected on load disable connect button and enable disconnect button
         if(connectedLabel.text == "Device connected" || connectedLabel.text == "Device already connected"){
             connectDeviceOutlet.isEnabled = false
@@ -40,6 +45,10 @@ class HomeViewController: UIViewController {
         }
         
 
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: notifications.ConnectionComplete), object: nil, queue: OperationQueue.main) { _ in self.connectionComplete() }
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: notifications.disconnectionComplete), object: nil, queue: OperationQueue.main) { _ in self.deviceDisconnected()}
+        
     }
     
     // connect button runs the connect methods in the bluetoothmodel class. while disabling and activating the proper buttons
@@ -70,7 +79,16 @@ class HomeViewController: UIViewController {
         print("device disconnected")
     }
     
-    
+    func getDeviceName(name : String){
+        deviceName = name
+        
+    }
+    func connectionComplete(){
+        connectedLabel.text = "Device Connect \(deviceName)"
+    }
+    func deviceDisconnected(){
+        connectedLabel.text = "Device disconnected"
+    }
     
 }
 
