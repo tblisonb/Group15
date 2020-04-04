@@ -30,6 +30,7 @@ import CoreBluetooth
     var quickRun: QuickRunViewController!
     var coilRun: CoilRunViewController!
     var peripherals: [CBPeripheral] = []
+    var deviceName: String = ""
 
     var centralManager : CBCentralManager!
     var ATmega3208Board : CBPeripheral?
@@ -57,7 +58,7 @@ import CoreBluetooth
 
         }
         else{
-            central.stopScan()
+            centralManager?.stopScan()
         }
 //[coilServiceUUID]
 
@@ -112,12 +113,14 @@ import CoreBluetooth
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
 
         print("Connection complete \(ATmega3208Board!) \(peripheral)")
+        deviceName = peripheral.name!
         peripheral.delegate = self
 //        centralManager.stopScan()
 
-       // NotificationCenter.default.post(name: NSNotification.Name(rawValue: notifications.ConnectionComplete), object: nil)
+        NotificationCenter.default.post(name: Notification.Name("ConnectionComplete"), object: nil)
 
-        Home.deviceName = "Device connected \(String(describing: peripheral.name))"
+       // Home.getDeviceNameForConnection(name: deviceName)
+//        Home.deviceName = "Device connected \(String(describing: peripheral.name))"
         peripheral.discoverServices([coilServiceUUID])
 
     }
@@ -187,17 +190,23 @@ import CoreBluetooth
     // MARK: - Functions to handle disconnection
     //*****************************************
     func disconnectDevice(){
-
-        centralManager.cancelPeripheralConnection(ATmega3208Board!)
+        print("in disconnect")
+        centralManager?.cancelPeripheralConnection(ATmega3208Board!)
+        centralManager?.stopScan()
     }
 
     // disconnected a device
-    private func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?) {
+    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
 
         print("Disconnected \(peripheral)")
+        NotificationCenter.default.post(name: Notification.Name("disconnectionComplete"), object: nil)
         ATmega3208Board = nil
+        deviceName = ""
        // NotificationCenter.default.post(name: NSNotification.Name(rawValue: notifications.disconnectionComplete), object: nil)
-        Home.deviceName = "Device disconnected \(String(describing: peripheral.name))"
+       // Home.deviceName = "Device disconnected \(String(describing: peripheral.name))"
+//        Home.getDeviceNameForDisconnect(name: peripheral.name!)
+        
+        //disconnectionComplete
     }
     // end functions to disconnect to BLE device
     //*****************************************

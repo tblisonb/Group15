@@ -88,7 +88,7 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
     
     // Populate the text fields of this new view
     func populateUIFields(_ name:String){
-        // instead of doing a query, could search the students array for the managed object.
+        
         let db:CoilCoreDataDB = CoilCoreDataDB()
         let aCoil = db.getCoil(name)
 

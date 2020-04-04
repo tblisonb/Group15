@@ -14,9 +14,10 @@ import UIKit
 import Foundation
 import CoreBluetooth
 
-struct notifications{
-    static let ConnectionComplete = "connectioncomplete"
-    static let disconnectionComplete = "disconnect complete"
+extension Notification.Name{
+    static let ConnectionComplete = Notification.Name("connectioncomplete")
+    static let disconnectionComplete = Notification.Name("disconnectioncomplete")
+    
 }
 
 class HomeViewController: UIViewController {
@@ -44,50 +45,63 @@ class HomeViewController: UIViewController {
             disconnectButtonOutlet.isEnabled = false
         }
         
+//
+        NotificationCenter.default.addObserver(self, selector: #selector(connectionComplete), name: Notification.Name("ConnectionComplete"), object: nil)
+//
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceDisconnected), name: Notification.Name("disconnectionComplete"), object: nil)
 
-        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: notifications.ConnectionComplete), object: nil, queue: OperationQueue.main) { _ in self.connectionComplete() }
-        
-        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: notifications.disconnectionComplete), object: nil, queue: OperationQueue.main) { _ in self.deviceDisconnected()}
+//        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: notifications.disconnectionComplete), object: nil, queue: OperationQueue.main) { _ in self.deviceDisconnected()}
         
     }
     
     // connect button runs the connect methods in the bluetoothmodel class. while disabling and activating the proper buttons
+ 
+
+    
     @IBOutlet weak var connectDeviceOutlet: UIButton!
     @IBAction func ConnectDevice(_ sender: Any) {
-        
         if(connectedLabel.text == "Device connected"){
             return connectedLabel.text = "Device already connected"
         }
         connectedLabel.text = "Searching for device"
-        
+
         print("calling ble module to connect")
         ble.startUpCentralManager()
-        print("back in home screen device")
+
         connectDeviceOutlet.isEnabled = false
         disconnectButtonOutlet.isEnabled = true
+
     }
     
     
+
+
     // disconnect button runs the disconnect methods in the bluetoothmodel class. while disabling and activating the proper buttons
+//
+    
     @IBOutlet weak var disconnectButtonOutlet: UIButton!
     @IBAction func disconnectDevice(_ sender: Any) {
-        
+
         print("calling bluetooth modular to disconnect")
         ble.disconnectDevice()
         connectDeviceOutlet.isEnabled = true
         disconnectButtonOutlet.isEnabled = false
+
         print("device disconnected")
     }
     
-    func getDeviceName(name : String){
-        deviceName = name
-        
+
+    
+// update label on connection
+    @objc func connectionComplete(notification: NSNotification){
+        print(ble.deviceName)
+        connectedLabel.text = "Device Connected \(ble.deviceName)"
+        print(connectedLabel.text!)
     }
-    func connectionComplete(){
-        connectedLabel.text = "Device Connect \(deviceName)"
-    }
-    func deviceDisconnected(){
-        connectedLabel.text = "Device disconnected"
+    
+    //update label on disconnect
+    @objc func deviceDisconnected(notification: NSNotification){
+        connectedLabel.text = "\(ble.deviceName) disconnected"
     }
     
 }
