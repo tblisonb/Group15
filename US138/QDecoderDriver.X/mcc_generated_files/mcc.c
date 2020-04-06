@@ -45,6 +45,7 @@ void SYSTEM_Initialize(void)
     CLKCTRL_Initialize();
     USART3_Initialize();
     CCL_Initialize();
+    RTC_Initialize();
     CPUINT_Initialize();
     USART0_Initialize();
     TCB0_Initialize();

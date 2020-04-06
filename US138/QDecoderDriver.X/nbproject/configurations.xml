@@ -21,6 +21,7 @@
           <itemPath>mcc_generated_files/include/protected_io.h</itemPath>
           <itemPath>mcc_generated_files/include/usart0.h</itemPath>
           <itemPath>mcc_generated_files/include/tcb0.h</itemPath>
+          <itemPath>mcc_generated_files/include/rtc.h</itemPath>
         </logicalFolder>
         <logicalFolder name="utils" displayName="utils" projectFiles="true">
           <logicalFolder name="assembler" displayName="assembler" projectFiles="true">
@@ -62,6 +63,7 @@
           <itemPath>mcc_generated_files/src/usart3.c</itemPath>
           <itemPath>mcc_generated_files/src/usart0.c</itemPath>
           <itemPath>mcc_generated_files/src/tcb0.c</itemPath>
+          <itemPath>mcc_generated_files/src/rtc.c</itemPath>
         </logicalFolder>
         <itemPath>mcc_generated_files/mcc.c</itemPath>
         <itemPath>mcc_generated_files/device_config.c</itemPath>
