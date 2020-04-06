@@ -23,19 +23,10 @@
 #include "mcc_generated_files/include/pin_manager.h"
 #include <stdlib.h>
 #include "stepper.h"
+#include "servo.h"
 #include "RN487x.h"
 #include "mcc_generated_files/mcc.h"
 #include "mcc_generated_files/delay.h"
-
-void led_blink(int num_times) {
-    for (int i = 0; i < num_times; i++) {
-        LED_SetHigh();
-        DELAY_milliseconds(200);
-        LED_SetLow();
-        DELAY_milliseconds(200);
-    }
-    DELAY_milliseconds(800);
-}
 
 int int_pow(int b, int exp) {
     int result = 1;
@@ -114,22 +105,23 @@ int main(void)
     DELAY_milliseconds(RN487X_STARTUP_DELAY);
     led_blink(2);               // ready signal
     */
-    rotate_hold(100, 1000, (volatile unsigned char*)&PORTF.OUT, 4);
     int idx = 0;
     unsigned char msg[16];
     while (1) {
         if (RN487X_DataReady()) {
             msg[idx++] = (unsigned char) RN487X_Read();
-            LED_Toggle();
+            //LED_Toggle();
         } else if (idx >= 4) {
             if (msg[0] == 'c' && msg[1] == 'c')
                 cc_turn((volatile unsigned char*)&PORTE.OUT, hex_to_int(msg, 2, 3) * 10, 10);
-            if (msg[0] == 'c' && msg[1] == 'w')
+            else if (msg[0] == 'c' && msg[1] == 'w')
                 cw_turn((volatile unsigned char*)&PORTE.OUT, hex_to_int(msg, 2, 3) * 10, 10);
-            if (msg[0] == 's' && msg[1] == 's')
-                rotate_hold(hex_to_int(msg, 2, 3), 1000, (volatile unsigned char*)&PORTF.OUT, 4);
-            if (msg[0] == 's' && msg[1] == 'c')
-                rotate_hold(hex_to_int(msg, 3, 3), 1000, (volatile unsigned char*)&PORTF.OUT, 4);
+            else if (msg[0] == 's' && msg[1] == 'c')
+                rotate_hold(115, 1000, (volatile unsigned char*)&PORTF.OUT, 4);
+            else if (msg[0] == 's' && msg[1] == 's')
+                rotate_hold(90, 1000, (volatile unsigned char*)&PORTF.OUT, 4);
+            else if (msg[0] == 's' && msg[1] == 'n')
+                rotate_hold(0, 1000, (volatile unsigned char*)&PORTF.OUT, 4);
             idx = 0;
         } else if (idx > 15) {
             idx = 15;

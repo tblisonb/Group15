@@ -10,18 +10,12 @@
 
 #include "mcc_generated_files/delay.h"
 
-#define MIN_PULSE     500   // us for 0 degrees
-#define MAX_PULSE     2500  // us for max turn
-#define RANGE_DEGREES 180   // max turn in degrees
-#define CYCLE_TIME    20000 // total pulse cycle time in us
+#define MIN_PULSE     336   // us for 0 degrees
+#define MAX_PULSE     2200  // us for max turn
+#define RANGE_DEGREES 270   // max turn in degrees
+#define CYCLE_TIME    19797 // total pulse cycle time in us
 
-/**
- * Resets the servo's position to 0 degrees.
- * 
- * @param reg Register assigned to servo output
- * @param pin Pin number in 'reg' for servo output
- */
-void return_neutral(volatile unsigned char* reg, char pin);
+void init();
 
 /**
  * Temporarily rotates the servo to 'degrees' offset from zero.
@@ -31,7 +25,7 @@ void return_neutral(volatile unsigned char* reg, char pin);
  * @param pin Pin number in 'reg' for servo output
  * @return Pulse length for rotation
  */
-int rotate_pulse(int degrees, volatile unsigned char* reg, char pin);
+unsigned int rotate_pulse(int degrees, volatile unsigned char* reg, char pin);
 
 /**
  * Rotates and holds at 'degrees' offset from zero.
@@ -41,7 +35,7 @@ int rotate_pulse(int degrees, volatile unsigned char* reg, char pin);
  * @param reg Register assigned to servo output
  * @param pin Pin number in 'reg' for servo output
  */
-void rotate_hold(int degrees, int hold_delay, volatile unsigned char* reg, char pin);
+void rotate_hold(int degrees, unsigned long hold_delay, volatile unsigned char* reg, char pin);
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 
