@@ -90,7 +90,15 @@ class HomeViewController: UIViewController {
         print("device disconnected")
     }
     
-
+    
+//    @IBAction func QuickRunBtn(_ sender: Any) {
+//        self.performSegue(withIdentifier: "QuickRunSegue", sender: self)
+//    }
+//
+//    @IBAction func savedBtn(_ sender: Any) {
+//        self.performSegue(withIdentifier: "TableViewSegue", sender: self)
+//    }
+    
     
 // update label on connection
     @objc func connectionComplete(notification: NSNotification){
@@ -104,5 +112,23 @@ class HomeViewController: UIViewController {
         connectedLabel.text = "\(ble.deviceName) disconnected"
     }
     
+    // MARK: - Navigation
+    // Storyboard seque: do any advance work before navigation, and/or pass data
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        // prepping the the segue to include the relative data to be passed
+        if segue.identifier == "QuickRunSegue" {
+            let quickviewController:QuickRunViewController = segue.destination as! QuickRunViewController
+            quickviewController.ble = self.ble
+
+        }
+        if segue.identifier == "TableViewSegue" {
+            let tableviewController:CoilTableViewController = segue.destination as! CoilTableViewController
+            tableviewController.ble = self.ble
+    }
+
+    
+}
 }
 

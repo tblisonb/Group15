@@ -50,7 +50,9 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
     //view loading func
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("in quick run")
+        
+        print(ble.deviceName)
         // the data source and delegates to populate the picker. allowing the values to show
         gaugePicker.delegate = self
         self.gaugePicker.dataSource = self

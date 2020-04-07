@@ -21,7 +21,7 @@ class CoilTableViewController: UITableViewController {
     
     // global variables
     var coilNames: [String] = [String]()
-
+    var ble : BlueToothModel!
     
     
     // view did load
@@ -120,7 +120,7 @@ class CoilTableViewController: UITableViewController {
         if segue.identifier == "SavedSettingSegue" {
             let viewController:CoilRunViewController = segue.destination as! CoilRunViewController
             let indexPath = self.tableView.indexPathForSelectedRow!
-            
+            viewController.ble = self.ble
             viewController.selectedCoil = self.coilNames[indexPath.row]
             viewController.coilNames = self.coilNames
         }
