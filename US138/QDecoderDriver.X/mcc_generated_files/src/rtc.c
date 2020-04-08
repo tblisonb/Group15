@@ -32,6 +32,9 @@
 
 
 #include "../include/rtc.h"
+#include "wire.h"
+#include "servo.h"
+#include "stepper.h"
 
 /**
  * \brief Initialize rtc interface
@@ -111,6 +114,19 @@ ISR(RTC_CNT_vect)
         } 
     }   
     RTC.INTFLAGS = (RTC_OVF_bm | RTC_CMP_bm);
+    
+    //Figuring out how to do interrupts for the rotary encoder
+    // NOT FUNCTIONAL
+    int count = 0; //This code will be in main
+    int targetCount = 5; //In main
+    if(count == targetCount) { //in main
+        //Call ISR, this is where this code starts
+        //Stop the servo from rotating
+        rotate_hold(0, 1000, (volatile unsigned char*)&PORTF.OUT, 4); 
+        strip(); //strip the wire
+        cut(); //cut the wire
+        DELAY_milliseconds(500); //delay before the ISR exits
+    }
 }
 
 ISR(RTC_PIT_vect)
