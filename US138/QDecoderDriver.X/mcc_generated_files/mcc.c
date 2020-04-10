@@ -43,11 +43,10 @@ void SYSTEM_Initialize(void)
     WDT_Initialize();
     CLKCTRL_Initialize();
     SLPCTRL_Initialize();
-    USART3_Initialize();
     CCL_Initialize();
     RTC_Initialize();
     CPUINT_Initialize();
-    USART0_Initialize();
+    USART1_Initialize();
 }
 
 /**

@@ -32,9 +32,9 @@
 
 
 #include "../include/rtc.h"
-#include "wire.h"
-#include "servo.h"
-#include "stepper.h"
+#include "../../wire.h"
+#include "../../servo.h"
+#include "../../stepper.h"
 
 /**
  * \brief Initialize rtc interface

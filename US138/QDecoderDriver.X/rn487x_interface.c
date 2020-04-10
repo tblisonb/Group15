@@ -23,7 +23,7 @@
 
 #include <string.h>
 #include "mcc_generated_files/mcc.h"
-#include "mcc_generated_files/include/usart0.h"
+#include "mcc_generated_files/include/usart1.h"
 #include "rn487x_interface.h"
 
 static bool connected = false;
@@ -41,10 +41,10 @@ static void RN487X_MessageHandler(char* message);
  */
 
 const iRN487X_FunctionPtrs_t RN487X = {
-    .uartTx = USART0_Write,
-    .uartRx = USART0_Read,
-    .isTxDone = USART0_IsTxReady,
-    .isRxReady = USART0_IsRxReady,
+    .uartTx = USART1_Write,
+    .uartRx = USART1_Read,
+    .isTxDone = USART1_IsTxReady,
+    .isRxReady = USART1_IsRxReady,
     .rxIndSet = RN487X_RxIndSet,
     .rstSet = RN487X_ResetSet,
     .modeSet = RN487X_ModeSet,

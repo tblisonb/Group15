@@ -31,8 +31,8 @@
 */
 
 
-#ifndef USART0_H_INCLUDED
-#define USART0_H_INCLUDED
+#ifndef USART1_H_INCLUDED
+#define USART1_H_INCLUDED
 
 #include <stdbool.h>
 #include <stdio.h>
@@ -45,7 +45,7 @@ extern "C" {
 #endif
 
 /* Normal Mode, Baud register value */
-#define USART0_BAUD_RATE(BAUD_RATE) (((float)16000000 * 64 / (16 * (float)BAUD_RATE)) + 0.5)
+#define USART1_BAUD_RATE(BAUD_RATE) (((float)20000000 * 64 / (16 * (float)BAUD_RATE)) + 0.5)
 
 /**
  * \brief Initialize USART interface
@@ -56,50 +56,50 @@ extern "C" {
  * \retval 0 the USART init was successful
  * \retval 1 the USART init was not successful
  */
-void USART0_Initialize();
+void USART1_Initialize();
 
 /**
- * \brief Enable RX and TX in USART0
+ * \brief Enable RX and TX in USART1
  * 1. If supported by the clock system, enables the clock to the USART
  * 2. Enables the USART module by setting the RX and TX enable-bits in the USART control register
  *
  * \return Nothing
  */
-void USART0_Enable();
+void USART1_Enable();
 
 /**
- * \brief Enable RX in USART0
+ * \brief Enable RX in USART1
  * 1. If supported by the clock system, enables the clock to the USART
  * 2. Enables the USART module by setting the RX enable-bit in the USART control register
  *
  * \return Nothing
  */
-void USART0_EnableRx();
+void USART1_EnableRx();
 
 /**
- * \brief Enable TX in USART0
+ * \brief Enable TX in USART1
  * 1. If supported by the clock system, enables the clock to the USART
  * 2. Enables the USART module by setting the TX enable-bit in the USART control register
  *
  * \return Nothing
  */
-void USART0_EnableTx();
+void USART1_EnableTx();
 
 /**
- * \brief Disable USART0
+ * \brief Disable USART1
  * 1. Disables the USART module by clearing the enable-bit(s) in the USART control register
  * 2. If supported by the clock system, disables the clock to the USART
  *
  * \return Nothing
  */
-void USART0_Disable();
+void USART1_Disable();
 
 /**
- * \brief Get recieved data from USART0
+ * \brief Get recieved data from USART1
  *
- * \return Data register from USART0 module
+ * \return Data register from USART1 module
  */
-uint8_t USART0_GetData();
+uint8_t USART1_GetData();
 
 /**
  * \brief Check if the usart can accept data to be transmitted
@@ -108,7 +108,7 @@ uint8_t USART0_GetData();
  * \retval false The USART can not receive data to be transmitted
  * \retval true The USART can receive data to be transmitted
  */
-bool USART0_IsTxReady();
+bool USART1_IsTxReady();
 
 /**
  * \brief Check if the USART has received data
@@ -117,30 +117,30 @@ bool USART0_IsTxReady();
  * \retval true The USART has received data
  * \retval false The USART has not received data
  */
-bool USART0_IsRxReady();
+bool USART1_IsRxReady();
 
 /**
- * \brief Check if USART0 data is transmitted
+ * \brief Check if USART1 data is transmitted
  *
  * \return Receiver ready status
  * \retval true  Data is not completely shifted out of the shift register
  * \retval false Data completely shifted out if the USART shift register
  */
-bool USART0_IsTxBusy();
+bool USART1_IsTxBusy();
 
-bool USART0_IsTxDone();
+bool USART1_IsTxDone();
 
 /**
- * \brief Read one character from USART0
+ * \brief Read one character from USART1
  *
  * Function will block if a character is not available.
  *
- * \return Data read from the USART0 module
+ * \return Data read from the USART1 module
  */
-uint8_t USART0_Read(void);
+uint8_t USART1_Read(void);
 
 /**
- * \brief Write one character to USART0
+ * \brief Write one character to USART1
  *
  * Function will block until a character can be accepted.
  *
@@ -148,10 +148,10 @@ uint8_t USART0_Read(void);
  *
  * \return Nothing
  */
-void USART0_Write(const uint8_t data);
+void USART1_Write(const uint8_t data);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* USART0_H_INCLUDED */
+#endif /* USART1_H_INCLUDED */
