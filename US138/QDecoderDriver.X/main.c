@@ -117,11 +117,11 @@ int main(void)
             else if (msg[0] == 'c' && msg[1] == 'w')
                 cw_turn((volatile unsigned char*)&PORTE.OUT, hex_to_int(msg, 2, 3) * 10, 10);
             else if (msg[0] == 's' && msg[1] == 'c')
-                rotate_hold(115, 1000, (volatile unsigned char*)&PORTF.OUT, 4);
+                rotate(105);
             else if (msg[0] == 's' && msg[1] == 's')
-                rotate_hold(90, 1000, (volatile unsigned char*)&PORTF.OUT, 4);
+                rotate(90);
             else if (msg[0] == 's' && msg[1] == 'n')
-                rotate_hold(0, 1000, (volatile unsigned char*)&PORTF.OUT, 4);
+                rotate(0);
             idx = 0;
         } else if (idx > 15) {
             idx = 15;

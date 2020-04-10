@@ -33,9 +33,9 @@ void retract(int length) {
 }
 
 void strip() {
-    rotate_pulse(STRIP_OFFSET_ANGLE, SERVO_PORT, SERVO_BIT);
+    //rotate(45);
 }
 
 void cut() {
-    rotate_pulse(CUT_OFFSET_ANGLE, SERVO_PORT, SERVO_BIT);
+    //rotate_pulse(CUT_OFFSET_ANGLE, SERVO_PORT, SERVO_BIT);
 }
