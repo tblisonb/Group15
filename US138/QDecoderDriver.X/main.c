@@ -108,9 +108,13 @@ int main(void)
     */
     
     //Call the ISR of RTC for the RE turns
-    //Still needs to be refined and tested to work correctly
+
+    uint8_t wireLength = RN487X_Read(); //may not be correct
+    //Placeholder equation for figuring out how many turns are needed
+    int encoderTurns = (0.05 * wireLength);
+    
     int count = 0;
-    int targetCount = 5;
+    int targetCount = encoderTurns;
     if(count == targetCount) {
         ISR(RTC_CNT_vect);
     }
