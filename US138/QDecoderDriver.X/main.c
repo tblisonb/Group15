@@ -27,6 +27,7 @@
 #include "RN487x.h"
 #include "mcc_generated_files/mcc.h"
 #include "mcc_generated_files/delay.h"
+#include "rtc.h"
 
 int int_pow(int b, int exp) {
     int result = 1;
@@ -105,6 +106,16 @@ int main(void)
     DELAY_milliseconds(RN487X_STARTUP_DELAY);
     led_blink(2);               // ready signal
     */
+    
+    //Call the ISR of RTC for the RE turns
+    //Still needs to be refined and tested to work correctly
+    int count = 0;
+    int targetCount = 5;
+    if(count == targetCount) {
+        ISR(RTC_CNT_vect);
+    }
+    
+    
     int idx = 0;
     unsigned char msg[16];
     while (1) {

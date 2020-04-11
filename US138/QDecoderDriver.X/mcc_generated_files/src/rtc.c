@@ -117,16 +117,11 @@ ISR(RTC_CNT_vect)
     
     //Figuring out how to do interrupts for the rotary encoder
     // NOT FUNCTIONAL
-    int count = 0; //This code will be in main
-    int targetCount = 5; //In main
-    if(count == targetCount) { //in main
-        //Call ISR, this is where this code starts
-        //Stop the servo from rotating
-        rotate_hold(0, 1000, (volatile unsigned char*)&PORTF.OUT, 4); 
-        strip(); //strip the wire
-        cut(); //cut the wire
-        DELAY_milliseconds(500); //delay before the ISR exits
-    }
+    //Need to test, but theoretically should stop the stepper for long enough for the wire to be extruded
+    cc_turn((volatile unsigned char*)&PORTE.OUT, 0, 1000);
+    strip(); //strip the wire
+    cut(); //cut the wire
+    DELAY_milliseconds(500); //delay before the ISR exits
 }
 
 ISR(RTC_PIT_vect)
