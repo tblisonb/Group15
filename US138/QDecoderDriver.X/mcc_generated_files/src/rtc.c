@@ -114,14 +114,12 @@ ISR(RTC_CNT_vect)
         } 
     }   
     RTC.INTFLAGS = (RTC_OVF_bm | RTC_CMP_bm);
-    
-    //Figuring out how to do interrupts for the rotary encoder
-    // NOT FUNCTIONAL
+
     //Need to test, but theoretically should stop the stepper for long enough for the wire to be extruded
     cc_turn((volatile unsigned char*)&PORTE.OUT, 0, 1000);
     strip(); //strip the wire
     cut(); //cut the wire
-    DELAY_milliseconds(500); //delay before the ISR exits
+    DELAY_milliseconds(1000); //delay before the ISR exits
 }
 
 ISR(RTC_PIT_vect)
