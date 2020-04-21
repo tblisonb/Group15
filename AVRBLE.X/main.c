@@ -22,6 +22,7 @@
 */
 
 #include "mcc_generated_files/mcc.h"
+#include <stdio.h>
 
 /*
     Main application
@@ -54,19 +55,17 @@ int main(void)
 
     /* Replace with your application code */
     int idx = 0;
-    unsigned char msg[16];
+    unsigned char msg[64];
     while (1){
-        DELAY_milliseconds(500);
         if (RN487X_DataReady()) {
             msg[idx++] = RN487X_Read();
-            IO_PF5_SetHigh();
-            DELAY_milliseconds(250);
             IO_PF5_SetLow();
+            DELAY_milliseconds(100);
+            IO_PF5_SetHigh();
+            DELAY_milliseconds(100);
+            printf("%c", msg[idx-1]);
         }
-        if (idx == 15) {
-            IO_PF5_SetHigh();
-            DELAY_milliseconds(1000);
-            IO_PF5_SetLow();
+        if (idx == 63) {
             idx = 0;
         }
     }
