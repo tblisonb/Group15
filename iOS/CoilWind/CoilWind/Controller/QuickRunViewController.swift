@@ -106,6 +106,7 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
            print(JSONString)
         }
         
+        // "{\gauge\":25,\"quantity\":21,\"length\":32}"
         // send data packet over bluetooth
         ble.writeCoilCharacteristic(data: jsonData)
         

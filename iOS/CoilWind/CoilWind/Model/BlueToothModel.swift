@@ -17,9 +17,7 @@ import CoreBluetooth
 // // service and characteristic ids so that the bluetooth connection can interact
 //49535343-FE7D-4AE5-8FA9-9FAFD205E455
 
-    var coilServiceUUID = CBUUID(string: "9ABD")
-    var coilCharactersticUUID = CBUUID(string:"49535343-1E4D-4BD9-BA61-23C647249616")
-    var blockingUUID = CBUUID(string:"49535343-8841-43F4-A8D4-ECBE34729BB3")
+
 
 
 
@@ -31,6 +29,9 @@ import CoreBluetooth
     var coilRun: CoilRunViewController!
     var peripherals: [CBPeripheral] = []
     var deviceName: String = ""
+    var coilServiceUUID = CBUUID.init(string:  "49535343-FE7D-4AE5-8FA9-9FAFD205E455")
+    var coilCharactersticUUID = CBUUID.init(string:"49535343-1E4D-4BD9-BA61-23C647249616")
+    var blockingUUID = CBUUID(string:"49535343-8841-43F4-A8D4-ECBE34729BB3")
 
     var centralManager : CBCentralManager!
     var ATmega3208Board : CBPeripheral?
@@ -84,6 +85,7 @@ import CoreBluetooth
         if ATmega3208Board == nil {
 
             print("Found a new Periphal advertising wire cutting service")
+            
             ATmega3208Board = peripheral
 
             centralManager?.connect(peripheral, options: nil)
@@ -137,6 +139,7 @@ import CoreBluetooth
 
      func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         print("discovered services")
+        print(peripheral.services!)
 
         for service in peripheral.services! {
 
@@ -179,9 +182,9 @@ import CoreBluetooth
     // end functions to connect to BLE device
     //*****************************************
     
-    func writeCoilCharacteristic(data: Data)
-    {
+    func writeCoilCharacteristic(data: Data){
         let ns = NSData(data: data)
+        print(peripherals);
         ATmega3208Board!.writeValue(ns as Data, for: coilCharacteristic, type: CBCharacteristicWriteType.withResponse)
         print("write complete")
         
@@ -202,11 +205,7 @@ import CoreBluetooth
         NotificationCenter.default.post(name: Notification.Name("disconnectionComplete"), object: nil)
         ATmega3208Board = nil
         deviceName = ""
-       // NotificationCenter.default.post(name: NSNotification.Name(rawValue: notifications.disconnectionComplete), object: nil)
-       // Home.deviceName = "Device disconnected \(String(describing: peripheral.name))"
-//        Home.getDeviceNameForDisconnect(name: peripheral.name!)
-        
-        //disconnectionComplete
+
     }
     // end functions to disconnect to BLE device
     //*****************************************
@@ -231,21 +230,21 @@ import CoreBluetooth
 //  MARK: -functions to have the coil cutting device update a value of the app so that the run device button can be toggled off while
 //  wire cutter is active
 //
-    func writeActiveNotify(state: Bool)
-    {
-        ATmega3208Board!.setNotifyValue(state, for: activeCharacteristic)
-    }
-
-    var activeValue = 0
-
-    // This delegate function is called when an updated value is received from the Bluetooth Stack
-       //if a 1 is received the function will toggle button as inactive
-    private func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
-        if characteristic == activeCharacteristic {
-            let out: NSInteger = 0
-            activeValue = out
-
-        }
-    }
+//    func writeActiveNotify(state: Bool)
+//    {
+//        ATmega3208Board!.setNotifyValue(state, for: activeCharacteristic)
+//    }
+//
+//    var activeValue = 0
+//
+//    // This delegate function is called when an updated value is received from the Bluetooth Stack
+//       //if a 1 is received the function will toggle button as inactive
+//    private func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
+//        if characteristic == activeCharacteristic {
+//            let out: NSInteger = 0
+//            activeValue = out
+//
+//        }
+//    }
 
 }

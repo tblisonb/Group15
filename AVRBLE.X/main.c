@@ -34,24 +34,24 @@ int main(void)
     DELAY_milliseconds(200);
     
     RN487X_Init();              // initialize BLE HW module
-//    DELAY_milliseconds(200);    // allow module to process commands
-//    RN487X_EnterCmdMode();      // enter command mode
-//    DELAY_milliseconds(200);    // processing time
-//    uint8_t cmd_buf[16];        // command buffer
-//    
-//    // command to enable "Transparent UART" service
-//    cmd_buf[0] = 'S';
-//    cmd_buf[1] = 'S';
-//    cmd_buf[2] = ',';
-//    cmd_buf[3] = 'C';
-//    cmd_buf[4] = 'O';
-//    cmd_buf[5] = '\n';
-//    cmd_buf[6] = '\r';
-//    
-//    RN487X_SendCmd(cmd_buf, 7); // enable device info & T-UART services
-//    DELAY_milliseconds(200);
-//    RN487X_RebootCmd();         // reboot the device for the changes made
-//    DELAY_milliseconds(200);
+    DELAY_milliseconds(200);    // allow module to process commands
+    RN487X_EnterCmdMode();      // enter command mode
+    DELAY_milliseconds(200);    // processing time
+    uint8_t cmd_buf[16];        // command buffer
+    
+    // command to enable "Transparent UART" service
+    cmd_buf[0] = 'S';
+    cmd_buf[1] = 'S';
+    cmd_buf[2] = ',';
+    cmd_buf[3] = 'C';
+    cmd_buf[4] = 'O';
+    cmd_buf[5] = '\n';
+    cmd_buf[6] = '\r';
+    
+    RN487X_SendCmd(cmd_buf, 7); // enable device info & T-UART services
+    DELAY_milliseconds(200);
+    RN487X_RebootCmd();         // reboot the device for the changes made
+    DELAY_milliseconds(200);
 
     /* Replace with your application code */
     int idx = 0;
