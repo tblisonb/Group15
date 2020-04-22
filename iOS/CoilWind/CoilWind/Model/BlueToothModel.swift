@@ -18,9 +18,6 @@ import CoreBluetooth
 //49535343-FE7D-4AE5-8FA9-9FAFD205E455
 
 
-
-
-
 // class to allow all the bluetooth functionality throughout application
  class BlueToothModel: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate{
     
@@ -186,6 +183,7 @@ import CoreBluetooth
         let ns = NSData(data: data)
         print(peripherals);
         ATmega3208Board!.writeValue(ns as Data, for: coilCharacteristic, type: CBCharacteristicWriteType.withResponse)
+        print(ns)
         print("write complete")
         
     }
