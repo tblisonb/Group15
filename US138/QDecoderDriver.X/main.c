@@ -27,7 +27,6 @@
 #include "RN487x.h"
 #include "mcc_generated_files/mcc.h"
 #include "mcc_generated_files/delay.h"
-#include "rtc.h"
 
 int int_pow(int b, int exp) {
     int result = 1;
@@ -121,11 +120,12 @@ int main(void)
     
     
     int idx = 0;
-    unsigned char msg[16];
+    unsigned char msg[64];
     while (1) {
         if (RN487X_DataReady()) {
             msg[idx++] = (unsigned char) RN487X_Read();
-            //LED_Toggle();
+            if (USART3_IsTxReady())
+                USART3_Write(msg[idx-1]);
         } else if (idx >= 4) {
             if (msg[0] == 'c' && msg[1] == 'c')
                 cc_turn((volatile unsigned char*)&PORTE.OUT, hex_to_int(msg, 2, 3) * 10, 10);
@@ -138,8 +138,8 @@ int main(void)
             else if (msg[0] == 's' && msg[1] == 'n')
                 rotate(0);
             idx = 0;
-        } else if (idx > 15) {
-            idx = 15;
+        } else if (idx > 63) {
+            idx = 63;
         }
     }
 }
