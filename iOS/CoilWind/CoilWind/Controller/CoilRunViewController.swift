@@ -33,6 +33,7 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
     @IBOutlet weak var lengthLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var gaugeLabel: UILabel!
+    @IBOutlet weak var buttonPressedLabel: UILabel!
     
     // picker variables
     @IBOutlet weak var gaugePicker: UIPickerView!
@@ -203,6 +204,7 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
         
         // send the data via bluetooth
         ble.writeCoilCharacteristic(data: jsonData)
+        buttonPressedLabel.text = "Device is running! Please wait for cycle to end befor hitting run again!"
     }
     
     

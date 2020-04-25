@@ -31,6 +31,7 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
     @IBOutlet weak var quantityTV: UITextField!    
     @IBOutlet weak var gaugeTV: UITextField!
     
+    @IBOutlet weak var buttonPressLabel: UILabel!
     
     // label variables
     @IBOutlet weak var nameLabel: UILabel!
@@ -100,6 +101,7 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
         
         // test purposes to see the size of data packet to be sent
         print(jsonData)
+        buttonPressLabel.text = "Device is running. Please wait for cycle to finish before hitting run again!"
 
         // test purposes to see what is being sent
         if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
@@ -146,6 +148,8 @@ UINavigationControllerDelegate, UIPickerViewDataSource{
         
         let aCoil = coilDB.getCoil(saveName)
         print(aCoil)
+        
+        buttonPressLabel.text = "Saved to database!"
        
         //print(jsonData!)
         print("coil \(saveName) added. Add coil return is: \(ret)")
