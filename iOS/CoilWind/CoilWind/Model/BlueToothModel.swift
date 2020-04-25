@@ -61,7 +61,7 @@ import CoreBluetooth
 //[coilServiceUUID]
 
     }
-    /*We also need to stop scanning at some point so we'll also create a function that calls "stopScan"*/
+    /*We also need to stop scanning created a function that calls "stopScan"*/
      func cancelScan() {
          self.centralManager?.stopScan()
          print("Scan Stopped")
@@ -114,12 +114,11 @@ import CoreBluetooth
         print("Connection complete \(ATmega3208Board!) \(peripheral)")
         deviceName = peripheral.name!
         peripheral.delegate = self
-//        centralManager.stopScan()
+
 
         NotificationCenter.default.post(name: Notification.Name("ConnectionComplete"), object: nil)
 
-       // Home.getDeviceNameForConnection(name: deviceName)
-//        Home.deviceName = "Device connected \(String(describing: peripheral.name))"
+   
         peripheral.discoverServices([coilServiceUUID])
 
     }
@@ -207,20 +206,7 @@ import CoreBluetooth
     }
     // end functions to disconnect to BLE device
     //*****************************************
-    
-    // possible set up for strings
-//         let string = "hello"
-//
-//
-//         let bytes: [UInt8] = Array(string.utf8)
-//
-//
-//         let data = NSData(bytes: bytes, length: bytes.count)
-//
-//
-//         capsenseLedBoard!.writeValue(data, forCharacteristic: ledCharacteristic, type: CBCharacteristicWriteType.WithResponse)
-    
-    //*************************************************************************************************************************
+     //*************************************************************************************************************************
     //the below methods are for later version after main functionality has been established
     // the below code will help to prevent errors and system crashes from user repeatedly hitting the run device button
     //*************************************************************************************************************************

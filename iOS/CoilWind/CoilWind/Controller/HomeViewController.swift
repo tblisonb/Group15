@@ -91,13 +91,7 @@ class HomeViewController: UIViewController {
     }
     
     
-//    @IBAction func QuickRunBtn(_ sender: Any) {
-//        self.performSegue(withIdentifier: "QuickRunSegue", sender: self)
-//    }
-//
-//    @IBAction func savedBtn(_ sender: Any) {
-//        self.performSegue(withIdentifier: "TableViewSegue", sender: self)
-//    }
+
     
     
 // update label on connection

@@ -16,10 +16,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group15CoilWind" translatesAutoresizingMaskIntoConstraints="NO" id="pO9-mf-jBd">
-                                <rect key="frame" x="-99" y="81" width="1491" height="1414"/>
+                                <rect key="frame" x="-206" y="-86" width="1263" height="1318"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CoilWind" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQ2-RK-BGh">
-                                <rect key="frame" x="315" y="557" width="663" height="462"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CoilWind" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQ2-RK-BGh">
+                                <rect key="frame" x="298" y="499" width="254" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="DRE-QE-heA"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="52"/>
                                 <color key="textColor" red="0.93715226640000004" green="0.94421955960000004" blue="0.89540705239999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -27,17 +30,21 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="kQ2-RK-BGh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ChL-4E-tfN"/>
-                            <constraint firstItem="kQ2-RK-BGh" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="IBC-tl-Wu0"/>
-                            <constraint firstItem="pO9-mf-jBd" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="jiE-37-3h3"/>
-                            <constraint firstItem="pO9-mf-jBd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="tFq-yX-gy2"/>
+                            <constraint firstAttribute="bottom" secondItem="pO9-mf-jBd" secondAttribute="bottom" constant="-38" id="3EA-0I-KRM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kQ2-RK-BGh" secondAttribute="trailing" constant="282" id="8To-en-efu"/>
+                            <constraint firstItem="kQ2-RK-BGh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="499" id="KmF-wO-Ts5"/>
+                            <constraint firstAttribute="trailing" secondItem="pO9-mf-jBd" secondAttribute="trailing" constant="-223" id="PdS-sa-eeo"/>
+                            <constraint firstItem="pO9-mf-jBd" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="-86" id="aMg-8P-JaR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kQ2-RK-BGh" secondAttribute="bottom" constant="611" id="dVw-Dx-HAa"/>
+                            <constraint firstItem="kQ2-RK-BGh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="298" id="nQC-ak-Jv7"/>
+                            <constraint firstItem="pO9-mf-jBd" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-206" id="xgn-ok-DnG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="110" y="829"/>
+            <point key="canvasLocation" x="109.35251798561151" y="828.643216080402"/>
         </scene>
     </scenes>
     <resources>
