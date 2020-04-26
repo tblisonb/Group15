@@ -77,8 +77,8 @@ import CoreBluetooth
     // gets called when the ble device with the services is found
      func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber){
        // print(advertisementData)
-        print(advertisementData)
-        if peripheral.name == "AVR-BLE_9ABD" {
+        //print(advertisementData)
+        if peripheral.name == "Coil_Wind_C64F" {
         if ATmega3208Board == nil {
 
             print("Found a new Periphal advertising wire cutting service")
