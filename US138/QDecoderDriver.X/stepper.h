@@ -17,6 +17,8 @@
 #define STATE3 0x5
 #define STATE4 0x9
 
+unsigned int mm_to_steps(unsigned int mm);
+
 /*
  * Reads the register assigned to the stepper motor output and changes the state
  * such that a single clockwise step occurs on the stepper motor.

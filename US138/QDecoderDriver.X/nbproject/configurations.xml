@@ -21,7 +21,6 @@
           <itemPath>mcc_generated_files/include/rtc.h</itemPath>
           <itemPath>mcc_generated_files/include/tca0.h</itemPath>
           <itemPath>mcc_generated_files/include/usart1.h</itemPath>
-          <itemPath>mcc_generated_files/include/usart3.h</itemPath>
         </logicalFolder>
         <logicalFolder name="utils" displayName="utils" projectFiles="true">
           <logicalFolder name="assembler" displayName="assembler" projectFiles="true">
@@ -44,6 +43,7 @@
       <itemPath>servo.h</itemPath>
       <itemPath>rn487x.h</itemPath>
       <itemPath>rn487x_interface.h</itemPath>
+      <itemPath>jsmn.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -63,7 +63,6 @@
           <itemPath>mcc_generated_files/src/rtc.c</itemPath>
           <itemPath>mcc_generated_files/src/tca0.c</itemPath>
           <itemPath>mcc_generated_files/src/usart1.c</itemPath>
-          <itemPath>mcc_generated_files/src/usart3.c</itemPath>
         </logicalFolder>
         <itemPath>mcc_generated_files/mcc.c</itemPath>
         <itemPath>mcc_generated_files/device_config.c</itemPath>

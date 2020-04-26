@@ -33,24 +33,6 @@
 
 #include "../include/usart1.h"
 
-#if defined(__GNUC__)
-
-int USART1_printCHAR(char character, FILE *stream)
-{
-    USART1_Write(character);
-    return 0;
-}
-
-FILE USART1_stream = FDEV_SETUP_STREAM(USART1_printCHAR, NULL, _FDEV_SETUP_WRITE);
-
-#elif defined(__ICCAVR__)
-
-int putchar(int outChar)
-{
-    USART0_Write(outChar);
-    return outChar;
-}
-#endif
 
 void USART1_Initialize()
 {
@@ -78,10 +60,6 @@ void USART1_Initialize()
     //TXPLCTRL_TXPL
     USART1.TXPLCTRL = 0x00;
 	
-
-#if defined(__GNUC__)
-    stdout = &USART1_stream;
-#endif
 
 }
 
