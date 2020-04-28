@@ -71,8 +71,8 @@ int8_t RTC_Initialize()
     //CMP disabled; OVF enabled; 
     RTC.INTCTRL = 0x01;
 
-    //PERIOD OFF; PITEN disabled; 
-    RTC.PITCTRLA = 0x00;
+    //PERIOD OFF; PITEN enabled; 
+    RTC.PITCTRLA = 0x01;
 
     //DBGRUN disabled; 
     RTC.PITDBGCTRL = 0x00;
@@ -80,8 +80,8 @@ int8_t RTC_Initialize()
     //PI disabled; 
 	RTC.PITINTCTRL = 0x00;
 
-    //RUNSTDBY disabled; PRESCALER DIV1; CORREN disabled; RTCEN enabled; 
-    RTC.CTRLA = 0x01;
+    //RUNSTDBY disabled; PRESCALER DIV1; CORREN disabled; RTCEN disabled; 
+    RTC.CTRLA = 0x00;
 
     return 0;
 }

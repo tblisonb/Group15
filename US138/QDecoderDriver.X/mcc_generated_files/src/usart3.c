@@ -31,115 +31,93 @@
 */
 
 
-#include "../include/usart1.h"
+#include "../include/usart3.h"
 
-#if defined(__GNUC__)
 
-int USART1_printCHAR(char character, FILE *stream)
-{
-    USART1_Write(character);
-    return 0;
-}
-
-FILE USART1_stream = FDEV_SETUP_STREAM(USART1_printCHAR, NULL, _FDEV_SETUP_WRITE);
-
-#elif defined(__ICCAVR__)
-
-int putchar(int outChar)
-{
-    USART0_Write(outChar);
-    return outChar;
-}
-#endif
-
-void USART1_Initialize()
+void USART3_Initialize()
 {
     //set baud rate register
-    USART1.BAUD = (uint16_t)USART1_BAUD_RATE(115200);
+    USART3.BAUD = (uint16_t)USART3_BAUD_RATE(115200);
 	
     //RXCIE disabled; TXCIE disabled; DREIE disabled; RXSIE disabled; LBME disabled; ABEIE disabled; RS485 OFF; 
-    USART1.CTRLA = 0x00;
+    USART3.CTRLA = 0x00;
 	
     //RXEN enabled; TXEN enabled; SFDEN disabled; ODME disabled; RXMODE NORMAL; MPCM disabled; 
-    USART1.CTRLB = 0xC0;
+    USART3.CTRLB = 0xC0;
 	
     //CMODE ASYNCHRONOUS; PMODE DISABLED; SBMODE 1BIT; CHSIZE 8BIT; UDORD disabled; UCPHA disabled; 
-    USART1.CTRLC = 0x03;
+    USART3.CTRLC = 0x03;
 	
     //DBGCTRL_DBGRUN
-    USART1.DBGCTRL = 0x00;
+    USART3.DBGCTRL = 0x00;
 	
     //EVCTRL_IREI
-    USART1.EVCTRL = 0x00;
+    USART3.EVCTRL = 0x00;
 	
     //RXPLCTRL_RXPL
-    USART1.RXPLCTRL = 0x00;
+    USART3.RXPLCTRL = 0x00;
 	
     //TXPLCTRL_TXPL
-    USART1.TXPLCTRL = 0x00;
+    USART3.TXPLCTRL = 0x00;
 	
 
-#if defined(__GNUC__)
-    stdout = &USART1_stream;
-#endif
-
 }
 
-void USART1_Enable()
+void USART3_Enable()
 {
-    USART1.CTRLB |= USART_RXEN_bm | USART_TXEN_bm;
+    USART3.CTRLB |= USART_RXEN_bm | USART_TXEN_bm;
 }
 
-void USART1_EnableRx()
+void USART3_EnableRx()
 {
-    USART1.CTRLB |= USART_RXEN_bm;
+    USART3.CTRLB |= USART_RXEN_bm;
 }
 
-void USART1_EnableTx()
+void USART3_EnableTx()
 {
-    USART1.CTRLB |= USART_TXEN_bm;
+    USART3.CTRLB |= USART_TXEN_bm;
 }
 
-void USART1_Disable()
+void USART3_Disable()
 {
-    USART1.CTRLB &= ~(USART_RXEN_bm | USART_TXEN_bm);
+    USART3.CTRLB &= ~(USART_RXEN_bm | USART_TXEN_bm);
 }
 
-uint8_t USART1_GetData()
+uint8_t USART3_GetData()
 {
-    return USART1.RXDATAL;
+    return USART3.RXDATAL;
 }
 
-bool USART1_IsTxReady()
+bool USART3_IsTxReady()
 {
-    return (USART1.STATUS & USART_DREIF_bm);
+    return (USART3.STATUS & USART_DREIF_bm);
 }
 
-bool USART1_IsRxReady()
+bool USART3_IsRxReady()
 {
-    return (USART1.STATUS & USART_RXCIF_bm);
+    return (USART3.STATUS & USART_RXCIF_bm);
 }
 
-bool USART1_IsTxBusy()
+bool USART3_IsTxBusy()
 {
-    return (!(USART1.STATUS & USART_TXCIF_bm));
+    return (!(USART3.STATUS & USART_TXCIF_bm));
 }
 
-bool USART1_IsTxDone()
+bool USART3_IsTxDone()
 {
-    return (USART1.STATUS & USART_TXCIF_bm);
+    return (USART3.STATUS & USART_TXCIF_bm);
 }
 
-uint8_t USART1_Read()
+uint8_t USART3_Read()
 {
-    while (!(USART1.STATUS & USART_RXCIF_bm))
+    while (!(USART3.STATUS & USART_RXCIF_bm))
             ;
-    return USART1.RXDATAL;
+    return USART3.RXDATAL;
 }
 
-void USART1_Write(const uint8_t data)
+void USART3_Write(const uint8_t data)
 {
-    while (!(USART1.STATUS & USART_DREIF_bm))
+    while (!(USART3.STATUS & USART_DREIF_bm))
             ;
-    USART1.TXDATAL = data;
+    USART3.TXDATAL = data;
 }

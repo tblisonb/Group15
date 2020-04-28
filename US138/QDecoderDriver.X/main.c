@@ -28,10 +28,11 @@
 #include "mcc_generated_files/mcc.h"
 #include "mcc_generated_files/delay.h"
 #include "jsmn.h"
+#include <string.h>
 
-#define NUM_TOKENS 3
+#define NUM_TOKENS 7
 #define END_LEN 5
-#define DEBUG
+//#define DEBUG
 
 int int_pow(int b, int exp) {
     int result = 1;
@@ -58,6 +59,22 @@ unsigned int hex_to_int(char* hex, int start, int end) {
         result += int_pow(value, (end - start) - (i - start) + 1);
     }
     return result;
+}
+
+// Ref: https://github.com/zserge/jsmn/blob/master/example/simple.c
+static int jsoneq(const char *json, jsmntok_t *tok, const char *s) {
+  if (tok->type == JSMN_STRING && (int)strlen(s) == tok->end - tok->start &&
+      strncmp(json + tok->start, s, tok->end - tok->start) == 0) {
+    return 0;
+  }
+  return -1;
+}
+
+void USART3_Write_String(char* str, int len) {
+    unsigned int i;
+    for (i = 0; i < len; i++) {
+        USART3_Write(str[i]);
+    }
 }
 
 /*
@@ -123,7 +140,6 @@ int main(void)
         ISR(RTC_CNT_vect);
     }*/
     
-    
     int idx = 0;
     char msg[64];
 #ifndef DEBUG
@@ -131,8 +147,8 @@ int main(void)
     static jsmn_parser parser;
     static jsmntok_t tokens[NUM_TOKENS];
     jsmn_init(&parser);
-    unsigned int object_size;
-    unsigned int wire_data[NUM_TOKENS]; // [gauge, quantity, length]
+    unsigned int quantity = 0;
+    unsigned int length = 0;
 #endif
     while (1) {
 #ifdef DEBUG
@@ -140,9 +156,9 @@ int main(void)
             msg[idx++] = (unsigned char) RN487X_Read();
         } else if (idx >= 4) {
             if (msg[0] == 'c' && msg[1] == 'c')
-                cc_turn((volatile unsigned char*)&PORTE.OUT, hex_to_int(msg, 2, 3) * 10, 10);
+                cc_turn((volatile unsigned char*)&PORTE.OUT, hex_to_int(msg, 2, 3) * 10, 1);
             else if (msg[0] == 'c' && msg[1] == 'w')
-                cw_turn((volatile unsigned char*)&PORTE.OUT, hex_to_int(msg, 2, 3) * 10, 10);
+                cw_turn((volatile unsigned char*)&PORTE.OUT, hex_to_int(msg, 2, 3) * 10, 1);
             else if (msg[0] == 's' && msg[1] == 'c')
                 rotate(105);
             else if (msg[0] == 's' && msg[1] == 's')
@@ -154,43 +170,77 @@ int main(void)
             idx = 63;
         }
 #else
+        READY_LED_SetHigh();
         if (RN487X_DataReady() && !state) {
-            msg[idx] = (unsigned char) RN487X_Read();
-            if (msg[idx] == '}')   // end of json object
+            msg[idx] = (char)RN487X_Read();
+            STATUS_LED_Toggle();
+            USART3_Write(msg[idx]);
+            if (msg[idx] == '}' && idx > 5) {  // end of json object
                 state = 1;
-            idx++;
-        } else {
-            if ((object_size = jsmn_parse(&parser, msg, idx, tokens, NUM_TOKENS)) >= 0) { // indicates success
-                unsigned char i;
-                for (i = 0; i < NUM_TOKENS; i++) { // get each token value
-                    unsigned char j;
-                    char nums[tokens[i].size]; // buffer for value chars
-                    for (j = 0; j < tokens[i].size; j++) {
-                        nums[j] = msg[tokens[i].start + j]; // deep copy value chars from msg
-                    }
-                    wire_data[i] = hex_to_int(nums, 0, tokens[i].size - 1); // convert chars to integer
-                }
-                // loop as many times as there are pieces of wire to extrude
-                for (i = 0; i < wire_data[1]; i++) {
-                    // extrude stripped end length
-                    cc_turn((volatile unsigned char*)&PORTE.OUT, mm_to_steps(END_LEN), 10);
-                    // strip
-                    rotate(90);
-                    DELAY_milliseconds(500);
-                    // extrude wire for "length" piece
-                    cc_turn((volatile unsigned char*)&PORTE.OUT, mm_to_steps(wire_data[2]), 10);
-                    // strip
-                    rotate(90);
-                    DELAY_milliseconds(500);
-                    // cut
-                    rotate(105);
-                    DELAY_milliseconds(500);
-                }
-                rotate(0); // reset servo
-            } else { // parse failed
-                // error LED on
+            } else if (msg[idx] == '}' && idx <= 5) {
+                ERROR_LED_SetHigh();
+                idx = 0; // reset buffer
+            } else {
+                idx++;
             }
-            idx = 0; // reset buffer
+        } else if (state) {
+            ERROR_LED_SetLow();
+            READY_LED_SetLow();
+            STATUS_LED_SetLow();
+            // parse JSON object, stored in tokens[0]
+            if ((jsmn_parse(&parser, msg, idx + 1, tokens, NUM_TOKENS)) < 0) { // indicates fail
+                ERROR_LED_SetHigh();
+                USART3_Write_String("ERROR\n", 6);
+            } else {
+                unsigned int i;
+                quantity = hex_to_int(msg, tokens[4].start, tokens[4].end); // convert chars to integer
+                length = hex_to_int(msg, tokens[6].start, tokens[6].end); // convert chars to integer
+                USART3_Write('\n');
+                USART3_Write_String("Quantity: ", 10);
+                USART3_Write('0' + quantity);
+                USART3_Write('\n');
+                USART3_Write_String("Length: ", 8);
+                USART3_Write('0' + length);
+                USART3_Write('\n');
+                // loop as many times as there are pieces of wire to extrude3
+                for (i = 0; i < quantity; i++) {
+                    rotate(0);
+                    DELAY_milliseconds(100);
+                    // extrude stripped end length
+                    STATUS_LED_Toggle();
+                    cc_turn((volatile unsigned char*)&PORTE.OUT, mm_to_steps(END_LEN), 1);
+                    DELAY_milliseconds(100);
+                    // strip
+                    STATUS_LED_Toggle();
+                    rotate(90);
+                    DELAY_milliseconds(100);
+                    rotate(0);
+                    DELAY_milliseconds(100);
+                    // extrude wire for "length" piece
+                    STATUS_LED_Toggle();
+                    cc_turn((volatile unsigned char*)&PORTE.OUT, mm_to_steps(length), 1);
+                    DELAY_milliseconds(100);
+                    // strip
+                    STATUS_LED_Toggle();
+                    rotate(90);
+                    DELAY_milliseconds(100);
+                    rotate(0);
+                    DELAY_milliseconds(100);
+                    // extrude stripped end length
+                    STATUS_LED_Toggle();
+                    cc_turn((volatile unsigned char*)&PORTE.OUT, mm_to_steps(END_LEN), 1);
+                    DELAY_milliseconds(100);
+                    // cut
+                    STATUS_LED_Toggle();
+                    rotate(105);
+                    DELAY_milliseconds(100);
+                    rotate(0);
+                    DELAY_milliseconds(100);
+                }
+                cw_turn((volatile unsigned char*)&PORTE.OUT, mm_to_steps(20), 1);
+            }
+            state = 0;
+            idx = 0;
         }
 #endif
     }
