@@ -83,10 +83,6 @@ void USART3_Write_String(char* str, int len) {
 int main(void)
 {
     
-    int TOKENS = 30; /* This is how many items we expect to receive over USART from the BLE device */
-    /* 30 is just some generic placeholder number */
-    char* JSON_STRING; /* this is where we will store the json string we get from the device */
-    
     /* Initializes MCU, drivers and middleware */
     SYSTEM_Initialize();
     DELAY_milliseconds(RN487X_STARTUP_DELAY);
@@ -94,34 +90,6 @@ int main(void)
     RN487X_Init();              // initialize BLE HW module
     DELAY_milliseconds(200);    // allow module to process commands
     
-    jsmn_parser parser;
-    jsmntok_t tokens[TOKENS];
-    
-    jsmn_init(&parser);
-    int items = jsmn_parse(&parser, JSON_STRING, strlen(JSON_STRING), tokens, sizeof(tokens)/sizeof(tokens[0]));
-    if(items < 0){
-        return 1; /*Failed to parse*/
-    }
-    
-    /* Now we can loop ever the string to pick out the elements we want to use */
-    for(int i = 1;i < items;i++){
-        
-        /* Here is where we do the checks for the json objects within our string */
-        /* For instance, we could do a check for the "gauge" object */
-        if(jsoneq(JSON_STRING, &tokens[i],"gauge") == 0){
-            /* We do what we want with the gauge info, and increment the counter*/
-            
-            
-            i++;
-        }else if(jsoneq(JSON_STRING, &tokens[i], "length") == 0){
-            /* And so on, the else if chain should be extended to include all expected values*/
-            
-            /* IMPORTANT :: we need to set the correct number for TOKENS or none of this will work */
-            
-            i++;
-        }
-        
-    }
     
     /*
     RN487X_EnterCmdMode();      // enter command mode
