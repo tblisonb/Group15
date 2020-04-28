@@ -5,15 +5,18 @@
         <group>
             <file>file:/C:/Users/tblisonb/Documents/Git/Group15/US138/QDecoderDriver.X/mcc_generated_files/mcc.c</file>
             <file>file:/C:/Users/tblisonb/Documents/Git/Group15/US138/QDecoderDriver.X/rn487x_interface.c</file>
-            <file>file:/C:/Users/tblisonb/Documents/Git/Group15/US138/QDecoderDriver.X/main.c</file>
-            <file>file:/C:/Users/tblisonb/Documents/Git/Group15/US138/QDecoderDriver.X/mcc_generated_files/config/clock_config.h</file>
+            <file>file:/C:/Users/tblisonb/Documents/Git/Group15/US138/QDecoderDriver.X/mcc_generated_files/include/ccp.h</file>
             <file>file:/C:/Users/tblisonb/Documents/Git/Group15/US138/QDecoderDriver.X/mcc_generated_files/src/pin_manager.c</file>
             <file>file:/C:/Users/tblisonb/Documents/Git/Group15/US138/QDecoderDriver.X/mcc_generated_files/include/pin_manager.h</file>
-            <file>file:/C:/Users/tblisonb/Documents/Git/Group15/US138/QDecoderDriver.X/servo.c</file>
+            <file>file:/C:/Users/tblisonb/Documents/Git/Group15/US138/QDecoderDriver.X/mcc_generated_files/src/usart1.c</file>
+            <file>file:/C:/Users/tblisonb/Documents/Git/Group15/US138/QDecoderDriver.X/rn487x.c</file>
+            <file>file:/C:/Users/tblisonb/Documents/Git/Group15/US138/QDecoderDriver.X/main.c</file>
+            <file>file:/C:/Users/tblisonb/Documents/Git/Group15/US138/QDecoderDriver.X/mcc_generated_files/include/cpuint.h</file>
             <file>file:/C:/Users/tblisonb/Documents/Git/Group15/US138/QDecoderDriver.X/stepper.h</file>
             <file>file:/C:/Users/tblisonb/Documents/Git/Group15/US138/QDecoderDriver.X/mcc_generated_files/mcc.h</file>
-            <file>file:/C:/Users/tblisonb/Documents/Git/Group15/US138/QDecoderDriver.X/mcc_generated_files/delay.c</file>
-            <file>file:/C:/Users/tblisonb/Documents/Git/Group15/US138/QDecoderDriver.X/servo.h</file>
+            <file>file:/C:/Users/tblisonb/Documents/Git/Group15/US138/QDecoderDriver.X/mcc_generated_files/src/cpuint.c</file>
+            <file>file:/C:/Users/tblisonb/Documents/Git/Group15/US138/QDecoderDriver.X/mcc_generated_files/src/protected_io.S</file>
+            <file>file:/C:/Users/tblisonb/Documents/Git/Group15/US138/QDecoderDriver.X/stepper.c</file>
         </group>
     </open-files>
 </project-private>

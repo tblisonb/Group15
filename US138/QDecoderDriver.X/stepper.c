@@ -1,5 +1,12 @@
 #include "stepper.h"
 
+#define STEPS_PER_ROT 200000
+#define GEAR_CIRCUMFERENCE 34000 // um
+
+unsigned int mm_to_steps(unsigned int mm) {
+    return STEPS_PER_ROT / (GEAR_CIRCUMFERENCE / mm);
+}
+
 unsigned char cw_step(volatile unsigned char* reg, volatile unsigned char prev_state) {
     // check state of reg, and increase state value to step clockwise
     switch(prev_state) {

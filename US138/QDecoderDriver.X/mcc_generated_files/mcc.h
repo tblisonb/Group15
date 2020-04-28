@@ -40,12 +40,13 @@ extern "C" {
 
 #include "utils/compiler.h"
 #include "include/pin_manager.h"
-#include "include/usart1.h"
-#include "include/ccl.h"
-#include "delay.h"
 #include "include/tca0.h"
 #include "include/cpuint.h"
+#include "delay.h"
+#include "include/usart3.h"
+#include "include/usart1.h"
 #include "include/rtc.h"
+#include "include/ccl.h"
 #include "config/clock_config.h"
 
 /**
