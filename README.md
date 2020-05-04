@@ -22,4 +22,4 @@ Clone the repository, install the MPLAB X IDE from Microchip's official website 
 * Wire the quadrature encoder, stepper motor, and servo motor to the ATmega4809 as shown in the pin mappings provided in MCC.
 
 ### Final System Configuration
-![System model](https://github.com/tblisonb/Group15/tree/master/Docs/a69090e1-a111-49dc-8a19-f883155d1de0.PNG)
+![System model](https://raw.githubusercontent.com/tblisonb/Group15/master/Docs/a69090e1-a111-49dc-8a19-f883155d1de0.PNG)
