@@ -23,3 +23,4 @@ Clone the repository, install the MPLAB X IDE from Microchip's official website 
 
 ### Final System Configuration
 ![System model](https://raw.githubusercontent.com/tblisonb/Group15/master/Docs/a69090e1-a111-49dc-8a19-f883155d1de0.PNG)
+![System model](https://raw.githubusercontent.com/tblisonb/Group15/master/Docs/IMG_20200430_150646.jpg)
