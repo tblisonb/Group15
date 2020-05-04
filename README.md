@@ -20,3 +20,6 @@ Clone the repository, install the MPLAB X IDE from Microchip's official website 
 * Purchase the requisite parts listed [here](https://drive.google.com/file/d/13glnACpHfqssd51yrxNG8hv46Ix8oQ_Q/view?usp=sharing), and assemble as shown in the provided renders of the system.
 * Mount the ATmega4809 Curiosity Nano and RN4870 Click Board to the expansion board.
 * Wire the quadrature encoder, stepper motor, and servo motor to the ATmega4809 as shown in the pin mappings provided in MCC.
+
+### Final System Configuration
+![System model](https://github.com/tblisonb/Group15/tree/master/Docs/a69090e1-a111-49dc-8a19-f883155d1de0.PNG)
