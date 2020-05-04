@@ -13,12 +13,10 @@
 * To generate application-oriented projects which demonstrate the usefulness of the CCL peripheral
 
 ### Setting up the Software
-Download the ProjectNameHere.x, then install mplabX from microchip’s official website or [here](https://www.microchip.com/development-tools/pic-and-dspic-downloads-archive). After downloading both open mplabx and select open project, and go to where you downloaded ProjectNameHere.x and open the project by selecting that folder. Plug in the board using a micro usb to your computer and push run.
+Clone the repository, install the MPLAB X IDE from Microchip's official website or [here](https://www.microchip.com/development-tools/pic-and-dspic-downloads-archive). After downloading both, open MPLAB X and install MPLAB X Code Configurator (MCC), select open project, and navigate to where you cloned the repository. Open the project by selecting the "CoilWindFirmware.X" project file. Plug in the ATmega4809 Curiosity Nano via micro usb to your computer and click run.
 
 ### Setting up the Hardware
-* Download and print the 3-d model, [here](), after printing the parts assemble the parts.
-* Purchase an extruder, and attach to the product.
-* Mount the atmega 4809 and BLE to the underside of the extruder.
-* Mount the quadrature encoder on the mark that says QE.
-* Wire the QE and BLE to the Atmega 4809 as shown in the diagram bellow.
-[Wiring Model]()
+* Download and print the 3D models, [here](https://drive.google.com/file/d/1uZwpO_z91THDOk7w0rBcmLNLJtiAPaqZ/view?usp=sharing), after printing the parts assemble the parts.
+* Purchase the requisite parts listed [here](https://drive.google.com/file/d/13glnACpHfqssd51yrxNG8hv46Ix8oQ_Q/view?usp=sharing), and assemble as shown in the provided renders of the system.
+* Mount the ATmega4809 Curiosity Nano and RN4870 Click Board to the expansion board.
+* Wire the quadrature encoder, stepper motor, and servo motor to the ATmega4809 as shown in the pin mappings provided in MCC.
