@@ -63,7 +63,7 @@ int8_t RTC_Initialize()
     RTC.PER = 0xFFFF;
 
     //Clock selection
-    RTC.CLKSEL = 0x00;
+    RTC.CLKSEL = 0x03;
 
     //DBGRUN disabled; 
     RTC.DBGCTRL = 0x00;

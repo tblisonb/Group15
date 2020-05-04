@@ -32,6 +32,8 @@
 
 #define NUM_TOKENS 7
 #define END_LEN 5
+#define ACTUATOR_DELAY 1000
+#define STEPPER_DELAY 10
 //#define DEBUG
 
 int int_pow(int b, int exp) {
@@ -45,6 +47,7 @@ int int_pow(int b, int exp) {
     return result;
 }
 
+#ifdef DEBUG
 unsigned int hex_to_int(char* hex, int start, int end) {
     unsigned int result = 0;
     unsigned int i;
@@ -60,15 +63,19 @@ unsigned int hex_to_int(char* hex, int start, int end) {
     }
     return result;
 }
-
-// Ref: https://github.com/zserge/jsmn/blob/master/example/simple.c
-static int jsoneq(const char *json, jsmntok_t *tok, const char *s) {
-  if (tok->type == JSMN_STRING && (int)strlen(s) == tok->end - tok->start &&
-      strncmp(json + tok->start, s, tok->end - tok->start) == 0) {
-    return 0;
-  }
-  return -1;
+#else
+unsigned int dec_to_int(char* dec, int start, int end) {
+    unsigned int result = 0;
+    unsigned int i;
+    for (i = end; i >= start; i--) {
+        int value = 0;
+        if (dec[i] >= '0' && dec[i] <= '9')
+            value = dec[i] - '0';
+        result += value * int_pow(10, end - i);
+    }
+    return result;
 }
+#endif
 
 void USART3_Write_String(char* str, int len) {
     unsigned int i;
@@ -193,8 +200,8 @@ int main(void)
                 USART3_Write_String("ERROR\n", 6);
             } else {
                 unsigned int i;
-                quantity = hex_to_int(msg, tokens[4].start, tokens[4].end); // convert chars to integer
-                length = hex_to_int(msg, tokens[6].start, tokens[6].end); // convert chars to integer
+                quantity = dec_to_int(msg, tokens[4].start, tokens[4].end - 1); // convert chars to integer
+                length = dec_to_int(msg, tokens[6].start, tokens[6].end - 1); // convert chars to integer
                 USART3_Write('\n');
                 USART3_Write_String("Quantity: ", 10);
                 USART3_Write('0' + quantity);
@@ -205,42 +212,43 @@ int main(void)
                 // loop as many times as there are pieces of wire to extrude3
                 for (i = 0; i < quantity; i++) {
                     rotate(0);
-                    DELAY_milliseconds(100);
+                    DELAY_milliseconds(ACTUATOR_DELAY);
                     // extrude stripped end length
                     STATUS_LED_Toggle();
-                    cc_turn((volatile unsigned char*)&PORTE.OUT, mm_to_steps(END_LEN), 1);
-                    DELAY_milliseconds(100);
+                    cc_turn((volatile unsigned char*)&PORTE.OUT, mm_to_steps(END_LEN), STEPPER_DELAY);
+                    DELAY_milliseconds(ACTUATOR_DELAY);
                     // strip
                     STATUS_LED_Toggle();
                     rotate(90);
-                    DELAY_milliseconds(100);
+                    DELAY_milliseconds(ACTUATOR_DELAY);
                     rotate(0);
-                    DELAY_milliseconds(100);
+                    DELAY_milliseconds(ACTUATOR_DELAY);
                     // extrude wire for "length" piece
                     STATUS_LED_Toggle();
-                    cc_turn((volatile unsigned char*)&PORTE.OUT, mm_to_steps(length), 1);
-                    DELAY_milliseconds(100);
+                    cc_turn((volatile unsigned char*)&PORTE.OUT, mm_to_steps(length), STEPPER_DELAY);
+                    DELAY_milliseconds(ACTUATOR_DELAY);
                     // strip
                     STATUS_LED_Toggle();
                     rotate(90);
-                    DELAY_milliseconds(100);
+                    DELAY_milliseconds(ACTUATOR_DELAY);
                     rotate(0);
-                    DELAY_milliseconds(100);
+                    DELAY_milliseconds(ACTUATOR_DELAY);
                     // extrude stripped end length
                     STATUS_LED_Toggle();
-                    cc_turn((volatile unsigned char*)&PORTE.OUT, mm_to_steps(END_LEN), 1);
-                    DELAY_milliseconds(100);
+                    cc_turn((volatile unsigned char*)&PORTE.OUT, mm_to_steps(END_LEN), STEPPER_DELAY);
+                    DELAY_milliseconds(ACTUATOR_DELAY);
                     // cut
                     STATUS_LED_Toggle();
                     rotate(105);
-                    DELAY_milliseconds(100);
+                    DELAY_milliseconds(ACTUATOR_DELAY);
                     rotate(0);
-                    DELAY_milliseconds(100);
+                    DELAY_milliseconds(ACTUATOR_DELAY);
                 }
-                cw_turn((volatile unsigned char*)&PORTE.OUT, mm_to_steps(20), 1);
+                cw_turn((volatile unsigned char*)&PORTE.OUT, mm_to_steps(20), STEPPER_DELAY);
             }
             state = 0;
             idx = 0;
+            jsmn_init(&parser);
         }
 #endif
     }
