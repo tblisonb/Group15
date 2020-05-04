@@ -89,12 +89,15 @@ void USART3_Write_String(char* str, int len) {
 */
 int main(void)
 {
+    
     /* Initializes MCU, drivers and middleware */
     SYSTEM_Initialize();
     DELAY_milliseconds(RN487X_STARTUP_DELAY);
     
     RN487X_Init();              // initialize BLE HW module
     DELAY_milliseconds(200);    // allow module to process commands
+    
+    
     /*
     RN487X_EnterCmdMode();      // enter command mode
     DELAY_milliseconds(200);    // processing time
